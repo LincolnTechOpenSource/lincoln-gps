@@ -14,6 +14,18 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
     $ionicPlatform.ready(function() {
         console.info('Ionic Charged!'); // log that ionic is ready and running
 
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+
         // graphing object for global variables
         Graphing = {
             graph: null,
@@ -36,17 +48,8 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         };
         firebase.initializeApp(CONFIG);
 
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            cordova.plugins.Keyboard.disableScroll(true);
 
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
+
     });
 })
 

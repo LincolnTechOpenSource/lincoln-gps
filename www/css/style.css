@@ -326,6 +326,13 @@ svg .kitchen{
     stroke: rgb(0, 0, 0);
 }
 
+svg .break_area{
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
 svg .broom{
     position: relative;
     fill: lightgray;
@@ -391,7 +398,8 @@ svg .lobby:hover,
 svg .reception:hover,
 svg .conf:hover,
 svg .broom:hover,
-svg .stairs_exit:hover {
+svg .stairs_exit:hover,
+svg .break_area:hover {
     pointer-events: visibleFill;
     fill: blue;
     stroke-width: 2px;

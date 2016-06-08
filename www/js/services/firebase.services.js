@@ -23,6 +23,7 @@ angular.module('firebase.services', ['firebase'])
     .factory('Account', function($firebaseAuth) {
         return {
             /** auth: an authenticator for sign in */
-            auth: $firebaseAuth()
+            auth: $firebaseAuth(),
+
         };
     });
