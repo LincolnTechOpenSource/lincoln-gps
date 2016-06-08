@@ -1,0 +1,396 @@
+/* style.css */
+
+.col-offset-16,
+.col-offset-17 {
+    margin-left: 16.666%;
+}
+
+ion-search-select label.search-select {
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+}
+
+/* Map Tab Style */
+#tab-map .employee-info .x-clear {
+    cursor: pointer;
+    float: right;
+    padding-right:5px;
+}
+
+
+/* SVG Map styling */
+#svg #map g.non-walls .hilite.path {
+    fill: blue;
+}
+
+#svg #map g.non-walls .hilite.desk {
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+.panel {
+    padding: 5px;
+    text-align: center;
+    background-colo: #e5eecc;
+    border: solid 1px black;
+}
+
+svg .wall {
+    position: relative;
+    fill: white;
+    border-color: black;
+    stroke-width: 2;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.branch_dev {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-width: 5px;
+    fill: red;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+    z-index: 15;
+}
+
+svg .desk.cubicle.branch_dev {
+    position: relative;
+    fill: red;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.im_r {
+    position: relative;
+    fill: pink;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+    z-index: 3;
+}
+
+svg .desk.cubicle.im_r {
+    position: relative;
+    fill: pink;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.acd {
+    position: relative;
+    fill: gray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.cubicle.acd {
+    position: relative;
+    fill: gray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.cubicle.vsa {
+    position: relative;
+    fill: yellow;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.finance {
+    position: relative;
+    fill: #00FF00;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.cubicle.finance {
+    position: relative;
+    fill: #00FF00;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.accounting {
+    position: relative;
+    fill: #006600;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.cubicle.accounting {
+    position: relative;
+    fill: #006600;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.conf {
+    position: relative;
+    fill: lightblue;
+    border-color: black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.busi_dev,
+svg .desk.cubicle.busi_dev {
+    position: relative;
+    fill: #FF6600;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.ops,
+svg .desk.cubicle.ops {
+    position: relative;
+    fill: tomato;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .wbroom {
+    position: relative;
+    fill: #787878;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .break_area {
+    position: relative;
+    fill: #FF6633;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.cfo {
+    position: relative;
+    fill: gray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .desk.office.ceo {
+    position: relative;
+    fill: gray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .block {
+    position: relative;
+    fill: brown;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .copy_rm {
+    position: relative;
+    fill: orange;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .mrkt_comm {
+    position: relative;
+    fill: #3399FF;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .prvd_mgmt {
+    position: relative;
+    fill: #00FFFF;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .tpa {
+    position: relative;
+    fill: coral;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .isa {
+    position: relative;
+    fill: #FFFF33;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .retire_serv {
+    position: relative;
+    fill: #990066;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .quality_cntrl {
+    position: relative;
+    fill: violet;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .asset_mgmt {
+     position: relative;
+    fill: lightgreen;
+
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .one_time_financials{
+    position: relative;
+    fill: sandybrown;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .hr{
+    position: relative;
+    fill: #cccc00;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .account_setup{
+    position: relative;
+    fill: #ff8080;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .branch_serv{
+    position: relative;
+    fill: #33cc33;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .doc_mgmt{
+    position: relative;
+    fill: #cc5200;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .facilities{
+    position: relative;
+    fill: #db4dff;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .euc{
+    position: relative;
+    fill: #5cd65c;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .compli_licens{
+    position: relative;
+    fill: #ffff99;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .isd{
+    position: relative;
+    fill: #3377ff;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .rdi{
+    position: relative;
+    fill: #ff3333;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .exec_suite {
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .kitchen{
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .lobby {
+    position: relative;
+    fill: silver;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .reception{
+    position: relative;
+    fill: #595959;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .vacant {
+    position: relative;
+    fill: #898989;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .path {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    fill: white;
+    border: black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+    z-index: -20;
+}
+
+svg .path:hover {
+    position: relative;
+    z-index: -10;
+    fill: blue;
+}
+
+svg .desk.office:hover,
+svg .desk.cubicle:hover,
+svg .wbroom:hover,
+svg .mbroom:hover,
+svg .break_area:hover,
+svg .copy_rm:hover,
+svg .mrkt_comm:hover,
+svg .prvf_mgmt:hover,
+svg .exec_suite:hover,
+svg .lobby:hover,
+svg .reception:hover,
+svg .conf:hover {
+    pointer-events: visibleFill;
+    fill: blue;
+    stroke-width: 2px;
+    border: 3px solid yellow;
+}
+
+.locator {
+    opacity: 0;
+}
+
+svg .block:hover {
+    position: relative;
+    fill: blue;
+}
+
+svg .locator {
+    opacity: 1;
+}

@@ -1,0 +1,28 @@
+<!-- tab-directory.html (adapted from https://codepen.io/anon/pen/VjLYjW) -->
+
+<ion-view view-title="Directory">
+    <ion-content class="padding">
+
+        <h2 class="text-center">Lincoln Employee Directory</h2>
+        
+        <div class="item">
+            <ion-search-select title="Search by Name" key-property="id" value-property="name" options="selectEmployee.employees" option-selected="selectEmployee.employee">
+                <label class="item item-input-inset search-select">
+                    <div class="item-input-wrapper">
+                        <i class="icon ion-ios-search"></i>
+                        <input type="text" ng-model="selectEmployee.employee.name" placeholder="Select an Employee" disabled>
+                    </div>
+                </label>
+            </ion-search-select>
+        </div>
+
+        <div class="item " ng-show="!!selectEmployee.employee">
+            <p class="text-center"> <strong>{{ selectEmployee.employee.name }}</strong> </p>
+            <p class="text-center"> <strong>{{ selectEmployee.employee.title }}</strong>
+                of <strong>{{ selectEmployee.employee.division }}</strong>
+            </p>
+            <p class="text-center"> Contact at <strong>{{ selectEmployee.employee.email }}</strong> or <strong>EXT: {{ selectEmployee.employee.ext }}</strong> </p>
+            <p class="text-center"><a ui-sref="tab.map({employee: selectEmployee.employee})"><strong>Find on Map</strong></a></p>
+        </div>
+    </ion-content>
+</ion-view>

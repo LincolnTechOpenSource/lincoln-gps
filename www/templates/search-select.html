@@ -1,0 +1,29 @@
+<!-- search-select.html (adapted from https://codepen.io/anon/pen/VjLYjW) -->
+
+<ion-modal-view>
+    <ion-header-bar>
+        <button class="button button-icon ion-close" ng-click="closeModal();"></button>
+        <h1 class="title" style="right: 0 !important;" ng-if="searchSelect.enableSearch">
+                        <label class="item item-icon-left" style="height: 100%;top: -6px;padding: 0px 0px 0px 32px !important;">
+                            <i class="icon ion-android-search" style="font-size: 20px; left: 0 !important;top: 7px;"></i>
+                            <input type="text" placeholder="{{searchSelect.title}}" ng-model="searchSelect.searchvalue" style="width: 90%;height: 100%;margin-top: 7px;" />
+                        </label>
+                        <i ng-if="searchSelect.searchvalue.length > 0" on-tap="clearSearch()" class="icon ion-close" style="top:0px;right:5px;position:absolute;cursor:pointer;z-index:20;"></i>
+                    </h1>
+        <h1 class="title" ng-if="!searchSelect.enableSearch">{{ searchSelect.title }}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty">
+                <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
+                    {{ option[searchSelect.valueProperty] }}
+                </ion-radio>
+            </div>
+            <div ng-if="!searchSelect.keyProperty || !searchSelect.valueProperty">
+                <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" ng-value="option" item-width="100%" ng-click="saveOption()" ng-model="searchSelect.option">
+                    {{ option }}
+                </ion-radio>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

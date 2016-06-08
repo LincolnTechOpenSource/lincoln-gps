@@ -1,0 +1,212 @@
+<!-- tab-map.html -->
+<ion-view view-title="Map" id="tab-map">
+    <ion-content class="padding">
+        <h2 class="text-center">Lincoln GPS Locator</h2>
+
+        <div class="item employee-info" ng-show="!!employee">
+            <i on-tap="clearEmployee()" class="x-clear icon ion-close"></i>
+            <p class="text-center"> <strong>{{ employee.name }}</strong> </p>
+            <p class="text-center"> <strong>{{ employee.title }}</strong> of <strong>{{ employee.division }}</strong></p>
+            <p class="text-center"> Contact at <strong>{{ employee.email }}</strong> or <strong>{{ employee.ext }}</strong> </p>
+        </div>
+
+        <button class="button button-assertive" ng-click="clearPath()">
+            Clear Path
+        </button>
+
+        <div id="svg" class="col col-75 col-offset-16">
+            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 800" xml:space="preserve">
+                <g class="walls">
+                    <!-- Outer swall/perimeter -->
+                    <polygon points="0,0 0,747 747,747 747,427 427,427 427,357 389,320 320,320 320,0" class="wall" id="" />
+
+                    <rect class="wall" id="3000" width="150" height="100" transform="translate(135,220)" />
+                </g>
+                <g class="non-walls">
+                    <!-- Path walk surrounding branch development upper leftmost cubicles -->
+                    <rect type="button" class="path" id="1001" width="20" height="20" transform="translate(40,40)" />
+                    <rect type="button" class="path" id="1002" width="20" height="15" transform="translate(55, 40)" />
+                    <rect type="button" class="path" id="1003" width="20" height="20" transform="translate(75, 40)" />
+                    <rect type="button" class="path" id="1004" width="20" height="20" transform="translate(95, 40)" />
+                    <rect type="button" class="path" id="1005" width="20" height="20" transform="translate(115, 40)" />
+                    <rect type="button" class="path" id="1006" width="20" height="20" transform="translate(135, 40)" />
+                    <rect type="button" class="path" id="1007" width="15" height="20" transform="translate(40, 55)" />
+                    <rect type="button" class="path" id="1008" width="15" height="20" transform="translate(40, 75)" />
+                    <rect type="button" class="path" id="1009" width="15" height="15" transform="translate(40, 95)" />
+                    <rect type="button" class="path" id="1010" width="20" height="15" transform="translate(55, 95)" />
+                    <rect type="button" class="path" id="1011" width="20" height="15" transform="translate(75, 95)" />
+                    <rect type="button" class="path" id="1012" width="20" height="15" transform="translate(95, 95)" />
+                    <rect type="button" class="path" id="1013" width="20" height="15" transform="translate(115, 95)" />
+                    <rect type="button" class="path" id="1014" width="20" height="15" transform="translate(135, 95)" />
+
+                    <!-- Pathway surrounding IM & R rightmost cubicles -->
+                    <rect type="button" class="path" id="1015" width="20" height="15" transform="translate(175, 40)" />
+                    <rect type="button" class="path" id="1016" width="20" height="15" transform="translate(195, 40)" />
+                    <rect type="button" class="path" id="1017" width="20" height="15" transform="translate(215, 40)" />
+                    <rect type="button" class="path" id="1018" width="20" height="15" transform="translate(235, 40)" />
+                    <rect type="button" class="path" id="1019" width="25" height="15" transform="translate(255, 40)" />
+                    <rect type="button" class="path" id="1020" width="25" height="20" transform="translate(255, 55)" />
+                    <rect type="button" class="path" id="1021" width="25" height="20" transform="translate(255, 75)" />
+                    <rect type="button" class="path" id="1022" width="25" height="15" transform="translate(255, 95)" />
+                    <rect type="button" class="path" id="1023" width="20" height="15" transform="translate(175, 95)" />
+                    <rect type="button" class="path" id="1024" width="20" height="15" transform="translate(195, 95)" />
+                    <rect type="button" class="path" id="1025" width="20" height="15" transform="translate(215, 95)" />
+                    <rect type="button" class="path" id="1026" width="20" height="15" transform="translate(235, 95)" />
+
+                    <!-- Pathway connecting Branch Dev and IM & R(red and pink) upperleft most cubicles -->
+                    <rect type="button" class="path" id="1027" width="20" height="15" transform="translate(155,40)" />
+                    <rect type="button" class="path" id="1028" width="20" height="40" transform="translate(155,55)" />
+                    <rect type="button" class="path" id="1029" width="20" height="15" transform="translate(155,95)" />
+
+                    <!-- Pathway surrounding ACD, VSA, and Accounting cubicles -->
+                    <rect type="button" class="path" id="1030" width="15" height="20" transform="translate(40,110)" />
+                    <rect type="button" class="path" id="1031" width="15" height="20" transform="translate(40,130)" />
+                    <rect type="button" class="path" id="1032" width="15" height="15" transform="translate(40,150)" />
+                    <rect type="button" class="path" id="1033" width="20" height="15" transform="translate(55,150)" />
+                    <rect type="button" class="path" id="1034" width="20" height="15" transform="translate(75,150)" />
+                    <rect type="button" class="path" id="1035" width="20" height="15" transform="translate(95,150)" />
+                    <rect type="button" class="path" id="1036" width="20" height="15" transform="translate(115,150)" />
+                    <rect type="button" class="path" id="1037" width="20" height="15" transform="translate(135,150)" />
+
+                    <!-- Pathway connecting ACD, VSA with accounting cubicles -->
+                    <rect type="button" class="path" id="1038" width="20" height="40" transform="translate(155,110)" />
+                    <rect type="button" class="path" id="1039" width="20" height="15" transform="translate(155,150)" />
+
+                    <!-- Pathway surrounding upper right most Accounting cubicles -->
+                    <rect type="button" class="path" id="1040" width="20" height="15" transform="translate(175,150)" />
+                    <rect type="button" class="path" id="1041" width="20" height="15" transform="translate(195,150)" />
+                    <rect type="button" class="path" id="1042" width="20" height="15" transform="translate(215,150)" />
+                    <rect type="button" class="path" id="1043" width="20" height="15" transform="translate(235,150)" />
+                    <rect type="button" class="path" id="1044" width="25" height="15" transform="translate(255,150)" />
+                    <rect type="button" class="path" id="1045" width="25" height="20" transform="translate(255,130)" />
+                    <rect type="button" class="path" id="1046" width="25" height="20" transform="translate(255,110)" />
+
+                    <!-- Pathway around ACD, VSA, and Operations Expansion cubicles -->
+                    <rect type="button" class="path" id="1047" width="15" height="20" transform="translate(40,165)" />
+                    <rect type="button" class="path" id="1048" width="15" height="20" transform="translate(40,185)" />
+                    <rect type="button" class="path" id="1049" width="15" height="15" transform="translate(40,205)" />
+                    <rect type="button" class="path" id="1050" width="20" height="15" transform="translate(55,205)" />
+                    <rect type="button" class="path" id="1051" width="20" height="15" transform="translate(75,205)" />
+                    <rect type="button" class="path" id="1052" width="20" height="15" transform="translate(95,205)" />
+                    <rect type="button" class="path" id="1053" width="20" height="15" transform="translate(115,205)" />
+                    <rect type="button" class="path" id="1054" width="20" height="15" transform="translate(135,205)" />
+
+                    <!-- Pathway connecting ACD, VSA, Operations Expansion, and Accounting cubicles -->
+                    <rect type="button" class="path" id="1055" width="20" height="40" transform="translate(155,165)" />
+                    <rect type="button" class="path" id="1056" width="20" height="15" transform="translate(155,205)" />
+
+                    <!-- Pathway surrounding Accounting cubicles -->
+                    <rect type="button" class="path" id="1057" width="20" height="15" transform="translate(175,205)" />
+                    <rect type="button" class="path" id="1058" width="20" height="15" transform="translate(195,205)" />
+                    <rect type="button" class="path" id="1059" width="20" height="15" transform="translate(215,205)" />
+                    <rect type="button" class="path" id="1060" width="20" height="15" transform="translate(235,205)" />
+                    <rect type="button" class="path" id="1061" width="25" height="15" transform="translate(255,205)" />
+                    <rect type="button" class="path" id="1062" width="25" height="20" transform="translate(255,165)" />
+                    <rect type="button" class="path" id="1063" width="25" height="20" transform="translate(255,185)" />
+
+                    <!-- Pathway around Westwing Women's, Men's, and Break Area -->
+                    <rect type="button" class="path" id="1064" width="40" height="20" transform="translate(0,200)" />
+                    <rect type="button" class="path" id="1065" width="15" height="15" transform="translate(0,220)" />
+                    <rect type="button" class="path" id="1066" width="15" height="15" transform="translate(0,235)" />
+                    <rect type="button" class="path" id="1067" width="15" height="70" transform="translate(0,250)" />
+                    <rect type="button" class="path" id="1068" width="115" height="15" transform="translate(0,320)" />
+                    <rect type="button" class="path" id="1069" width="20" height="30" transform="translate(115,220)" />
+                    <rect type="button" class="path" id="1070" width="20" height="20" transform="translate(115,250)" />
+                    <rect type="button" class="path" id="1071" width="20" height="20" transform="translate(115,270)" />
+                    <rect type="button" class="path" id="1072" width="20" height="20" transform="translate(115,290)" />
+                    <rect type="button" class="path" id="1073" width="20" height="20" transform="translate(115,310)" />
+                    <rect type="button" class="path" id="1074" width="20" height="20" transform="translate(115,330)" />
+
+                    <!-- Women's Room, Men's Room, and West Wing Break Area -->
+                    <rect type="button" class="wbroom westwing" id="2000" width="100" height="60" transform="translate(15,220)" />
+                    <rect type="button" class="mbroom westwing" id="2001" width="60" height="40" transform="translate(55,280)" />
+                    <rect type="button" class="break_area westwing" id="2002" width="40" height="40" transform="translate(15,280)" />
+
+                    <!-- Branch Dev, IM_R, West Wing Team Room, Finance Outside offices, upper leftmost -->
+                    <rect type="button" class="desk office branch_dev" id="1" width="40" height="40" transform="translate(0,0)" />
+                    <rect type="button" class="desk office branch_dev" id="2" width="40" height="40" transform="translate(0,40)" />
+                    <rect type="button" class="desk office branch_dev" id="3" width="40" height="40" transform="translate(0,80)" />
+                    <rect type="button" class="desk office branch_dev" id="4" width="40" height="40" transform="translate(0,120)" />
+                    <rect type="button" class="desk office acd" id="5" width="40" height="40" transform="translate(0,160)" />
+                    <rect type="button" class="desk office branch_dev" id="6" width="40" height="40" transform="translate(40,0)" />
+                    <rect type="button" class="desk office im_r" id="7" width="40" height="40" transform="translate(80,0)" />
+                    <rect type="button" class="desk office im_r" id="8" width="40" height="40" transform="translate(120,0)" />
+                    <rect type="button" class="desk office conf westwing" id="9" width="40" height="40" transform="translate(160,0)" />
+                    <rect type="button" class="desk office busi_dev" id="10" width="40" height="40" transform="translate(200,0)" />
+                    <rect type="button" class="desk office im_r" id="11" width="40" height="40" transform="translate(240,0)" />
+                    <rect type="button" class="desk office busi_dev" id="12" width="40" height="40" transform="translate(280,0)" />
+                    <rect type="button" class="desk office im_r" id="13" width="40" height="40" transform="translate(280,40)" />
+                    <rect type="button" class="desk office finance" id="14" width="40" height="40" transform="translate(280,80)" />
+                    <rect type="button" class="desk office finance" id="15" width="40" height="40" transform="translate(280,120)" />
+                    <rect type="button" class="desk office finance" id="16" width="40" height="40" transform="translate(280,160)" />
+
+                    <!-- Branch Dev- upper leftmost cubicles -->
+                    <rect type="button" class="desk cubicle branch_dev" id="17" width="20" height="20" transform="translate(55,55)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="18" width="20" height="20" transform="translate(75,55)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="19" width="20" height="20" transform="translate(95,55)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="20" width="20" height="20" transform="translate(115,55)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="21" width="20" height="20" transform="translate(135,55)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="22" width="20" height="20" transform="translate(55,75)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="23" width="20" height="20" transform="translate(75,75)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="24" width="20" height="20" transform="translate(95,75)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="25" width="20" height="20" transform="translate(115,75)" />
+                    <rect type="button" class="desk cubicle branch_dev" id="26" width="20" height="20" transform="translate(135,75)" />
+
+                    <!-- IM & R- upper rightmost cubicles -->
+                    <rect type="button" class="desk cubicle im_r" id="27" width="20" height="20" transform="translate(175,55)" />
+                    <rect type="button" class="desk cubicle im_r" id="28" width="20" height="20" transform="translate(195,55)" />
+                    <rect type="button" class="desk cubicle im_r" id="29" width="20" height="20" transform="translate(215,55)" />
+                    <rect type="button" class="desk cubicle im_r" id="30" width="20" height="20" transform="translate(235,55)" />
+                    <rect type="button" class="desk cubicle im_r" id="31" width="20" height="20" transform="translate(175,75)" />
+                    <rect type="button" class="desk cubicle im_r" id="32" width="20" height="20" transform="translate(195,75)" />
+                    <rect type="button" class="desk cubicle im_r" id="33" width="20" height="20" transform="translate(215,75)" />
+                    <rect type="button" class="desk cubicle im_r" id="34" width="20" height="20" transform="translate(235,75)" />
+
+                    <!-- ACD, VSA cubicles, second upperleft cubicles -->
+                    <rect type="button" class="desk cubicle acd" id="35" width="20" height="20" transform="translate(55,110)" />
+                    <rect type="button" class="desk cubicle acd" id="36" width="20" height="20" transform="translate(75,110)" />
+                    <rect type="button" class="desk cubicle acd" id="37" width="20" height="20" transform="translate(95,110)" />
+                    <rect type="button" class="desk cubicle acd" id="38" width="20" height="20" transform="translate(115,110)" />
+                    <rect type="button" class="desk cubicle acd" id="39" width="20" height="20" transform="translate(135,110)" />
+                    <rect type="button" class="desk cubicle acd" id="40" width="20" height="20" transform="translate(55,130)" />
+                    <rect type="button" class="desk cubicle vsa" id="41" width="20" height="20" transform="translate(75,130)" />
+                    <rect type="button" class="desk cubicle vsa" id="42" width="20" height="20" transform="translate(95,130)" />
+                    <rect type="button" class="desk cubicle vsa" id="43" width="20" height="20" transform="translate(115,130)" />
+                    <rect type="button" class="desk cubicle vsa" id="44" width="20" height="20" transform="translate(135,130)" />
+
+                    <!-- Upper Accounting cubicles, upper right most -->
+                    <rect type="button" class="desk cubicle accounting" id="45" width="20" height="20" transform="translate(175,110)" />
+                    <rect type="button" class="desk cubicle accounting" id="46" width="20" height="20" transform="translate(195,110)" />
+                    <rect type="button" class="desk cubicle accounting" id="47" width="20" height="20" transform="translate(215,110)" />
+                    <rect type="button" class="desk cubicle accounting" id="48" width="20" height="20" transform="translate(235,110)" />
+                    <rect type="button" class="desk cubicle accounting" id="49" width="20" height="20" transform="translate(175,130)" />
+                    <rect type="button" class="desk cubicle accounting" id="50" width="20" height="20" transform="translate(195,130)" />
+                    <rect type="button" class="desk cubicle accounting" id="51" width="20" height="20" transform="translate(215,130)" />
+                    <rect type="button" class="desk cubicle accounting" id="52" width="20" height="20" transform="translate(235,130)" />
+
+                    <!-- Lower ACD and VSA and Operations Expansion cubicles -->
+                    <rect type="button" class="desk cubicle acd" id="53" width="20" height="20" transform="translate(55,165)" />
+                    <rect type="button" class="desk cubicle acd" id="54" width="20" height="20" transform="translate(55,185)" />
+                    <rect type="button" class="desk cubicle vsa" id="55" width="20" height="20" transform="translate(75,165)" />
+                    <rect type="button" class="desk cubicle vsa" id="56" width="20" height="20" transform="translate(95,165)" />
+                    <rect type="button" class="desk cubicle vsa" id="57" width="20" height="20" transform="translate(115,165)" />
+                    <rect type="button" class="desk cubicle vsa" id="58" width="20" height="20" transform="translate(135,165)" />
+                    <rect type="button" class="desk cubicle ops" id="59" width="20" height="20" transform="translate(75,185)" />
+                    <rect type="button" class="desk cubicle ops" id="60" width="20" height="20" transform="translate(95,185)" />
+                    <rect type="button" class="desk cubicle ops" id="61" width="20" height="20" transform="translate(115,185)" />
+                    <rect type="button" class="desk cubicle ops" id="62" width="20" height="20" transform="translate(135,185)" />
+
+                    <!-- Accounting cubicles, upper right area(left of Finance offices) -->
+                    <rect type="button" class="desk cubicle accounting" id="63" width="20" height="20" transform="translate(175,165)" />
+                    <rect type="button" class="desk cubicle accounting" id="64" width="20" height="20" transform="translate(195,165)" />
+                    <rect type="button" class="desk cubicle accounting" id="65" width="20" height="20" transform="translate(215,165)" />
+                    <rect type="button" class="desk cubicle accounting" id="66" width="20" height="20" transform="translate(235,165)" />
+                    <rect type="button" class="desk cubicle accounting" id="67" width="20" height="20" transform="translate(175,185)" />
+                    <rect type="button" class="desk cubicle accounting" id="68" width="20" height="20" transform="translate(195,185)" />
+                    <rect type="button" class="desk cubicle accounting" id="69" width="20" height="20" transform="translate(215,185)" />
+                    <rect type="button" class="desk cubicle accounting" id="70" width="20" height="20" transform="translate(235,185)" />
+                </g>
+            </svg>
+        </div>
+    </ion-content>
+</ion-view>
