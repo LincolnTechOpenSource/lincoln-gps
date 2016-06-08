@@ -7,7 +7,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller',
-    'firebase.services', 'ion-search-select.directive', 'starter.controllers', 'starter.services'
+    'tab.controller', 'firebase.services', 'ion-search-select.directive', 'starter.controllers', 'starter.services'
 ])
 
 .run(function($ionicPlatform) {
@@ -61,7 +61,8 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         .state('tab', {
             url: '/tab',
             abstract: true,
-            templateUrl: 'templates/tabs.html'
+            templateUrl: 'templates/tabs.html',
+            controller: 'TabCtrl'
         })
         // Each tab has its own nav history stack:
         .state('tab.map', {

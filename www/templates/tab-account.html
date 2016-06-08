@@ -8,7 +8,7 @@
 
     <!-- paste your map under here -->
     <div id="svg2" class="col col-75 col-offset-10">
-      <svg version="1.1" id="map2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 3600 3600" xml:space="preserve">
+      <svg version="1.1" id="map2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 3600 3600" xml:space="preserve">
         <g class="walls">
           <!-- Wall/perimeter of Lincoln Investment floor -->
           <polyline points="170,165 1597,165 1597,1560 1920,1560 2072,1715 2072,2030 3463,2030 3463,3460 170,3460 170,165" class="wall" id="" style="fill:none;stroke-width:2;stroke:rgb(0,0,0)" />
@@ -172,14 +172,14 @@
           <g class="misc">
             <!-- Executive copy rooom, rest room, fishtank -->
             <rect class="block copy_rm" id="" width="120" height="120" transform="translate(1399,1560)" />
-            <rect class="block broom" id="" width="80" height="120" transform="translate(1519,1560)" />
+            <rect class="broom" id="" width="80" height="120" transform="translate(1519,1560)" />
             <rect class="block copy_rm" id="" width="120" height="120" transform="translate(1399,1560)" />
 
             <g bathrooms_vending_storage_exit>
               <!-- Janitor, Electrical, Restrooms, Westwing break_area, vending -->
               <rect class="block" id="" width="115" height="60" transform="translate(250,1120)" />
-              <rect class="block" id="" width="275" height="120" transform="translate(365,1120)" />
-              <polygon points="250,1180 365,1180 365,1240 640,1240 640,1400 250,1400" class="broom westwing block" id="" />
+              <rect class="stairs_exit" id="" width="275" height="120" transform="translate(365,1120)" />
+              <polygon points="250,1180 365,1180 365,1240 640,1240 640,1400 250,1400" class="broom westwing" id="" />
               <rect class="block" id="" width="165" height="200" transform="translate(250,1400)" />
               <rect class="block" id="" width="225" height="200" transform="translate(415,1400)" />
             </g>
@@ -217,13 +217,13 @@
             <rect x='1740' y='2980' class='block storage_rm' id='' height='90' width='110'></rect>
             <rect x='1850' y='2980' class='block wellness_rm' id='' height='90' width='110'></rect>
 
-            <!-- East wing break area, Vending, storage, bathrooms, janitor closet, exit stairs -->
-            <rect x='2045' y='3260' class="block break_area vending" id='' height="120" width='160'></rect>
-            <rect x='2045' y='3200' class='block storage_rm' id='' height='60' width='160'></rect>
-            <rect x='2045' y='3080' class='block broom' id='' height='120' width='160'></rect>
-            <rect x='2205' y='3080' class='block broom' id='' height='300' width='160'></rect>
-            <rect x='2365' y='3080' class='block exit' id='' height='180' width='80'></rect>
-            <rect x='2365' y='3260' class='block janitor' id='' height='120' width='80'></rect>
+            <!-- Eastwing break area, Vending, storage, bathrooms, janitor closet, exit stairs -->
+            <rect x='2045' y='3110' class="block break_area vending" id='' height="220" width='160'></rect>
+            <rect x='2045' y='3010' class='block storage_rm' id='' height='100' width='160'></rect>
+            <rect x='2045' y='2890' class='broom' id='' height='120' width='160'></rect>
+            <rect x='2205' y='2890' class='broom' id='' height='440' width='160'></rect>
+            <rect x='2365' y='2890' class='block exit' id='' height='300' width='80'></rect>
+            <rect x='2365' y='3190' class='block janitor' id='' height='140' width='80'></rect>
           </g>
 
           <g class="desks">
@@ -572,8 +572,14 @@
             <rect x='3260' y='2030' class='desk office compli_licens' id='268' width='200' height='210'></rect>
 
             <!-- Compliance and Licensing and HR offices, and north team room -->
-            <rect x='3060' y='2030'
-
+            <rect x='3100' y='2030' class='desk office compli_licens' id='269' width='160' height='190'></rect>
+            <rect x='2940' y='2030' class='desk office compli_licens' id='270' width='160' height='190'></rect>
+            <rect x='2780' y='2030' class='desk office compli_licens' id='271' width='160' height='190'></rect>
+            <rect x='2620' y='2030' class='desk office compli_licens' id='272' width='160' height='190'></rect>
+            <rect x='2460' y='2030' class='desk office conf northwing' id='273' width='160' height='190'></rect>
+            <rect x='2260' y='2030' class='desk office hr' id='274' width='200' height='190'></rect>
+            <rect x='2100' y='2030' class='desk office hr' id='275' width='160' height='190'></rect>
+            <rect x='1940' y='2030' class='desk office hr' id='276' width='160' height='190'></rect>
           </g>
         </g>
       </svg>

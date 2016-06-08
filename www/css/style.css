@@ -326,9 +326,23 @@ svg .kitchen{
     stroke: rgb(0, 0, 0);
 }
 
+svg .broom{
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
 svg .lobby {
     position: relative;
     fill: silver;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .stairs_exit{
+    position: relative;
+    fill: #ff9988;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
@@ -375,7 +389,9 @@ svg .prvf_mgmt:hover,
 svg .exec_suite:hover,
 svg .lobby:hover,
 svg .reception:hover,
-svg .conf:hover {
+svg .conf:hover,
+svg .broom:hover,
+svg .stairs_exit:hover {
     pointer-events: visibleFill;
     fill: blue;
     stroke-width: 2px;
