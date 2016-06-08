@@ -347,9 +347,23 @@ svg .lobby {
     stroke: rgb(0, 0, 0);
 }
 
+svg .scanning{
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
 svg .stairs_exit{
     position: relative;
     fill: #ff9988;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .storage_rm{
+    position: relative;
+    fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
@@ -399,7 +413,9 @@ svg .reception:hover,
 svg .conf:hover,
 svg .broom:hover,
 svg .stairs_exit:hover,
-svg .break_area:hover {
+svg .break_area:hover,
+svg .storage_rm:hover,
+svg .scanning:hover {
     pointer-events: visibleFill;
     fill: blue;
     stroke-width: 2px;

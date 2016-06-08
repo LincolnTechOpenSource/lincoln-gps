@@ -19,11 +19,7 @@ angular.module('firebase.services', ['firebase'])
             }
         };
     })
-    // handle firebase accounts (e.g. authentication)
-    .factory('Account', function($firebaseAuth) {
-        return {
-            /** auth: an authenticator for sign in */
-            auth: $firebaseAuth(),
-
-        };
+    // handle firebase authenticator
+    .factory('Auth', function($firebaseAuth) {
+        return $firebaseAuth();
     });
