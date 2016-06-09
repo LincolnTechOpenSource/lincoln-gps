@@ -6,8 +6,8 @@
 
 angular.module('map.controller', [])
 
-.controller('MapCtrl', ['$scope', '$stateParams', '$compile', 'Employees',
-    function($scope, $stateParams, $compile, Employees) {
+.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Employees',
+    function($rootScope, $scope, $stateParams, $compile, Employees) {
         // reset Graphing fields
         Graphing.source = Graphing.target = null;
         Graphing.setSource = true;
@@ -20,6 +20,14 @@ angular.module('map.controller', [])
             Graphing.source = $scope.employee.id;
 
             $('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
+        }
+
+        for (var filter in $rootScope.filters) {
+            if (!$rootScope.filters[filter]) {
+                $('#svg #map .' + filter).addClass('filter-out');
+            } else {
+                $('#svg #map .' + filter).removeClass('filter-out');
+            }
         }
 
         // resets the path and removes all highlights (but leaves employee)
@@ -49,7 +57,42 @@ angular.module('map.controller', [])
             $('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
             $('#svg').on('click', '#map .desk', getEmployeeInfo);
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
+
+            // load pan zoom
+            /*var panZoomMap = svgPanZoom('#svg #map', {
+                zoomEnabled: true,
+                controlIconsEnabled: true,
+                fit: true,
+                center: true,
+                beforePan: beforePan
+            });
+
+            $(window).resize(function() {
+                panZoomMap.resize();
+                panZoomMap.updateBBox();
+                panZoomMap.fit();
+                panZoomMap.center();
+            });*/
         });
+
+        /*
+        function beforePan(oldPan, newPan) {
+            var gutterWidth = 50,
+                gutterHeight = 50,
+                // Computed variables
+                sizes = this.getSizes(),
+                leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+                rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
+                topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
+                bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+
+            customPan = {}
+            customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
+            customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+
+            return customPan
+        }
+        */
 
         // finds and colors the shortest path from source to target in the graph
         function pathColor(s, t, g) {

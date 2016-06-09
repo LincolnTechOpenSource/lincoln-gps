@@ -7,10 +7,11 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller',
-    'tab.controller', 'firebase.services', 'ion-search-select.directive', 'starter.controllers', 'starter.services'
+    'account.controller', 'tab.controller', 'firebase.services', 'ion-search-select.directive',
+    'starter.controllers', 'starter.services'
 ])
 
-.run(function($ionicPlatform) {
+.run(function($rootScope, $ionicPlatform) {
     $ionicPlatform.ready(function() {
         console.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -32,6 +33,15 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
             source: null,
             target: null,
             setSource: true
+        };
+
+        // define fitlers (all initially true)
+        $rootScope.filters = {
+            office: true,
+            desk: true,
+            broom: true,
+            cubicle: true,
+            conf: true
         };
 
         // load graph from json

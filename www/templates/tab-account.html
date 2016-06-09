@@ -1,10 +1,31 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-      <ion-toggle ng-model="settings.enableFriends">
-        Enable Friends
+      <ion-toggle ng-model="filters.office">
+        Display Offices
       </ion-toggle>
+
+      <ion-toggle ng-model="filters.desk">
+        Display Desks
+      </ion-toggle>
+
+      <ion-toggle ng-model="filters.broom">
+        Display Bathrooms
+      </ion-toggle>
+
+      <ion-toggle ng-model="filters.cubicle">
+        Display Cubicles
+      </ion-toggle>
+
+      <ion-toggle ng-model="filters.conf">
+        Display Conference Rooms
+      </ion-toggle>
+
     </ion-list>
+
+    <button class="button button-positive" ng-click="resetToDefault()">
+      Reset to Default
+    </button>
 
     <!-- paste your map under here -->
     <div id="svg2" class="col col-75 col-offset-10">
@@ -17,7 +38,7 @@
             <polyline points='1480,2920 1480,3080' class='wall' id='' style="fill:none;stroke-width:2;stroke:rgb(0,0,0)"></polyline>
             <polyline points='1680,2920 1680,3080' class='wall' id='' style="fill:none;stroke-width:2;stroke:rgb(0,0,0)"></polyline>
           </g>
-        </g>
+        </g> <!-- End walls group -->
         <g class="non-walls">
           <g class="paths">
             <!-- Path walk surrounding branch development upper leftmost cubicles -->
@@ -217,19 +238,35 @@
               <!-- Pathway around bottom of central conference rooms and cubicles, in front of agnes' kitchen-->
               <rect class='path' id='1151' x='1680' y='3080' width='180' height='35'></rect>
               <rect class='path' id='1152' x='1630' y='3080' width='50' height='35'></rect>
-              <rect class='path' id='1153' x='1630' y='3080' width='65' height='80'></rect>
-              <rect class='path' id='1154' x='1630' y='3000' width='50' height='80'></rect>
-
-
-
-
+              <rect class='path' id='1153' x='1630' y='3000' width='50' height='80'></rect>
+              <rect class='path' id='1154' x='1630' y='2920' width='50' height='80'></rect>
+              <rect class='path' id='1155' x='1530' y='3080' width='100' height='35'></rect>
+              <rect class='path' id='1156' x='1480' y='3080' width='50' height='35'></rect>
+              <rect class='path' id='1157' x='1480' y='3000' width='50' height='80'></rect>
+              <rect class='path' id='1158' x='1480' y='2920' width='50' height='80'></rect>
+              <rect class='path' id='1159' x='1300' y='3080' width='180' height='35'></rect>
             </g>
 
-
-
-
-
-
+            <!-- Pathway going from beneath exec suite down diagonally between cubicles and central conference rooms -->
+            <polygon points='1220,1800 1380,1800 1380,1860 1280,1960 1220,1960' class='path' id='1160'></polygon>
+            <rect class='path' id='1161' x='1130' y='1800' width='90' height='80'></rect>
+            <rect class='path' id='1162' x='1130' y='1880' width='90' height='80'></rect>
+            <rect class='path' id='1163' x='1040' y='1960' width='90' height='80'></rect>
+            <g triangle_incompletesquare_pair >
+              <polygon points='1220,1960 1280,1960 1220,2015' class='path' id='1164'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1190,2040 1130,2040' class='path' id='1165'></polygon>
+            </g>
+            <rect class='path' id='1166' x='950' y='2040' width='90' height='80'></rect>
+            <g triangle_incompletesquare_pair transform='translate(-90,80)' >
+              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1167'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1168'></polygon>
+            </g>
+            <rect class='path' id='1169' x='905' y='2120' width='90' height='80'></rect>
+            <g triangle_incompletesquare_pair transform='translate(-90,80)' >
+              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1167'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1168'></polygon>
+            </g>
+            <rect class='path' id='' x='725' y='2200' width='90' height='80'></rect>
 
 
 
@@ -243,7 +280,7 @@
 
 
 
-          </g>
+          </g> <!-- End path group -->
 
           <g class="misc">
             <!-- Executive copy rooom, rest room, fishtank -->
@@ -278,7 +315,6 @@
             <!-- Outer Lobby/Front Entrance -->
             <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" class="lobby" id="" />
 
-            <!-- Privacy Pod below reitrement services and quality control cubicles -->
 
 
             <!-- Agnes' Kitchen, bottom left corner -->
@@ -318,7 +354,11 @@
               <rect x='1530' y='2920' class='privacy_pod' id='' width='100' height='80'></rect>
               <rect x='1530' y='3000' class='privacy_pod' id='' width='100' height='80'></rect>
             </g>
-          </g>
+
+            <!-- Privacy Pod below reitrement services and quality control cubicles -->
+            <rect class='privacy_pod' id='' x='725' y='2120' width='180' height='80'></rect>
+
+          </g> <!-- End misc group -->
 
           <g class="desks">
             <!-- Executive Suite, next to CEO/CFO Offices -->
@@ -691,8 +731,8 @@
 
 
 
-          </g>
-        </g>
+          </g> <!-- End desk group -->
+        </g> <!-- End non-wall group -->
       </svg>
     </div>
 

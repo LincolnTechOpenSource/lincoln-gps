@@ -46,6 +46,21 @@ ion-search-select label.search-select {
 
 /* SVG Map styling */
 
+/*#svg {
+    width: 85%;
+    border: 2px solid black;
+    margin: 10px auto;
+}
+
+#svg #map {
+    min-width: inherit;
+    max-width: inherit;
+    height: 99.5%;
+    width: 99.5%;
+    min-height: inherit;
+    max-height: inherit;
+}*/
+
 #svg #map g.non-walls .hilite.path {
     fill: blue;
 }
@@ -53,6 +68,11 @@ ion-search-select label.search-select {
 #svg #map g.non-walls .hilite.desk {
     stroke: blue;
     stroke-width: 2px;
+}
+
+#svg #map .filter-out {
+    opacity: 0.3;
+    fill: grey;
 }
 
 .panel {
