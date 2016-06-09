@@ -1,26 +1,10 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-      <ion-toggle ng-model="filters.office">
-        Display Offices
+      <!-- display all filters -->
+      <ion-toggle ng-model="filters[name].disp" ng-repeat="(name, truth) in filters">
+        Display {{filters[name].dispName}}
       </ion-toggle>
-
-      <ion-toggle ng-model="filters.desk">
-        Display Desks
-      </ion-toggle>
-
-      <ion-toggle ng-model="filters.broom">
-        Display Bathrooms
-      </ion-toggle>
-
-      <ion-toggle ng-model="filters.cubicle">
-        Display Cubicles
-      </ion-toggle>
-
-      <ion-toggle ng-model="filters.conf">
-        Display Conference Rooms
-      </ion-toggle>
-
     </ion-list>
 
     <button class="button button-positive" ng-click="resetToDefault()">
@@ -257,16 +241,32 @@
               <polygon points='1130,1960 1220,1960 1220,2015 1190,2040 1130,2040' class='path' id='1165'></polygon>
             </g>
             <rect class='path' id='1166' x='950' y='2040' width='90' height='80'></rect>
-            <g triangle_incompletesquare_pair transform='translate(-90,80)' >
+            <g triangle_incompletesquare_pair transform='translate(-85,80)' >
               <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1167'></polygon>
               <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1168'></polygon>
             </g>
             <rect class='path' id='1169' x='905' y='2120' width='90' height='80'></rect>
-            <g triangle_incompletesquare_pair transform='translate(-90,80)' >
-              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1167'></polygon>
-              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1168'></polygon>
+            <g triangle_incompletesquare_pair transform='translate(-165,160)' >
+              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1169'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1170'></polygon>
             </g>
-            <rect class='path' id='' x='725' y='2200' width='90' height='80'></rect>
+            <rect class='path' id='1171' x='725' y='2200' width='80' height='80'></rect>
+                        <rect class='path' id='1172' x='805' y='2200' width='80' height='80'></rect>
+            <g triangle_incompletesquare_pair transform='translate(-245,240)' >
+              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1173'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1174'></polygon>
+            </g>
+            <rect class='path' id='1175' x='725' y='2280' width='80' height='80'></rect>
+            <g triangle_incompletesquare_pair transform='translate(-325,320)' >
+              <polygon points='1220,1960 1280,1960 1220,2025' class='path' id='1176'></polygon>
+              <polygon points='1130,1960 1220,1960 1220,2015 1200,2040 1130,2040' class='path' id='1177'></polygon>
+            </g>
+            <rect class='path' id='1178' x='620' y='2280' width='90' height='80'></rect>
+
+
+
+
+
 
 
 

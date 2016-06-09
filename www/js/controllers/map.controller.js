@@ -23,10 +23,8 @@ angular.module('map.controller', [])
         }
 
         for (var filter in $rootScope.filters) {
-            if (!$rootScope.filters[filter]) {
+            if (!$rootScope.filters[filter].disp) {
                 $('#svg #map .' + filter).addClass('filter-out');
-            } else {
-                $('#svg #map .' + filter).removeClass('filter-out');
             }
         }
 

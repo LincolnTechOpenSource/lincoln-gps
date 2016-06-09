@@ -5,7 +5,7 @@ angular.module('account.controller', [])
 
         $scope.resetToDefault = function() {
             for (var filter in $rootScope.filters) {
-                $rootScope.filters[filter] = true;
+                $rootScope.filters[filter].disp = true;
             }
         };
     });

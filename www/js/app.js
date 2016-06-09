@@ -37,11 +37,11 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 
         // define fitlers (all initially true)
         $rootScope.filters = {
-            office: true,
-            desk: true,
-            broom: true,
-            cubicle: true,
-            conf: true
+            office: { dispName: "Offices", disp: true},
+            desk: { dispName: "Desks", disp: true},
+            broom: { dispName: "Bathrooms", disp: true},
+            cubicle: { dispName: "Cubicles", disp: true},
+            conf: { dispName: "Conference Rooms", disp: true}
         };
 
         // load graph from json
