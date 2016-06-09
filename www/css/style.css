@@ -72,7 +72,7 @@ ion-search-select label.search-select {
 
 #svg #map .filter-out {
     opacity: 0.3;
-    fill: grey;
+    fill: black;
 }
 
 .panel {

@@ -35,13 +35,17 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
             setSource: true
         };
 
-        // define fitlers (all initially true)
+        /* define fitlers
+         * dispName is the name to show in the toggle view
+         * disp is the truth-value of whether to display or not
+         */
         $rootScope.filters = {
             office: { dispName: "Offices", disp: true},
             desk: { dispName: "Desks", disp: true},
             broom: { dispName: "Bathrooms", disp: true},
             cubicle: { dispName: "Cubicles", disp: true},
-            conf: { dispName: "Conference Rooms", disp: true}
+            conf: { dispName: "Conference Rooms", disp: true},
+            wbroom: { dispName: "Woman's Bathrooms", disp:true}
         };
 
         // load graph from json
