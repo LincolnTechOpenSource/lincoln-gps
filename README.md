@@ -14,12 +14,15 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/06/16: Favicon added, improved SVG map, and various other updates
 * 06/07/16: Firebase connectivity, switching to tab template
 * 06/08/16: Progress on map, tab template switch, general cleaning of code
-* 06/09/16: Nearly finished with map, authentication
+* 06/09/16: Nearly finished with map, authentication, started filtering
 
 ## Ideas to Contribute
 
 * Get directions from "my current location" (implement GPS locator)
 * "Track" employees' location (via cellphone, key-fob, or desk-phone)
+* Integrate employees' calendar to find location
+* Connect authentication to custom system through token
+* Dynamic SVG map and graph creation
 * See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
