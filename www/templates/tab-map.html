@@ -18,6 +18,30 @@
             Logout
         </button>
 
+        {{ graphArray }}
+        <div class="row">
+            <div id="from" class="col col-50">
+                <ion-search-select title="From" key-property="id" value-property="name" options="selectEmployee.employees" option-selected="selectEmployee.employee">
+                    <label class="item item-input-inset search-select">
+                    <div class="item-input-wrapper">
+                        <i class="icon ion-ios-search"></i>
+                        <input type="text" ng-model="selectEmployee.employee.name" placeholder="From" disabled>
+                    </div>
+                </label>
+                </ion-search-select>
+            </div>
+            <div id="from" class="col col-50">
+                <ion-search-select title="To" key-property="id" value-property="name" options="selectEmployee.employees" option-selected="selectEmployee.employee">
+                    <label class="item item-input-inset search-select">
+                    <div class="item-input-wrapper">
+                        <i class="icon ion-ios-search"></i>
+                        <input type="text" ng-model="selectEmployee.employee.name" placeholder="To" disabled>
+                    </div>
+                </label>
+                </ion-search-select>
+            </div>
+        </div>
+
         <div id="svg" class="col col-75 col-offset-16">
             <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 800" xml:space="preserve">
                 <g class="walls">

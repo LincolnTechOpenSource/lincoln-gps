@@ -9,19 +9,20 @@ angular.module('map.controller', [])
 .controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Employees',
     function($rootScope, $scope, $stateParams, $compile, Employees) {
         // reset Graphing fields
-        Graphing.source = Graphing.target = null;
-        Graphing.setSource = true;
+        $rootScope.Graphing.source = $rootScope.Graphing.target = null;
+        $rootScope.Graphing.setSource = true;
 
         // handle employee parameter
         if (!!$stateParams.employee) {
             $scope.employee = $stateParams.employee;
             // set source to employee
-            Graphing.setSource = false;
-            Graphing.source = $scope.employee.id;
+            $rootScope.Graphing.setSource = false;
+            $rootScope.Graphing.source = $scope.employee.id;
 
             $('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
         }
 
+        // filter the map as prescribed
         for (var filter in $rootScope.filters) {
             if (!$rootScope.filters[filter].disp) {
                 $('#svg #map .' + filter).addClass('filter-out');
@@ -33,10 +34,10 @@ angular.module('map.controller', [])
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
-            Graphing.target = null; // always clear target
+            $rootScope.Graphing.target = null; // always clear target
             if (!$stateParams.employee) {
-                Graphing.setSource = true;
-                Graphing.source = null;
+                $rootScope.Graphing.setSource = true;
+                $rootScope.Graphing.source = null;
             }
             else {
                 // keep employee hilited
@@ -106,16 +107,17 @@ angular.module('map.controller', [])
 
         // gets directions from source to target on click
         function getDirs(event) {
-            if (Graphing.setSource) {
-                Graphing.source = this.id;
+            if ($rootScope.Graphing.setSource) {
+                $rootScope.Graphing.source = this.id;
             }
             else {
-                Graphing.target = this.id;
+                $rootScope.Graphing.target = this.id;
             }
-            Graphing.setSource = !Graphing.setSource;
+            $rootScope.Graphing.setSource = !$rootScope.Graphing.setSource;
 
-            if (Graphing.target !== null) {
-                pathColor(Graphing.source, Graphing.target, Graphing.graph);
+            if ($rootScope.Graphing.target !== null) {
+                pathColor($rootScope.Graphing.source, $rootScope.Graphing.target,
+                    $rootScope.Graphing.graph);
             }
         }
 

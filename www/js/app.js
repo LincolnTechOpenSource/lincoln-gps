@@ -28,7 +28,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         }
 
         // graphing object for global variables
-        Graphing = {
+        $rootScope.Graphing = {
             graph: null,
             source: null,
             target: null,
@@ -50,7 +50,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 
         // load graph from json
         $.getJSON('lib/graph/graph.json', function(data) {
-            Graphing.graph = new Graph(data);
+            $rootScope.Graphing.graph = new Graph(data);
         });
 
         // Initialize Firebase with credentials
