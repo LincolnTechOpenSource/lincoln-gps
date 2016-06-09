@@ -48,8 +48,6 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         };
         firebase.initializeApp(CONFIG);
 
-
-
     });
 })
 

@@ -57,7 +57,6 @@ angular.module('ion-search-select.directive', [])
                 };
 
                 $scope.clearSearch = function() {
-                    console.log('hi');
                     $scope.searchSelect.searchvalue = "";
                 };
 

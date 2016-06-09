@@ -19,10 +19,18 @@ angular.module('tab.controller', [])
         hardwareBackButtonClose: false
     }).then(function(modal) {
         $scope.modal = modal;
+    });
 
-        //console.log(Auth.currentUser);
-        // force login if not signed in
-        if (!Auth.currentUser) {
+    Auth.$onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log('Signed in... ' + user.uid);
+            $scope.loginData.email = ""; // clear email on success
+            $scope.modal.hide();
+        }
+        else {
+            // No user is signed in.
+            console.log('Not Authenticated');
             $scope.modal.show();
         }
     });
@@ -48,10 +56,12 @@ angular.module('tab.controller', [])
                 $scope.loginData.password).catch(function(error) {
                 // Handle Errors here.
                 console.log("Authentication failed (" + error.code + "): " + error.message);
+            }).then(function() {
+                // reset login form
+                $scope.loginData.password = "";
                 $timeout(function() {
-                    $ionicLoading.hide()
+                    $ionicLoading.hide();
                 }, 100);
-                // ...
             });
         }
         else {
@@ -59,14 +69,7 @@ angular.module('tab.controller', [])
         }
     };
 
-    Auth.$onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            console.log('hi');
-        }
-        else {
-            // No user is signed in.
-            console.log('out');
-        }
-    });
+    $scope.logout = function() {
+        Auth.$signOut();
+    };
 });

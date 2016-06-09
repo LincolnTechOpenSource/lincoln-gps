@@ -44,8 +44,6 @@ angular.module('map.controller', [])
             $scope.employee = null;
         };
 
-        $scope.locate = true;
-
         $(document).ready(function() {
             // set click functions for directions and information
             $('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
@@ -82,8 +80,6 @@ angular.module('map.controller', [])
 
         // updates the display with the employees information on click (and hilites)
         function getEmployeeInfo(event) {
-            //if ($scope.employee)
-            //$('#svg #' + $scope.employee.id).removeClass('hilite'); // unhilite old guy
             $scope.employee = Employees.get(this.id);
 
             $('#svg #' + this.id).addClass('hilite'); // hilite the guy clicked
