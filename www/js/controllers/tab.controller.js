@@ -10,7 +10,10 @@ angular.module('tab.controller', [])
     //});
 
     // Form data for the login modal
-    $scope.loginData = {};
+    $scope.loginData = {
+        email: "",
+        password: ""
+    };
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/modal-login.html', {
@@ -19,21 +22,22 @@ angular.module('tab.controller', [])
         hardwareBackButtonClose: false
     }).then(function(modal) {
         $scope.modal = modal;
+
+        Auth.$onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log('Signed in... ' + user.uid);
+                $scope.loginData.email = ""; // clear email on success
+                $scope.modal.hide();
+            }
+            else {
+                // No user is signed in.
+                console.log('Not Authenticated');
+                $scope.modal.show();
+            }
+        });
     });
 
-    Auth.$onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            console.log('Signed in... ' + user.uid);
-            $scope.loginData.email = ""; // clear email on success
-            $scope.modal.hide();
-        }
-        else {
-            // No user is signed in.
-            console.log('Not Authenticated');
-            $scope.modal.show();
-        }
-    });
 
     // Triggered in the login modal to close it
     $scope.closeLogin = function() {
@@ -47,7 +51,7 @@ angular.module('tab.controller', [])
 
     // Perform the login action when the user submits the login form
     $scope.doLogin = function() {
-        if ($scope.loginData && $scope.loginData.email && $scope.loginData.password) {
+        if ($scope.loginData) {
             $ionicLoading.show({
                 template: 'Signing In...'
             });
@@ -56,6 +60,31 @@ angular.module('tab.controller', [])
                 $scope.loginData.password).catch(function(error) {
                 // Handle Errors here.
                 console.log("Authentication failed (" + error.code + "): " + error.message);
+
+                var emailField = $('#login-modal #login-email');
+                var passwordField = $('#login-modal #login-password');
+
+                switch(error.code) {
+                    // badly formatted email
+                    case 'auth/invalid-email':
+                        emailField.addClass('has-error');
+                        passwordField.removeClass('has-error');
+                        break;
+
+                    // do not distinguish between bad password and bad user
+                    case 'auth/user-disabled':
+                    case 'auth/user-not-found':
+                    case 'auth/wrong-password':
+                        emailField.addClass('has-error');
+                        passwordField.addClass('has-error');
+                        break;
+
+                    // firebase says the code should be one of the above
+                    default:
+                        console.alert('Invalid Return Type... Firebase error!');
+                        break;
+                }
+
             }).then(function() {
                 // reset login form
                 $scope.loginData.password = "";
@@ -63,9 +92,6 @@ angular.module('tab.controller', [])
                     $ionicLoading.hide();
                 }, 100);
             });
-        }
-        else {
-            alert("Please enter email and password both");
         }
     };
 

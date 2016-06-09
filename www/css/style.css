@@ -11,15 +11,34 @@ ion-search-select label.search-select {
     cursor: pointer;
 }
 
+
 /* Map Tab Style */
+
 #tab-map .employee-info .x-clear {
     cursor: pointer;
     float: right;
-    padding-right:5px;
+    padding-right: 5px;
+}
+
+
+/* Login Modal Styles */
+
+#login-modal .has-error .input-label {
+    color: #a94442;
+}
+
+#login-modal label.has-error {
+    border-bottom: solid 2px;
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
 }
 
 
 /* SVG Map styling */
+
 #svg #map g.non-walls .hilite.path {
     fill: blue;
 }
@@ -235,77 +254,76 @@ svg .quality_cntrl {
 }
 
 svg .asset_mgmt {
-     position: relative;
+    position: relative;
     fill: lightgreen;
-
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .one_time_financials{
+svg .one_time_financials {
     position: relative;
     fill: sandybrown;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .hr{
+svg .hr {
     position: relative;
     fill: #cccc00;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .account_setup{
+svg .account_setup {
     position: relative;
     fill: #ff8080;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .branch_serv{
+svg .branch_serv {
     position: relative;
     fill: #33cc33;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .doc_mgmt{
+svg .doc_mgmt {
     position: relative;
     fill: #cc5200;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .facilities{
+svg .facilities {
     position: relative;
     fill: #db4dff;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .euc{
+svg .euc {
     position: relative;
     fill: #5cd65c;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .compli_licens{
+svg .compli_licens {
     position: relative;
     fill: #ffff99;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .isd{
+svg .isd {
     position: relative;
     fill: #3377ff;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .rdi{
+svg .rdi {
     position: relative;
     fill: #ff3333;
     stroke-width: 1;
@@ -319,21 +337,21 @@ svg .exec_suite {
     stroke: rgb(0, 0, 0);
 }
 
-svg .kitchen{
+svg .kitchen {
     position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .break_area{
+svg .break_area {
     position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .broom{
+svg .broom {
     position: relative;
     fill: lightgray;
     stroke-width: 1;
@@ -347,28 +365,28 @@ svg .lobby {
     stroke: rgb(0, 0, 0);
 }
 
-svg .scanning{
+svg .scanning {
     position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .stairs_exit{
+svg .stairs_exit {
     position: relative;
     fill: #ff9988;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .storage_rm{
+svg .storage_rm {
     position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .reception{
+svg .reception {
     position: relative;
     fill: #595959;
     stroke-width: 1;

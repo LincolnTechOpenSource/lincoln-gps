@@ -12,6 +12,11 @@
         <g class="walls">
           <!-- Wall/perimeter of Lincoln Investment floor -->
           <polyline points="170,165 1597,165 1597,1560 1920,1560 2072,1715 2072,2030 3463,2030 3463,3460 170,3460 170,165" class="wall" id="" style="fill:none;stroke-width:2;stroke:rgb(0,0,0)" />
+            <!-- Walls that extends independence conference room -->
+            <g class="central_conf_rooms_cubicles" transform="rotate(45,1450,2000)">
+              <polyline points='1480,2920 1480,3080' class='wall' id='' style="fill:none;stroke-width:2;stroke:rgb(0,0,0)"></polyline>
+              <polyline points='1680,2920 1680,3080' class='wall' id='' style="fill:none;stroke-width:2;stroke:rgb(0,0,0)"></polyline>
+            </g>
 
         </g>
         <g class="non-walls">
@@ -149,7 +154,7 @@
             <rect class="path" id="1104" width="70" height="80" transform="translate(370,2200)" />
             <rect class="path" id="1105" width="70" height="80" transform="translate(370,2280)" />
             <rect class="path" id="1106" width="70" height="80" transform="translate(370,2360)" />
-            <rect class="path" id="1107" width="70" height="120" transform="translate(370,2440)" />
+            <rect class="path" id="1107" width="70" height="80" transform="translate(370,2440)" />
 
             <rect class="path" id="1108" width="105" height="80" transform="translate(620,1800)" />
             <rect class="path" id="1109" width="105" height="80" transform="translate(620,1880)" />
@@ -166,10 +171,28 @@
 
             <rect class="path" id="1119" width="90" height="80" transform="translate(1040,1880)" />
 
+            <!-- Path around central conference rooms and cubicles -->
+            <g class="central_conf_rooms_cubicles" transform="rotate(45,1450,2000)">
+              <rect x='1300' y='2920' class='path' id='1120' width='90' height='80'></rect>
+              <rect x='1390' y='2920' class='path' id='1121' width='90' height='80'></rect>
+              <rect x='1300' y='2670' class='path' id='1122' width='90' height='90'></rect>
+              <rect x='1390' y='2670' class='path' id='1123' width='90' height='90'></rect>
+              <rect x='1680' y='2670' class='path' id='1124' width='90' height='90'></rect>
+              <rect x='1770' y='2670' class='path' id='1125' width='90' height='90'></rect>
+              <rect x='1680' y='2910' class='path' id='1126' width='90' height='90'></rect>
+              <rect x='1770' y='2910' class='path' id='1127' width='90' height='90'></rect>
+            </g>
+
             <!-- Path continuing down towards Agnes' kitchen from leftmost wall mrkt_mgmt, acd, branch_dev, isa, vacant, ops offices -->
-            <rect x='370' y='2560' class='path' id='1120' width='70' height='160'></rect>
+            <rect x='370' y='2520' class='path' id='1120' width='70' height='200'></rect>
             <rect x='370' y='2720' class='path' id='1121' width='70' height='130'></rect>
             <polygon points='370,2850 515,2850 370,3030 370,2850' class='path' id='1122'></polygon>
+         <!--  <rect x='440' y='2520' class='path' id='1123' width='90' height='200'></rect>
+         <!--  <rect x='440' y='2620' class='path' id='1124' width='90' height='100'></rect> -->
+            <rect x='530' y='2430' class='path' id='1123' width='90' height='90'></rect>
+
+
+
           </g>
 
           <g class="misc">
@@ -207,8 +230,6 @@
 
             <!-- Privacy Pod below reitrement services and quality control cubicles -->
 
-            <!-- Copy rooms on either side of the Independence conference room -->
-
             <!-- Privacy pods between Independence conference room and Agnes' Kitchen -->
 
             <!-- Agnes' Kitchen, bottom left corner -->
@@ -236,6 +257,16 @@
 
             <!-- Scanning area -->
             <rect x='1920' y='2475' class='scanning' id='' width='280' height='70'></rect>
+
+            <!-- Print copy_rm next to will_penn_room conference room -->
+            <g class="central_conf_rooms_cubicles" transform="rotate(45,1450,2000)">
+              <rect x='1300' y='2480' class='copy_rm' id='' width='180' height='110'></rect>
+              <!-- Print copy_rm next to betsy_ross_room conference room -->
+              <rect x='1680' y='2480' class='copy_rm' id='' width='180' height='110'></rect>
+            </g>
+            <!-- Two privacy pods beneath independence conference room -->
+            <g class="central_conf_rooms_cubicles" transform="rotate(45,1450,2000)">
+
           </g>
 
           <g class="desks">
@@ -421,9 +452,9 @@
               <rect x='1480' y='2225' class="desk conf conf franklin_room" id="139" width="140" height="85" />
               <rect x='1665' y='2075' class="desk conf conf liberty_room" id="140" width="75" height="235" />
 
-              <rect x='1340' y='2360' class="desk conf conf will_penn_room" id="141" width="140" height="80" />
+              <rect x='1300' y='2360' class="desk conf conf will_penn_room" id="141" width="180" height="120" />
               <rect x='1480' y='2360' class="desk conf conf indepen_room" id="142" width="200" height="560" />
-              <rect x='1680' y='2360' class="desk conf conf betsy_ross_room" id="143" width="140" height="80" />
+              <rect x='1680' y='2360' class="desk conf conf betsy_ross_room" id="143" width="180" height="120" />
 
               <rect x='1390' y='2590' class="desk cubicle asset_mgmt" id="144" width="90" height="80" />
               <rect x='1300' y='2590' class="desk cubicle asset_mgmt" id="145" width="90" height="80" />

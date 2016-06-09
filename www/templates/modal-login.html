@@ -1,22 +1,23 @@
 <!-- modal-login.html -->
 
-<ion-modal-view>
+<ion-modal-view id="login-modal">
   <ion-header-bar>
     <h1 class="title">Login</h1>
-    <div class="buttons">
+    <!-- <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
+    -->
   </ion-header-bar>
   <ion-content class="padding">
-    <form ng-submit="doLogin()">
+    <form ng-submit="doLogin()" name="login">
       <div class="list">
-        <label class="item item-input">
+        <label class="item item-input" id="login-email" ng-class="{'has-error': login.email.$invalid}">
           <span class="input-label">Email Address</span>
-          <input type="text" ng-model="loginData.email">
+          <input name="email"type="email" ng-model="loginData.email">
         </label>
-        <label class="item item-input">
+        <label class="item item-input" id="login-password" ng-class="{'has-error': login.password.$invalid}">
           <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <input name="password" type="password" ng-model="loginData.password">
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Log in</button>
