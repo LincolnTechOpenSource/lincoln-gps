@@ -47,7 +47,6 @@ angular.module('tab.controller', [])
         });
     });
 
-
     // Triggered in the login modal to close it
     $scope.closeLogin = function() {
         $scope.modal.hide();
@@ -60,59 +59,63 @@ angular.module('tab.controller', [])
 
     // Perform the login action when the user submits the login form
     $scope.doLogin = function() {
-        if ($scope.loginData) {
-            $ionicLoading.show({
-                template: 'Signing In...'
-            });
+        $ionicLoading.show({
+            template: 'Signing In...'
+        });
 
-            Auth.$signInWithEmailAndPassword($scope.loginData.email,
-                $scope.loginData.password).catch(function(error) {
-                // Handle Errors here.
-                console.log("Authentication failed (" + error.code + "): " + error.message);
-
-                var emailField = $('#login-modal #login-email');
-                var passwordField = $('#login-modal #login-password');
-
-                switch (error.code) {
-                    // badly formatted email
-                    case 'auth/invalid-email':
-                        emailField.addClass('has-error');
-                        passwordField.removeClass('has-error');
-
-                        $scope.error.code = error.code;
-                        $scope.error.message = "Please enter a valid email";
-                        $scope.error.show = true;
-                        break;
-
-                        // do not distinguish between bad password and bad user
-                    case 'auth/user-disabled':
-                    case 'auth/user-not-found':
-                    case 'auth/wrong-password':
-                        emailField.addClass('has-error');
-                        passwordField.addClass('has-error');
-
-                        $scope.error.code = error.code;
-                        $scope.error.message = "Invalid Email / Password Combination";
-                        $scope.error.show = true;
-                        break;
-
-                        // firebase says the code should be one of the above
-                    default:
-                        console.alert('Invalid Return Type... Firebase error!');
-                        break;
-                }
-
-            }).then(function() {
-                // reset login form
-                $scope.loginData.password = "";
-                $timeout(function() {
-                    $ionicLoading.hide();
-                }, 100);
-            });
-        }
+        Auth.$signInWithEmailAndPassword($scope.loginData.email,
+            $scope.loginData.password).catch(function(error) {
+            // Handle Errors here
+            console.log("Authentication failed (" + error.code + "): " + error.message);
+            _handleError(error);
+        }).then(function() {
+            // reset login form
+            $scope.loginData.password = "";
+            $timeout(function() {
+                $ionicLoading.hide();
+            }, 100);
+        });
     };
 
     $scope.logout = function() {
         Auth.$signOut();
     };
+
+
+    /**
+     * _handleError: helper function to handle a firebase authentication error
+     */
+    function _handleError(error) {
+        var emailField = $('#login-modal #login-email');
+        var passwordField = $('#login-modal #login-password');
+
+        switch (error.code) {
+            // badly formatted email
+            case 'auth/invalid-email':
+                emailField.addClass('has-error');
+                passwordField.removeClass('has-error');
+
+                $scope.error.code = error.code;
+                $scope.error.message = "Please enter a valid email";
+                $scope.error.show = true;
+                break;
+
+                // do not distinguish between bad password and bad user
+            case 'auth/user-disabled':
+            case 'auth/user-not-found':
+            case 'auth/wrong-password':
+                emailField.addClass('has-error');
+                passwordField.addClass('has-error');
+
+                $scope.error.code = error.code;
+                $scope.error.message = "Invalid Email / Password Combination";
+                $scope.error.show = true;
+                break;
+
+                // firebase says the code should be one of the above
+            default:
+                console.alert('Invalid Return Type... Firebase error!');
+                break;
+        }
+    }
 });

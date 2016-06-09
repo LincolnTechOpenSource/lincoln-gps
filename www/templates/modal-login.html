@@ -18,7 +18,7 @@
       <div class="list">
         <label class="item item-input" id="login-email" ng-class="{'has-error': login.email.$invalid}">
           <span class="input-label">Email Address</span>
-          <input name="email"type="email" ng-model="loginData.email">
+          <input name="email"type="email" ng-model="loginData.email" autocomplete="off" autocorrect="off" autocapitalize="off">
         </label>
         <label class="item item-input" id="login-password" ng-class="{'has-error': login.password.$invalid}">
           <span class="input-label">Password</span>
