@@ -5,8 +5,9 @@
     <h1 class="title">Sign In</h1>
   </ion-header-bar>
   <ion-content class="padding">
-    <div class="card text-center" ng-show="error.exists">
+    <div class="card text-center" ng-show="error.show">
       <div class="item item-divider assertive-bg stable">
+        <i on-tap="error.show = false" class="x-clear icon ion-close"></i>
         Unable to Sign In
       </div>
       <div class="item item-text-wrap assertive">

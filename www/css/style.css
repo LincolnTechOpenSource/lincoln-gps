@@ -14,7 +14,7 @@ ion-search-select label.search-select {
 
 /* Map Tab Style */
 
-#tab-map .employee-info .x-clear {
+.x-clear {
     cursor: pointer;
     float: right;
     padding-right: 5px;

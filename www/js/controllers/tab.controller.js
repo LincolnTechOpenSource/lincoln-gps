@@ -17,7 +17,7 @@ angular.module('tab.controller', [])
 
     // Error messages for login
     $scope.error = {
-        exists: false,
+        show: false,
         message: null,
         code: null
     };
@@ -37,7 +37,7 @@ angular.module('tab.controller', [])
                 $scope.loginData.email = ""; // clear email on success
                 $scope.modal.hide();
 
-                $scope.error.exists = false;
+                $scope.error.show = false;
             }
             else {
                 // No user is signed in.
@@ -81,7 +81,7 @@ angular.module('tab.controller', [])
 
                         $scope.error.code = error.code;
                         $scope.error.message = "Please enter a valid email";
-                        $scope.error.exists = true;
+                        $scope.error.show = true;
                         break;
 
                         // do not distinguish between bad password and bad user
@@ -93,7 +93,7 @@ angular.module('tab.controller', [])
 
                         $scope.error.code = error.code;
                         $scope.error.message = "Invalid Email / Password Combination";
-                        $scope.error.exists = true;
+                        $scope.error.show = true;
                         break;
 
                         // firebase says the code should be one of the above
