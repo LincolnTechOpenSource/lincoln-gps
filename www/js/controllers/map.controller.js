@@ -48,7 +48,7 @@ angular.module('map.controller', [])
             // set click functions for directions and information
             $('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
             $('#svg').on('click', '#map .desk', getEmployeeInfo);
-            //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
+            $('#svg2').on('click', '#map2 g *', function() {console.log(this.id);});
         });
 
         // finds and colors the shortest path from source to target in the graph
