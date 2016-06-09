@@ -15,6 +15,13 @@ angular.module('tab.controller', [])
         password: ""
     };
 
+    // Error messages for login
+    $scope.error = {
+        exists: false,
+        message: null,
+        code: null
+    };
+
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/modal-login.html', {
         scope: $scope,
@@ -29,6 +36,8 @@ angular.module('tab.controller', [])
                 console.log('Signed in... ' + user.uid);
                 $scope.loginData.email = ""; // clear email on success
                 $scope.modal.hide();
+
+                $scope.error.exists = false;
             }
             else {
                 // No user is signed in.
@@ -64,22 +73,30 @@ angular.module('tab.controller', [])
                 var emailField = $('#login-modal #login-email');
                 var passwordField = $('#login-modal #login-password');
 
-                switch(error.code) {
+                switch (error.code) {
                     // badly formatted email
                     case 'auth/invalid-email':
                         emailField.addClass('has-error');
                         passwordField.removeClass('has-error');
+
+                        $scope.error.code = error.code;
+                        $scope.error.message = "Please enter a valid email";
+                        $scope.error.exists = true;
                         break;
 
-                    // do not distinguish between bad password and bad user
+                        // do not distinguish between bad password and bad user
                     case 'auth/user-disabled':
                     case 'auth/user-not-found':
                     case 'auth/wrong-password':
                         emailField.addClass('has-error');
                         passwordField.addClass('has-error');
+
+                        $scope.error.code = error.code;
+                        $scope.error.message = "Invalid Email / Password Combination";
+                        $scope.error.exists = true;
                         break;
 
-                    // firebase says the code should be one of the above
+                        // firebase says the code should be one of the above
                     default:
                         console.alert('Invalid Return Type... Firebase error!');
                         break;
