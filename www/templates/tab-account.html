@@ -62,8 +62,16 @@
               <text id='text_list_mrkt_comm' x='1700' y='1250' font-family='Verdana' font-size='40' fill='black'>Marketing and Communication</text>
               <rect id='colorbox_list_mrkt_comm' x='2500' y='1215' width='30' height='30'></rect>
             </g>
-          </g>
-        </g>
+            <g class='list_prvd_mgmt'>
+              <text id='text_list_prvd_mgmt' x='1700' y='1350' font-family='Verdana' font-size='40' fill='black'>Provider Management</text>
+              <rect id='colorbox_list_prvd_mgmt' x='2500' y='1315' width='30' height='30'></rect>
+            </g>
+            <g class='list_isa'>
+              <text id='text_list_isa' x='1700' y='1450' font-family='Verdana' font-size='40' fill='black'>Investor Services Advisor</text>
+              <rect id='colorbox_list_isa' x='2500' y='1415' width='30' height='30'></rect>
+            </g>
+          </g> <!-- End Department List -->
+        </g> <!-- End Map legend group -->
         <g class="walls">
           <!-- Wall/perimeter of Lincoln Investment floor -->
           <polyline points="170,165 1597,165 1597,1560 1920,1560 2072,1715 2072,2030 3463,2030 3463,3460 170,3460 170,165" class="wall" id="" style="fill:none;stroke-width:2;stroke:rgb(0,0,0)"></polyline>
@@ -1053,6 +1061,21 @@
           });
           $('#text_list_tpa').on("mouseout", function() {
             $('#86,#87,#88, #colorbox_list_tpa').css({ fill: "coral" });
+          });
+          $('#text_list_mrkt_comm').on("mouseover", function() {
+            $('#74,#75,#76,#77,#78,#97,#105,#114,#122, #colorbox_list_mrkt_comm').css({ fill: "blue" });
+          });
+          $('#text_list_mrkt_comm').on("mouseout", function() {
+            $('#74,#75,#76,#77,#78,#97,#105,#114,#122, #colorbox_list_mrkt_comm').css({ fill: "#3399FF" });
+          });
+          $('#text_list_prvd_mgmt').on("mouseover", function() {
+            $('#79,#80,#81,#82,#83,#89,#90,#91,#92,#93,#94,#95,#96, #colorbox_list_prvd_mgmt').css({ fill: "blue" });
+          });
+          $('#text_list_prvd_mgmt').on("mouseout", function() {
+            $('#79,#80,#81,#82,#83,#89,#90,#91,#92,#93,#94,#95,#96, #colorbox_list_prvd_mgmt').css({ fill: "#00FFFF" });
+          });
+          $('#text_list_isa').on("mouseover", function() {
+            $('# #colorbox_list_isa').css({ fill: "blue" });
           });
         </script>
       </svg>

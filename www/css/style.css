@@ -564,3 +564,17 @@ svg .list_tpa {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_mrkt_comm {
+    position: relative;
+    fill: #3399FF;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_prvd_mgmt {
+    position: relative;
+    fill: #00FFFF;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}

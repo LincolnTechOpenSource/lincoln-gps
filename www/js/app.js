@@ -14,6 +14,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 .run(function($rootScope, $ionicPlatform) {
     $ionicPlatform.ready(function() {
         console.info('Ionic Charged!'); // log that ionic is ready and running
+        console.log(angular.version);
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
