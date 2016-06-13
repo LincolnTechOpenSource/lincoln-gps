@@ -66,10 +66,14 @@ angular.module('map.controller', [])
             }
         };
 
-        // resets the selected employee and removes his highlight
+        /** resets the selected location and removes path highlighting
+         * @locSelect will be either "fromNode" or "toNode" (e.g., a field of selectNode)
+         */
         $scope.clearLocation = function(locSelect) {
+            // remove highlighting
+            $("#svg #map g.non-walls *").removeClass("hilite");
             $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
-            $scope.selectNode[locSelect] = null;
+            $scope.selectNode[locSelect] = null; // clear the location
 
             //$('#svg #map #' + $scope.employee.id).removeClass('hilite');
             //$scope.employee = null;

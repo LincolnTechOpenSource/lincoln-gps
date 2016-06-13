@@ -545,3 +545,10 @@ svg .list_vsa {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg list_accounting {
+    position: relative;
+    fill: #006600;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
