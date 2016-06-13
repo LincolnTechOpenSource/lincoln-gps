@@ -440,9 +440,7 @@ svg .path {
     top: 0px;
     left: 0px;
     fill: white;
-    border: black;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
+    border: none;
     z-index: -20;
 }
 
@@ -546,9 +544,23 @@ svg .list_vsa {
     stroke: rgb(0, 0, 0);
 }
 
-svg list_accounting {
+svg .list_accounting {
     position: relative;
     fill: #006600;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_operations {
+    position: relative;
+    fill: tomato;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_tpa {
+    position: relative;
+    fill: coral;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }

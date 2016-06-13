@@ -50,6 +50,18 @@
               <text id='text_list_accounting' x='1700' y='950' font-family='Verdana' font-size='40' fill='black'>Accounting</text>
               <rect id='colorbox_list_accounting' x='2500' y='915' width='30' height='30'></rect>
             </g>
+            <g class='list_operations'>
+              <text id='text_list_operations' x='1700' y='1050' font-family='Verdana' font-size='40' fill='black'>Operations</text>
+              <rect id='colorbox_list_operations' x='2500' y='1015' width='30' height='30'></rect>
+            </g>
+            <g class='list_tpa'>
+              <text id='text_list_tpa' x='1700' y='1150' font-family='Verdana' font-size='40' fill='black'>Third Party Administrator</text>
+              <rect id='colorbox_list_tpa' x='2500' y='1115' width='30' height='30'></rect>
+            </g>
+            <g class='list_mrkt_comm'>
+              <text id='text_list_mrkt_comm' x='1700' y='1250' font-family='Verdana' font-size='40' fill='black'>Marketing and Communication</text>
+              <rect id='colorbox_list_mrkt_comm' x='2500' y='1215' width='30' height='30'></rect>
+            </g>
           </g>
         </g>
         <g class="walls">
@@ -1029,6 +1041,18 @@
           });
           $('#text_list_accounting').on("mouseout", function() {
             $('#37,#48,#49,#50,#51,#52,#53,#54,#55,#66,#67,#68,#69,#70,#71,#72,#73, #colorbox_list_accounting').css({ fill: "#006600" });
+          });
+          $('#text_list_operations').on("mouseover", function() {
+            $('#62,#63,#64,#65,#102,#104,#119,#120,#133,#162,#163,#164,#165,#180,#288, #colorbox_list_operations').css({ fill: "blue" });
+          });
+          $('#text_list_operations').on("mouseout", function() {
+            $('#62,#63,#64,#65,#102,#104,#119,#120,#133,#162,#163,#164,#165,#180,#288, #colorbox_list_operations').css({ fill: "tomato" });
+          });
+          $('#text_list_tpa').on("mouseover", function() {
+            $('#86,#87,#88, #colorbox_list_tpa').css({ fill: "blue" });
+          });
+          $('#text_list_tpa').on("mouseout", function() {
+            $('#86,#87,#88, #colorbox_list_tpa').css({ fill: "coral" });
           });
         </script>
       </svg>
