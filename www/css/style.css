@@ -505,3 +505,10 @@ svg .list_branch_dev{
     stroke: rgb(0, 0, 0);
 }
 
+svg .list_imr{
+    position: relative;
+    fill: pink;
+    border-color:black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}

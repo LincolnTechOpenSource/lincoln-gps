@@ -31,10 +31,12 @@ angular.module('map.controller', [])
 
         // handle employee parameter
         if (!!$stateParams.employee) {
+            // set current employee and from node given parameter
             $scope.employee = $stateParams.employee;
-            // set source to employee
+            $scope.selectNode.fromNode = $stateParams.employee;
+
             $rootScope.Graphing.setSource = false;
-            $rootScope.Graphing.source = $scope.employee.id;
+            //$rootScope.Graphing.source = $scope.employee.id;
 
             $('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
         }
@@ -51,10 +53,12 @@ angular.module('map.controller', [])
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
-            $rootScope.Graphing.target = null; // always clear target
+            $scope.selectNode.toNode = null;
+            //$rootScope.Graphing.target = null; // always clear target
             if (!$stateParams.employee) {
                 $rootScope.Graphing.setSource = true;
-                $rootScope.Graphing.source = null;
+                //$rootScope.Graphing.source = null;
+                $scope.selectNode.fromNode.$id = null;
             }
             else {
                 // keep employee hilited
@@ -132,13 +136,13 @@ angular.module('map.controller', [])
             if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
                 //console.log('finding...');
 
-                $rootScope.Graphing.source = $scope.selectNode.fromNode.$id;
-                $rootScope.Graphing.target = $scope.selectNode.toNode.$id;
+                //$rootScope.Graphing.source = $scope.selectNode.fromNode.$id;
+                //$rootScope.Graphing.target = $scope.selectNode.toNode.$id;
 
-                var dirResults = Dijkstra.run($rootScope.Graphing.source,
-                    $rootScope.Graphing.target, $rootScope.Graphing.graph);
+                var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
+                    $scope.selectNode.toNode.$id, $rootScope.Graphing.graph);
 
-                var directions = Dijkstra.getPath(dirResults.prev, $rootScope.Graphing.target);
+                var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
 
                 $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
                 for (var i = 0; i < directions.length; i++) {
