@@ -32,7 +32,7 @@ angular.module('firebase.services', ['firebase'])
             },
             /** get: returns the location information specified by @locID */
             get: function(locID) {
-                return locations.$getRecord(locID);
+                return locations ? locations.$getRecord(locID) : null;
             }
         };
     })

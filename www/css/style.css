@@ -524,3 +524,24 @@ svg .list_busi_dev{
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_finance{
+    position: relative;
+    fill: #00FF00;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_acd{
+    position: relative;
+    fill: gray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_vsa {
+    position: relative;
+    fill: yellow;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}

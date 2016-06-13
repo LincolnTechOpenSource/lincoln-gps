@@ -67,9 +67,12 @@ angular.module('map.controller', [])
         };
 
         // resets the selected employee and removes his highlight
-        $scope.clearEmployee = function() {
-            $('#svg #map #' + $scope.employee.id).removeClass('hilite');
-            $scope.employee = null;
+        $scope.clearLocation = function(locSelect) {
+            $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
+            $scope.selectNode[locSelect] = null;
+
+            //$('#svg #map #' + $scope.employee.id).removeClass('hilite');
+            //$scope.employee = null;
         };
 
         $(document).ready(function() {

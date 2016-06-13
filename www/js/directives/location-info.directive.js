@@ -5,8 +5,10 @@ angular.module('location-info.directive', [])
         return {
             restrict: 'E',
             scope: {
+                locSelect: '@',
                 location: '='
             },
+            transclude: true,
             templateUrl: 'templates/location-info.html'
         };
     }]);

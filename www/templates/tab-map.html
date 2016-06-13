@@ -3,13 +3,6 @@
     <ion-content class="padding">
         <h2 class="text-center">Lincoln GPS Locator</h2>
 
-        <div class="item employee-info" ng-show="!!employee">
-            <i on-tap="clearEmployee()" class="x-clear icon ion-close"></i>
-            <p class="text-center"> <strong>{{ employee.name }}</strong> </p>
-            <p class="text-center"> <strong>{{ employee.title }}</strong> of <strong>{{ employee.division }}</strong></p>
-            <p class="text-center"> Contact at <strong>{{ employee.email }}</strong> or <strong>{{ employee.ext }}</strong> </p>
-        </div>
-
         <button class="button button-assertive" ng-click="clearPath()">
             Clear Path
         </button>
@@ -19,7 +12,7 @@
         </button>
 
         <div class="row">
-            <div id="from" class="col col-50">
+            <div id="from-loc" class="col col-50">
                 <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode">
                     <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
@@ -28,10 +21,11 @@
                         </div>
                     </label>
                 </ion-search-select>
-                <location-info location="selectNode.fromNode"></location-info>
-
+                <location-info location="selectNode.fromNode" loc-select="fromNode">
+                    <i on-tap="clearLocation('fromNode')" class="x-clear icon ion-close"></i>
+                </location-info>
             </div>
-            <div id="to" class="col col-50">
+            <div id="to-loc" class="col col-50">
                 <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode">
                     <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
@@ -40,6 +34,9 @@
                         </div>
                     </label>
                 </ion-search-select>
+                <location-info location="selectNode.toNode">
+                    <i on-tap="clearLocation('toNode')" class="x-clear icon ion-close"></i>
+                </location-info>
             </div>
         </div>
 
