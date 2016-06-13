@@ -22,9 +22,14 @@
             <text id='leg_title' x='2620' y='250' font-family='Verdana' font-size='100' fill='black' >DEPARTMENTS</text>
           </g>
           <g class='department_list'>
-            <text id='list_bdev' x='1900' y='350' font-family='Verdana' font-size='50' fill='black'>Branch Development</text>
-            <!--x='2460' y='300' width='50' height='50' -->
-            <button class='list branch_dev'>Branch Development</button>
+            <g class='list_branch_dev'>
+              <text id='text_list_branch_dev' x='1900' y='350' font-family='Verdana' font-size='50' fill='black'>Branch Development</text>
+              <rect id='colorbox_list_branch_dev' x='2500' y='315' width='30' height='30'></rect>
+            </g>
+            <g class='list_imr'>
+              <text id='text_list_imr' x='1900' y='450' font-family='Verdana' font-size='50' fill='black'>Investment Management and Research</text>
+              <rect id='colorbox_list_imr' x='2500' y='315' width='30' height='30'></rect>
+            </g>
           </g>
         </g>
         <g class="walls">
@@ -959,13 +964,21 @@
 
           </g> <!-- End desk group -->
         </g> <!-- End non-wall group -->
+        <!-- Hover highlights for map legend department list -->
         <script>
-          $('#list_bdev').on("mouseover", function() {
-            $('#2, #3').css({ fill: "blue" });
+          $('#text_list_branch_dev').on("mouseover", function() {
+            $('#2, #3, #4, #6, #7, #20, #21, #22, #25, #26, #27, #colorbox_list_branch_dev').css({ fill: "blue" });
           });
-          $('#list_bdev').on("mouseout", function() {
-            $('#2').css({fill: "red"});
+          $('#text_list_branch_dev').on("mouseout", function() {
+            $('#2, #3, #4, #6, #7, #20, #21, #22, #25, #26, #27, #colorbox_list_branch_dev').css({fill: "red"});
           });
+          $('#text_list_imr').on("mouseover", function() {
+            $(' #colorbox_list_imr').css({ fill: "blue" });
+          });
+          $('#text_list_imr').on("mouseout", function() {
+            $(' #colorbox_list_imr').css({fill: "pink"});
+          });
+
         </script>
       </svg>
     </div>

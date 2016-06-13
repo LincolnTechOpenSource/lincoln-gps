@@ -66,7 +66,7 @@ ion-search-select label.search-select {
     fill: blue;
 }
 
-#svg #map g.non-walls .hilite.desk {
+#svg #map g.non-walls .hilite:not(.path) {
     stroke: blue;
     stroke-width: 2px;
 }
@@ -497,14 +497,11 @@ svg .legend_title{
     stroke: rgb(0, 0, 0);
 }
 
-svg .list.branch_dev{
-    fill:red;
+svg .list_branch_dev{
+    position: relative;
+    fill: red;
+    border-color:black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
 }
 
-svg .list.branch_dev:hover{
-    fill:blue;
-}
-
-svg .list.branch_dev:click{
-        $("svg .desk.office.branch_dev":"fill":"blue"})
-}

@@ -84,10 +84,12 @@ Dijkstra.getPath = function (prev, target) {
     var path = []; // the path to return
     var t = target;
 
+    // add a block to path
     while (prev[t] !== undefined && prev[t] !== null) {
         path.unshift(t);
         t = prev[t];
     }
+    path.unshift(t); // add the source to path
 
     return path;
 };

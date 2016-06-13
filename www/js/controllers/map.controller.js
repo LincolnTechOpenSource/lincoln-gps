@@ -70,7 +70,7 @@ angular.module('map.controller', [])
 
         $(document).ready(function() {
             // set click functions for directions and information
-            $('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
+            //$('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
             $('#svg').on('click', '#map .desk', getEmployeeInfo);
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
 
@@ -114,16 +114,37 @@ angular.module('map.controller', [])
         function pathColor(s, t, g) {
             var results = Dijkstra.run(s, t, g); // get distances and previous
             var path = Dijkstra.getPath(results.prev, t); // find the path to t
-            path.unshift(s); // add s to the beginning (so that it is hilited too)
 
-            $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
             for (var i = 0; i < path.length; i++) {
                 $('#svg #map #' + path[i]).addClass('hilite'); // hilite each block in the path
             }
         }
 
-        $scope.findDirections = function() {
-            console.log('finding...');
+        // watch to find directions
+        $scope.$watch("selectNode.toNode", function(newValue, oldValue) {
+            findDirections();
+        });
+        $scope.$watch("selectNode.fromNode", function(newValue, oldValue) {
+            findDirections();
+        });
+
+        var findDirections = function() {
+            if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
+                //console.log('finding...');
+
+                $rootScope.Graphing.source = $scope.selectNode.fromNode.$id;
+                $rootScope.Graphing.target = $scope.selectNode.toNode.$id;
+
+                var dirResults = Dijkstra.run($rootScope.Graphing.source,
+                    $rootScope.Graphing.target, $rootScope.Graphing.graph);
+
+                var directions = Dijkstra.getPath(dirResults.prev, $rootScope.Graphing.target);
+
+                $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
+                for (var i = 0; i < directions.length; i++) {
+                    $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
+                }
+            }
         };
 
         // gets directions from source to target on click
