@@ -6,11 +6,26 @@
 
 angular.module('map.controller', [])
 
-.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Employees',
-    function($rootScope, $scope, $stateParams, $compile, Employees) {
+.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Locations',
+    'Auth', function($rootScope, $scope, $stateParams, $compile, Locations, Auth) {
         // reset Graphing fields
         $rootScope.Graphing.source = $rootScope.Graphing.target = null;
         $rootScope.Graphing.setSource = true;
+
+        $scope.selectNode = {
+            nodes: Locations.all(),
+            node: null
+        };
+
+        // load employees when signed in
+        Auth.$onAuthStateChanged(function(user) {
+            if (user) {
+                $scope.selectNode.nodes = Locations.all();
+            }
+            else {
+                $scope.selectNode.nodes = null;
+            }
+        });
 
         // handle employee parameter
         if (!!$stateParams.employee) {

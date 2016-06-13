@@ -1,4 +1,5 @@
 /* style.css */
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 
 /* general css */
@@ -486,4 +487,24 @@ svg .block:hover {
 
 svg .locator {
     opacity: 1;
+}
+
+svg .legend_title{
+    position: relative;
+    fill: white;
+    border-color:black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list.branch_dev{
+    fill:red;
+}
+
+svg .list.branch_dev:hover{
+    fill:blue;
+}
+
+svg .list.branch_dev:click{
+        $("svg .desk.office.branch_dev":"fill":"blue"})
 }
