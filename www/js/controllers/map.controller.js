@@ -9,13 +9,10 @@ angular.module('map.controller', [])
 .controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Locations',
     'Auth',
     function($rootScope, $scope, $stateParams, $compile, Locations, Auth) {
-        // reset Graphing fields
-        $rootScope.Graphing.source = $rootScope.Graphing.target = null;
-        $rootScope.Graphing.setSource = true;
 
         $scope.selectNode = {
             nodes: Locations.all(),
-            fromNode: null,
+            fromNode: null, // this will also serve as the parameter employee
             toNode: null
         };
 
@@ -32,13 +29,7 @@ angular.module('map.controller', [])
         // handle employee parameter
         if (!!$stateParams.employee) {
             // set current employee and from node given parameter
-            //$scope.employee = $stateParams.employee;
             $scope.selectNode.fromNode = $stateParams.employee;
-
-            $rootScope.Graphing.setSource = false;
-            //$rootScope.Graphing.source = $scope.employee.id;
-
-            //$('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
         }
 
         // filter the map as prescribed
@@ -49,21 +40,12 @@ angular.module('map.controller', [])
         }
 
         // resets the path and removes all highlights (but leaves employee)
-        $scope.clearPath = function() {
+        $scope.clear = function() {
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
             $scope.selectNode.toNode = null;
             $scope.selectNode.fromNode = null;
-            /*if (!$stateParams.employee) {
-                $rootScope.Graphing.setSource = true;
-                //$rootScope.Graphing.source = null;
-                $scope.selectNode.fromNode = null;
-            }
-            else {
-                // keep employee hilited
-                //$('#svg #map #' + $scope.employee.id).addClass('hilite');
-            }*/
         };
 
         /** resets the selected location and removes path highlighting
@@ -76,10 +58,42 @@ angular.module('map.controller', [])
             $scope.selectNode[locSelect] = null; // clear the location
         };
 
+        // watch to find directions
+        $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
+            findDirections();
+            // also change highlight from old node to new node
+            if (!!oldNode)
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
+
+            if (!!newNode)
+                $('#svg #map #' + newNode.id).addClass('hilite');
+        });
+        $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
+            findDirections();
+            // also change highlight from old node to new node
+            if (!!oldNode)
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
+
+            if (!!newNode)
+                $('#svg #map #' + newNode.id).addClass('hilite');
+        });
+
+        var findDirections = function() {
+            if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
+                var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
+                    $scope.selectNode.toNode.$id, $rootScope.Graphing.graph);
+
+                var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
+
+                $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
+                for (var i = 0; i < directions.length; i++) {
+                    $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
+                }
+            }
+        };
+
         $(document).ready(function() {
-            // set click functions for directions and information
-            //$('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
-            //$('#svg').on('click', '#map .desk', getEmployeeInfo);
+            // debugging to get neighbors
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
 
             // load pan zoom
@@ -117,76 +131,5 @@ angular.module('map.controller', [])
             return customPan
         }
         */
-
-        // finds and colors the shortest path from source to target in the graph
-        function pathColor(s, t, g) {
-            var results = Dijkstra.run(s, t, g); // get distances and previous
-            var path = Dijkstra.getPath(results.prev, t); // find the path to t
-
-            for (var i = 0; i < path.length; i++) {
-                $('#svg #map #' + path[i]).addClass('hilite'); // hilite each block in the path
-            }
-        }
-
-        // watch to find directions
-        $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
-            findDirections();
-            // also change highlight from old node to new node
-            if (!!oldNode)
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
-
-            if (!!newNode)
-                $('#svg #map #' + newNode.id).addClass('hilite');
-        });
-        $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
-            findDirections();
-            // also change highlight from old node to new node
-            if (!!oldNode)
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
-
-            if (!!newNode)
-                $('#svg #map #' + newNode.id).addClass('hilite');
-        });
-
-        var findDirections = function() {
-            if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
-                //$rootScope.Graphing.source = $scope.selectNode.fromNode.$id;
-                //$rootScope.Graphing.target = $scope.selectNode.toNode.$id;
-
-                var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
-                    $scope.selectNode.toNode.$id, $rootScope.Graphing.graph);
-
-                var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
-
-                $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
-                for (var i = 0; i < directions.length; i++) {
-                    $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
-                }
-            }
-        };
-
-        // gets directions from source to target on click
-        function getDirs(event) {
-            if ($rootScope.Graphing.setSource) {
-                $rootScope.Graphing.source = this.id;
-            }
-            else {
-                $rootScope.Graphing.target = this.id;
-            }
-            $rootScope.Graphing.setSource = !$rootScope.Graphing.setSource;
-
-            if ($rootScope.Graphing.target !== null) {
-                pathColor($rootScope.Graphing.source, $rootScope.Graphing.target,
-                    $rootScope.Graphing.graph);
-            }
-        }
-
-        // updates the display with the employees information on click (and hilites)
-        function getEmployeeInfo(event) {
-            //$scope.employee = Locations.get(this.id);
-
-            //$('#svg #map #' + this.id).addClass('hilite'); // hilite the guy clicked
-            //$scope.$apply();
-        }
     }
 ]);

@@ -29,10 +29,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 
         // graphing object for global variables
         $rootScope.Graphing = {
-            graph: null,
-            source: null,
-            target: null,
-            setSource: true
+            graph: null
         };
 
         /* define fitlers

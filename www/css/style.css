@@ -649,3 +649,10 @@ svg .list_account_setup {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_compli_licens {
+    position: relative;
+    fill: #ffff99;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
