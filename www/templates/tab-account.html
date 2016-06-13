@@ -86,6 +86,10 @@
               <text id='text_list_one_time_financials' x='2700' y='550' font-family='Verdana' font-size='40' fill='black'>One Time Financials</text>
               <rect id='colorbox_list_one_time_financials' x='3400' y='525' width='30' height='30'></rect>
             </g>
+            <g class='list_conf'>
+              <text id='text_list_conf' x='2700' y='650' font-family='Verdana' font-size='40' fill='black'>Conference Rooms</text>
+              <rect id='colorbox_list_conf' x='3400' y='625' width='30' height='30'></rect>
+            </g>
           </g> <!-- End Department List -->
         </g> <!-- End Map legend group -->
         <g class="walls">
@@ -826,13 +830,13 @@
               <rect x='1480' y='1950' class="desk reception" id="135" width="140" height="125" />
               <rect x='1620' y='1950' class="desk conf phila_room" id="136" width="120" height="125" />
               <rect x='1480' y='2075' class="desk conf consti_room" id="137" width="180" height="150" />
-              <rect x='1340' y='2250' class="desk conf conf idf_room" id="138" width="140" height="60" />
-              <rect x='1480' y='2225' class="desk conf conf franklin_room" id="139" width="140" height="85" />
-              <rect x='1660' y='2075' class="desk conf conf liberty_room" id="140" width="80" height="235" />
+              <rect x='1340' y='2250' class="desk conf idf_room" id="138" width="140" height="60" />
+              <rect x='1480' y='2225' class="desk conf franklin_room" id="139" width="140" height="85" />
+              <rect x='1660' y='2075' class="desk conf liberty_room" id="140" width="80" height="235" />
 
-              <rect x='1300' y='2360' class="desk conf conf will_penn_room" id="141" width="180" height="120" />
-              <rect x='1480' y='2360' class="desk conf conf indepen_room" id="142" width="200" height="560" />
-              <rect x='1680' y='2360' class="desk conf conf betsy_ross_room" id="143" width="180" height="120" />
+              <rect x='1300' y='2360' class="desk conf will_penn_room" id="141" width="180" height="120" />
+              <rect x='1480' y='2360' class="desk conf indepen_room" id="142" width="200" height="560" />
+              <rect x='1680' y='2360' class="desk conf betsy_ross_room" id="143" width="180" height="120" />
 
               <rect x='1390' y='2590' class="desk cubicle asset_mgmt" id="144" width="90" height="80" />
               <rect x='1300' y='2590' class="desk cubicle asset_mgmt" id="145" width="90" height="80" />
@@ -1115,10 +1119,13 @@
             $('#144,#145,#146,#147,#148,#149,#150,#151, #colorbox_list_asset_mgmt').css({ fill: "lightgreen" });
           });
           $('#text_list_one_time_financials').on("mouseover", function() {
-            $('#152,#153,#154 #colorbox_list_one_time_financials').css({ fill: "blue" });
+            $('#152,#153,#154,#155,#156,#157,#158,#159, #colorbox_list_one_time_financials').css({ fill: "blue" });
           });
           $('#text_list_one_time_financials').on("mouseout", function() {
-            $('#152,#153,# #colorbox_list_one_time_financials').css({ fill: "sandybrown" });
+            $('#152,#153,#154,#155,#156,#157,#158,#159, #colorbox_list_one_time_financials').css({ fill: "sandybrown" });
+          });
+          $('#text_list_conf').on("mouseover", function() {
+            $('# #colorbox_list_conf').css({ fill: "blue" });
           });
         </script>
       </svg>
