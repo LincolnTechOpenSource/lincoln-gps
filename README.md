@@ -15,6 +15,8 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/07/16: Firebase connectivity, switching to tab template
 * 06/08/16: Progress on map, tab template switch, general cleaning of code
 * 06/09/16: Nearly finished with map, authentication, started filtering
+* 06/10/16: Finished SVG map
+* 06/13/16:
 
 ## Ideas to Contribute
 
