@@ -90,6 +90,18 @@
               <text id='text_list_conf' x='2700' y='650' font-family='Verdana' font-size='40' fill='black'>Conference Rooms</text>
               <rect id='colorbox_list_conf' x='3400' y='625' width='30' height='30'></rect>
             </g>
+            <g class='list_hr'>
+              <text id='text_list_hr' x='2700' y='750' font-family='Verdana' font-size='40' fill='black'>Human Resources</text>
+              <rect id='colorbox_list_hr' x='3400' y='725' width='30' height='30'></rect>
+            </g>
+            <g class='list_doc_mgmt'>
+              <text id='text_list_doc_mgmt' x='2700' y='850' font-family='Verdana' font-size='40' fill='black'>Document Management</text>
+              <rect id='colorbox_list_doc_mgmt' x='3400' y='825' width='30' height='30'></rect>
+            </g>
+            <g class='list_branch_serv'>
+              <text id='text_list_branch_serv' x='2700' y='950' font-family='Verdana' font-size='40' fill='black'>Branch Services</text>
+              <rect id='colorbox_list_branch_serv' x='3400' y='925' width='30' height='30'></rect>
+            </g>
           </g> <!-- End Department List -->
         </g> <!-- End Map legend group -->
         <g class="walls">
@@ -1125,7 +1137,28 @@
             $('#152,#153,#154,#155,#156,#157,#158,#159, #colorbox_list_one_time_financials').css({ fill: "sandybrown" });
           });
           $('#text_list_conf').on("mouseover", function() {
-            $('# #colorbox_list_conf').css({ fill: "blue" });
+            $('#273,#265,#143,#142,#141,#140,#139,#138,#137,#136, #134, #10, #colorbox_list_conf').css({ fill: "blue" });
+          });
+          $('#text_list_conf').on("mouseout", function() {
+            $('#273,#265,#143,#142,#141,#140,#139,#138,#137,#136, #134, #10, #colorbox_list_conf').css({ fill: "lightblue" });
+          });
+          $('#text_list_hr').on("mouseover", function() {
+            $('#166,#274,#275,#276,#277,#278,#279,#280, #colorbox_list_hr').css({ fill: "blue" });
+          });
+          $('#text_list_hr').on("mouseout", function() {
+            $('#166,#274,#275,#276,#277,#278,#279,#280, #colorbox_list_hr').css({ fill: "#cccc00" });
+          });
+          $('#text_list_doc_mgmt').on("mouseover", function() {
+            $('#189, #281,#282,#283,#284,#285, #colorbox_list_doc_mgmt').css({ fill: "blue" });
+          });
+          $('#text_list_doc_mgmt').on("mouseout", function() {
+            $('#189, #281,#282,#283,#284,#285, #colorbox_list_doc_mgmt').css({ fill: "#cc5200" });
+          });
+          $('#text_list_branch_serv').on("mouseover", function() {
+            $('#181,#182,#183,#184,#185,#186,#187,#188,#190,#191,#192,#193,#194,#194,#196,#197,#198,#199,#200,#201,#202,#217, #colorbox_list_branch_serv').css({ fill: "blue" });
+          });
+          $('#text_list_branch_serv').on("mouseout", function() {
+            $('#181,#182,#183,#184,#185,#186,#187,#188,#190,#191,#192,#193,#194,#194,#196,#197,#198,#199,#200,#201,#202,#217, #colorbox_list_branch_serv').css({ fill: "#33cc33" });
           });
         </script>
       </svg>

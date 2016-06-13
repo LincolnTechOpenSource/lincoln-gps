@@ -613,3 +613,32 @@ svg .list_one_time_financials {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_conf {
+    position: relative;
+    fill: lightblue;
+    border-color: black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_hr {
+    position: relative;
+    fill: #cccc00;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_doc_mgmt {
+    position: relative;
+    fill: #cc5200;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_branch_serv {
+    position: relative;
+    fill: #33cc33;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
