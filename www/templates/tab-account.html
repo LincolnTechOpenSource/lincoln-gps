@@ -114,6 +114,14 @@
               <text id='text_list_euc' x='2700' y='1250' font-family='Verdana' font-size='40' fill='black'>End User Computing</text>
               <rect id='colorbox_list_euc' x='3400' y='1225' width='30' height='30'></rect>
             </g>
+            <g class='list_rdi'>
+              <text id='text_list_rdi' x='2700' y='1350' font-family='Verdana' font-size='40' fill='black'>RDI</text>
+              <rect id='colorbox_list_rdi' x='3400' y='1325' width='30' height='30'></rect>
+            </g>
+            <g class='list_isd'>
+              <text id='text_list_isd' x='2700' y='1450' font-family='Verdana' font-size='40' fill='black'>ISD</text>
+              <rect id='colorbox_list_isd' x='3400' y='1425' width='30' height='30'></rect>
+            </g>
           </g> <!-- End Department List -->
         </g> <!-- End Map legend group -->
         <g class="walls">
@@ -671,7 +679,7 @@
             <rect class='privacy_pod' id='' x='725' y='2120' width='180' height='80'></rect>
 
             <!-- Privacy pod to the left of branch services 8 cube block, to the right of central conference rooms -->
-            <polygon points='1415,2805 1495,2805 1495,2625 1415,2715' class='privacy_pod' id=''></polygon>
+            <polygon points='1415,2805 1500,2805 1500,2625 1415,2715' class='privacy_pod' id=''></polygon>
 
           </g> <!-- End misc group -->
 
@@ -1183,6 +1191,24 @@
           });
           $('#text_list_compli_licens').on("mouseout", function() {
             $('.desk.office.compli_licens, .desk.cubicle.compli_licens, #colorbox_list_compli_licens').css({ fill: "#ffff99" });
+          });
+          $('#text_list_euc').on("mouseover", function() {
+            $('.desk.office.euc, .desk.cubicle.euc, #colorbox_list_euc').css({ fill: "blue" });
+          });
+          $('#text_list_euc').on("mouseout", function() {
+            $('.desk.office.euc, .desk.cubicle.euc, #colorbox_list_euc').css({ fill: " #5cd65c" });
+          });
+          $('#text_list_rdi').on("mouseover", function() {
+            $('.desk.office.rdi, .desk.cubicle.rdi, #colorbox_list_rdi').css({ fill: "blue" });
+          });
+          $('#text_list_rdi').on("mouseout", function() {
+            $('.desk.office.rdi, .desk.cubicle.rdi, #colorbox_list_rdi').css({ fill: "#ff3333" });
+          });
+          $('#text_list_isd').on("mouseover", function() {
+            $('.desk.office.isd, .desk.cubicle.isd, #colorbox_list_isd').css({ fill: "blue" });
+          });
+          $('#text_list_isd').on("mouseout", function() {
+            $('.desk.office.isd, .desk.cubicle.isd, #colorbox_list_isd').css({ fill: "#3377ff" });
           });
         </script>
       </svg>

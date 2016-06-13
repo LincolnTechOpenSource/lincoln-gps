@@ -656,3 +656,24 @@ svg .list_compli_licens {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_euc {
+    position: relative;
+    fill: #5cd65c;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_rdi {
+    position: relative;
+    fill: #ff3333;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_isd {
+    position: relative;
+    fill: #3377ff;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
