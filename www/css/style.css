@@ -62,14 +62,14 @@ ion-search-select label.search-select {
     max-height: inherit;
 }*/
 
-#svg #map g.non-walls .hilite.path {
+#svg #map g.non-walls .hilite {
     fill: blue;
 }
 
-#svg #map g.non-walls .hilite:not(.path) {
+/*#svg #map g.non-walls .hilite:not(.path) {
     stroke: blue;
     stroke-width: 2px;
-}
+}*/
 
 #svg #map .filter-out {
     opacity: 0.3;
@@ -509,6 +509,18 @@ svg .list_imr{
     position: relative;
     fill: pink;
     border-color:black;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .text_list_imr{
+    width:'100px';
+    word-warp: break-word;
+}
+
+svg .list_busi_dev{
+    position: relative;
+    fill: #FF6600;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }

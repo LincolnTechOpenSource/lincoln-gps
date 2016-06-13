@@ -8,7 +8,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller',
     'account.controller', 'tab.controller', 'firebase.services', 'ion-search-select.directive',
-    'starter.controllers', 'starter.services'
+    'location-info.directive', 'starter.controllers', 'starter.services'
 ])
 
 .run(function($rootScope, $ionicPlatform) {

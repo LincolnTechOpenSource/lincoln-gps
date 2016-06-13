@@ -22,21 +22,23 @@
             <div id="from" class="col col-50">
                 <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode">
                     <label class="item item-input-inset search-select">
-                    <div class="item-input-wrapper">
-                        <i class="icon ion-ios-search"></i>
-                        <input type="text" ng-model="selectNode.fromNode.name" placeholder="From" disabled>
-                    </div>
-                </label>
+                        <div class="item-input-wrapper">
+                            <i class="icon ion-ios-search"></i>
+                            <input type="text" ng-model="selectNode.fromNode.name" placeholder="From" disabled>
+                        </div>
+                    </label>
                 </ion-search-select>
+                <location-info location="selectNode.fromNode"></location-info>
+
             </div>
             <div id="to" class="col col-50">
                 <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode">
                     <label class="item item-input-inset search-select">
-                    <div class="item-input-wrapper">
-                        <i class="icon ion-ios-search"></i>
-                        <input type="text" ng-model="selectNode.toNode.name" placeholder="To" disabled>
-                    </div>
-                </label>
+                        <div class="item-input-wrapper">
+                            <i class="icon ion-ios-search"></i>
+                            <input type="text" ng-model="selectNode.toNode.name" placeholder="To" disabled>
+                        </div>
+                    </label>
                 </ion-search-select>
             </div>
         </div>

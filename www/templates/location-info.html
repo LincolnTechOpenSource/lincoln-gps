@@ -1,0 +1,10 @@
+<div class="item location-info" ng-show="!!location">
+    <p class="text-center"> <strong>{{ employee.name }}</strong> </p>
+</div>
+
+<div class="item employee-info" ng-show="!!employee">
+            <i on-tap="clearEmployee()" class="x-clear icon ion-close"></i>
+            <p class="text-center"> <strong>{{ employee.name }}</strong> </p>
+            <p class="text-center"> <strong>{{ employee.title }}</strong> of <strong>{{ employee.division }}</strong></p>
+            <p class="text-center"> Contact at <strong>{{ employee.email }}</strong> or <strong>{{ employee.ext }}</strong> </p>
+        </div>
