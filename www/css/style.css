@@ -578,3 +578,10 @@ svg .list_prvd_mgmt {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_isa {
+    position: relative;
+    fill: #FFFF33;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
