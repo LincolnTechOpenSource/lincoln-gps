@@ -585,3 +585,24 @@ svg .list_isa {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_retire_serv {
+    position: relative;
+    fill: #990066;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_quality_cntrl {
+    position: relative;
+    fill: violet;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_asset_mgmt {
+    position: relative;
+    fill: lightgreen;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
