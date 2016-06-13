@@ -642,3 +642,10 @@ svg .list_branch_serv {
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
+
+svg .list_account_setup {
+    position: relative;
+    fill: #ff8080;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}

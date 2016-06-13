@@ -32,13 +32,13 @@ angular.module('map.controller', [])
         // handle employee parameter
         if (!!$stateParams.employee) {
             // set current employee and from node given parameter
-            $scope.employee = $stateParams.employee;
+            //$scope.employee = $stateParams.employee;
             $scope.selectNode.fromNode = $stateParams.employee;
 
             $rootScope.Graphing.setSource = false;
             //$rootScope.Graphing.source = $scope.employee.id;
 
-            $('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
+            //$('#svg #map #' + $scope.employee.id).addClass('hilite'); // hilite him
         }
 
         // filter the map as prescribed
@@ -54,35 +54,32 @@ angular.module('map.controller', [])
 
             // clear graphing parameters (keep source if employee is defined)
             $scope.selectNode.toNode = null;
-            //$rootScope.Graphing.target = null; // always clear target
-            if (!$stateParams.employee) {
+            $scope.selectNode.fromNode = null;
+            /*if (!$stateParams.employee) {
                 $rootScope.Graphing.setSource = true;
                 //$rootScope.Graphing.source = null;
                 $scope.selectNode.fromNode = null;
             }
             else {
                 // keep employee hilited
-                $('#svg #map #' + $scope.employee.id).addClass('hilite');
-            }
+                //$('#svg #map #' + $scope.employee.id).addClass('hilite');
+            }*/
         };
 
         /** resets the selected location and removes path highlighting
          * @locSelect will be either "fromNode" or "toNode" (e.g., a field of selectNode)
          */
         $scope.clearLocation = function(locSelect) {
-            // remove highlighting
-            $("#svg #map g.non-walls *").removeClass("hilite");
+            // remove highlighting from path
+            $("#svg #map g.non-walls .path").removeClass("hilite");
             $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
             $scope.selectNode[locSelect] = null; // clear the location
-
-            //$('#svg #map #' + $scope.employee.id).removeClass('hilite');
-            //$scope.employee = null;
         };
 
         $(document).ready(function() {
             // set click functions for directions and information
             //$('#svg').on('click', '#map .non-walls *:not(.wall)', getDirs);
-            $('#svg').on('click', '#map .desk', getEmployeeInfo);
+            //$('#svg').on('click', '#map .desk', getEmployeeInfo);
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
 
             // load pan zoom
@@ -132,17 +129,27 @@ angular.module('map.controller', [])
         }
 
         // watch to find directions
-        $scope.$watch("selectNode.toNode", function(newValue, oldValue) {
+        $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
             findDirections();
+            // also change highlight from old node to new node
+            if (!!oldNode)
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
+
+            if (!!newNode)
+                $('#svg #map #' + newNode.id).addClass('hilite');
         });
-        $scope.$watch("selectNode.fromNode", function(newValue, oldValue) {
+        $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
             findDirections();
+            // also change highlight from old node to new node
+            if (!!oldNode)
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
+
+            if (!!newNode)
+                $('#svg #map #' + newNode.id).addClass('hilite');
         });
 
         var findDirections = function() {
             if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
-                //console.log('finding...');
-
                 //$rootScope.Graphing.source = $scope.selectNode.fromNode.$id;
                 //$rootScope.Graphing.target = $scope.selectNode.toNode.$id;
 
@@ -176,10 +183,10 @@ angular.module('map.controller', [])
 
         // updates the display with the employees information on click (and hilites)
         function getEmployeeInfo(event) {
-            $scope.employee = Locations.get(this.id);
+            //$scope.employee = Locations.get(this.id);
 
-            $('#svg #' + this.id).addClass('hilite'); // hilite the guy clicked
-            $scope.$apply();
+            //$('#svg #map #' + this.id).addClass('hilite'); // hilite the guy clicked
+            //$scope.$apply();
         }
     }
 ]);
