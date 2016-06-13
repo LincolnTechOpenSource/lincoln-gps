@@ -7,14 +7,16 @@
 angular.module('map.controller', [])
 
 .controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Locations',
-    'Auth', function($rootScope, $scope, $stateParams, $compile, Locations, Auth) {
+    'Auth',
+    function($rootScope, $scope, $stateParams, $compile, Locations, Auth) {
         // reset Graphing fields
         $rootScope.Graphing.source = $rootScope.Graphing.target = null;
         $rootScope.Graphing.setSource = true;
 
         $scope.selectNode = {
             nodes: Locations.all(),
-            node: null
+            fromNode: null,
+            toNode: null
         };
 
         // load employees when signed in
@@ -120,6 +122,10 @@ angular.module('map.controller', [])
             }
         }
 
+        $scope.findDirections = function() {
+            console.log('finding...');
+        };
+
         // gets directions from source to target on click
         function getDirs(event) {
             if ($rootScope.Graphing.setSource) {
@@ -138,7 +144,7 @@ angular.module('map.controller', [])
 
         // updates the display with the employees information on click (and hilites)
         function getEmployeeInfo(event) {
-            $scope.employee = Employees.get(this.id);
+            $scope.employee = Locations.get(this.id);
 
             $('#svg #' + this.id).addClass('hilite'); // hilite the guy clicked
             $scope.$apply();

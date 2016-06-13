@@ -6,7 +6,8 @@ angular.module('ion-search-select.directive', [])
             restrict: 'E',
             scope: {
                 options: "=",
-                optionSelected: "="
+                optionSelected: "=",
+                saveCallback: "="
             },
             controller: function($scope, $element, $attrs) {
                 $scope.searchSelect = {
@@ -54,6 +55,10 @@ angular.module('ion-search-select.directive', [])
                     }
                     $scope.searchSelect.searchvalue = "";
                     $scope.modal.remove();
+
+                    // call back function after option save
+                    if (!!$scope.saveCallback)
+                        $scope.saveCallback();
                 };
 
                 $scope.clearSearch = function() {

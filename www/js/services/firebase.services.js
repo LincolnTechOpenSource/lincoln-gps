@@ -5,14 +5,14 @@ angular.module('firebase.services', ['firebase'])
     .factory('Locations', function($firebaseArray, $firebaseAuth) {
         // Might use a resource here that returns a JSON array
         var db = firebase.database().ref('locations');
-        var access = false;
+        var locations = null;
 
         $firebaseAuth().$onAuthStateChanged(function(user) {
             if (user) {
-                access = true;
+                locations = $firebaseArray(db)
             }
             else {
-                access = false;
+                locations = null;
             }
         });
 
@@ -20,11 +20,11 @@ angular.module('firebase.services', ['firebase'])
         return {
             /** all: returns all employees */
             all: function() {
-                return access ? $firebaseArray(db) : null;
+                return locations;
             },
             /** getByNType: returns all the locations of nType @nType */
             getByNType: function(nType) {
-                if (access) {
+                if (!!locations) {
                     return $firebaseArray(db.orderByChild("nType").equalTo(nType));
                 } else {
                     return null;
@@ -32,7 +32,7 @@ angular.module('firebase.services', ['firebase'])
             },
             /** get: returns the location information specified by @locID */
             get: function(locID) {
-                return access ? db.$getRecord(locID) : null;
+                return locations.$getRecord(locID);
             }
         };
     })

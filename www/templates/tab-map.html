@@ -20,21 +20,21 @@
 
         <div class="row">
             <div id="from" class="col col-50">
-                <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.node">
+                <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode">
                     <label class="item item-input-inset search-select">
                     <div class="item-input-wrapper">
                         <i class="icon ion-ios-search"></i>
-                        <input type="text" ng-model="selectNode.node.name" placeholder="From" disabled>
+                        <input type="text" ng-model="selectNode.fromNode.name" placeholder="From" disabled>
                     </div>
                 </label>
                 </ion-search-select>
             </div>
-            <div id="from" class="col col-50">
-                <ion-search-select title="To" key-property="id" value-property="name" options="selectEmployee.employees" option-selected="selectEmployee.employee">
+            <div id="to" class="col col-50">
+                <ion-search-select title="To" key-property="id" value-property="name" save-callback="findDirections" options="selectNode.nodes" option-selected="selectNode.toNode">
                     <label class="item item-input-inset search-select">
                     <div class="item-input-wrapper">
                         <i class="icon ion-ios-search"></i>
-                        <input type="text" ng-model="selectEmployee.employee.name" placeholder="To" disabled>
+                        <input type="text" ng-model="selectNode.toNode.name" placeholder="To" disabled>
                     </div>
                 </label>
                 </ion-search-select>

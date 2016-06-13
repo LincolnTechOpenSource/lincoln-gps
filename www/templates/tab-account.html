@@ -7,6 +7,8 @@
       </ion-toggle>
     </ion-list>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
     <button class="button button-positive" ng-click="resetToDefault()">
       Reset to Default
     </button>
@@ -17,11 +19,12 @@
         <g class='legend'>
           <!-- Map legend/key -->
           <g class='legend_title'>
-            <text id='' x='2620' y='250' font-family='Verdana' font-size='100' fill='black' >DEPARTMENTS</text>
+            <text id='leg_title' x='2620' y='250' font-family='Verdana' font-size='100' fill='black' >DEPARTMENTS</text>
           </g>
           <g class='department_list'>
-            <text id='' x='1900' y='350' font-family='Verdana' font-size='50' fill='black'>Branch Development</text>
-            <rect class='list branch_dev' x='2460' y='300' width='50' height='50'></rect>
+            <text id='list_bdev' x='1900' y='350' font-family='Verdana' font-size='50' fill='black'>Branch Development</text>
+            <!--x='2460' y='300' width='50' height='50' -->
+            <button class='list branch_dev'>Branch Development</button>
           </g>
         </g>
         <g class="walls">
@@ -956,8 +959,18 @@
 
           </g> <!-- End desk group -->
         </g> <!-- End non-wall group -->
+        <script>
+          $('#list_bdev').on("mouseover", function() {
+            $('#2, #3').css({ fill: "blue" });
+          });
+          $('#list_bdev').on("mouseout", function() {
+            $('#2').css({fill: "red"});
+          });
+        </script>
       </svg>
     </div>
+
+
 
 
   </ion-content>
