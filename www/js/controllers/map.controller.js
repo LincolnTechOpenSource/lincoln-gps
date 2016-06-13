@@ -58,7 +58,7 @@ angular.module('map.controller', [])
             if (!$stateParams.employee) {
                 $rootScope.Graphing.setSource = true;
                 //$rootScope.Graphing.source = null;
-                $scope.selectNode.fromNode.$id = null;
+                $scope.selectNode.fromNode = null;
             }
             else {
                 // keep employee hilited
