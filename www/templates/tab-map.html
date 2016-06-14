@@ -11,7 +11,7 @@
                 </button>
 
                 <button class="button button-positive" ng-click="logout()">
-                    Logout
+                    Logout {{ user }}
                 </button>
             </div>
         </div>
@@ -44,7 +44,6 @@
                 </location-info>
             </div>
         </div>
-
         <div id="svg" class="col col-75 col-offset-16">
             <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 800" xml:space="preserve" select-on-click="false">
                 <g class="walls">

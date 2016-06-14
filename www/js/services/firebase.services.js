@@ -1,7 +1,7 @@
 // firebase.services.js
 
 angular.module('firebase.services', ['firebase'])
-    // handle employee table queries
+    // handle locations table queries
     .factory('Locations', function($firebaseArray, $firebaseAuth) {
         // Might use a resource here that returns a JSON array
         var db = firebase.database().ref('locations');
@@ -16,9 +16,8 @@ angular.module('firebase.services', ['firebase'])
             }
         });
 
-
         return {
-            /** all: returns all employees */
+            /** all: returns all locations */
             all: function() {
                 return locations;
             },
@@ -26,13 +25,40 @@ angular.module('firebase.services', ['firebase'])
             getByNType: function(nType) {
                 if (!!locations) {
                     return $firebaseArray(db.orderByChild("nType").equalTo(nType));
-                } else {
+                }
+                else {
                     return null;
                 }
             },
             /** get: returns the location information specified by @locID */
             get: function(locID) {
-                return locations ? locations.$getRecord(locID) : null;
+                return (!!locations ? locations.$getRecord(locID) : null);
+            }
+        };
+    })
+    // handle users table queries
+    .factory('Users', function($firebaseArray, $firebaseAuth) {
+        // Might use a resource here that returns a JSON array
+        var db = firebase.database().ref('users');
+        var users = null;
+
+        $firebaseAuth().$onAuthStateChanged(function(user) {
+            if (user) {
+                users = $firebaseArray(db)
+            }
+            else {
+                users = null;
+            }
+        });
+
+        return {
+            /** all: returns all users */
+            all: function() {
+                return users;
+            },
+            /** get: returns the user specified by @uid */
+            get: function(uid) {
+                return (!!users ? users.$getRecord(uid) : null);
             }
         };
     })

@@ -7,8 +7,8 @@
 angular.module('map.controller', [])
 
 .controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Locations',
-    'Auth',
-    function($rootScope, $scope, $stateParams, $compile, Locations, Auth) {
+    'Users', 'Auth',
+    function($rootScope, $scope, $stateParams, $compile, Locations, Users, Auth) {
 
         $scope.selectNode = {
             nodes: Locations.all(),
@@ -23,6 +23,7 @@ angular.module('map.controller', [])
         Auth.$onAuthStateChanged(function(user) {
             if (user) {
                 $scope.selectNode.nodes = Locations.all();
+                //$scope.user = Users.get(Auth.$getAuth().uid);
             }
             else {
                 $scope.selectNode.nodes = null;

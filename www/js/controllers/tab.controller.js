@@ -1,6 +1,7 @@
 angular.module('tab.controller', [])
 
-.controller('TabCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, Auth) {
+.controller('TabCtrl', function($rootScope, $scope, $ionicModal, $ionicLoading,
+    $timeout, Auth, Locations) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -33,16 +34,16 @@ angular.module('tab.controller', [])
         Auth.$onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
-                console.log('Signed in... ' + user.uid);
+                console.log('Signed in... '); // + user.uid);
                 $scope.loginData.email = ""; // clear email on success
-                $scope.modal.hide();
+                $scope.closeLogin();
 
                 $scope.error.show = false;
             }
             else {
                 // No user is signed in.
                 console.log('Not Authenticated');
-                $scope.modal.show();
+                $scope.login();
             }
         });
     });

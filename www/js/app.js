@@ -8,7 +8,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller',
     'account.controller', 'tab.controller', 'firebase.services', 'ion-search-select.directive',
-    'location-info.directive', 'starter.controllers', 'starter.services'
+    'location-info.directive', 'starter.controllers', 'starter.services', 'firebase'
 ])
 
 .run(function($rootScope, $ionicPlatform) {
@@ -31,6 +31,9 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         $rootScope.Graphing = {
             graph: null
         };
+
+        // should we show the select on map info popup? (default true)
+        $rootScope.showMapPopup = true;
 
         /* define fitlers
          * dispName is the name to show in the toggle view
