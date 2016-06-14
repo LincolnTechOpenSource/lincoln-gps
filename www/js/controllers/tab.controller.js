@@ -38,7 +38,7 @@ angular.module('tab.controller', [])
                 $scope.loginData.email = ""; // clear email on success
                 $scope.closeLogin();
                 $scope.error.show = false;
-
+                // save the authed user
                 Users.get(user.uid).then(function(user){
                     $rootScope.user = user;
                 });

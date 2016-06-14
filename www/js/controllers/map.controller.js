@@ -77,11 +77,11 @@ angular.module('map.controller', [])
             else {
                 findDirections();
                 // also change highlight from old node to new node
-                if (!!oldNode && ($scope.selectNode.fromNode != oldNode)) {
-                    $('#svg #map #' + oldNode.id).removeClass('hilite');
-                }
                 if (!!newNode)
                     $('#svg #map #' + newNode.id).addClass('hilite');
+            }
+            if (!!oldNode && ($scope.selectNode.fromNode != oldNode)) {
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
 
         });
@@ -96,12 +96,11 @@ angular.module('map.controller', [])
             else {
                 findDirections();
                 // also change highlight from old node to new node
-                if (!!oldNode && ($scope.selectNode.toNode != oldNode)) {
-                    $('#svg #map #' + oldNode.id).removeClass('hilite');
-                }
-
                 if (!!newNode)
                     $('#svg #map #' + newNode.id).addClass('hilite');
+            }
+            if (!!oldNode && ($scope.selectNode.toNode != oldNode)) {
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
         });
 
@@ -122,19 +121,18 @@ angular.module('map.controller', [])
         var checkSelect = function(event) {
             var selectOnClick = $('#svg #map').attr('select-on-click');
             if (selectOnClick != 'false') {
-                Locations.get(this.id).then(function(loc){
+                Locations.get(this.id).then(function(loc) {
                     $scope.selectNode[selectOnClick] = loc;
+                    //$scope.$apply();
                 });
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');
-
-                $scope.$apply();
             }
         };
 
         $(document).ready(function() {
-            $('#svg').on('click', '#map .non-walls *:not(.wall)', checkSelect);
+            $('#svg').on('click', '#map .non-walls .desk', checkSelect);
             // debugging to get neighbors
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
 

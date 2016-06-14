@@ -32,10 +32,9 @@ angular.module('firebase.services', ['firebase'])
             },
             /** get: returns the location information specified by @locID via a promise */
             get: function(locID) {
-                return (locations.$loaded(function(locations){
+                return locations.$loaded(function(locations){
                     return locations.$getRecord(locID);
-                }));
-                // return (!!locations ? locations.$getRecord(locID) : null);
+                });
             }
         };
     })
@@ -61,9 +60,9 @@ angular.module('firebase.services', ['firebase'])
             },
             /** get: returns the user specified by @uid via a promise */
             get: function(uid) {
-                return (users.$loaded(function(users){
+                return users.$loaded(function(users){
                     return users.$getRecord(uid);
-                }));
+                });
             },
             /** set: sets the user @uid's @key to @value */
             set: function(uid, key, value) {
