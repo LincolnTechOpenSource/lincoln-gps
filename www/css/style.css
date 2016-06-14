@@ -27,6 +27,11 @@ ion-search-select label.search-select {
     padding-right: 5px;
 }
 
+/* Search Select Styles */
+ion-modal-view.ion-search-select .select-on-map {
+    font-weight: 600;
+    border-bottom: 2px solid black;
+}
 
 /* Login Modal Styles */
 
@@ -477,9 +482,9 @@ svg .stairs_exit:hover,
 svg .break_area:hover,
 svg .storage_rm:hover,
 svg .scanning:hover,
-svg .privacy_pod:hover {
+svg .privacy_pod:hover{
     pointer-events: visibleFill;
-    fill: blue;
+    fill: blue!important;
     stroke-width: 2px;
     border: 3px solid yellow;
 }

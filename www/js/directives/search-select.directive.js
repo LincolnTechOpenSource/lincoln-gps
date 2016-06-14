@@ -63,7 +63,7 @@ angular.module('ion-search-select.directive', [])
                 };
 
                 $scope.selectOnMap = function() {
-                    $scope.optionSelected = "FIND ON MAP";
+                    $scope.optionSelected = "FIND_ON_MAP";
 
                     $scope.clearSearch();
                     $scope.closeModal();

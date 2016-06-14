@@ -14,8 +14,10 @@ angular.module('map.controller', [])
             nodes: Locations.all(),
             fromNode: null, // this will also serve as the parameter employee
             toNode: null,
-            FIND_ON_MAP: "FIND ON MAP"
+            FIND_ON_MAP: "FIND_ON_MAP"
         };
+
+
 
         // load employees when signed in
         Auth.$onAuthStateChanged(function(user) {
