@@ -482,7 +482,8 @@ svg .stairs_exit:hover,
 svg .break_area:hover,
 svg .storage_rm:hover,
 svg .scanning:hover,
-svg .privacy_pod:hover{
+svg .privacy_pod:hover,
+svg .kitchen:hover {
     pointer-events: visibleFill;
     fill: blue!important;
     stroke-width: 2px;
