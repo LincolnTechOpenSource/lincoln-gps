@@ -4,17 +4,21 @@
     <ion-content class="padding">
         <h2 class="text-center">Lincoln GPS Locator</h2>
 
-        <button class="button button-assertive" ng-click="clear()">
-            Clear
-        </button>
+        <div class="row">
+            <div class="col">
+                <button class="button button-assertive" ng-click="clear()">
+                    Clear
+                </button>
 
-        <button class="button button-positive" ng-click="logout()">
-            Logout
-        </button>
+                <button class="button button-positive" ng-click="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
 
         <div class="row">
             <div id="from-loc" class="col col-50">
-                <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode">
+                <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode" enable-map-select="true">
                     <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
@@ -27,7 +31,7 @@
                 </location-info>
             </div>
             <div id="to-loc" class="col col-50">
-                <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode">
+                <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode" enable-map-select="true">
                     <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
@@ -42,11 +46,8 @@
         </div>
 
         <div id="svg" class="col col-75 col-offset-16">
-            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 800" xml:space="preserve">
+            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 800" xml:space="preserve" select-on-click="false">
                 <g class="walls">
-                    <!-- Outer swall/perimeter -->
-                    <polygon points="0,0 0,747 747,747 747,427 427,427 427,357 389,320 320,320 320,0" class="wall" id="" />
-
                     <rect class="wall" id="3000" width="150" height="100" transform="translate(135,220)" />
                 </g>
                 <g class="non-walls">
@@ -233,6 +234,9 @@
                     <rect type="button" class="desk cubicle accounting" id="69" width="20" height="20" transform="translate(215,185)" />
                     <rect type="button" class="desk cubicle accounting" id="70" width="20" height="20" transform="translate(235,185)" />
                 </g>
+
+                <!-- Outer swall/perimeter -->
+                <polygon points="0,0 0,747 747,747 747,427 427,427 427,357 389,320 320,320 320,0" class="wall" id="outer-border" />
             </svg>
         </div>
 

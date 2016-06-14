@@ -14,6 +14,9 @@
     </ion-header-bar>
     <ion-content>
         <div class="list">
+            <ion-radio ng-if="searchSelect.enableMapSelect" item-height="55px" item-width="100%" ng-click="selectOnMap()">
+                Select on Map
+            </ion-radio>
             <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty">
                 <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
                     {{ option[searchSelect.valueProperty] }}

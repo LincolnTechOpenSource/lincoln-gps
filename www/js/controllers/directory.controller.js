@@ -5,8 +5,8 @@
  **/
 
 angular.module('directory.controller', [])
-    .controller('DirectoryCtrl', ['$scope', '$state', 'Locations', 'Auth',
-        function($scope, $state, Locations, Auth) {
+    .controller('DirectoryCtrl', ['$scope', '$state', '$ionicHistory', 'Locations', 'Auth',
+        function($scope, $state, $ionicHistory, Locations, Auth) {
 
             $scope.selectEmployee = {
                 employees: Locations.getByNType(NodeTypeEnum.DESK),
@@ -22,5 +22,17 @@ angular.module('directory.controller', [])
                     $scope.selectEmployee.employees = null;
                 }
             });
+
+            /*$scope.go = function(state, params) {
+                //ui-sref="tab.map({employee: selectEmployee.employee})"
+                //console.log(state);
+
+                $ionicHistory.clearCache().then(function() {
+                    $ionicHistory.clearHistory();
+                    console.log($ionicHistory.viewHistory());
+                    $state.go(state, params);
+                });
+
+            };*/
         }
     ]);

@@ -13,7 +13,8 @@ angular.module('map.controller', [])
         $scope.selectNode = {
             nodes: Locations.all(),
             fromNode: null, // this will also serve as the parameter employee
-            toNode: null
+            toNode: null,
+            FIND_ON_MAP: "FIND ON MAP"
         };
 
         // load employees when signed in
@@ -54,28 +55,51 @@ angular.module('map.controller', [])
         $scope.clearLocation = function(locSelect) {
             // remove highlighting from path
             $("#svg #map g.non-walls .path").removeClass("hilite");
-            $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
+            if ($scope.selectNode[locSelect] != $scope.selectNode.toNode ||
+                $scope.selectNode[locSelect] != $scope.selectNode.fromNode) {
+                $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
+            }
             $scope.selectNode[locSelect] = null; // clear the location
         };
 
         // watch to find directions
         $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
-            findDirections();
-            // also change highlight from old node to new node
-            if (!!oldNode)
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
+            // select on map option
+            if (newNode == $scope.selectNode.FIND_ON_MAP) {
+                $scope.selectNode.toNode = null; // clear value
+                $('#svg #map #outer-border').addClass('select-me');
+                $('#svg #map').attr('select-on-click', 'toNode');
+            }
+            // find directions
+            else {
+                findDirections();
+                // also change highlight from old node to new node
+                if (!!oldNode && ($scope.selectNode.fromNode != oldNode)) {
+                    $('#svg #map #' + oldNode.id).removeClass('hilite');
+                }
+                if (!!newNode)
+                    $('#svg #map #' + newNode.id).addClass('hilite');
+            }
 
-            if (!!newNode)
-                $('#svg #map #' + newNode.id).addClass('hilite');
         });
         $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
-            findDirections();
-            // also change highlight from old node to new node
-            if (!!oldNode)
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
+            // select on map option
+            if (newNode == $scope.selectNode.FIND_ON_MAP) {
+                $scope.selectNode.fromNode = null; // clear value
+                $('#svg #map #outer-border').addClass('select-me');
+                $('#svg #map').attr('select-on-click', 'fromNode');
+            }
+            // find directions
+            else {
+                findDirections();
+                // also change highlight from old node to new node
+                if (!!oldNode && ($scope.selectNode.toNode != oldNode)) {
+                    $('#svg #map #' + oldNode.id).removeClass('hilite');
+                }
 
-            if (!!newNode)
-                $('#svg #map #' + newNode.id).addClass('hilite');
+                if (!!newNode)
+                    $('#svg #map #' + newNode.id).addClass('hilite');
+            }
         });
 
         var findDirections = function() {
@@ -92,7 +116,20 @@ angular.module('map.controller', [])
             }
         };
 
+        var checkSelect = function(event) {
+            var selectOnClick = $('#svg #map').attr('select-on-click');
+            if (selectOnClick != 'false') {
+                $scope.selectNode[selectOnClick] = Locations.get(this.id);
+
+                $('#svg #map #outer-border').removeClass('select-me');
+                $('#svg #map').attr('select-on-click', 'false');
+
+                $scope.$apply();
+            }
+        };
+
         $(document).ready(function() {
+            $('#svg').on('click', '#map .non-walls *:not(.wall)', checkSelect);
             // debugging to get neighbors
             //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
 

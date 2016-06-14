@@ -17,14 +17,15 @@ angular.module('ion-search-select.directive', [])
                     templateUrl: 'templates/search-select.html',
                     option: null,
                     searchvalue: "",
-                    enableSearch: $attrs.enableSearch ? $attrs.enableSearch == "true" : true
+                    enableSearch: $attrs.enableSearch ? $attrs.enableSearch == "true" : true,
+                    enableMapSelect: $attrs.enableMapSelect ? $attrs.enableMapSelect == "true" : false
                 };
 
                 $ionicGesture.on('tap', function(e) {
                     if (!!$scope.searchSelect.keyProperty && !!$scope.searchSelect.valueProperty) {
-                        if ($scope.optionSelected) {
-                            $scope.searchSelect.option = $scope.optionSelected[$scope.searchSelect.keyProperty];
-                        }
+                        $scope.searchSelect.option = ($scope.optionSelected ?
+                            $scope.optionSelected[$scope.searchSelect.keyProperty] :
+                            null);
                     }
                     else {
                         $scope.searchSelect.option = $scope.optionSelected;
@@ -53,12 +54,19 @@ angular.module('ion-search-select.directive', [])
                     else {
                         $scope.optionSelected = $scope.searchSelect.option;
                     }
-                    $scope.searchSelect.searchvalue = "";
-                    $scope.modal.remove();
+                    $scope.clearSearch();
+                    $scope.closeModal();
 
                     // call back function after option save
                     if (!!$scope.saveCallback)
                         $scope.saveCallback();
+                };
+
+                $scope.selectOnMap = function() {
+                    $scope.optionSelected = "FIND ON MAP";
+
+                    $scope.clearSearch();
+                    $scope.closeModal();
                 };
 
                 $scope.clearSearch = function() {
