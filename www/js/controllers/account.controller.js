@@ -199,36 +199,45 @@ angular.module('account.controller', [])
         //For hovering over an individual office, cubicle, or facility on the map,
         //corresponding department or facility on map legend list will highlight/underline
 
-        /*
+
         var i;
-        var deptartment_facility_list = ['branch_dev', 'im_r', 'busi_dev', 'finance', 'acd', 'vsa', 'accounting', 'ops', tpa, mrkt_comm, prvd_mgmt,
-                                      isa, reception, retire_serv, quality_cntrl, asset_mgmt, one_time_financials, conf, hr, doc_mgmt,
-                                      branch_serv, account_setup, compli_licens, euc, rdi, isd, break_area, kitchen, stairs_exit,
-                                      elevator_exit];
+        var department_facility_list = ['.desk.branch_dev', '.desk.imr', '.desk.busi_dev', '.desk.finance',
+                                         '.desk.acd', '.desk.vsa', '.desk.accounting', '.desk.ops', '.desk.tpa', '.desk.mrkt_comm',
+                                         '.desk.prvd_mgmt', '.desk.isa', '.reception', '.desk.retire_serv', '.desk.quality_cntrl', '.desk.asset_mgmt',
+                                         '.desk.one_time_financials', '.conf', '.desk.hr', '.desk.doc_mgmt', '.desk.branch_serv',
+                                         '.desk.account_setup', '.desk.compli_licens', '.desk.euc', '.desk.rdi', '.desk.isd',
+                                         '.break_area', '.kitchen', '.stairs_exit', '.elevator_exit'];
+        var j;
+        var department_facility_list_shorthand = ['branch_dev', 'imr', 'busi_dev', 'finance', 'acd', 'vsa', 'accounting', 'ops',
+                                                  'tpa', 'mrkt_comm', 'prvd_mgmt', 'isa', 'reception', 'retire_serv', 'quality_cntrl',
+                                                  'asset_mgmt', 'one_time_financials', 'conf', 'hr', 'doc_mgmt', 'branch_serv',
+                                                  'account_setup', 'compli_licens', 'euc', 'rdi', 'isd', 'break_area', 'kitchen',
+                                                  'stairs_exit', 'elevator_exit'];
 
             $(document).ready(function() {
-               for (i=0; i <= deptartment_facility_list.length; i++){
-                    $('.desk.' + deptartment_facility_list[i]).on("mouseover", function() {
-                       $('colorbox_list_' + deptartment_facility_list[i]).css({fill:"blue"});
-                       $('#text_list_' + deptartment_facility_list[i]).css({fill:'blue'});
-                       $('#text_list_' + deptartment_facility_list[i]).css({'text-decoration': 'underline'});
+                for (i=0; i <= department_facility_list.length; i++){
+                    $(department_facility_list[i]).on("mouseover", function() {
+                       $('#colorbox_list_' + deptartment_facility_list_shorthand[j]).css({fill:"blue"});
+                       $('#text_list_' + department_facility_list_shorthand[j]).css({fill:'blue'});
+                       $('#text_list_' + department_facility_list_shorthand[j]).css({'text-decoration': 'underline'});
+                       j++;
                     });
-               }//end for loop
-            });
-
-
-        for (i=0; i <= deptartment_facility_list.length; i++){
-            $(document).ready(function() {
-               $('.desk.' + deptartment_facility_list[i]).on("mouseout", function() {
-                   $('colorbox_list_' + deptartment_facility_list[i]).css({fill:"blue"});
-                   $('#text_list_' + deptartment_facility_list[i]).css({fill:'black'});
-                   $('#text_list_' + deptartment_facility_list[i]).css({'text-decoration': 'none'});
-               });
-            });
-        }//end for loop */
+                }//end for loop
 
 
 
+                for (i=0; i <= department_facility_list.length; i++){
+                       $(department_facility_list[i]).on("mouseout", function() {
+                           $('#colorbox_list_' + department_facility_list_shorthand[j]).css({fill:"blue"});
+                           $('#text_list_' + department_facility_list_shorthand[j]).css({fill:'black'});
+                           $('#text_list_' + department_facility_list_shorthand[j]).css({'text-decoration': 'none'});
+                           j++;
+                       });
+                }//end for loop */
+            });//end document ready, two for loop block
+
+
+/*
         $( document ).ready(function() {
             $('.desk.branch_dev').on("mouseover", function(){
                 $('#colorbox_list_branch_dev').css({fill:"blue"});

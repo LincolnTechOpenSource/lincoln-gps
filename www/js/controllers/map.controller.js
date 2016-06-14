@@ -122,7 +122,9 @@ angular.module('map.controller', [])
         var checkSelect = function(event) {
             var selectOnClick = $('#svg #map').attr('select-on-click');
             if (selectOnClick != 'false') {
-                $scope.selectNode[selectOnClick] = Locations.get(this.id);
+                Locations.get(this.id).then(function(loc){
+                    $scope.selectNode[selectOnClick] = loc;
+                });
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');

@@ -30,9 +30,12 @@ angular.module('firebase.services', ['firebase'])
                     return null;
                 }
             },
-            /** get: returns the location information specified by @locID */
+            /** get: returns the location information specified by @locID via a promise */
             get: function(locID) {
-                return (!!locations ? locations.$getRecord(locID) : null);
+                return (locations.$loaded(function(locations){
+                    return locations.$getRecord(locID);
+                }));
+                // return (!!locations ? locations.$getRecord(locID) : null);
             }
         };
     })
@@ -56,15 +59,17 @@ angular.module('firebase.services', ['firebase'])
             all: function() {
                 return users;
             },
-            /** get: returns the user specified by @uid */
+            /** get: returns the user specified by @uid via a promise */
             get: function(uid) {
-                return (!!users ? users.$getRecord(uid) : null);
+                return (users.$loaded(function(users){
+                    return users.$getRecord(uid);
+                }));
             },
-            /** set: sets the user's, @uid, @key to @value */
+            /** set: sets the user @uid's @key to @value */
             set: function(uid, key, value) {
-                var user = users.$getRecord(uid);
-                user[key] = value;
-                users.$save(uid);
+                var index = users.$indexFor(uid);
+                users[index][key] = value;
+                users.$save(index);
             }
         };
     })

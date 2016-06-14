@@ -70,18 +70,24 @@ angular.module('ion-search-select.directive', [])
                         $scope.clearSearch();
                         $scope.closeModal();
 
-                        console.log(Auth.$getAuth().uid);
                         // Popup to alert the user to click on the map (only show if preferred)
-                        var selectPopup = $ionicPopup.alert({
-                            title: 'Select a Location on the Map',
-                            template: 'Please click on a location on the map to select it',
-                            okText: 'Got it!',
-                            okType: 'button-balanced'
-                        });
-
-                        $timeout(function() {
-                            selectPopup.close(); //close the popup after 3 seconds
-                        }, 3000);
+                        if ($rootScope.user.showMapPopup) {
+                            var selectPopup = $ionicPopup.alert({
+                                title: 'Select a Location on the Map',
+                                template: 'Please click on a location on the map to select it',
+                                buttons: [{
+                                    text: 'Got it!',
+                                    type: 'button-balanced'
+                                }, {
+                                    text: 'Do not show again',
+                                    type: 'button-assertive',
+                                    onTap: function(e) {
+                                        console.log($rootScope.user.showMapPopup);
+                                        Users.set($rootScope.user.$id, 'showMapPopup', false);
+                                    }
+                                }]
+                            });
+                        }
                     };
 
                     $scope.clearSearch = function() {

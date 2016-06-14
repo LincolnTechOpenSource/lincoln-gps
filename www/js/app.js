@@ -50,7 +50,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 
         // load graph from json
         //$.getJSON('lib/graph/graph.json', function(data) {
-            $rootScope.Graphing.graph = new Graph({
+        $rootScope.Graphing.graph = new Graph({
     "_nodes": {
         "1":{"_id":1,"_neighbors":[1001],"_weight":0,"_nType":5},
         "2":{"_id":2,"_neighbors":[1007],"_weight":0,"_nType":5},
@@ -206,8 +206,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
     },
     "_nodeCount":148,
     "_edgeCount":153
-}
-);
+});
         //});
 
         // Initialize Firebase with credentials
@@ -218,7 +217,6 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
             storageBucket: "lincoln-gps.appspot.com",
         };
         firebase.initializeApp(CONFIG);
-
     });
 })
 
