@@ -9,7 +9,7 @@ angular.module('firebase.services', ['firebase'])
 
         $firebaseAuth().$onAuthStateChanged(function(user) {
             if (user) {
-                locations = $firebaseArray(db)
+                locations = $firebaseArray(db);
             }
             else {
                 locations = null;
@@ -59,6 +59,12 @@ angular.module('firebase.services', ['firebase'])
             /** get: returns the user specified by @uid */
             get: function(uid) {
                 return (!!users ? users.$getRecord(uid) : null);
+            },
+            /** set: sets the user's, @uid, @key to @value */
+            set: function(uid, key, value) {
+                var user = users.$getRecord(uid);
+                user[key] = value;
+                users.$save(uid);
             }
         };
     })

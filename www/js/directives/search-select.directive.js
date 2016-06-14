@@ -2,8 +2,8 @@
 
 angular.module('ion-search-select.directive', [])
     .directive('ionSearchSelect', ['$rootScope', '$ionicModal', '$ionicGesture', '$ionicPopup',
-        '$timeout',
-        function($rootScope, $ionicModal, $ionicGesture, $ionicPopup, $timeout) {
+        '$timeout', 'Users', 'Auth',
+        function($rootScope, $ionicModal, $ionicGesture, $ionicPopup, $timeout, Users, Auth) {
             return {
                 restrict: 'E',
                 scope: {
@@ -70,6 +70,7 @@ angular.module('ion-search-select.directive', [])
                         $scope.clearSearch();
                         $scope.closeModal();
 
+                        console.log(Auth.$getAuth().uid);
                         // Popup to alert the user to click on the map (only show if preferred)
                         var selectPopup = $ionicPopup.alert({
                             title: 'Select a Location on the Map',

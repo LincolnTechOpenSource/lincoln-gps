@@ -11,7 +11,7 @@ angular.module('account.controller', [])
 
          // For hovering over a department or facility on map legend list,
          //corresponding department desks or facility areas all highlight blue
-       $( document ).ready(function() {
+       $(document).ready(function() {
           $('#text_list_branch_dev').on("mouseover", function() {
               $('.desk.office.branch_dev, .desk.cubicle.branch_dev, #colorbox_list_branch_dev').css({ fill: "blue" });
           });
@@ -199,19 +199,23 @@ angular.module('account.controller', [])
         //For hovering over an individual office, cubicle, or facility on the map,
         //corresponding department or facility on map legend list will highlight/underline
 
-       /* var deptartment_facility_list = [branch_dev, im_r, busi_dev, finance, acd, vsa, accounting, ops, tpa, mrkt_comm, prvd_mgmt,
+        /*
+        var i;
+        var deptartment_facility_list = ['branch_dev', 'im_r', 'busi_dev', 'finance', 'acd', 'vsa', 'accounting', 'ops', tpa, mrkt_comm, prvd_mgmt,
                                       isa, reception, retire_serv, quality_cntrl, asset_mgmt, one_time_financials, conf, hr, doc_mgmt,
                                       branch_serv, account_setup, compli_licens, euc, rdi, isd, break_area, kitchen, stairs_exit,
                                       elevator_exit];
-        for (i=0; i <= deptartment_facility_list.length; i++){
+
             $(document).ready(function() {
-               $('.desk.' + deptartment_facility_list[i]).on("mouseover", function() {
-                   $('colorbox_list_' + deptartment_facility_list[i]).css({fill:"blue"});
-                   $('#text_list_' + deptartment_facility_list[i]).css({fill:'blue'});
-                   $('#text_list_' + deptartment_facility_list[i]).css({'text-decoration': 'underline'});
-               });
+               for (i=0; i <= deptartment_facility_list.length; i++){
+                    $('.desk.' + deptartment_facility_list[i]).on("mouseover", function() {
+                       $('colorbox_list_' + deptartment_facility_list[i]).css({fill:"blue"});
+                       $('#text_list_' + deptartment_facility_list[i]).css({fill:'blue'});
+                       $('#text_list_' + deptartment_facility_list[i]).css({'text-decoration': 'underline'});
+                    });
+               }//end for loop
             });
-        }//end for loop
+
 
         for (i=0; i <= deptartment_facility_list.length; i++){
             $(document).ready(function() {
@@ -221,83 +225,69 @@ angular.module('account.controller', [])
                    $('#text_list_' + deptartment_facility_list[i]).css({'text-decoration': 'none'});
                });
             });
-        }//end for loop     */
+        }//end for loop */
+
 
 
         $( document ).ready(function() {
             $('.desk.branch_dev').on("mouseover", function(){
                 $('#colorbox_list_branch_dev').css({fill:"blue"});
-                $('#text_list_branch_dev').css({fill:"blue"});
                 $('#text_list_branch_dev').css({'text-decoration': "underline"});
             });
             $('.desk.branch_dev').on("mouseout", function(){
                 $('#colorbox_list_branch_dev').css({fill:"red"});
-                $('#text_list_branch_dev').css({fill:"black"});
                 $('#text_list_branch_dev').css({'text-decoration': "none"});
             });
             $('.desk.im_r').on("mouseover", function(){
                 $('#colorbox_list_imr').css({fill:"blue"});
-                $('#text_list_imr').css({fill:"blue"});
                 $('#text_list_imr').css({'text-decoration': "underline"});
             });
             $('.desk.im_r').on("mouseout", function(){
                 $('#colorbox_list_imr').css({fill:"pink"});
-                $('#text_list_imr').css({fill:"black"});
                 $('#text_list_imr').css({'text-decoration': "none"});
             });
             $('.desk.busi_dev').on("mouseover", function(){
                 $('#colorbox_list_busi_dev').css({fill:"blue"});
-                 $('#text_list_busi_dev').css({fill:"blue"});
                 $('#text_list_busi_dev').css({'text-decoration': "underline"});
             });
             $('.desk.busi_dev').on("mouseout", function(){
                 $('#colorbox_list_busi_dev').css({fill:"#FF6600"});
-                 $('#text_list_busi_dev').css({fill:"black"});
                 $('#text_list_busi_dev').css({'text-decoration': "none"});
             });
             $('.desk.finance').on("mouseover", function(){
                 $('#colorbox_list_finance').css({fill:"blue"});
-                 $('#text_list_finance').css({fill:"blue"});
                 $('#text_list_finance').css({'text-decoration': "underline"});
             });
             $('.desk.finance').on("mouseout", function(){
                 $('#colorbox_list_finance').css({fill:"#00FF00"});
-                 $('#text_list_finance').css({fill:"black"});
                 $('#text_list_finance').css({'text-decoration': "none"});
             });
             $('.desk.acd').on("mouseover", function(){
                 $('#colorbox_list_acd').css({fill:"blue"});
-                 $('#text_list_acd').css({fill:"blue"});
                 $('#text_list_acd').css({'text-decoration': "underline"});
             });
             $('.desk.acd').on("mouseout", function(){
                 $('#colorbox_list_acd').css({fill:"gray"});
-                 $('#text_list_acd').css({fill:"black"});
-                $('#text_list_vsa').css({'text-decoration': "none"});
+                $('#text_list_acd').css({'text-decoration': "none"});
             });
             $('.desk.vsa').on("mouseover", function(){
                 $('#colorbox_list_vsa').css({fill:"blue"});
-                 $('#text_list_vsa').css({fill:"blue"});
                 $('#text_list_vsa').css({'text-decoration': "underline"});
             });
             $('.desk.vsa').on("mouseout", function(){
                 $('#colorbox_list_vsa').css({fill:"yellow"});
-                 $('#text_list_vsa').css({fill:"black"});
                 $('#text_list_vsa').css({'text-decoration': "none"});
             });
             $('.desk.accounting').on("mouseover", function(){
                 $('#colorbox_list_accounting').css({fill:"blue"});
-                 $('#text_list_accounting').css({fill:"blue"});
                 $('#text_list_accounting').css({'text-decoration': "underline"});
             });
             $('.desk.accounting').on("mouseout", function(){
                 $('#colorbox_list_accounting').css({fill:"#006600"});
-                 $('#text_list_accounting').css({fill:"black"});
                 $('#text_list_accounting').css({'text-decoration': "none"});
             });
             $('.desk.ops').on("mouseover", function(){
                 $('#colorbox_list_ops').css({fill:"blue"});
-                 $('#text_list_ops').css({fill:"blue"});
                 $('#text_list_ops').css({'text-decoration': "underline"});
             });
             $('.desk.ops').on("mouseout", function(){
@@ -307,29 +297,24 @@ angular.module('account.controller', [])
             });
             $('.desk.tpa').on("mouseover", function(){
                 $('#colorbox_list_tpa').css({fill:"blue"});
-                 $('#text_list_tpa').css({fill:"blue"});
                 $('#text_list_tpa').css({'text-decoration': "underline"});
             });
             $('.desk.tpa').on("mouseout", function(){
                 $('#colorbox_list_tpa').css({fill:"coral"});
-                 $('#text_list_tpa').css({fill:"black"});
                 $('#text_list_tpa').css({'text-decoration': "none"});
             });
             $('.desk.mrkt_comm').on("mouseover", function(){
                 $('#colorbox_list_mrkt_comm').css({fill:"blue"});
-                 $('#text_list_mrkt_comm').css({fill:"blue"});
                 $('#text_list_mrkt_comm').css({'text-decoration': "underline"});
             });
             $('.desk.mrkt_comm').on("mouseover", function(){
                 $('#colorbox_list_mrkt_comm').css({fill:"#3399FF"});
-                 $('#text_list_mrkt_comm').css({fill:"black"});
                 $('#text_list_mrkt_comm').css({'text-decoration': "none"});
             });
             $('.desk.prvd_mgmt').on("mouseover", function(){
                 $('#colorbox_list_prvd_mgmt').css({fill:"blue"});
-                 $('#text_list_prvd_mgmt').css({fill:"blue"});
                 $('#text_list_mrkt_comm').css({'text-decoration': "underline"});
             });
-        });//end hovering over an individual location and corresponding map legend list item highlighting
+        });//end hovering over an individual location and corresponding map legend list item highlighting */
 
     });
