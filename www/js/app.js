@@ -219,6 +219,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         firebase.initializeApp(CONFIG);
     });
 })
+.constant('HIGHLIGHT_COLOR', 'blue')
 
 .config(function($stateProvider, $urlRouterProvider) {
 
