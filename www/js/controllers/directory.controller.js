@@ -9,7 +9,7 @@ angular.module('directory.controller', [])
         function($scope, $state, $ionicHistory, Locations, Auth) {
 
             $scope.selectEmployee = {
-                employees: Locations.getByNType(NodeTypeEnum.DESK),
+                employees: null, // only load if user is authenticated
                 employee: null
             };
 

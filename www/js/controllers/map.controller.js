@@ -11,7 +11,7 @@ angular.module('map.controller', [])
     function($rootScope, $scope, $stateParams, $compile, Locations, Users, Auth) {
 
         $scope.selectNode = {
-            nodes: Locations.all(),
+            nodes: null, // only load if user is authenticated
             fromNode: null, // this will also serve as the parameter employee
             toNode: null,
             FIND_ON_MAP: "FIND_ON_MAP"
@@ -20,8 +20,7 @@ angular.module('map.controller', [])
         // load employees when signed in
         Auth.$onAuthStateChanged(function(user) {
             if (user) {
-                $scope.selectNode.nodes = Locations.all();
-                //$scope.user = Users.get(Auth.$getAuth().uid);
+                $scope.selectNode.nodes = Locations.all(); // load locations
             }
             else {
                 $scope.selectNode.nodes = null;

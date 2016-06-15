@@ -1,6 +1,4 @@
 /* style.css */
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
 
 /* general css */
 
@@ -101,11 +99,9 @@ ion-modal-view.ion-search-select .select-on-map {
 }
 
 svg .wall {
-    position: relative;
-    fill: white;
-    border-color: black;
-    stroke-width: 2;
-    stroke: rgb(0, 0, 0);
+    fill: none;
+    stroke-width: 2px;
+    stroke: black;
 }
 
 svg .desk.office.branch_dev {
@@ -734,6 +730,20 @@ svg .list_reception {
 svg .list_reception:hover{
     position: relative;
     fill: blue;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_broom {
+    position: relative;
+    fill: lightgray;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .list_exec_suite {
+    position: relative;
+    fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
