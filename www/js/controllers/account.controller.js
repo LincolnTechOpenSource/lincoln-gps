@@ -9,122 +9,89 @@ angular.module('account.controller', [])
       }
     };
 
-
-    var changeColor = function(selector, color) {
+    /** changeCSS: changes the CSS of the specified @selector to @props */
+    var changeCSS = function(selector, props) {
       return function() {
-        $(selector).css({
-          fill: color
-        });
+        $(selector).css(props);
       };
     };
 
-    var changeColorAndUnderline = function(selector1, color1, selector2, color2, selector3, style) {
+    var changeColorAndUnderline = function(selector1, color1, selector2, color2, style) {
       return function() {
         $(selector1).css({
           fill: color1
         });
-        $(selector2).css({
-          fill: color2
-        });
-        $(selector3).css({
+        $(selector2 + ' .text_list').css({
+          fill: color2,
           'text-decoration': style
         });
       };
     };
 
-
-    // 2d array of the form [legend text selector, map & colorbox selectors, original color]
+    // 2d array of the form [selector, original color]
     var departmentHovers = [
-      ['#text_list_branch_dev', '.desk.branch_dev, #colorbox_list_branch_dev', 'red'],
-      ['#text_list_busi_dev', '.desk.busi_dev, #colorbox_list_busi_dev', '#FF6600'],
-      ['#text_list_imr', 'desk.imr, #colorbox_list_imr', 'pink'],
-      ['#text_list_finance', '.desk.finance, #colorbox_list_finance', '#00FF00'],
-      ['#text_list_acd', '.desk.cubicle.acd,  #colorbox_list_acd', 'gray' ],
-      ['#text_list_vsa', '.desk.vsa, #colorbox_list_vsa', 'yellow' ],
-      ['#text_list_accounting', '.desk.accounting, #colorbox_list_accounting', '#006600'],
-      ['#text_list_operations', '.desk.ops, #colorbox_list_operations', 'tomato'],
-      ['#text_list_tpa', '.desk.tpa, #colorbox_list_tpa', 'coral'],
-      ['#text_list_mrkt_comm', '.desk.mrkt_comm, #colorbox_list_mrkt_comm', '#3399FF'],
-      ['#text_list_prvd_mgmt', '.desk.prvd_mgmt, #colorbox_list_prvd_mgmt', '#00FFFF'],
-      ['#text_list_isa', '.desk.isa, #colorbox_list_isa', '#FFFF33'],
-      ['#text_list_retire_serv', '.desk.retire_serv, #colorbox_list_retire_serv', '#990066'],
-      ['#text_list_quality_cntrl', '.desk.quality_cntrl, #colorbox_list_quality_cntrl', 'violet'],
-      ['#text_list_asset_mgmt', '.desk.asset_mgmt, #colorbox_list_asset_mgmt', 'lightgreen'],
-      ['#text_list_one_time_financials', '.desk.one_time_financials, #colorbox_list_one_time_financials', 'sandybrown'],
-      ['#text_list_conf', '.desk.conf, #colorbox_list_conf', 'lightblue'],
-      ['#text_list_hr', '.desk.hr, #colorbox_list_hr', '#cccc00'],
-      ['#text_list_doc_mgmt', '.desk.doc_mgmt, #colorbox_list_doc_mgmt', '#cc5200'],
-      ['#text_list_branch_serv', '.desk.branch_serv, #colorbox_list_branch_serv', '#33cc33'],
-      ['#text_list_account_setup', '.desk.account_setup, #colorbox_list_account_setup', '#ff8080'],
-      ['#text_list_compli_licens', '.desk.compli_licens, #colorbox_list_compli_licens', '#ffff99'],
-      ['#text_list_euc', '.desk.euc, #colorbox_list_euc', '#5cd65c'],
-      ['#text_list_rdi', '.desk.rdi, #colorbox_list_rdi', '#ff3333'],
-      ['#text_list_isd', '.desk.isd, #colorbox_list_isd', '#3377ff'],
-      ['#text_list_break_area', '.break_area, #colorbox_list_break_area', '#FF6633'],
-      ['#text_list_kitchen', '.kitchen, #colorbox_list_kitchen', 'lightgray'],
-      ['#text_list_stairs_exit', '.stairs_exit, #colorbox_list_stairs_exit', '#ff9988'],
-      ['#text_list_elevator_exit', '.elevator_exit, #colorbox_list_elevator_exit', '#ff9988'],
-      ['#text_list_reception', '.reception, #colorbox_list_reception', '#595959'],
-      ['#text_list_broom', '.broom, #colorbox_list_broom', 'lightgray'],
-      ['#text_list_exec_suite', '.exec_suite, #colorbox_list_exec_suite', 'lightgray']
+      ['branch_dev', 'red'],
+      ['busi_dev', '#FF6600'],
+      ['im_r', 'pink'],
+      ['finance', '#00FF00'],
+      ['acd', 'gray'],
+      ['vsa', 'yellow'],
+      ['accounting', '#006600'],
+      ['ops', 'tomato'],
+      ['tpa', 'coral'],
+      ['mrkt_comm', '#3399FF'],
+      ['prvd_mgmt', '#00FFFF'],
+      ['isa', '#FFFF33'],
+      ['retire_serv', '#990066'],
+      ['quality_cntrl', 'violet'],
+      ['asset_mgmt', 'lightgreen'],
+      ['one_time_financials', 'sandybrown'],
+      ['conf', 'lightblue'],
+      ['hr', '#cccc00'],
+      ['doc_mgmt', '#cc5200'],
+      ['branch_serv', '#33cc33'],
+      ['account_setup', '#ff8080'],
+      ['compli_licens', '#ffff99'],
+      ['euc', '#5cd65c'],
+      ['rdi', '#ff3333'],
+      ['isd', '#3377ff'],
+      ['break_area', '#FF6633'],
+      ['kitchen', 'lightgray'],
+      ['stairs_exit', '#ff9988'],
+      ['elevator_exit', '#ff9988'],
+      ['reception', '#595959'],
+      ['broom', 'lightgray'],
+      ['exec_suite', 'lightgray']
     ];
-
-      var departmentHoversFromMap = [
-      ['#text_list_branch_dev', '.desk.branch_dev', '#colorbox_list_branch_dev', 'red'],
-      ['#text_list_busi_dev', '.desk.busi_dev', '#colorbox_list_busi_dev', '#FF6600'],
-      ['#text_list_imr', 'desk.imr', '#colorbox_list_imr', 'pink'],
-      ['#text_list_finance', '.desk.finance', '#colorbox_list_finance', '#00FF00'],
-      ['#text_list_acd', '.desk.cubicle.acd',  '#colorbox_list_acd', 'gray' ],
-      ['#text_list_vsa', '.desk.vsa', '#colorbox_list_vsa', 'yellow' ],
-      ['#text_list_accounting', '.desk.accounting', '#colorbox_list_accounting', '#006600'],
-      ['#text_list_operations', '.desk.ops', '#colorbox_list_operations', 'tomato'],
-      ['#text_list_tpa', '.desk.tpa', '#colorbox_list_tpa', 'coral'],
-      ['#text_list_mrkt_comm', '.desk.mrkt_comm', '#colorbox_list_mrkt_comm', '#3399FF'],
-      ['#text_list_prvd_mgmt', '.desk.prvd_mgmt', '#colorbox_list_prvd_mgmt', '#00FFFF'],
-      ['#text_list_isa', '.desk.isa', '#colorbox_list_isa', '#FFFF33'],
-      ['#text_list_retire_serv', '.desk.retire_serv', '#colorbox_list_retire_serv', '#990066'],
-      ['#text_list_quality_cntrl', '.desk.quality_cntrl', '#colorbox_list_quality_cntrl', 'violet'],
-      ['#text_list_asset_mgmt', '.desk.asset_mgmt', '#colorbox_list_asset_mgmt', 'lightgreen'],
-      ['#text_list_one_time_financials', '.desk.one_time_financials', '#colorbox_list_one_time_financials', 'sandybrown'],
-      ['#text_list_conf', '.desk.conf', '#colorbox_list_conf', 'lightblue'],
-      ['#text_list_hr', '.desk.hr', '#colorbox_list_hr', '#cccc00'],
-      ['#text_list_doc_mgmt', '.desk.doc_mgmt', '#colorbox_list_doc_mgmt', '#cc5200'],
-      ['#text_list_branch_serv', '.desk.branch_serv', '#colorbox_list_branch_serv', '#33cc33'],
-      ['#text_list_account_setup', '.desk.account_setup', '#colorbox_list_account_setup', '#ff8080'],
-      ['#text_list_compli_licens', '.desk.compli_licens', '#colorbox_list_compli_licens', '#ffff99'],
-      ['#text_list_euc', '.desk.euc', '#colorbox_list_euc', '#5cd65c'],
-      ['#text_list_rdi', '.desk.rdi', '#colorbox_list_rdi', '#ff3333'],
-      ['#text_list_isd', '.desk.isd', '#colorbox_list_isd', '#3377ff'],
-      ['#text_list_break_area', '.break_area', '#colorbox_list_break_area', '#FF6633'],
-      ['#text_list_kitchen', '.kitchen', '#colorbox_list_kitchen', 'lightgray'],
-      ['#text_list_stairs_exit', '.stairs_exit', '#colorbox_list_stairs_exit', '#ff9988'],
-      ['#text_list_elevator_exit', '.elevator_exit', '#colorbox_list_elevator_exit', '#ff9988'],
-      ['#text_list_reception', '.reception', '#colorbox_list_reception', '#595959'],
-      ['#text_list_broom', '.broom', '#colorbox_list_broom', 'lightgray'],
-      ['#text_list_exec_suite', '.exec_suite', '#colorbox_list_exec_suite', 'lightgray']
-    ];
-
-    // For hovering over a department or facility on map legend list,
-    //corresponding department desks or facility areas all highlight blue
 
     //TODO: change function so that when highlighting text item on map legend list,
     // the colorbox, corresponding locations will highlight, but the text itself will highlight blue? just underline? specified color?
     $(document).ready(function() {
       //$('#svg2').on('click', '#map2 g *', function() {console.log(this.id);});
+
+      // attach hover element to each legend component so that hovering over text
+      // makes all corresponding locations highlight
       for (var i = 0; i < departmentHovers.length; i++) {
-        $(departmentHovers[i][0]).hover(changeColor(departmentHovers[i][1], HIGHLIGHT_COLOR),
-        changeColor(departmentHovers[i][1], departmentHovers[i][2]));
+        $(".list_" + departmentHovers[i][0]).hover(
+          changeCSS(".loc." + departmentHovers[i][0] + ", " +
+            ".list_" + departmentHovers[i][0] + " .colorbox_list", {
+              fill: HIGHLIGHT_COLOR
+            }),
+          changeCSS(".loc." + departmentHovers[i][0] + ", " +
+            ".list_" + departmentHovers[i][0] + " .colorbox_list", {
+              fill: departmentHovers[i][1]
+            })
+        );
       }
 
-
-   //for underlining a list item on the legend when corresponding desk or facility on map is hovered
-      for(var j=0; j < departmentHoversFromMap.length; j++ ) {
-        $(departmentHoversFromMap[j][1]).hover(changeColorAndUnderline(departmentHoversFromMap[j][2], HIGHLIGHT_COLOR,
-        departmentHoversFromMap[j][0], departmentHoversFromMap[j][3],
-        departmentHoversFromMap[j][0], 'underline'),
-        changeColorAndUnderline(departmentHoversFromMap[j][2], departmentHoversFromMap[j][3],
-        departmentHoversFromMap[j][0], 'black',
-        departmentHoversFromMap[j][0], 'none'));
+      // attach hover element to each loc component so that hovering over location
+      // makes the corresponding legend item highlight
+      for (var i = 0; i < departmentHovers.length; i++) {
+        $(".loc."+departmentHovers[i][0]).hover(
+          changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list",
+            HIGHLIGHT_COLOR, ".list_" + departmentHovers[i][0], departmentHovers[i][1], 'underline'),
+          changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list", departmentHovers[i][1],
+            ".list_" + departmentHovers[i][0], 'black', 'none'));
       }
 
     });

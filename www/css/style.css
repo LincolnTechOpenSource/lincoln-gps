@@ -109,7 +109,6 @@ svg .wall {
 }
 
 svg .desk.office.branch_dev {
-    position: relative;
     top: 0px;
     left: 0px;
     border-width: 5px;
@@ -120,14 +119,12 @@ svg .desk.office.branch_dev {
 }
 
 svg .desk.cubicle.branch_dev {
-    position: relative;
     fill: red;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.im_r {
-    position: relative;
     fill: pink;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
@@ -135,63 +132,54 @@ svg .desk.office.im_r {
 }
 
 svg .desk.cubicle.im_r {
-    position: relative;
     fill: pink;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.acd {
-    position: relative;
     fill: gray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.cubicle.acd {
-    position: relative;
     fill: gray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.cubicle.vsa {
-    position: relative;
     fill: yellow;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.finance {
-    position: relative;
     fill: #00FF00;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.cubicle.finance {
-    position: relative;
     fill: #00FF00;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.accounting {
-    position: relative;
     fill: #006600;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.cubicle.accounting {
-    position: relative;
     fill: #006600;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.conf {
-    position: relative;
     fill: lightblue;
     border-color: black;
     stroke-width: 1;
@@ -200,7 +188,6 @@ svg .desk.conf {
 
 svg .desk.office.busi_dev,
 svg .desk.cubicle.busi_dev {
-    position: relative;
     fill: #FF6600;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
@@ -208,259 +195,222 @@ svg .desk.cubicle.busi_dev {
 
 svg .desk.office.ops,
 svg .desk.cubicle.ops {
-    position: relative;
     fill: tomato;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .wbroom {
-    position: relative;
     fill: #787878;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .mbroom {
-    position: relative;
     fill: #545454;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .break_area {
-    position: relative;
     fill: #FF6633;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.cfo {
-    position: relative;
     fill: gray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .desk.office.ceo {
-    position: relative;
     fill: gray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .block {
-    position: relative;
     fill: brown;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .copy_rm {
-    position: relative;
     fill: orange;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .mrkt_comm {
-    position: relative;
     fill: #3399FF;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .prvd_mgmt {
-    position: relative;
     fill: #00FFFF;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .tpa {
-    position: relative;
     fill: coral;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .isa {
-    position: relative;
     fill: #FFFF33;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .retire_serv {
-    position: relative;
     fill: #990066;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .quality_cntrl {
-    position: relative;
     fill: violet;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .asset_mgmt {
-    position: relative;
     fill: lightgreen;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .one_time_financials {
-    position: relative;
     fill: sandybrown;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .hr {
-    position: relative;
     fill: #cccc00;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .account_setup {
-    position: relative;
     fill: #ff8080;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .branch_serv {
-    position: relative;
     fill: #33cc33;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .doc_mgmt {
-    position: relative;
     fill: #cc5200;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .facilities {
-    position: relative;
     fill: #db4dff;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .euc {
-    position: relative;
     fill: #5cd65c;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .compli_licens {
-    position: relative;
     fill: #ffff99;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .isd {
-    position: relative;
     fill: #3377ff;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .rdi {
-    position: relative;
     fill: #ff3333;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .exec_suite {
-    position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .kitchen {
-    position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .break_area {
-    position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .lobby {
-    position: relative;
     fill: #ff9988;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .scan_rm {
-    position: relative;
     fill: #b3ffd9;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .stairs_exit {
-    position: relative;
     fill: #ff9988;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .storage_rm {
-    position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .privacy_pod {
-    position: relative;
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .reception {
-    position: relative;
     fill: #595959;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .vacant {
-    position: relative;
     fill: #898989;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .janitor{
-    position: relative;
+svg .janitor {
     fill: lightyellow;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
 svg .path {
-    position: relative;
     top: 0px;
     left: 0px;
     fill: white;
@@ -469,7 +419,6 @@ svg .path {
 }
 
 svg .path:hover {
-    position: relative;
     z-index: -10;
     fill: blue;
 }
@@ -504,7 +453,6 @@ svg .janitor:hover {
 }
 
 svg .block:hover {
-    position: relative;
     fill: blue;
 }
 
@@ -512,260 +460,156 @@ svg .locator {
     opacity: 1;
 }
 
-svg .legend_title {
-    position: relative;
-    fill: white;
-    border-color: black;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_branch_dev {
-    position: relative;
-    fill: red;
-    border-color: black;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_imr {
-    position: relative;
-    fill: pink;
-    border-color: black;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .text_list_imr {
-    width: '100px';
-    word-warp: break-word;
-}
-
-svg .list_busi_dev {
-    position: relative;
-    fill: #FF6600;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_finance {
-    position: relative;
-    fill: #00FF00;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_acd {
-    position: relative;
-    fill: gray;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_vsa {
-    position: relative;
-    fill: yellow;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_accounting {
-    position: relative;
-    fill: #006600;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_operations {
-    position: relative;
-    fill: tomato;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_tpa {
-    position: relative;
-    fill: coral;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_mrkt_comm {
-    position: relative;
-    fill: #3399FF;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_prvd_mgmt {
-    position: relative;
-    fill: #00FFFF;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_isa {
-    position: relative;
-    fill: #FFFF33;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_retire_serv {
-    position: relative;
-    fill: #990066;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_quality_cntrl {
-    position: relative;
-    fill: violet;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_asset_mgmt {
-    position: relative;
-    fill: lightgreen;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_one_time_financials {
-    position: relative;
-    fill: sandybrown;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_conf {
-    position: relative;
-    fill: lightblue;
-    border-color: black;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_hr {
-    position: relative;
-    fill: #cccc00;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_doc_mgmt {
-    position: relative;
-    fill: #cc5200;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_branch_serv {
-    position: relative;
-    fill: #33cc33;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_account_setup {
-    position: relative;
-    fill: #ff8080;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_compli_licens {
-    position: relative;
-    fill: #ffff99;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_euc {
-    position: relative;
-    fill: #5cd65c;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_rdi {
-    position: relative;
-    fill: #ff3333;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_isd {
-    position: relative;
-    fill: #3377ff;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_break_area {
-    position: relative;
-    fill: #FF6633;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_kitchen {
-    position: relative;
-    fill: lightgray;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_stairs_exit {
-    position: relative;
-    fill: #ff9988;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_elevator_exit {
-    position: relative;
-    fill: #ff9988;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_reception {
-    position: relative;
-    fill: #595959;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_reception:hover {
-    position: relative;
-    fill: blue;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_broom {
-    position: relative;
-    fill: lightgray;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
-svg .list_exec_suite {
-    position: relative;
-    fill: lightgray;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
+/* SVG Map Legend Styles */
 #svg2 #map2 .department_list .text_list {
     font-family: Verdana;
     font-size: 40px;
+    font-weight: 600;
     fill: black;
 }
 
 #svg2 #map2 .department_list .colorbox_list {
     width: 30px;
     height: 30px;
+    stroke-width:2px;
+    stroke: black;
+}
+
+svg .list_branch_dev {
+    fill: red;
+}
+
+svg .list_im_r {
+    fill: pink;
+    border-color: black;
+}
+
+svg .text_list_im_r {
+    width: '100px';
+    word-warp: break-word;
+}
+
+svg .list_busi_dev {
+    fill: #FF6600;
+}
+
+svg .list_finance {
+    fill: #00FF00;
+}
+
+svg .list_acd {
+    fill: gray;
+}
+
+svg .list_vsa {
+    fill: yellow;
+}
+
+svg .list_accounting {
+    fill: #006600;
+}
+
+svg .list_operations {
+    fill: tomato;
+}
+
+svg .list_tpa {
+    fill: coral;
+}
+
+svg .list_mrkt_comm {
+    fill: #3399FF;
+}
+
+svg .list_prvd_mgmt {
+    fill: #00FFFF;
+}
+
+svg .list_isa {
+    fill: #FFFF33;
+}
+
+svg .list_retire_serv {
+    fill: #990066;
+}
+
+svg .list_quality_cntrl {
+    fill: violet;
+}
+
+svg .list_asset_mgmt {
+    fill: lightgreen;
+}
+
+svg .list_one_time_financials {
+    fill: sandybrown;
+}
+
+svg .list_conf {
+    fill: lightblue;
+    border-color: black;
+}
+
+svg .list_hr {
+    fill: #cccc00;
+}
+
+svg .list_doc_mgmt {
+    fill: #cc5200;
+}
+
+svg .list_branch_serv {
+    fill: #33cc33;
+}
+
+svg .list_account_setup {
+    fill: #ff8080;
+}
+
+svg .list_compli_licens {
+    fill: #ffff99;
+}
+
+svg .list_euc {
+    fill: #5cd65c;
+}
+
+svg .list_rdi {
+    fill: #ff3333;
+}
+
+svg .list_isd {
+    fill: #3377ff;
+}
+
+svg .list_break_area {
+    fill: #FF6633;
+}
+
+svg .list_kitchen {
+    fill: lightgray;
+}
+
+svg .list_stairs_exit {
+    fill: #ff9988;
+}
+
+svg .list_elevator_exit {
+    fill: #ff9988;
+}
+
+svg .list_reception {
+    fill: #595959;
+}
+
+svg .list_reception:hover {
+    fill: blue;
+}
+
+svg .list_broom {
+    fill: lightgray;
+}
+
+svg .list_exec_suite {
+    fill: lightgray;
 }
