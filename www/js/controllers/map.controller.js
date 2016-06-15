@@ -123,7 +123,6 @@ angular.module('map.controller', [])
             if (selectOnClick != 'false') {
                 Locations.get(this.id).then(function(loc) {
                     $scope.selectNode[selectOnClick] = loc;
-                    //$scope.$apply();
                 });
 
                 $('#svg #map #outer-border').removeClass('select-me');

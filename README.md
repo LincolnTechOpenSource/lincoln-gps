@@ -17,10 +17,13 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/09/16: Nearly finished with map, authentication, started filtering
 * 06/10/16: Finished SVG map
 * 06/13/16: From/To directions, map legend, and department highlighting
+* 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
+* 06/15/16:
 
 ## Ideas to Contribute
 
 * Get directions from "my current location" (implement GPS locator)
+* Give turn-by-turn directions (a la google maps)
 * "Track" employees' location (via cellphone, key-fob, or desk-phone)
 * Integrate employees' calendar to find location
 * Connect authentication to custom system through token

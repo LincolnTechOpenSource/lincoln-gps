@@ -199,7 +199,7 @@ angular.module('account.controller', [])
         //For hovering over an individual office, cubicle, or facility on the map,
         //corresponding department or facility on map legend list will highlight/underline
 
-
+        /*
         var i;
         var department_facility_list = ['.desk.branch_dev', '.desk.imr', '.desk.busi_dev', '.desk.finance',
                                          '.desk.acd', '.desk.vsa', '.desk.accounting', '.desk.ops', '.desk.tpa', '.desk.mrkt_comm',
@@ -234,10 +234,10 @@ angular.module('account.controller', [])
                            j++;
                        });
                 }//end for loop */
-            });//end document ready, two for loop block
+        //    });//end document ready, two for loop block
 
 
-/*
+
         $( document ).ready(function() {
             $('.desk.branch_dev').on("mouseover", function(){
                 $('#colorbox_list_branch_dev').css({fill:"blue"});
@@ -322,7 +322,27 @@ angular.module('account.controller', [])
             });
             $('.desk.prvd_mgmt').on("mouseover", function(){
                 $('#colorbox_list_prvd_mgmt').css({fill:"blue"});
-                $('#text_list_mrkt_comm').css({'text-decoration': "underline"});
+                $('#text_list_prvd_mgmt').css({'text-decoration': "underline"});
+            });
+            $('.desk.prvd_mgmt').on("mouseout", function(){
+                $('#colorbox_list_prvd_mgmt').css({fill:"#00FFFF"});
+                $('#text_list_prvd_mgmt').css({'text-decoration': "none"});
+            });
+            $('.desk.isa').on("mouseover", function(){
+                $('#colorbox_list_isa').css({fill:"blue"});
+                $('#text_list_isa').css({'text-decoration': "underline"});
+            });
+            $('.desk.isa').on("mouseout", function(){
+                $('#colorbox_list_isa').css({fill:"#FFFF33"});
+                $('#text_list_isa').css({'text-decoration': "none"});
+            });
+            $('.desk.reception').on("mouseover", function(){
+                $('#colorbox_list_reception').css({fill:"blue"});
+                $('#text_list_reception').css({'text-decoration': "underline"});
+            });
+            $('.desk.reception').on("mouseover", function(){
+                $('#colorbox_list_reception').css({fill:"#595959"});
+                $('#text_list_reception').css({'text-decoration': "none"});
             });
         });//end hovering over an individual location and corresponding map legend list item highlighting */
 
