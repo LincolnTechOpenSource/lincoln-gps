@@ -18,6 +18,15 @@ angular.module('account.controller', [])
       };
     };
 
+    var changeColorAndUnderline = function(selector1, color, selector2, style) {
+      return function() {
+        $(selector).css({
+          'text-decoration': style
+        });
+      };
+    };
+
+
     // 2d array of the form [legend text selector, map & colorbox selectors, original color]
     var departmentHovers = [
       ['#text_list_branch_dev', '.desk.branch_dev, #colorbox_list_branch_dev', 'red'],
@@ -52,14 +61,52 @@ angular.module('account.controller', [])
       ['#text_list_reception', '.reception, #colorbox_list_reception', '#595959']
     ];
 
+      var departmentHoversFromMap = [
+      ['#text_list_branch_dev', '.desk.branch_dev', '#colorbox_list_branch_dev', 'red'],
+      ['#text_list_busi_dev', '.desk.busi_dev', '#colorbox_list_busi_dev', '#FF6600'],
+      ['#text_list_imr', 'desk.imr', '#colorbox_list_imr', 'pink'],
+      ['#text_list_finance', '.desk.finance', '#colorbox_list_finance', '#00FF00'],
+      ['#text_list_acd', '.desk.cubicle.acd',  '#colorbox_list_acd', 'gray' ],
+      ['#text_list_vsa', '.desk.vsa', '#colorbox_list_vsa', 'yellow' ],
+      ['#text_list_accounting', '.desk.accounting', '#colorbox_list_accounting', '#006600'],
+      ['#text_list_operations', '.desk.ops', '#colorbox_list_operations', 'tomato'],
+      ['#text_list_tpa', '.desk.tpa', '#colorbox_list_tpa', 'coral'],
+      ['#text_list_mrkt_comm', '.desk.mrkt_comm', '#colorbox_list_mrkt_comm', '#3399FF'],
+      ['#text_list_prvd_mgmt', '.desk.prvd_mgmt', '#colorbox_list_prvd_mgmt', '#00FFFF'],
+      ['#text_list_isa', '.desk.isa', '#colorbox_list_isa', '#FFFF33'],
+      ['#text_list_retire_serv', '.desk.retire_serv', '#colorbox_list_retire_serv', '#990066'],
+      ['#text_list_quality_cntrl', '.desk.quality_cntrl', '#colorbox_list_quality_cntrl', 'violet'],
+      ['#text_list_asset_mgmt', '.desk.asset_mgmt', '#colorbox_list_asset_mgmt', 'lightgreen'],
+      ['#text_list_one_time_financials', '.desk.one_time_financials', '#colorbox_list_one_time_financials', 'sandybrown'],
+      ['#text_list_conf', '.desk.conf', '#colorbox_list_conf', 'lightblue'],
+      ['#text_list_hr', '.desk.hr', '#colorbox_list_hr', '#cccc00'],
+      ['#text_list_doc_mgmt', '.desk.doc_mgmt', '#colorbox_list_doc_mgmt', '#cc5200'],
+      ['#text_list_branch_serv', '.desk.branch_serv', '#colorbox_list_branch_serv', '#33cc33'],
+      ['#text_list_account_setup', '.desk.account_setup', '#colorbox_list_account_setup', '#ff8080'],
+      ['#text_list_compli_licens', '.desk.compli_licens', '#colorbox_list_compli_licens', '#ffff99'],
+      ['#text_list_euc', '.desk.euc', '#colorbox_list_euc', '#5cd65c'],
+      ['#text_list_rdi', '.desk.rdi', '#colorbox_list_rdi', '#ff3333'],
+      ['#text_list_isd', '.desk.isd', '#colorbox_list_isd', '#3377ff'],
+      ['#text_list_break_area', '.break_area', '#colorbox_list_break_area', '#FF6633'],
+      ['#text_list_kitchen', '.kitchen', '#colorbox_list_kitchen', 'lightgray'],
+      ['#text_list_stairs_exit', '.stairs_exit', '#colorbox_list_stairs_exit', '#ff9988'],
+      ['#text_list_elevator_exit', '.elevator_exit', '#colorbox_list_elevator_exit', '#ff9988'],
+      ['#text_list_reception', '.reception', '#colorbox_list_reception', '#595959']
+    ];
+
     // For hovering over a department or facility on map legend list,
     //corresponding department desks or facility areas all highlight blue
     $(document).ready(function() {
       for (var i = 0; i < departmentHovers.length; i++) {
-        $(departmentHovers[i][0]).hover(changeColor(departmentHovers[i][1], HIGHLIGHT_COLOR), changeColor(departmentHovers[i][1], departmentHovers[i][2]));
+        $(departmentHovers[i][0]).hover(changeColor(departmentHovers[i][1], HIGHLIGHT_COLOR),
+        changeColor(departmentHovers[i][1], departmentHovers[i][2]));
       }
 
-      //for(var i=0; i < departmentHovers.length; i++ )
+      for(var i=0; i < departmentHoversFromMap.length; i++ ){
+        $(departmentHoversFromMap[i][1]).hover(changeColorAndUnderline((departmentHoversFromMap[i][2], HIGHLIGHT_COLOR,
+        departmentHoversFromMap[i][0], 'underline'),
+        changeColorAndUnderline(departmentHoversFromMap[i][0]), departmentHovers[i][2]));
+      }
 
     });
 
@@ -280,6 +327,6 @@ angular.module('account.controller', [])
           'text-decoration': "none"
         });
       });
-    }); //end hovering over an individual location and corresponding map legend list item highlighting */
+    }); //end hovering over an individual location and corresponding map legend list item ighting */
 
   });

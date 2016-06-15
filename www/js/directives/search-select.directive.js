@@ -72,7 +72,7 @@ angular.module('ion-search-select.directive', [])
 
                         // Popup to alert the user to click on the map (only show if preferred)
                         if ($rootScope.user.showMapPopup) {
-                            var selectPopup = $ionicPopup.alert({
+                            $ionicPopup.alert({
                                 title: 'Select a Location on the Map',
                                 template: 'Please click on a location on the map to select it',
                                 buttons: [{
@@ -82,7 +82,6 @@ angular.module('ion-search-select.directive', [])
                                     text: 'Do not show again',
                                     type: 'button-assertive',
                                     onTap: function(e) {
-                                        console.log($rootScope.user.showMapPopup);
                                         Users.set($rootScope.user.$id, 'showMapPopup', false);
                                     }
                                 }]

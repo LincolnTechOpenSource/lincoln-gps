@@ -17,8 +17,6 @@ angular.module('map.controller', [])
             FIND_ON_MAP: "FIND_ON_MAP"
         };
 
-
-
         // load employees when signed in
         Auth.$onAuthStateChanged(function(user) {
             if (user) {
@@ -48,8 +46,8 @@ angular.module('map.controller', [])
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
-            $scope.selectNode.toNode = null;
-            $scope.selectNode.fromNode = null;
+            // $scope.selectNode.toNode = null;
+            // $scope.selectNode.fromNode = null;
         };
 
         /** resets the selected location and removes path highlighting
@@ -58,8 +56,8 @@ angular.module('map.controller', [])
         $scope.clearLocation = function(locSelect) {
             // remove highlighting from path
             $("#svg #map g.non-walls .path").removeClass("hilite");
-            if ($scope.selectNode[locSelect] != $scope.selectNode.toNode ||
-                $scope.selectNode[locSelect] != $scope.selectNode.fromNode) {
+            if ($scope.selectNode[locSelect] !== $scope.selectNode.toNode ||
+                $scope.selectNode[locSelect] !== $scope.selectNode.fromNode) {
                 $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
             }
             $scope.selectNode[locSelect] = null; // clear the location
@@ -68,7 +66,7 @@ angular.module('map.controller', [])
         // watch to find directions
         $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
             // select on map option
-            if (newNode == $scope.selectNode.FIND_ON_MAP) {
+            if (newNode === $scope.selectNode.FIND_ON_MAP) {
                 $scope.selectNode.toNode = null; // clear value
                 $('#svg #map #outer-border').addClass('select-me');
                 $('#svg #map').attr('select-on-click', 'toNode');
@@ -80,14 +78,14 @@ angular.module('map.controller', [])
                 if (!!newNode)
                     $('#svg #map #' + newNode.id).addClass('hilite');
             }
-            if (!!oldNode && ($scope.selectNode.fromNode != oldNode)) {
+            if (!!oldNode && ($scope.selectNode.fromNode !== oldNode) && (newNode !== oldNode)) {
                 $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
 
         });
         $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
             // select on map option
-            if (newNode == $scope.selectNode.FIND_ON_MAP) {
+            if (newNode === $scope.selectNode.FIND_ON_MAP) {
                 $scope.selectNode.fromNode = null; // clear value
                 $('#svg #map #outer-border').addClass('select-me');
                 $('#svg #map').attr('select-on-click', 'fromNode');
@@ -96,10 +94,11 @@ angular.module('map.controller', [])
             else {
                 findDirections();
                 // also change highlight from old node to new node
-                if (!!newNode)
+                if (!!newNode) {
                     $('#svg #map #' + newNode.id).addClass('hilite');
+                }
             }
-            if (!!oldNode && ($scope.selectNode.toNode != oldNode)) {
+            if (!!oldNode && ($scope.selectNode.toNode !== oldNode) && (newNode !== oldNode)) {
                 $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
         });
