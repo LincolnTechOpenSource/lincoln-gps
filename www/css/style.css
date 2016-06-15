@@ -1,5 +1,6 @@
 /* style.css */
 
+
 /* general css */
 
 .col-offset-16,
@@ -17,8 +18,6 @@ ion-search-select label.search-select {
 }
 
 
-
-
 /* for close icon <i> tags */
 
 .x-clear {
@@ -27,11 +26,14 @@ ion-search-select label.search-select {
     padding-right: 5px;
 }
 
+
 /* Search Select Styles */
+
 ion-modal-view.ion-search-select .select-on-map {
     font-weight: 600;
     border-bottom: 2px solid black;
 }
+
 
 /* Login Modal Styles */
 
@@ -51,6 +53,7 @@ ion-modal-view.ion-search-select .select-on-map {
 
 
 /* SVG Map styling */
+
 
 /*#svg {
     width: 85%;
@@ -80,6 +83,7 @@ ion-modal-view.ion-search-select .select-on-map {
 #svg #map g.non-walls .hilite {
     fill: blue;
 }
+
 
 /*#svg #map g.non-walls .hilite:not(.path) {
     stroke: blue;
@@ -213,6 +217,13 @@ svg .desk.cubicle.ops {
 svg .wbroom {
     position: relative;
     fill: #787878;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
+svg .mbroom {
+    position: relative;
+    fill: #545454;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
@@ -392,13 +403,6 @@ svg .break_area {
     stroke: rgb(0, 0, 0);
 }
 
-svg .broom {
-    position: relative;
-    fill: lightgray;
-    stroke-width: 1;
-    stroke: rgb(0, 0, 0);
-}
-
 svg .lobby {
     position: relative;
     fill: #ff9988;
@@ -406,9 +410,9 @@ svg .lobby {
     stroke: rgb(0, 0, 0);
 }
 
-svg .scanning {
+svg .scan_rm {
     position: relative;
-    fill: lightgray;
+    fill: #b3ffd9;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
@@ -448,6 +452,13 @@ svg .vacant {
     stroke: rgb(0, 0, 0);
 }
 
+svg .janitor{
+    position: relative;
+    fill: lightyellow;
+    stroke-width: 1;
+    stroke: rgb(0, 0, 0);
+}
+
 svg .path {
     position: relative;
     top: 0px;
@@ -475,13 +486,13 @@ svg .exec_suite:hover,
 svg .lobby:hover,
 svg .reception:hover,
 svg .conf:hover,
-svg .broom:hover,
 svg .stairs_exit:hover,
 svg .break_area:hover,
 svg .storage_rm:hover,
-svg .scanning:hover,
+svg .scan_rm:hover,
 svg .privacy_pod:hover,
-svg .kitchen:hover {
+svg .kitchen:hover,
+svg .janitor:hover {
     pointer-events: visibleFill;
     fill: blue!important;
     stroke-width: 2px;
@@ -501,50 +512,50 @@ svg .locator {
     opacity: 1;
 }
 
-svg .legend_title{
+svg .legend_title {
     position: relative;
     fill: white;
-    border-color:black;
+    border-color: black;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .list_branch_dev{
+svg .list_branch_dev {
     position: relative;
     fill: red;
-    border-color:black;
+    border-color: black;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .list_imr{
+svg .list_imr {
     position: relative;
     fill: pink;
-    border-color:black;
+    border-color: black;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .text_list_imr{
-    width:'100px';
+svg .text_list_imr {
+    width: '100px';
     word-warp: break-word;
 }
 
-svg .list_busi_dev{
+svg .list_busi_dev {
     position: relative;
     fill: #FF6600;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .list_finance{
+svg .list_finance {
     position: relative;
     fill: #00FF00;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
 }
 
-svg .list_acd{
+svg .list_acd {
     position: relative;
     fill: gray;
     stroke-width: 1;
@@ -727,7 +738,7 @@ svg .list_reception {
     stroke: rgb(0, 0, 0);
 }
 
-svg .list_reception:hover{
+svg .list_reception:hover {
     position: relative;
     fill: blue;
     stroke-width: 1;
@@ -746,4 +757,15 @@ svg .list_exec_suite {
     fill: lightgray;
     stroke-width: 1;
     stroke: rgb(0, 0, 0);
+}
+
+#svg2 #map2 .department_list .text_list {
+    font-family: Verdana;
+    font-size: 40px;
+    fill: black;
+}
+
+#svg2 #map2 .department_list .colorbox_list {
+    width: 30px;
+    height: 30px;
 }

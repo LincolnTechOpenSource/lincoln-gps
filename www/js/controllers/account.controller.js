@@ -106,6 +106,9 @@ angular.module('account.controller', [])
 
     // For hovering over a department or facility on map legend list,
     //corresponding department desks or facility areas all highlight blue
+
+    //TODO: change function so that when highlighting text item on map legend list,
+    // the colorbox, corresponding locations will highlight, but the text itself will highlight blue? just underline? specified color?
     $(document).ready(function() {
       //$('#svg2').on('click', '#map2 g *', function() {console.log(this.id);});
       for (var i = 0; i < departmentHovers.length; i++) {
