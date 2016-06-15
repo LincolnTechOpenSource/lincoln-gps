@@ -58,12 +58,17 @@ angular.module('account.controller', [])
       for (var i = 0; i < departmentHovers.length; i++) {
         $(departmentHovers[i][0]).hover(changeColor(departmentHovers[i][1], HIGHLIGHT_COLOR), changeColor(departmentHovers[i][1], departmentHovers[i][2]));
       }
+
+      //for(var i=0; i < departmentHovers.length; i++ )
+
     });
 
 
   //for underlining a list item on the legend when corresponding desk or facility on map is hovered
 
-    $(document).ready(function() {
+
+
+  /*  $(document).ready(function() {
       $('.desk.branch_dev').on("mouseover", function() {
         $('#colorbox_list_branch_dev').css({
           fill: "blue"
