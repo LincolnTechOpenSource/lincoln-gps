@@ -3,8 +3,8 @@
 
 /* SVG Map styling */
 
-#svg2 #map2 * {
-}
+#svg2 #map2 * {}
+
 #svg2 #map2 .wall {
     fill: none;
     stroke-width: 3px;
@@ -29,12 +29,10 @@
     stroke-width: 5px;
     stroke: #FFFF00;
     fill-opacity: 0.75;
-
-    stroke-alignment:inner!important;
 }
 
 #svg2 #map2 .loc.path {
-    stroke: none;
+    stroke: #000000;
     fill: transparent;
 }
 
@@ -85,8 +83,10 @@
     fill: #FFFF99;
 }
 
-#svg2 #map2 .copy_rm {
-    fill: #B3FFD9;
+/*#svg2 #map2 .copy_rm,
+#svg2 #map2 .scan_rm */
+#svg2 #map2 .copy_scan_rm {
+    fill: #1AD1FF;
 }
 
 #svg2 #map2 .conf {
@@ -179,10 +179,6 @@
 
 #svg2 #map2 .retire_serv {
     fill: #990066;
-}
-
-#svg2 #map2 .scan_rm {
-    fill: #B3FFD9;
 }
 
 #svg2 #map2 .stairs_exit {
