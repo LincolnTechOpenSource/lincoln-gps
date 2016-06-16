@@ -5,7 +5,7 @@
 
 #svg2 #map2 .wall {
     fill: none;
-    stroke-width: 2px;
+    stroke-width: 3px;
     stroke: black;
 }
 
@@ -27,12 +27,6 @@
     stroke: none;
     fill: transparent;
 }
-
-
-/*#map2 .loc.path:hover {
-    stroke: none;
-    fill: none;
-}*/
 
 
 /* location specific fills */
@@ -235,3 +229,42 @@
 
 
 /*----------------------------------------------------------------------------*/
+
+
+/*
+2d array of the form [selector, original color] for safe keeping
+var departmentHovers = [
+  ['account_setup', '#FF8080'],
+  ['accounting', '#006600'],
+  ['acd', 'gray'],
+  ['asset_mgmt', 'lightgreen'],
+  ['branch_dev', 'red'],
+  ['branch_serv', '#33CC33'],
+  //['break_area', '#FF6633'],
+  ['broom', '#787878'],
+  ['busi_dev', '#FF6600'],
+  ['compli_licens', '#FFFF99'],
+  ['conf', 'lightblue'],
+  ['doc_mgmt', '#CC5200'],
+  ['elevator_exit', '#FF9988'],
+  ['euc', '#5cd65c'],
+  ['exec_suite', 'lightgray'],
+  ['finance', '#00FF00'],
+  ['food', 'lightgray'],
+  ['hr', '#CCCC00'],
+  ['isd', '#3377FF'],
+  ['im_r', 'pink'],
+  ['isa', '#FFFF33'],
+  ['mrkt_comm', '#3399FF'],
+  ['one_time_financials', 'sandybrown'],
+  ['ops', 'tomato'],
+  ['prvd_mgmt', '#00FFFF'],
+  ['quality_cntrl', 'violet'],
+  ['reception', '#595959'],
+  ['rdi', '#FF3333'],
+  ['retire_serv', '#990066'],
+  ['stairs_exit', '#ff9988'],
+  ['tpa', 'coral'],
+  ['vsa', 'yellow']
+];
+*/
