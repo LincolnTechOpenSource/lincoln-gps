@@ -23,6 +23,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
 ## Ideas to Contribute
 
+* Enable map zoom and pan
 * Get directions from "my current location" (implement GPS locator)
 * Give turn-by-turn directions (a la google maps)
 * "Track" employees' location (via cellphone, key-fob, or desk-phone)
@@ -31,6 +32,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * Connect authentication to custom system through token
 * Dynamic SVG map and graph creation
 * Directions with detours/via points (e.g., from A to B to C)
+* Optimize for mobile platform
 * See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
