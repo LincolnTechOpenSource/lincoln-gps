@@ -3,6 +3,8 @@
 
 /* SVG Map styling */
 
+#svg2 #map2 * {
+}
 #svg2 #map2 .wall {
     fill: none;
     stroke-width: 3px;
@@ -26,6 +28,9 @@
     fill: #0000FF;
     stroke-width: 5px;
     stroke: #FFFF00;
+    fill-opacity: 0.75;
+
+    stroke-alignment:inner!important;
 }
 
 #svg2 #map2 .loc.path {
@@ -81,7 +86,7 @@
 }
 
 #svg2 #map2 .copy_rm {
-    fill: #FFA500;
+    fill: #B3FFD9;
 }
 
 #svg2 #map2 .conf {
@@ -90,6 +95,10 @@
 
 #svg2 #map2 .doc_mgmt {
     fill: #CC5200;
+}
+
+#svg2 #map2 .elevator_exit {
+    fill: #FF9988;
 }
 
 #svg2 #map2 .euc {
@@ -173,7 +182,7 @@
 }
 
 #svg2 #map2 .scan_rm {
-    fill: #B3FFd9;
+    fill: #B3FFD9;
 }
 
 #svg2 #map2 .stairs_exit {
@@ -229,42 +238,3 @@
 
 
 /*----------------------------------------------------------------------------*/
-
-
-/*
-2d array of the form [selector, original color] for safe keeping
-var departmentHovers = [
-  ['account_setup', '#FF8080'],
-  ['accounting', '#006600'],
-  ['acd', 'gray'],
-  ['asset_mgmt', 'lightgreen'],
-  ['branch_dev', 'red'],
-  ['branch_serv', '#33CC33'],
-  //['break_area', '#FF6633'],
-  ['broom', '#787878'],
-  ['busi_dev', '#FF6600'],
-  ['compli_licens', '#FFFF99'],
-  ['conf', 'lightblue'],
-  ['doc_mgmt', '#CC5200'],
-  ['elevator_exit', '#FF9988'],
-  ['euc', '#5cd65c'],
-  ['exec_suite', 'lightgray'],
-  ['finance', '#00FF00'],
-  ['food', 'lightgray'],
-  ['hr', '#CCCC00'],
-  ['isd', '#3377FF'],
-  ['im_r', 'pink'],
-  ['isa', '#FFFF33'],
-  ['mrkt_comm', '#3399FF'],
-  ['one_time_financials', 'sandybrown'],
-  ['ops', 'tomato'],
-  ['prvd_mgmt', '#00FFFF'],
-  ['quality_cntrl', 'violet'],
-  ['reception', '#595959'],
-  ['rdi', '#FF3333'],
-  ['retire_serv', '#990066'],
-  ['stairs_exit', '#ff9988'],
-  ['tpa', 'coral'],
-  ['vsa', 'yellow']
-];
-*/

@@ -1,7 +1,9 @@
 /* account.controller.js */
 
-angular.module('account.controller', [])
-  .controller('AccountCtrl', function($scope, $rootScope, DEPARTMENT_NAMES) {
+var accountCtrl = angular.module('account.controller', []);
+
+accountCtrl.controller('AccountCtrl', ['$scope', '$rootScope', 'DEPARTMENT_NAMES',
+  function($scope, $rootScope, DEPARTMENT_NAMES) {
 
     $scope.resetToDefault = function() {
       for (var filter in $rootScope.filters) {
@@ -42,4 +44,5 @@ angular.module('account.controller', [])
       }
     });
 
-  });
+  }
+]);
