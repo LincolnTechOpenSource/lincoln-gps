@@ -21,7 +21,7 @@ angular.module('account.controller', [])
         $(selector1).css({
           fill: color1
         });
-        $(selector2 + ' .text_list').css({
+        $(selector2).css({
           fill: color2,
           'text-decoration': style
         });
@@ -89,7 +89,7 @@ angular.module('account.controller', [])
           changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list",
             HIGHLIGHT_COLOR, ".list_" + departmentHovers[i][0], departmentHovers[i][1], 'underline'),
           changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list", departmentHovers[i][1],
-            ".list_" + departmentHovers[i][0], 'black', 'none'));
+            ".list_" + departmentHovers[i][0] + " .text_list", 'black', 'none'));
       }
 
     });

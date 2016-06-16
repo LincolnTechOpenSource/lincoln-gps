@@ -18,7 +18,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/10/16: Finished SVG map
 * 06/13/16: From/To directions, map legend, and department highlighting
 * 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
-* 06/15/16:
+* 06/15/16: Major code remastering, bug fixes, preparation for graph.json
 
 ## Ideas to Contribute
 
