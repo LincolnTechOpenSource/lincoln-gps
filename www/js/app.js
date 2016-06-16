@@ -50,7 +50,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 
         // load graph from json
         //$.getJSON('lib/graph/graph.json', function(data) {
-        $rootScope.Graphing.graph = new Graph({
+        /*$rootScope.Graphing.graph = new Graph({
     "_nodes": {
         "1":{"_id":1,"_neighbors":[1001],"_weight":0,"_nType":5},
         "2":{"_id":2,"_neighbors":[1007],"_weight":0,"_nType":5},
@@ -206,8 +206,13 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
     },
     "_nodeCount":148,
     "_edgeCount":153
-});
+});*/
         //});
+
+        $.getJSON('lib/graph/graph.json', function(data) {
+            $rootScope.Graphing.graph = new Graph(data);
+        });
+
 
         // Initialize Firebase with credentials
         const CONFIG = {
@@ -282,3 +287,29 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/map');
 });
+
+/*
+  // Manually Bootstrap App
+
+  var initInjector = angular.injector(['ng']);
+  var $http = initInjector.get('$http');
+  var $q = initInjector.get('$q');
+
+  $q.all([getUserSession()]) // Get userToken and userSession
+    .then(function(data) {
+        angular.module('aws')
+            .constant('USERSESSION', data[0].data) // Save userSession as constant
+            .value('appPreferences', {
+                datalevel: null,
+                searchMethod: null,
+            });
+
+        angular.element(document).ready(function() {                                // manually bootstrap
+            angular.bootstrap(document, ['aws']);
+        });
+  });
+
+  function getUserSession() {
+    return $http.get('/userSession/', {cache: false});
+  }
+*/

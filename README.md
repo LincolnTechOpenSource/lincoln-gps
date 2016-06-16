@@ -19,6 +19,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/13/16: From/To directions, map legend, and department highlighting
 * 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
 * 06/15/16: Major code remastering, bug fixes, preparation for graph.json
+* 06/16/16: Map and legend smoothing, preparing graph.json
 
 ## Ideas to Contribute
 
@@ -26,6 +27,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * Give turn-by-turn directions (a la google maps)
 * "Track" employees' location (via cellphone, key-fob, or desk-phone)
 * Integrate employees' calendar to find location
+* Integrate availability of conference rooms and employees (via phone system)
 * Connect authentication to custom system through token
 * Dynamic SVG map and graph creation
 * Directions with detours/via points (e.g., from A to B to C)

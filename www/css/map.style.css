@@ -1,0 +1,237 @@
+/* map.style.css */
+
+
+/* SVG Map styling */
+
+#svg2 #map2 .wall {
+    fill: none;
+    stroke-width: 2px;
+    stroke: black;
+}
+
+#svg2 #map2 .loc {
+    stroke: #000000;
+    stroke-width: 1px;
+}
+
+#svg2 #map2 .loc.hilite,
+#svg2 #map2 .colorbox_list.hilite,
+#svg2 #map2 .loc:hover {
+    cursor: auto;
+    fill: blue;
+    stroke-width: 5px;
+    stroke: yellow;
+}
+
+#svg2 #map2 .loc.path {
+    stroke: none;
+    fill: transparent;
+}
+
+
+/*#map2 .loc.path:hover {
+    stroke: none;
+    fill: none;
+}*/
+
+
+/* location specific fills */
+
+#svg2 #map2 .acd {
+    fill: gray;
+}
+
+#svg2 #map2 .accounting {
+    fill: #006600;
+}
+
+#svg2 #map2 .account_setup {
+    fill: #FF8080;
+}
+
+#svg2 #map2 .asset_mgmt {
+    fill: lightgreen;
+}
+
+#svg2 #map2 .branch_dev {
+    fill: red;
+}
+
+#svg2 #map2 .branch_serv {
+    fill: #33CC33;
+}
+
+#svg2 #map2 .broom {
+    fill: #787878;
+}
+
+#svg2 #map2 .busi_dev {
+    fill: #FF6600;
+}
+
+#svg2 #map2 .ceo {
+    fill: gray;
+}
+
+#svg2 #map2 .cfo {
+    fill: gray;
+}
+
+#svg2 #map2 .compli_licens {
+    fill: #FFFF99;
+}
+
+#svg2 #map2 .copy_rm {
+    fill: orange;
+}
+
+#svg2 #map2 .conf {
+    fill: lightblue;
+}
+
+#svg2 #map2 .doc_mgmt {
+    fill: #CC5200;
+}
+
+#svg2 #map2 .euc {
+    fill: #5CD65C;
+}
+
+#svg2 #map2 .exec_suite {
+    fill: lightgray;
+}
+
+#svg2 #map2 .facilities {
+    fill: #DB4DFF;
+}
+
+#svg2 #map2 .finance {
+    fill: #00FF00;
+}
+
+#svg2 #map2 .food {
+    fill: lightgray;
+}
+
+#svg2 #map2 .hr {
+    fill: #CCCC00;
+}
+
+#svg2 #map2 .im_r {
+    fill: pink;
+}
+
+#svg2 #map2 .isa {
+    fill: #FFFF33;
+}
+
+#svg2 #map2 .isd {
+    fill: #3377FF;
+}
+
+#svg2 #map2 .janitor {
+    fill: lightyellow;
+}
+
+#svg2 #map2 .lobby {
+    fill: #FF9988;
+}
+
+#svg2 #map2 .mrkt_comm {
+    fill: #3399FF;
+}
+
+#svg2 #map2 .one_time_financials {
+    fill: sandybrown;
+}
+
+#svg2 #map2 .ops {
+    fill: tomato;
+}
+
+#svg2 #map2 .privacy_pod {
+    fill: lightgray;
+}
+
+#svg2 #map2 .prvd_mgmt {
+    fill: #00FFFF;
+}
+
+#svg2 #map2 .quality_cntrl {
+    fill: violet;
+}
+
+#svg2 #map2 .rdi {
+    fill: #FF3333;
+}
+
+#svg2 #map2 .reception {
+    fill: #595959;
+}
+
+#svg2 #map2 .retire_serv {
+    fill: #990066;
+}
+
+#svg2 #map2 .scan_rm {
+    fill: #B3FFd9;
+}
+
+#svg2 #map2 .stairs_exit {
+    fill: #FF9988;
+}
+
+#svg2 #map2 .storage_rm {
+    fill: lightgray;
+}
+
+#svg2 #map2 .tpa {
+    fill: coral;
+}
+
+#svg2 #map2 .vacant {
+    fill: #898989;
+}
+
+#svg2 #map2 .vsa {
+    fill: yellow;
+}
+
+#svg2 #map2 .line {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+
+/* SVG Map Legend Styles */
+
+#svg2 #map2 .department_list .text_list,
+#svg2 #map2 .legend_title {
+    font-family: Verdana;
+    font-weight: 600;
+}
+
+#svg2 #map2 .legend_title {
+    font-size: 100px;
+    fill: black;
+}
+
+#svg2 #map2 .department_list .text_list {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+#svg2 #map2 .department_list .text_list.normal-text {
+    fill: black;
+    text-decoration: none;
+}
+
+#svg2 #map2 .department_list .colorbox_list {
+    width: 30px;
+    height: 30px;
+    stroke-width: 2px;
+    stroke: black;
+}
+
+
+/*----------------------------------------------------------------------------*/

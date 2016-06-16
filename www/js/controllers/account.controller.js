@@ -15,45 +15,80 @@ angular.module('account.controller', [])
       return function() {
         console.assert(selectors.length == props.length, 'Invalid Call to batchChangeCSS');
         for (var i = 0; i < selectors.length; i++) {
-          $(selectors[i]).css(props[i]);
+          // $(selectors[i]).css(props[i]);
+          $(selectors[i]).toggleClass(props[i]);
         }
       };
     };
 
     // 2d array of the form [selector, original color]
-    var departmentHovers = [
-      ['branch_dev', 'red'],
-      ['busi_dev', '#FF6600'],
-      ['im_r', 'pink'],
-      ['finance', '#00FF00'],
-      ['acd', 'gray'],
-      ['vsa', 'yellow'],
+    /*var departmentHovers = [
+      ['account_setup', '#FF8080'],
       ['accounting', '#006600'],
-      ['ops', 'tomato'],
-      ['tpa', 'coral'],
-      ['mrkt_comm', '#3399FF'],
-      ['prvd_mgmt', '#00FFFF'],
-      ['isa', '#FFFF33'],
-      ['retire_serv', '#990066'],
-      ['quality_cntrl', 'violet'],
+      ['acd', 'gray'],
       ['asset_mgmt', 'lightgreen'],
-      ['one_time_financials', 'sandybrown'],
+      ['branch_dev', 'red'],
+      ['branch_serv', '#33CC33'],
+      //['break_area', '#FF6633'],
+      ['broom', '#787878'],
+      ['busi_dev', '#FF6600'],
+      ['compli_licens', '#FFFF99'],
       ['conf', 'lightblue'],
-      ['hr', '#cccc00'],
-      ['doc_mgmt', '#cc5200'],
-      ['branch_serv', '#33cc33'],
-      ['account_setup', '#ff8080'],
-      ['compli_licens', '#ffff99'],
+      ['doc_mgmt', '#CC5200'],
+      ['elevator_exit', '#FF9988'],
       ['euc', '#5cd65c'],
-      ['rdi', '#ff3333'],
-      ['isd', '#3377ff'],
-      ['break_area', '#FF6633'],
-      ['kitchen', 'lightgray'],
-      ['stairs_exit', '#ff9988'],
-      ['elevator_exit', '#ff9988'],
+      ['exec_suite', 'lightgray'],
+      ['finance', '#00FF00'],
+      ['food', 'lightgray'],
+      ['hr', '#CCCC00'],
+      ['isd', '#3377FF'],
+      ['im_r', 'pink'],
+      ['isa', '#FFFF33'],
+      ['mrkt_comm', '#3399FF'],
+      ['one_time_financials', 'sandybrown'],
+      ['ops', 'tomato'],
+      ['prvd_mgmt', '#00FFFF'],
+      ['quality_cntrl', 'violet'],
       ['reception', '#595959'],
-      ['broom', 'lightgray'],
-      ['exec_suite', 'lightgray']
+      ['rdi', '#FF3333'],
+      ['retire_serv', '#990066'],
+      ['stairs_exit', '#ff9988'],
+      ['tpa', 'coral'],
+      ['vsa', 'yellow']
+    ]; */
+    var departmentHovers = [
+      ['account_setup'],
+      ['accounting'],
+      ['acd'],
+      ['asset_mgmt'],
+      ['branch_dev'],
+      ['branch_serv'],
+      //['break_area'],
+      ['broom'],
+      ['busi_dev'],
+      ['compli_licens'],
+      ['conf'],
+      ['doc_mgmt'],
+      ['elevator_exit'],
+      ['euc'],
+      ['exec_suite'],
+      ['finance'],
+      ['food'],
+      ['hr'],
+      ['isd'],
+      ['im_r'],
+      ['isa'],
+      ['mrkt_comm'],
+      ['one_time_financials'],
+      ['ops'],
+      ['prvd_mgmt'],
+      ['quality_cntrl'],
+      ['reception'],
+      ['rdi'],
+      ['retire_serv'],
+      ['stairs_exit'],
+      ['tpa'],
+      ['vsa'],
     ];
 
     $(document).ready(function() {
@@ -62,17 +97,15 @@ angular.module('account.controller', [])
       // attach hover element to each legend component so that hovering over text
       // makes all corresponding locations highlight
       for (var i = 0; i < departmentHovers.length; i++) {
-        $(".list_" + departmentHovers[i][0]).hover(
+        $(".list." + departmentHovers[i][0]).hover(
           batchChangeCSS([".loc." + departmentHovers[i][0] + ", " +
-            ".list_" + departmentHovers[i][0] + " .colorbox_list"
-          ], [{
-            fill: HIGHLIGHT_COLOR
-          }]),
+            ".list." + departmentHovers[i][0] + " .colorbox_list",
+            ".list." + departmentHovers[i][0] + " .text_list"
+          ], ["hilite", "normal-text"]),
           batchChangeCSS([".loc." + departmentHovers[i][0] + ", " +
-            ".list_" + departmentHovers[i][0] + " .colorbox_list"
-          ], [{
-            fill: departmentHovers[i][1]
-          }])
+            ".list." + departmentHovers[i][0] + " .colorbox_list",
+            ".list." + departmentHovers[i][0] + " .text_list"
+          ], ["hilite", "normal-text"])
         );
       }
 
@@ -80,22 +113,12 @@ angular.module('account.controller', [])
       // makes the corresponding legend item highlight
       for (var i = 0; i < departmentHovers.length; i++) {
         $(".loc." + departmentHovers[i][0]).hover(
-          batchChangeCSS([".list_" + departmentHovers[i][0] + " .colorbox_list",
-            ".list_" + departmentHovers[i][0] + " .text_list"
-          ], [{
-            fill: HIGHLIGHT_COLOR
-          }, {
-            fill: departmentHovers[i][1],
-            "text-decoration": "underline"
-          }]),
-          batchChangeCSS([".list_" + departmentHovers[i][0] + " .colorbox_list",
-            ".list_" + departmentHovers[i][0] + " .text_list"
-          ], [{
-            fill: departmentHovers[i][1]
-          }, {
-            fill: "black",
-            "text-decoration": "none"
-          }]));
+          batchChangeCSS([".list." + departmentHovers[i][0] + " .colorbox_list",
+            ".list." + departmentHovers[i][0] + " .text_list"
+          ], ["hilite", "normal-text"]),
+          batchChangeCSS([".list." + departmentHovers[i][0] + " .colorbox_list",
+            ".list." + departmentHovers[i][0] + " .text_list"
+          ], ["hilite", "normal-text"]));
       }
     });
 
