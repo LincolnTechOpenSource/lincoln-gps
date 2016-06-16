@@ -45,12 +45,13 @@
             </div>
         </div>
         <!-- paste your map under here -->
+    <!-- paste your map under here -->
     <div id="svg" class="col col-75 col-offset-10">
       <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 3600 3600" xml:space="preserve">
         <g class="legend">
           <!-- Map legend/key -->
           <g class="legend_title">
-            <text x="1850" y="75">DEPARTMENTS/FACILITIES</text>
+            <text x="1850" y="75">DEPARTMENTS/UTILITIES</text>
           </g>
           <g class="dep_list" transform="translate(1700, 196)">
             <g class="account_setup">
@@ -117,6 +118,10 @@
               <text x="800" class="dep_list_text normal-text">Executive Offices</text>
               <rect x="1725" y="-25" class="dep_list_colorbox"></rect>
             </g>
+            <g class='facilities'>
+              <text x="800" y='100' class="dep_list_text normal-text">Facilities</text>
+              <rect x="1725" y="75" class="dep_list_colorbox"></rect>
+            </g>
             <g class="finance">
               <text x="800" y="200" class="dep_list_text normal-text">Finance</text>
               <rect x="1725" y="175" class="dep_list_colorbox"></rect>
@@ -138,7 +143,7 @@
               <rect x="1725" y="575" class="dep_list_colorbox"></rect>
             </g>
             <g class="food">
-              <text x="800" y="700" class="dep_list_text normal-text">Food & Lounge</text>
+              <text x="800" y="700" class="dep_list_text normal-text">Lounge and Food</text>
               <rect x="1725" y="675" class="dep_list_colorbox"></rect>
             </g>
             <g class="mrkt_comm">
@@ -195,7 +200,8 @@
             <rect class="path loc" id="1002" width="90" height="40" transform="translate(520,385)" />
             <rect class="path loc" id="1003" width="90" height="40" transform="translate(610,385)" />
             <rect class="path loc" id="1004" width="90" height="40" transform="translate(700,385)" />
-            <rect class="path loc" id="1005" width="90" height="40" transform="translate(790,385)" />
+            <rect class="path loc" id="1005" width="60" height="40" transform="translate(790,385)" />
+            <rect class="path loc" id="1345" width="30" height="40" transform="translate(850,385)" />
             <rect class="path loc" id="1006" width="70" height="40" transform="translate(880,385)" />
             <rect class="path loc" id="1007" width="90" height="40" transform="translate(950,385)" />
             <rect class="path loc" id="1008" width="90" height="40" transform="translate(1040,385)" />
@@ -370,6 +376,8 @@
               <rect class="path loc" id="1138" x="1740" y="1950" width="80" height="125"></rect>
               <rect class="path loc" id="1139" x="1740" y="2075" width="80" height="155"></rect>
               <polygon points="1740,2230 1860,2230 1930,2300 1925,2310 1740,2310" class="path loc" id="1140"></polygon>
+            <!-- Path running down east side from betsy ross conference room to one time financials cubicles -->
+            <g>
               <rect class="path loc" id="1141" x="1860" y="2310" width="70" height="100"></rect>
               <rect class="path loc" id="1142" x="1860" y="2410" width="65" height="70"></rect>
               <rect class="path loc" id="1143" x="1860" y="2480" width="70" height="110"></rect>
@@ -380,7 +388,19 @@
               <rect class="path loc" id="1148" x="1860" y="2920" width="65" height="80"></rect>
               <rect class="path loc" id="1149" x="1860" y="3000" width="65" height="80"></rect>
               <rect class="path loc" id="1150" x="1860" y="3080" width="65" height="35"></rect>
-
+            </g>
+            <!-- Path running down west side from william penn conference room to asset management -->
+            <g transform='translate(-610, 0)'>
+              <rect class="path loc" id="1166" x="1860" y="2310" width="50" height="100"></rect>
+              <rect class="path loc" id="1168" x="1860" y="2410" width="50" height="70"></rect>
+              <rect class="path loc" id="1169" x="1860" y="2480" width="50" height="110"></rect>
+              <rect class="path loc" id="1170" x="1860" y="2590" width="50" height="80"></rect>
+              <rect class="path loc" id="1173" x="1860" y="2670" width="50" height="90"></rect>
+              <rect class="path loc" id="1174" x="1860" y="2760" width="50" height="80"></rect>
+              <rect class="path loc" id="1176" x="1860" y="2840" width="50" height="80"></rect>
+              <rect class="path loc" id="1177" x="1860" y="2920" width="50" height="80"></rect>
+              <rect class="path loc" id="1179" x="1860" y="3000" width="50" height="80"></rect>
+            </g>
               <!-- Pathway around bottom of central conference rooms and cubicles, in front of agnes' kitchen -->
               <rect class="path loc" id="1151" x="1680" y="3080" width="180" height="35"></rect>
               <rect class="path loc" id="1152" x="1630" y="3080" width="50" height="35"></rect>
@@ -400,46 +420,47 @@
             <rect class="path loc" id="1163" x="1040" y="1960" width="90" height="80"></rect>
             <polygon points="1220,1960 1280,1960 1220,2015" class="path loc" id="1164"></polygon>
             <polygon points="1130,1960 1220,1960 1220,2015 1190,2040 1130,2040" class="path loc" id="1165"></polygon>
-            <rect class="path loc" id="1166" x="950" y="2040" width="90" height="80"></rect>
+         <!--   <rect class="path loc" id="1166" x="950" y="2040" width="90" height="80"></rect> -->
             <g transform="translate(-85,80)">
               <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1167"></polygon>
-              <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1168"></polygon>
+           <!--   <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1168"></polygon> -->
             </g>
-            <rect class="path loc" id="1169" x="905" y="2120" width="60" height="80"></rect>
+         <!--   <rect class="path loc" id="1169" x="905" y="2120" width="60" height="80"></rect> -->
             <g transform="translate(-165,160)">
-              <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1169"></polygon>
-              <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1170"></polygon>
+        <!--      <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1347"></polygon> -->
+           <!--   <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1170"></polygon> -->
             </g>
             <rect class="path loc" id="1171" x="725" y="2200" width="80" height="80"></rect>
             <rect class="path loc" id="1172" x="805" y="2200" width="80" height="80"></rect>
             <g transform="translate(-245,240)">
-              <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1173"></polygon>
-              <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1174"></polygon>
+            <!--  <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1173"></polygon> -->
+            <!--  <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1174"></polygon> -->
             </g>
             <rect class="path loc" id="1175" x="725" y="2280" width="80" height="80"></rect>
             <g transform="translate(-325,320)">
-              <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1176"></polygon>
-              <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1177"></polygon>
+            <!--  <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1176"></polygon> -->
+            <!--  <polygon points="1130,1960 1220,1960 1220,2015 1200,2040 1130,2040" class="path loc" id="1177"></polygon> -->
             </g>
             <rect class="path loc" id="1178" x="620" y="2360" width="105" height="80"></rect>
-            <rect class="path loc" id="1179" x="725" y="2360" width="80" height="80"></rect>
-            <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1180" transform="translate(-410,400)"></polygon>
-            <rect class="path loc" id="1181" x="620" y="2440" width="105" height="80"></rect>
-            <polygon points="1220,1960 1290,1960 1220,2025" class="path loc" id="1182" transform="translate(-495,480)"></polygon>
+          <!--  <rect class="path loc" id="1179" x="725" y="2360" width="80" height="80"></rect> -->
+          <!--  <polygon points="1220,1960 1280,1960 1220,2025" class="path loc" id="1180" transform="translate(-410,400)"></polygon> -->
+          <!--  <rect class="path loc" id="1181" x="620" y="2440" width="105" height="80"></rect> -->
+          <!--  <polygon points="1220,1960 1290,1960 1220,2025" class="path loc" id="1182" transform="translate(-495,480)"></polygon> -->
 
             <!-- Path continuing down towards Agnes' kitchen from leftmost wall mrkt_mgmt, acd, branch_dev, isa, vacant, ops offices -->
-            <rect x="370" y="2520" class="path loc" id="1183" width="70" height="200"></rect>
+            <rect x="370" y="2520" class="path loc" id="1183" width="70" height="100"></rect>
+            <rect x="370" y="2620" class="path loc" id="1346" width="70" height="100"></rect>
             <rect x="370" y="2720" class="path loc" id="1184" width="70" height="130"></rect>
             <polygon points="370,2850 515,2850 370,3030 370,2850" class="path loc" id="1185"></polygon>
             <rect x="440" y="2520" class="path loc" id="1186" width="90" height="100"></rect>
             <rect x="440" y="2620" class="path loc" id="1187" width="90" height="100"></rect> -->
             <rect x="530" y="2430" class="path loc" id="1188" width="90" height="90"></rect>
-            <rect x="530" y="2520" class="path loc" id="1189" width="90" height="100"></rect>
-            <polygon points="1220,1960 1315,1960 1220,2050" class="path loc" id="1190" transform="translate(-600,560)"></polygon>
-            <polygon points="1220,1960 1300,1960 1220,2040" class="path loc" id="1191" transform="translate(-690,660)"></polygon>
+          <!--  <rect x="530" y="2520" class="path loc" id="1189" width="90" height="100"></rect> -->
+          <!--  <polygon points="1220,1960 1315,1960 1220,2050" class="path loc" id="1190" transform="translate(-600,560)"></polygon> -->
+          <!--  <polygon points="1220,1960 1310,1960 1220,2050" class="path loc" id="1191" transform="translate(-690,660)"></polygon> -->
             <rect x="440" y="2720" width="90" height="130" class="path loc" id="1192"></rect>
             <g transform="rotate(45,1450,2000)">
-              <polygon points="1300,3115 1480,3115 1480,3260 1400,3260 1300,3145" class="path loc" id="1193"></polygon>
+              <polygon points="1300,3115 1480,3115 1480,3260 1400,3260 1270,3115" class="path loc" id="1193"></polygon>
               <rect x="1480" y="3115" width="200" height="145" class="path loc" id="1194"></rect>
               <polygon points="1680,3115 1925,3115 1770,3260 1680,3260" class="path loc" id="1195"></polygon>
             </g>
@@ -464,14 +485,14 @@
             <rect class="path loc" id="1210" x="1660" y="3070" width="80" height="55"></rect>
             <rect class="path loc" id="1211" x="1740" y="3070" width="110" height="55"></rect>
             <rect class="path loc" id="1212" x="1850" y="3070" width="110" height="55"></rect>
-            <rect class="path loc" id="1213" x="1960" y="3070" width="80" height="55"></rect>
-            <rect class="path loc" id="1214" x="1960" y="2890" width="80" height="180"></rect>
+            <rect class="path loc" id="1213" x="1960" y="3070" width="85" height="55"></rect>
+            <rect class="path loc" id="1214" x="1960" y="2890" width="85" height="180"></rect>
 
             <!-- Pathway around east wing break room, bathrooms, and exit -->
             <rect class="path loc" id="1215" x="1860" y="3125" width="100" height="135"></rect>
             <rect class="path loc" id="1216" x="1860" y="3260" width="100" height="200"></rect>
-            <rect class="path loc" id="1217" x="1960" y="3125" width="80" height="135"></rect>
-            <rect class="path loc" id="1218" x="1960" y="3260" width="80" height="200"></rect>
+            <rect class="path loc" id="1217" x="1960" y="3125" width="85" height="135"></rect>
+            <rect class="path loc" id="1218" x="1960" y="3260" width="85" height="200"></rect>
             <rect class="path loc" id="1219" x="2045" y="3380" width="160" height="80"></rect>
             <rect class="path loc" id="1220" x="2205" y="3380" width="160" height="80"></rect>
             <rect class="path loc" id="1221" x="2365" y="3380" width="80" height="80"></rect>
@@ -640,7 +661,7 @@
           <!-- TODO: this group needs some fleshing out in terms of types of block -->
           <g class="misc">
             <!-- Janitor, Electrical, Restrooms, Westwing break_area, vending -->
-            <rect class="loc janitor" id="" width="115" height="60" transform="translate(250,1120)" />
+            <rect class="loc janitor facilities" id="" width="115" height="60" transform="translate(250,1120)" />
             <rect class="loc stairs_exit" id="" width="275" height="120" transform="translate(365,1120)" />
             <rect class="loc break_area food" id="" width="165" height="200" transform="translate(250,1400)" />
             <g class="loc broom wbroom">
@@ -662,13 +683,13 @@
             <polygon points="170,3030 370,3030 515,2850 780,3115 600,3260 600,3460 170,3460 170,3030" class="loc kitchen food" id="" />
 
             <!-- Electrical room, empty room, storage room and wellness room. next to account set up cubicles, near east wing break area -->
-            <rect x="1740" y="2890" class="loc janitor" id="" height="90" width="110"></rect>
-            <rect x="1740" y="2980" class="loc janitor" id="" height="90" width="110"></rect>
-            <rect x="1850" y="2980" class="loc privacy_pod" id="" height="90" width="110"></rect>
+            <rect x="1740" y="2890" class="loc janitor facilities" id="" height="90" width="110"></rect>
+            <rect x="1740" y="2980" class="loc janitor facilities" id="" height="90" width="110"></rect>
+            <rect x="1850" y="2980" class="loc privacy_pod conf" id="" height="90" width="110"></rect>
 
             <!-- Eastwing break area, Vending, storage, bathrooms, janitor closet, exit stairs -->
             <rect x="2045" y="3260" class="loc break_area food vending" id="" height="120" width="160"></rect>
-            <rect x="2045" y="3080" class="loc janitor" id="" height="180" width="160"></rect>
+            <rect x="2045" y="3080" class="loc janitor facilities" id="" height="180" width="160"></rect>
             <g class="loc broom wbroom">
               <rect x="2205" y="2890" class="" id="" height="490" width="160"></rect>
               <image x="2240" y="3050" width="85" height="170" xlink:href="img/wbroom.svg"></image>
@@ -678,13 +699,13 @@
               <image x="2062" y="2895" width="125" height="175" xlink:href="img/mbroom.svg"></image>
             </g>
             <rect x="2365" y="2890" class="loc stairs_exit" id="" height="300" width="80"></rect>
-            <rect x="2365" y="3190" class="loc janitor" id="" height="190" width="80"></rect>
+            <rect x="2365" y="3190" class="loc janitor facilities" id="" height="190" width="80"></rect>
 
             <!-- Print copy_rm next to ten block of branch services cubicles -->
             <rect x="2365" y="2625" class="loc copy_scan_rm copy_rm" id="" height="180" width="120"></rect>
 
             <!-- Storage room between compli_licens cubicle and north team room, near HR wing -->
-            <rect x="2380" y="2265" class="loc janitor" id="" width="80" height="70"></rect>
+            <rect x="2380" y="2265" class="loc janitor facilities" id="" width="80" height="70"></rect>
 
             <!-- Scanning area -->
             <rect x="1920" y="2475" class="loc copy_scan_rm scan_rm" id="" width="280" height="70"></rect>
@@ -697,15 +718,15 @@
             </g>
             <!-- Privacy pods beneath independence conference room -->
             <g class="central_conf_rooms_cubicles" transform="rotate(45,1450,2000)">
-              <rect x="1530" y="2920" class="loc privacy_pod" id="" width="100" height="80"></rect>
-              <rect x="1530" y="3000" class="loc privacy_pod" id="" width="100" height="80"></rect>
+              <rect x="1530" y="2920" class="loc privacy_pod conf" id="" width="100" height="80"></rect>
+              <rect x="1530" y="3000" class="loc privacy_pod conf" id="" width="100" height="80"></rect>
             </g>
 
             <!-- Privacy Pod below reitrement services and quality control cubicles -->
-            <rect class="loc privacy_pod" id="" x="725" y="2120" width="180" height="80"></rect>
+            <rect class="loc privacy_pod conf" id="" x="725" y="2120" width="180" height="80"></rect>
 
             <!-- Privacy pod to the left of branch services 8 cube block, to the right of central conference rooms -->
-            <polygon points="1415,2805 1500,2805 1500,2625 1415,2715" class="loc privacy_pod" id=""></polygon>
+            <polygon points="1415,2805 1500,2805 1500,2625 1415,2715" class="loc privacy_pod conf" id=""></polygon>
           </g>
           <!-- End misc group -->
 
@@ -728,8 +749,8 @@
             <rect class="loc desk office busi_dev" id="13" width="220" height="220" transform="translate(1376,165)" />
             <rect class="loc desk office im_r" id="14" width="200" height="160" transform="translate(1396,385)" />
             <rect class="loc desk office finance" id="15" width="200" height="160" transform="translate(1396,545)" />
-            <rect class="loc desk office finance" id="16" width="200" height="160" transform="translate(1396,705)" />
-            <rect class="loc desk office finance" id="17" width="200" height="160" transform="translate(1396,865)" />
+            <rect class="loc desk office finance" id="16" width="200" height="155" transform="translate(1396,705)" />
+            <rect class="loc desk office finance" id="17" width="200" height="165" transform="translate(1396,860)" />
             <rect class="loc desk office cfo exec_suite" id="18" width="200" height="260" transform="translate(1396,1025)" />
             <rect class="loc desk office ceo exec_suite" id="19" width="200" height="410" transform="translate(1396,1270)" />
 
@@ -819,7 +840,7 @@
             <rect class="desk cubicle prvd_mgmt loc" id="92" width="90" height="80" transform="translate(950,1565)" />
             <rect class="desk cubicle prvd_mgmt loc" id="93" width="90" height="80" transform="translate(1130,1565)" />
             <rect class="desk cubicle prvd_mgmt loc" id="94" width="90" height="80" transform="translate(950,1645)" />
-            <rect class="desk cubicle prvd_mgmt loc" id="95" width="90" height="80" transform="translate(1040,1645)" />
+            <rect class="desk cubicle ops loc" id="95" width="90" height="80" transform="translate(1040,1645)" />
             <rect class="desk cubicle prvd_mgmt loc" id="96" width="90" height="80" transform="translate(1130,1645)" />
 
             <!-- Marketing and Communication, ACD, Branch Dev, ISA Office(open), Ops, and Vacant offices leading to Agnes" Kitchen -->

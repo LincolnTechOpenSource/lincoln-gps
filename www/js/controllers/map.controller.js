@@ -4,11 +4,11 @@
  * 06/02/16
  **/
 
-angular.module('map.controller', [])
+var mapCtrl = angular.module('map.controller', []);
 
-.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile', 'Locations',
-    'Users', 'Auth',
-    function($rootScope, $scope, $stateParams, $compile, Locations, Users, Auth) {
+mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile',
+    'Locations', 'Users', 'Auth', 'DEPARTMENT_NAMES',
+    function($rootScope, $scope, $stateParams, $compile, Locations, Users, Auth, DEPARTMENT_NAMES) {
 
         $scope.selectNode = {
             nodes: null, // only load if user is authenticated
@@ -45,8 +45,8 @@ angular.module('map.controller', [])
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
-            // $scope.selectNode.toNode = null;
-            // $scope.selectNode.fromNode = null;
+            $scope.selectNode.toNode = null;
+            $scope.selectNode.fromNode = null;
         };
 
         /** resets the selected location and removes path highlighting
@@ -109,6 +109,8 @@ angular.module('map.controller', [])
 
                 var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
 
+                console.log(directions);
+
                 $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
                 for (var i = 0; i < directions.length; i++) {
                     $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
@@ -131,42 +133,38 @@ angular.module('map.controller', [])
         $(document).ready(function() {
             $('#svg').on('click', '#map .non-walls .desk', checkSelect);
             // debugging to get neighbors
-            $('#svg').on('click', '#map .loc', function() {console.log(this.id);});
-
-            // load pan zoom
-            /*var panZoomMap = svgPanZoom('#svg #map', {
-                zoomEnabled: true,
-                controlIconsEnabled: true,
-                fit: true,
-                center: true,
-                beforePan: beforePan
+            $('#svg').on('click', '#map .loc', function() {
+                console.log(this.id);
             });
 
-            $(window).resize(function() {
-                panZoomMap.resize();
-                panZoomMap.updateBBox();
-                panZoomMap.fit();
-                panZoomMap.center();
-            });*/
+
+            for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
+                $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
+                    // attach hover element to each legend component so that hovering over text
+                    // makes all corresponding locations highlight
+                    batchToggleClass([".loc." + DEPARTMENT_NAMES[i] + ", " +
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
+                    ], ["hilite", "normal-text"]));
+
+                // attach hover element to each loc component so that hovering over location
+                // makes the corresponding legend item highlight
+                $(".loc." + DEPARTMENT_NAMES[i]).hover(
+                    batchToggleClass([".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
+                    ], ["hilite", "normal-text"]));
+            }
         });
-
-        /*
-        function beforePan(oldPan, newPan) {
-            var gutterWidth = 50,
-                gutterHeight = 50,
-                // Computed variables
-                sizes = this.getSizes(),
-                leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
-                rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
-                topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
-                bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
-
-            customPan = {}
-            customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
-            customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-
-            return customPan
-        }
-        */
     }
 ]);
+
+/** batchToggleClass: toggles the @classes of the specified @selectors
+ * toggles the corresponding class of an array of selectors */
+var batchToggleClass = function(selectors, classes) {
+    return function() {
+        console.assert(selectors.length == classes.length, 'Invalid Call to batchToggleClass');
+        for (var i = 0; i < selectors.length; i++) {
+            $(selectors[i]).toggleClass(classes[i]);
+        }
+    };
+};

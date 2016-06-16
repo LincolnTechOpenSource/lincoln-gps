@@ -207,13 +207,14 @@ Graph.Node = function (id, weight, nType) {
 var _verify = function (graph) {
     console.info('Verifying Graph');
     // the number of nodes should be the same as the nodeCount
-    var numNodes = Object.keys(graph._nodes).length;
-    _assert(numNodes == graph._nodeCount, "Inconsistent nodeCount");
+    var numNodes = Object.keys(graph.nodes).length;
+    _assert(numNodes == graph.nodeCount, "Inconsistent nodeCount (" +
+        numNodes + " != " + graph.nodeCount + ")");
 
     // verify each node
     var numEdges = 0;
-    for (var i of Object.keys(graph._nodes)) {
-        var n = graph._nodes[i];
+    for (var i of Object.keys(graph.nodes)) {
+        var n = graph.nodes[i];
         // should have non-negative weight and type between 1 and 6
         _assert(n._weight >= 0, "Negative Weight (" + n._weight + ")");
         _assert(n._nType > 0 && n._nType <= 6, "Irregular Type (" +
@@ -222,7 +223,7 @@ var _verify = function (graph) {
         // should have consistent edges and no self edges
         for (var j = 0; j < n._neighbors.length; j++) {
             numEdges++; // count number of edges (should be double)
-            var k = graph._nodes[  n._neighbors[j] ];
+            var k = graph.nodes[  n._neighbors[j] ];
 
             _assert(k._id != n._id, "Cannot have self edge (" +
                 n._id + ")");
