@@ -3,27 +3,27 @@
 
 /* SVG Map styling */
 
-#svg2 #map2 * {}
+#svg #map * {}
 
-#svg2 #map2 .wall {
+#svg #map .wall {
     fill: none;
     stroke-width: 3px;
     stroke: #000000;
 }
 
-#svg2 #map2 .line {
+#svg #map .line {
     stroke: #FF0000;
     stroke-width: 3px;
 }
 
-#svg2 #map2 .loc {
+#svg #map .loc {
     stroke: #000000;
     stroke-width: 1px;
 }
 
-#svg2 #map2 .loc.hilite,
-#svg2 #map2 .dep_list_colorbox.hilite,
-#svg2 #map2 .loc:hover {
+#svg #map .loc.hilite,
+#svg #map .dep_list_colorbox.hilite,
+#svg #map .loc:hover {
     cursor: auto;
     fill: #0000FF;
     stroke-width: 5px;
@@ -31,201 +31,201 @@
     fill-opacity: 0.75;
 }
 
-#svg2 #map2 .loc.path {
-    stroke: #000000;
+#svg #map .loc.path {
+    stroke: black;
     fill: transparent;
 }
 
 
 /* location specific fill colors */
 
-#svg2 #map2 .acd {
+#svg #map .acd {
     fill: #808080;
 }
 
-#svg2 #map2 .accounting {
+#svg #map .accounting {
     fill: #006600;
 }
 
-#svg2 #map2 .account_setup {
+#svg #map .account_setup {
     fill: #FF8080;
 }
 
-#svg2 #map2 .asset_mgmt {
+#svg #map .asset_mgmt {
     fill: #90EE90;
 }
 
-#svg2 #map2 .branch_dev {
+#svg #map .branch_dev {
     fill: #FF0000;
 }
 
-#svg2 #map2 .branch_serv {
+#svg #map .branch_serv {
     fill: #33CC33;
 }
 
-#svg2 #map2 .broom {
+#svg #map .broom {
     fill: #787878;
 }
 
-#svg2 #map2 .busi_dev {
+#svg #map .busi_dev {
     fill: #FF6600;
 }
 
-#svg2 #map2 .ceo {
+#svg #map .ceo {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .cfo {
+#svg #map .cfo {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .compli_licens {
+#svg #map .compli_licens {
     fill: #FFFF99;
 }
 
-/*#svg2 #map2 .copy_rm,
-#svg2 #map2 .scan_rm */
-#svg2 #map2 .copy_scan_rm {
+/*#svg #map .copy_rm,
+#svg #map .scan_rm */
+#svg #map .copy_scan_rm {
     fill: #1AD1FF;
 }
 
-#svg2 #map2 .conf {
+#svg #map .conf {
     fill: #ADD8E6;
 }
 
-#svg2 #map2 .doc_mgmt {
+#svg #map .doc_mgmt {
     fill: #CC5200;
 }
 
-#svg2 #map2 .elevator_exit {
+#svg #map .elevator_exit {
     fill: #FF9988;
 }
 
-#svg2 #map2 .euc {
+#svg #map .euc {
     fill: #5CD65C;
 }
 
-#svg2 #map2 .exec_suite {
+#svg #map .exec_suite {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .facilities {
+#svg #map .facilities {
     fill: #DB4DFF;
 }
 
-#svg2 #map2 .finance {
+#svg #map .finance {
     fill: #00FF00;
 }
 
-#svg2 #map2 .food {
+#svg #map .food {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .hr {
+#svg #map .hr {
     fill: #CCCC00;
 }
 
-#svg2 #map2 .im_r {
+#svg #map .im_r {
     fill: #FFC0CB;
 }
 
-#svg2 #map2 .isa {
+#svg #map .isa {
     fill: #FFFF33;
 }
 
-#svg2 #map2 .isd {
+#svg #map .isd {
     fill: #3377FF;
 }
 
-#svg2 #map2 .janitor {
-    fill: #FFFFE0;
+#svg #map .janitor {
+    fill: #FFFFC0;
 }
 
-#svg2 #map2 .lobby {
+#svg #map .lobby {
     fill: #FF9988;
 }
 
-#svg2 #map2 .mrkt_comm {
+#svg #map .mrkt_comm {
     fill: #3399FF;
 }
 
-#svg2 #map2 .one_time_financials {
+#svg #map .one_time_financials {
     fill: #F4A460;
 }
 
-#svg2 #map2 .ops {
+#svg #map .ops {
     fill: #FF6347;
 }
 
-#svg2 #map2 .privacy_pod {
+#svg #map .privacy_pod {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .prvd_mgmt {
+#svg #map .prvd_mgmt {
     fill: #00FFFF;
 }
 
-#svg2 #map2 .quality_cntrl {
+#svg #map .quality_cntrl {
     fill: #EE82EE;
 }
 
-#svg2 #map2 .rdi {
+#svg #map .rdi {
     fill: #FF3333;
 }
 
-#svg2 #map2 .reception {
+#svg #map .reception {
     fill: #595959;
 }
 
-#svg2 #map2 .retire_serv {
+#svg #map .retire_serv {
     fill: #990066;
 }
 
-#svg2 #map2 .stairs_exit {
+#svg #map .stairs_exit {
     fill: #FF9988;
 }
 
-#svg2 #map2 .storage_rm {
+#svg #map .storage_rm {
     fill: #D3D3D3;
 }
 
-#svg2 #map2 .tpa {
+#svg #map .tpa {
     fill: #FF7F50;
 }
 
-#svg2 #map2 .vacant {
+#svg #map .vacant {
     fill: #898989;
 }
 
-#svg2 #map2 .vsa {
+#svg #map .vsa {
     fill: #FFFF00;
 }
 
 
 /* SVG Map Legend Styles */
 
-#svg2 #map2 .dep_list .dep_list_text,
-#svg2 #map2 .legend_title {
+#svg #map .dep_list .dep_list_text,
+#svg #map .legend_title {
     font-family: Verdana;
     font-weight: 600;
 }
 
-#svg2 #map2 .legend_title {
+#svg #map .legend_title {
     font-size: 100px;
     fill: #000000;
 }
 
-#svg2 #map2 .dep_list .dep_list_text {
+#svg #map .dep_list .dep_list_text {
     font-size: 40px;
     text-decoration: underline;
 }
 
-#svg2 #map2 .dep_list .dep_list_text.normal-text {
+#svg #map .dep_list .dep_list_text.normal-text {
     fill: #000000;
     text-decoration: none;
 }
 
-#svg2 #map2 .dep_list .dep_list_colorbox {
+#svg #map .dep_list .dep_list_colorbox {
     width: 30px;
     height: 30px;
     stroke-width: 2px;

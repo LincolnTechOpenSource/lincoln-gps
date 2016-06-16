@@ -229,7 +229,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
 .constant('DEPARTMENT_NAMES', [
     'account_setup', 'accounting', 'acd', 'asset_mgmt', 'branch_dev', 'branch_serv',
     'broom', 'busi_dev', 'compli_licens', 'conf', 'copy_scan_rm', 'doc_mgmt', 'elevator_exit',
-    'euc', 'exec_suite', 'finance', 'food', 'hr', 'isd', 'im_r', 'isa',
+    'euc', 'exec_suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im_r', 'isa',
     'mrkt_comm', 'one_time_financials', 'ops', 'prvd_mgmt', 'quality_cntrl',
     'reception', 'rdi', 'retire_serv', 'stairs_exit', 'tpa', 'vsa'
     //'break_area'

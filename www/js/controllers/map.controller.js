@@ -131,7 +131,7 @@ angular.module('map.controller', [])
         $(document).ready(function() {
             $('#svg').on('click', '#map .non-walls .desk', checkSelect);
             // debugging to get neighbors
-            //$('div#svg').on('click', 'svg g *', function() {console.log(this.id);});
+            $('#svg').on('click', '#map .loc', function() {console.log(this.id);});
 
             // load pan zoom
             /*var panZoomMap = svgPanZoom('#svg #map', {

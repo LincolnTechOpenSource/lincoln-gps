@@ -23,9 +23,6 @@ accountCtrl.controller('AccountCtrl', ['$scope', '$rootScope', 'DEPARTMENT_NAMES
     };
 
     $(document).ready(function() {
-      // $('#svg2').on('click', '#map2 .loc', function() {console.log(this.id);});
-
-
       for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
         $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
           // attach hover element to each legend component so that hovering over text
