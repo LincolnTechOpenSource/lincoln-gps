@@ -9,22 +9,14 @@ angular.module('account.controller', [])
       }
     };
 
-    /** changeCSS: changes the CSS of the specified @selector to @props */
-    var changeCSS = function(selector, props) {
+    /** batchChangeCSS: changes the CSS of the specified @selectors to @props
+     * changes an array of selectors to their corresponding properties */
+    var batchChangeCSS = function(selectors, props) {
       return function() {
-        $(selector).css(props);
-      };
-    };
-
-    var changeColorAndUnderline = function(selector1, color1, selector2, color2, style) {
-      return function() {
-        $(selector1).css({
-          fill: color1
-        });
-        $(selector2).css({
-          fill: color2,
-          'text-decoration': style
-        });
+        console.assert(selectors.length == props.length, 'Invalid Call to batchChangeCSS');
+        for (var i = 0; i < selectors.length; i++) {
+          $(selectors[i]).css(props[i]);
+        }
       };
     };
 
@@ -71,27 +63,40 @@ angular.module('account.controller', [])
       // makes all corresponding locations highlight
       for (var i = 0; i < departmentHovers.length; i++) {
         $(".list_" + departmentHovers[i][0]).hover(
-          changeCSS(".loc." + departmentHovers[i][0] + ", " +
-            ".list_" + departmentHovers[i][0] + " .colorbox_list", {
-              fill: HIGHLIGHT_COLOR
-            }),
-          changeCSS(".loc." + departmentHovers[i][0] + ", " +
-            ".list_" + departmentHovers[i][0] + " .colorbox_list", {
-              fill: departmentHovers[i][1]
-            })
+          batchChangeCSS([".loc." + departmentHovers[i][0] + ", " +
+            ".list_" + departmentHovers[i][0] + " .colorbox_list"
+          ], [{
+            fill: HIGHLIGHT_COLOR
+          }]),
+          batchChangeCSS([".loc." + departmentHovers[i][0] + ", " +
+            ".list_" + departmentHovers[i][0] + " .colorbox_list"
+          ], [{
+            fill: departmentHovers[i][1]
+          }])
         );
       }
 
       // attach hover element to each loc component so that hovering over location
       // makes the corresponding legend item highlight
       for (var i = 0; i < departmentHovers.length; i++) {
-        $(".loc."+departmentHovers[i][0]).hover(
-          changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list",
-            HIGHLIGHT_COLOR, ".list_" + departmentHovers[i][0] + " .text_list", departmentHovers[i][1], "underline"),
-          changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list", departmentHovers[i][1],
-            ".list_" + departmentHovers[i][0] + " .text_list", "black", "none"));
+        $(".loc." + departmentHovers[i][0]).hover(
+          batchChangeCSS([".list_" + departmentHovers[i][0] + " .colorbox_list",
+            ".list_" + departmentHovers[i][0] + " .text_list"
+          ], [{
+            fill: HIGHLIGHT_COLOR
+          }, {
+            fill: departmentHovers[i][1],
+            "text-decoration": "underline"
+          }]),
+          batchChangeCSS([".list_" + departmentHovers[i][0] + " .colorbox_list",
+            ".list_" + departmentHovers[i][0] + " .text_list"
+          ], [{
+            fill: departmentHovers[i][1]
+          }, {
+            fill: "black",
+            "text-decoration": "none"
+          }]));
       }
-
     });
 
   });
