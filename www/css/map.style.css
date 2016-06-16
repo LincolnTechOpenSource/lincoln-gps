@@ -6,7 +6,12 @@
 #svg2 #map2 .wall {
     fill: none;
     stroke-width: 3px;
-    stroke: black;
+    stroke: #000000;
+}
+
+#svg2 #map2 .line {
+    stroke: #FF0000;
+    stroke-width: 3px;
 }
 
 #svg2 #map2 .loc {
@@ -15,12 +20,12 @@
 }
 
 #svg2 #map2 .loc.hilite,
-#svg2 #map2 .colorbox_list.hilite,
+#svg2 #map2 .dep_list_colorbox.hilite,
 #svg2 #map2 .loc:hover {
     cursor: auto;
-    fill: blue;
+    fill: #0000FF;
     stroke-width: 5px;
-    stroke: yellow;
+    stroke: #FFFF00;
 }
 
 #svg2 #map2 .loc.path {
@@ -29,10 +34,10 @@
 }
 
 
-/* location specific fills */
+/* location specific fill colors */
 
 #svg2 #map2 .acd {
-    fill: gray;
+    fill: #808080;
 }
 
 #svg2 #map2 .accounting {
@@ -44,11 +49,11 @@
 }
 
 #svg2 #map2 .asset_mgmt {
-    fill: lightgreen;
+    fill: #90EE90;
 }
 
 #svg2 #map2 .branch_dev {
-    fill: red;
+    fill: #FF0000;
 }
 
 #svg2 #map2 .branch_serv {
@@ -64,11 +69,11 @@
 }
 
 #svg2 #map2 .ceo {
-    fill: gray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .cfo {
-    fill: gray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .compli_licens {
@@ -76,11 +81,11 @@
 }
 
 #svg2 #map2 .copy_rm {
-    fill: orange;
+    fill: #FFA500;
 }
 
 #svg2 #map2 .conf {
-    fill: lightblue;
+    fill: #ADD8E6;
 }
 
 #svg2 #map2 .doc_mgmt {
@@ -92,7 +97,7 @@
 }
 
 #svg2 #map2 .exec_suite {
-    fill: lightgray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .facilities {
@@ -104,7 +109,7 @@
 }
 
 #svg2 #map2 .food {
-    fill: lightgray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .hr {
@@ -112,7 +117,7 @@
 }
 
 #svg2 #map2 .im_r {
-    fill: pink;
+    fill: #FFC0CB;
 }
 
 #svg2 #map2 .isa {
@@ -124,7 +129,7 @@
 }
 
 #svg2 #map2 .janitor {
-    fill: lightyellow;
+    fill: #FFFFE0;
 }
 
 #svg2 #map2 .lobby {
@@ -136,15 +141,15 @@
 }
 
 #svg2 #map2 .one_time_financials {
-    fill: sandybrown;
+    fill: #F4A460;
 }
 
 #svg2 #map2 .ops {
-    fill: tomato;
+    fill: #FF6347;
 }
 
 #svg2 #map2 .privacy_pod {
-    fill: lightgray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .prvd_mgmt {
@@ -152,7 +157,7 @@
 }
 
 #svg2 #map2 .quality_cntrl {
-    fill: violet;
+    fill: #EE82EE;
 }
 
 #svg2 #map2 .rdi {
@@ -176,11 +181,11 @@
 }
 
 #svg2 #map2 .storage_rm {
-    fill: lightgray;
+    fill: #D3D3D3;
 }
 
 #svg2 #map2 .tpa {
-    fill: coral;
+    fill: #FF7F50;
 }
 
 #svg2 #map2 .vacant {
@@ -188,18 +193,13 @@
 }
 
 #svg2 #map2 .vsa {
-    fill: yellow;
-}
-
-#svg2 #map2 .line {
-    stroke: red;
-    stroke-width: 3px;
+    fill: #FFFF00;
 }
 
 
 /* SVG Map Legend Styles */
 
-#svg2 #map2 .department_list .text_list,
+#svg2 #map2 .dep_list .dep_list_text,
 #svg2 #map2 .legend_title {
     font-family: Verdana;
     font-weight: 600;
@@ -207,24 +207,24 @@
 
 #svg2 #map2 .legend_title {
     font-size: 100px;
-    fill: black;
+    fill: #000000;
 }
 
-#svg2 #map2 .department_list .text_list {
+#svg2 #map2 .dep_list .dep_list_text {
     font-size: 40px;
     text-decoration: underline;
 }
 
-#svg2 #map2 .department_list .text_list.normal-text {
-    fill: black;
+#svg2 #map2 .dep_list .dep_list_text.normal-text {
+    fill: #000000;
     text-decoration: none;
 }
 
-#svg2 #map2 .department_list .colorbox_list {
+#svg2 #map2 .dep_list .dep_list_colorbox {
     width: 30px;
     height: 30px;
     stroke-width: 2px;
-    stroke: black;
+    stroke: #000000;
 }
 
 

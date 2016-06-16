@@ -1,7 +1,7 @@
 /* account.controller.js */
 
 angular.module('account.controller', [])
-  .controller('AccountCtrl', function($scope, $rootScope, HIGHLIGHT_COLOR) {
+  .controller('AccountCtrl', function($scope, $rootScope, DEPARTMENT_NAMES) {
 
     $scope.resetToDefault = function() {
       for (var filter in $rootScope.filters) {
@@ -9,74 +9,35 @@ angular.module('account.controller', [])
       }
     };
 
-    /** batchChangeCSS: changes the CSS of the specified @selectors to @props
-     * changes an array of selectors to their corresponding properties */
-    var batchChangeCSS = function(selectors, props) {
+    /** batchToggleClass: toggles the @classes of the specified @selectors
+     * toggles the corresponding class of an array of selectors */
+    var batchToggleClass = function(selectors, classes) {
       return function() {
-        console.assert(selectors.length == props.length, 'Invalid Call to batchChangeCSS');
+        console.assert(selectors.length == classes.length, 'Invalid Call to batchToggleClass');
         for (var i = 0; i < selectors.length; i++) {
-          // $(selectors[i]).css(props[i]);
-          $(selectors[i]).toggleClass(props[i]);
+          $(selectors[i]).toggleClass(classes[i]);
         }
       };
     };
 
-    // array of deparment class names
-    var departmentHovers = [
-      'account_setup',
-      'accounting',
-      'acd',
-      'asset_mgmt',
-      'branch_dev',
-      'branch_serv',
-      //'break_area',
-      'broom',
-      'busi_dev',
-      'compli_licens',
-      'conf',
-      'doc_mgmt',
-      'elevator_exit',
-      'euc',
-      'exec_suite',
-      'finance',
-      'food',
-      'hr',
-      'isd',
-      'im_r',
-      'isa',
-      'mrkt_comm',
-      'one_time_financials',
-      'ops',
-      'prvd_mgmt',
-      'quality_cntrl',
-      'reception',
-      'rdi',
-      'retire_serv',
-      'stairs_exit',
-      'tpa',
-      'vsa'
-    ];
-
     $(document).ready(function() {
-      //$('#svg2').on('click', '#map2 g *', function() {console.log(this.id);});
+      // $('#svg2').on('click', '#map2 .loc', function() {console.log(this.id);});
 
-      // attach hover element to each legend component so that hovering over text
-      // makes all corresponding locations highlight
-      for (var i = 0; i < departmentHovers.length; i++) {
-        $(".list." + departmentHovers[i]).hover(
-          batchChangeCSS([".loc." + departmentHovers[i] + ", " +
-            ".list." + departmentHovers[i] + " .colorbox_list",
-            ".list." + departmentHovers[i] + " .text_list"
-          ], ["hilite", "normal-text"])
-        );
-      }
 
-      // attach hover element to each loc component so that hovering over location
-      // makes the corresponding legend item highlight
-      for (var i = 0; i < departmentHovers.length; i++) {
-        $(".loc." + departmentHovers[i]).hover(
-          batchChangeCSS([".list." + departmentHovers[i] + " .colorbox_list",
-            ".list." + departmentHovers[i] + " .text_list"
+      for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
+        $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
+          // attach hover element to each legend component so that hovering over text
+          // makes all corresponding locations highlight
+          batchToggleClass([".loc." + DEPARTMENT_NAMES[i] + ", " +
+            ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+            ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
+          ], ["hilite", "normal-text"]));
+
+        // attach hover element to each loc component so that hovering over location
+        // makes the corresponding legend item highlight
+        $(".loc." + DEPARTMENT_NAMES[i]).hover(
+          batchToggleClass([".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+            ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
           ], ["hilite", "normal-text"]));
       }
     });
