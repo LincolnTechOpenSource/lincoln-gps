@@ -87,9 +87,9 @@ angular.module('account.controller', [])
       for (var i = 0; i < departmentHovers.length; i++) {
         $(".loc."+departmentHovers[i][0]).hover(
           changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list",
-            HIGHLIGHT_COLOR, ".list_" + departmentHovers[i][0], departmentHovers[i][1], 'underline'),
+            HIGHLIGHT_COLOR, ".list_" + departmentHovers[i][0] + " .text_list", departmentHovers[i][1], "underline"),
           changeColorAndUnderline(".list_" + departmentHovers[i][0] + " .colorbox_list", departmentHovers[i][1],
-            ".list_" + departmentHovers[i][0] + " .text_list", 'black', 'none'));
+            ".list_" + departmentHovers[i][0] + " .text_list", "black", "none"));
       }
 
     });

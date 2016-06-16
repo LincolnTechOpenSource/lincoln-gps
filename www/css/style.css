@@ -462,11 +462,18 @@ svg .locator {
 
 /* SVG Map Legend Styles */
 #svg2 #map2 .department_list .text_list,
-#svg2 #map2 .legend_title{
+#svg2 #map2 .legend_title {
     font-family: Verdana;
-    font-size: 40px;
     font-weight: 600;
     fill: black;
+}
+
+#svg2 #map2 .legend_title {
+    font-size: 100px;
+}
+
+#svg2 #map2 .department_list .text_list {
+    font-size: 40px;
 }
 
 #svg2 #map2 .department_list .colorbox_list {
