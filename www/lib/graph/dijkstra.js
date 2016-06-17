@@ -25,16 +25,16 @@ var Dijkstra = {}; // create namespace
     var dist = {}; // distance of the node from source
     var prev = {}; // previous node of the form 'node_id': 'prev_node_id'
 
-    _assert(graph._nodes[source] !== undefined, "Source does not exist (" +
+    _assert(graph.nodes[source] !== undefined, "Source does not exist (" +
         source + ")");
-    _assert(graph._nodes[target] !== undefined, "Target does not exist (" +
+    _assert(graph.nodes[target] !== undefined, "Target does not exist (" +
         target + ")");
 
     // Initialization
     dist[source] = 0; // source is distance 0 from source
-    for (var i of Object.keys(graph._nodes)) {
+    for (var i of Object.keys(graph.nodes)) {
         // for each node in the graph...
-        var node = graph._nodes[i];
+        var node = graph.nodes[i];
 
         if (node._id != source) {
             prev[node._id] = null; // set previous to undefined
@@ -45,7 +45,10 @@ var Dijkstra = {}; // create namespace
     }
 
     // return if source is the same as target (i.e., already there)
-    if (source === target) return {dist, prev};
+    if (source === target) {
+        console.log('same');
+        return {dist, prev};
+    }
 
     // The loop of the algorithm
     // while there are still unvisited nodes
@@ -53,12 +56,13 @@ var Dijkstra = {}; // create namespace
         var minNode = unvisited.pop(); // get minimum node dist and ID
 
         // for each neighbor of minNode that is in the unvisited queue
-        for (var i = 0; i < graph._nodes[minNode._id]._neighbors.length; i++) {
-            var n = graph._nodes[graph._nodes[minNode._id]._neighbors[i]];
+        for (var i = 0; i < graph.nodes[minNode._id]._neighbors.length; i++) {
+            var n = graph.nodes[graph.nodes[minNode._id]._neighbors[i]];
 
             // ensure node is in unvisited and it is a PATH
-            if (!unvisited.exists(n) && n._ntype == NodeTypeEnum.PATH)
+            if (!unvisited.exists(n) || (n._nType !== NodeTypeEnum.PATH && n._id != target)) {
                 continue;
+            }
 
             // calculate alternative distance
             var alt = minNode.distance + graph.edgeWeight(minNode._id, n._id);
@@ -89,6 +93,7 @@ Dijkstra.getPath = function (prev, target) {
         path.unshift(t);
         t = prev[t];
     }
+    // TODO: this is not how you do this
     path.unshift(t); // add the source to path
 
     return path;

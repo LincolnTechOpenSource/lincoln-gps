@@ -107,9 +107,11 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
                 var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
                     $scope.selectNode.toNode.$id, $rootScope.Graphing.graph);
 
+                //console.assert(false, dirResults);
+
                 var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
 
-                console.log(directions);
+                //console.log(directions);
 
                 $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
                 for (var i = 0; i < directions.length; i++) {
