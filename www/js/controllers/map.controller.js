@@ -133,10 +133,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         $(document).ready(function() {
             $('#svg').on('click', '#map .non-walls .desk', checkSelect);
             // debugging to get neighbors
-            $('#svg').on('click', '#map .loc', function() {
-                console.log(this.id);
-            });
-
+            // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
 
             for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
                 $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
