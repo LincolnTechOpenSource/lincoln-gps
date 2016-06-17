@@ -1,53 +1,73 @@
 <!-- tab-map.html -->
 
 <ion-view view-title="Map" id="tab-map">
-    <ion-content class="padding">
-        <h2 class="text-center">Lincoln GPS Locator</h2>
+  <ion-content class="padding">
+    <h2 class="text-center">Lincoln GPS Locator</h2>
 
-        <div class="row">
-            <div class="col">
-                <button class="button button-assertive" ng-click="clear()">
+    <div class="row">
+      <div class="col">
+        <button class="button button-assertive" ng-click="clear()">
                     Clear
                 </button>
 
-                <button class="button button-positive" ng-click="logout()">
+        <button class="button button-positive" ng-click="logout()">
                     Logout
                 </button>
-            </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="row">
-            <div id="from-loc" class="col col-50">
-                <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode" enable-map-select="true">
-                    <label class="item item-input-inset search-select">
+    <div class="row">
+      <div id="from-loc" class="col col-50">
+        <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode" enable-map-select="true">
+          <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
                             <input type="text" ng-model="selectNode.fromNode.name" placeholder="From" disabled>
                         </div>
                     </label>
-                </ion-search-select>
-                <location-info location="selectNode.fromNode" loc-select="fromNode">
-                    <i on-tap="clearLocation('fromNode')" class="x-clear icon ion-close"></i>
-                </location-info>
-            </div>
-            <div id="to-loc" class="col col-50">
-                <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode" enable-map-select="true">
-                    <label class="item item-input-inset search-select">
+        </ion-search-select>
+        <location-info location="selectNode.fromNode" loc-select="fromNode">
+          <i on-tap="clearLocation('fromNode')" class="x-clear icon ion-close"></i>
+        </location-info>
+      </div>
+      <div id="to-loc" class="col col-50">
+        <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode" enable-map-select="true">
+          <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
                             <input type="text" ng-model="selectNode.toNode.name" placeholder="To" disabled>
                         </div>
                     </label>
-                </ion-search-select>
-                <location-info location="selectNode.toNode">
-                    <i on-tap="clearLocation('toNode')" class="x-clear icon ion-close"></i>
-                </location-info>
-            </div>
-        </div>
-        <!-- paste your map under here -->
+        </ion-search-select>
+        <location-info location="selectNode.toNode">
+          <i on-tap="clearLocation('toNode')" class="x-clear icon ion-close"></i>
+        </location-info>
+      </div>
+    </div>
+    <!-- paste your map under here -->
     <!-- paste your map under here -->
     <div id="svg" class="col col-75 col-offset-10">
       <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 3600 3600" xml:space="preserve">
+        <defs>
+          <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+            <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
+             <stop class="outer" offset=".05" />
+             <stop class="inner" offset=".05" />
+             <stop class="inner" offset=".95" />
+             <stop class="outer" offset=".95" />
+            </linearGradient>
+            <linearGradient id="gradVert" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+              <stop class="outer" offset=".05" />
+              <stop class="inner" offset=".05" stop-opacity="0" />
+              <stop class="inner" offset=".95" stop-opacity="0" />
+              <stop class="outer" offset=".95" />
+            </linearGradient>
+            <rect fill="url(#gradHor)" x="0" y="0" width="1" height="1"/>
+            <rect fill="url(#gradVert)" x="0" y="0" width="1" height="1"/>
+            <!--<circle cx="0.5" cy="0.5" r="0.25" fill="yellow" />-->
+          </pattern>
+        </defs>
+
         <g class="legend">
           <!-- Map legend/key -->
           <g class="legend_title">
@@ -391,9 +411,10 @@
               </g>
               <!-- Path running down west side from william penn conference room to asset management -->
               <g transform='translate(-610, 0)'>
-                <rect class="path loc" id="1166" x="1840" y="2310" width="70" height="100"></rect>
-                <rect class="path loc" id="1168" x="1840" y="2410" width="70" height="70"></rect>
-                <rect class="path loc" id="1169" x="1840" y="2480" width="70" height="110"></rect>
+                <rect class="path loc" id="1166" x="1810" y="2310" width="100" height="100"></rect>
+                <polygon points='' class='path loc' id='1168'></polygon>
+              <!--  <rect class="path loc" id="1168" x="1810" y="2410" width="100" height="70"></rect> -->
+                <rect class="path loc" id="1169" x="1845" y="2480" width="65" height="110"></rect>
                 <rect class="path loc" id="1170" x="1840" y="2590" width="70" height="80"></rect>
                 <rect class="path loc" id="1173" x="1840" y="2670" width="70" height="90"></rect>
                 <rect class="path loc" id="1174" x="1840" y="2760" width="70" height="80"></rect>
@@ -436,6 +457,9 @@
             <g transform="translate(-325,320)">
             </g>
             <rect class="path loc" id="1178" x="620" y="2360" width="105" height="60"></rect>
+            <polygon points='725,2340 805,2340 725,2420' class='path loc' id='1190'></polygon>
+            <polygon points='805,2260 885,2260 805,2340' class='path loc' id='1191'></polygon>
+            <rect class='path loc' id='1347' x='905' y='2120' width='45' height='80'></rect>
 
             <!-- Path continuing down towards Agnes' kitchen from leftmost wall mrkt_mgmt, acd, branch_dev, isa, vacant, ops offices -->
             <rect x="370" y="2520" class="path loc" id="1183" width="70" height="100"></rect>
@@ -1101,5 +1125,5 @@
       </svg>
     </div>
 
-    </ion-content>
+  </ion-content>
 </ion-view>

@@ -25,15 +25,30 @@
 #svg #map .dep_list_colorbox.hilite,
 #svg #map .loc:hover {
     cursor: auto;
-    fill: #0000FF;
-    stroke-width: 5px;
+    /*fill: #0000FF;*/
+    fill: url(#highlighter);
+    /*stroke-width: 5px;*/
     stroke: #FFFF00;
-    fill-opacity: 0.75;
+    fill-opacity: 0.7;
+}
+
+#svg #map #highlighter stop.outer {
+    stop-color: #FFFF00;
+}
+#svg #map #highlighter stop.inner {
+    stop-color: #0000FF;
 }
 
 #svg #map .loc.path {
     stroke: black;
     fill: transparent;
+}
+
+
+/*temporary*/
+
+#svg #map .loc.path:hover {
+    fill: blue;
 }
 
 
@@ -83,8 +98,10 @@
     fill: #FFFF99;
 }
 
+
 /*#svg #map .copy_rm,
 #svg #map .scan_rm */
+
 #svg #map .copy_scan_rm {
     fill: #1AD1FF;
 }
