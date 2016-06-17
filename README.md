@@ -20,6 +20,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
 * 06/15/16: Major code remastering, bug fixes, preparation for graph.json
 * 06/16/16: Map and legend smoothing, preparing graph.json
+* 06/17/16:
 
 ## Ideas to Contribute
 
