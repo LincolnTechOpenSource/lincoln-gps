@@ -135,14 +135,14 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
             // debugging to get neighbors
             // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
 
-            $('#svg').on('click', '#map .loc', function() {
-                // console.log($rootScope.Graphing.graph.nodes);
-                var n = $rootScope.Graphing.graph.nodes[this.id];
-                $("#svg #map .loc").removeClass("hilite"); // clear old path
-                for (var i = 0; i < n._neighbors.length; i++) {
-                    $("#" + n._neighbors[i]).addClass("hilite");
-                }
-            });
+            // debugging to highlight neighbors
+            // $('#svg').on('click', '#map .loc', function() {
+            //     var n = $rootScope.Graphing.graph.nodes[this.id];
+            //     $("#svg #map .loc").removeClass("hilite"); // clear old path
+            //     for (var i = 0; i < n._neighbors.length; i++) {
+            //         $("#" + n._neighbors[i]).addClass("hilite");
+            //     }
+            // });
 
             for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
                 $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(

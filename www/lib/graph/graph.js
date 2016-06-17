@@ -10,30 +10,58 @@
  * Node Type Enumerations
  */
 var NodeTypeEnum = {
-    ERR:   0, // undefined node type (i.e., an error)
-    EXIT:  1, // an exit (e.g., elevator, stairs)
-    WALL:  2, // a wall (i.e., something that you cannot walk through)
-    PATH:  3, // a walkway you could take (i.e., the floor)
+    ERR: 0, // undefined node type (i.e., an error)
+    EXIT: 1, // an exit (e.g., elevator, stairs)
+    WALL: 2, // a wall (i.e., something that you cannot walk through)
+    PATH: 3, // a walkway you could take (i.e., the floor)
     BROOM: 4, // a bathroom
-    DESK:  5, // a desk, cubicle, or office
-    CONF:  6,  // a conference room
+    DESK: 5, // a desk, cubicle, or office
+    CONF: 6, // a conference room
 
     // enumeration properties
     properties: {
-        0: { name: "error", value: 0, code: "ERR" },
-        1: { name: "exit", value: 1, code: "EXIT" },
-        2: { name: "wall", value: 2, code: "WALL" },
-        3: { name: "path", value: 3, code: "PATH" },
-        4: { name: "bathroom", value: 4, code: "BROOM" },
-        5: { name: "desk", value: 5, code: "DESK" },
-        6: { name: "conference", value: 6, code: "CONF" },
+        0: {
+            name: "error",
+            value: 0,
+            code: "ERR"
+        },
+        1: {
+            name: "exit",
+            value: 1,
+            code: "EXIT"
+        },
+        2: {
+            name: "wall",
+            value: 2,
+            code: "WALL"
+        },
+        3: {
+            name: "path",
+            value: 3,
+            code: "PATH"
+        },
+        4: {
+            name: "bathroom",
+            value: 4,
+            code: "BROOM"
+        },
+        5: {
+            name: "desk",
+            value: 5,
+            code: "DESK"
+        },
+        6: {
+            name: "conference",
+            value: 6,
+            code: "CONF"
+        },
     }
 };
 
 // Make NodeType immutable if possible
 if (Object.freeze) Object.freeze(NodeTypeEnum);
 
-var nTypeProp = function (val) {
+var nTypeProp = function(val) {
     return NodeTypeEnum.properties[val];
 };
 
@@ -42,8 +70,8 @@ var nTypeProp = function (val) {
  * @graph: (optional) a JSON representation of the graph to initialize
  * @debug: only verify if debug is set to true (defaults to false)
  */
-var Graph = function (graph, debug=false) {
-    this._nodes     = graph ? graph._nodes : {}; // set of nodes in graph
+var Graph = function(graph, debug = false) {
+    this._nodes = graph ? graph._nodes : {}; // set of nodes in graph
     this._nodeCount = graph ? graph._nodeCount : 0; // number of nodes
     this._edgeCount = graph ? graph._edgeCount : 0; // number of edges
 
@@ -59,19 +87,19 @@ var Graph = function (graph, debug=false) {
 Object.defineProperties(Graph.prototype, {
     // _nodeCount
     nodeCount: {
-        get: function () { // getter
+        get: function() { // getter
             return this._nodeCount;
         },
     },
     // edgeCount
     edgeCount: {
-        get: function () { // getter
+        get: function() { // getter
             return this._edgeCount;
         },
     },
     // nodes
     nodes: {
-        get: function () { // getter
+        get: function() { // getter
             return this._nodes;
         },
     },
@@ -81,7 +109,7 @@ Object.defineProperties(Graph.prototype, {
  * Graph.find: returns the node specified by ID (or undefined)
  * @id: the ID of the node to find
  */
-Graph.prototype.find = function (id) {
+Graph.prototype.find = function(id) {
     return this._nodes[id];
 };
 
@@ -89,7 +117,7 @@ Graph.prototype.find = function (id) {
  * Graph.exists: checks if the specified ID already exists in the graph
  * @id: the ID of the node to check
  */
- Graph.prototype.exists = function (id) {
+Graph.prototype.exists = function(id) {
     return this._nodes[id] !== undefined;
 };
 
@@ -99,7 +127,7 @@ Graph.prototype.find = function (id) {
  * @weight: the weight of the node to create
  * @nType: the type of the node to create
  */
-Graph.prototype.addNode = function (id, weight, nType) {
+Graph.prototype.addNode = function(id, weight, nType) {
     // only add node if it does not already exist (TODO: might change)
     if (!this.exists(id)) {
         // create & add new node
@@ -113,12 +141,12 @@ Graph.prototype.addNode = function (id, weight, nType) {
  * Graph.deleteNode: delete a node from the graph. true if successful
  * @id: the ID of the node to delete
  */
-Graph.prototype.deleteNode = function (id) {
+Graph.prototype.deleteNode = function(id) {
     // only remove if it exists
     if (this.exists(id)) {
         // remove all incident edges
         for (var i = 0; i < this._nodes[id]._neighbors.length; i++) {
-            var n = this._nodes[ this._nodes[id]._neighbors[i] ]; // get node
+            var n = this._nodes[this._nodes[id]._neighbors[i]]; // get node
             var index = n._neighbors.indexOf(id); // index n's neighbors w/ id
 
             if (index > -1) {
@@ -141,7 +169,7 @@ Graph.prototype.deleteNode = function (id) {
  * @source: ID of one end of the edge
  * @target: ID of the other end of the edge
  */
-Graph.prototype.addEdge = function (source, target) {
+Graph.prototype.addEdge = function(source, target) {
     // create the source & target nodes
     var s = this.addNode(source);
     var t = this.addNode(target);
@@ -159,7 +187,7 @@ Graph.prototype.addEdge = function (source, target) {
  * @source: ID of one end of the edge to delete
  * @target: ID of the other end of the edge to delete
  */
-Graph.prototype.deleteEdge = function (source, target) {
+Graph.prototype.deleteEdge = function(source, target) {
     var s = this._nodes[source]; // the node corresponding to source ID
     var t = this._nodes[target]; // the node corresponding to target ID
 
@@ -180,14 +208,14 @@ Graph.prototype.deleteEdge = function (source, target) {
  * @source: ID of one end of the edge
  * @target:ID of the other end of the edge
  */
-Graph.prototype.edgeWeight = function (source, target) {
+Graph.prototype.edgeWeight = function(source, target) {
     return this._nodes[source]._weight;
 };
 
 /**
  * Node
  */
-Graph.Node = function (id, weight, nType) {
+Graph.Node = function(id, weight, nType) {
     var node = {}; // create a new node
 
     node._id = id; // node's ID
@@ -204,7 +232,7 @@ Graph.Node = function (id, weight, nType) {
  * _verify: ensure that the graph is consistent (debugging)
  * i.e., nodes and edges exist and that all edges are bi-directional
  */
-var _verify = function (graph) {
+var _verify = function(graph) {
     console.info('Verifying Graph');
     // the number of nodes should be the same as the nodeCount
     var numNodes = Object.keys(graph.nodes).length;
@@ -223,18 +251,18 @@ var _verify = function (graph) {
         // should have consistent edges and no self edges
         for (var j = 0; j < n._neighbors.length; j++) {
             numEdges++; // count number of edges (should be double)
-            var k = graph.nodes[  n._neighbors[j] ];
+            var k = graph.nodes[n._neighbors[j]];
 
             _assert(k._id != n._id, "Cannot have self edge (" +
                 n._id + ")");
 
             _assert(k._neighbors.includes(n._id), "Inconsisent Edge (" +
-                n._id + "," + k._id + ")");
+                "Inconsisent Edge (" + n._id + "," + k._id + ")");
         }
     }
     // number of edges should be same as the edgeCount
     _assert(numEdges / 2 == graph.edgeCount, "Inconsistent edgeCount (" +
-        numEdges/2 + " != " + graph.edgeCount + ")");
+        numEdges / 2 + " != " + graph.edgeCount + ")");
 
     return true;
 };
