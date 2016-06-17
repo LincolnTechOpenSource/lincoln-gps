@@ -210,7 +210,7 @@ angular.module('lincoln-gps', ['ionic', 'map.controller', 'directory.controller'
         //});
 
         $.getJSON('lib/graph/new-graph.json', function(data) {
-            $rootScope.Graphing.graph = new Graph(data, true);
+            $rootScope.Graphing.graph = new Graph(data);
         });
 
 

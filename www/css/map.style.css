@@ -48,7 +48,8 @@
 
 /*temporary*/
 
-#svg #map .loc.path:hover {
+#svg #map .loc.path:hover,
+#svg #map .loc.path.hilite {
     fill: blue;
 }
 
