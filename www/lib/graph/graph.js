@@ -61,9 +61,9 @@ var NodeTypeEnum = {
 // Make NodeType immutable if possible
 if (Object.freeze) Object.freeze(NodeTypeEnum);
 
-var nTypeProp = function(val) {
+/*var nTypeProp = function(val) {
     return NodeTypeEnum.properties[val];
-};
+};*/
 
 /**
  * Graph
