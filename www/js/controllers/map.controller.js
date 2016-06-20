@@ -7,8 +7,8 @@
 var mapCtrl = angular.module('map.controller', []);
 
 mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile',
-    'Locations', 'Users', 'Auth', 'DEPARTMENT_NAMES',
-    function($rootScope, $scope, $stateParams, $compile, Locations, Users, Auth, DEPARTMENT_NAMES) {
+    'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing',
+    function($rootScope, $scope, $stateParams, $compile, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
 
         $scope.selectNode = {
             nodes: null, // only load if user is authenticated
@@ -18,7 +18,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         };
 
         // load employees when signed in
-        Auth.$onAuthStateChanged(function(user) {
+        Firebase.auth().$onAuthStateChanged(function(user) {
             if (user) {
                 $scope.selectNode.nodes = Locations.all(); // load locations
             }
@@ -36,7 +36,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         // filter the map as prescribed
         for (var filter in $rootScope.filters) {
             if (!$rootScope.filters[filter].disp) {
-                $('#svg #map .' + filter).addClass('filter-out');
+                $('#svg #map .loc.' + filter).addClass('filter-out');
             }
         }
 
@@ -105,7 +105,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         var findDirections = function() {
             if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
                 var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
-                    $scope.selectNode.toNode.$id, $rootScope.Graphing.graph);
+                    $scope.selectNode.toNode.$id, Graphing.graph);
 
                 //console.assert(false, dirResults);
 

@@ -2,8 +2,8 @@
 
 angular.module('ion-search-select.directive', [])
     .directive('ionSearchSelect', ['$rootScope', '$ionicModal', '$ionicGesture', '$ionicPopup',
-        '$timeout', 'Users', 'Auth',
-        function($rootScope, $ionicModal, $ionicGesture, $ionicPopup, $timeout, Users, Auth) {
+        '$timeout', 'Users',
+        function($rootScope, $ionicModal, $ionicGesture, $ionicPopup, $timeout, Users) {
             return {
                 restrict: 'E',
                 scope: {

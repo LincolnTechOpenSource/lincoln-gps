@@ -65,15 +65,7 @@ ion-modal-view.ion-search-select .select-on-map {
     max-height: inherit;
 }*/
 
-/*#svg #map #outer-border {*/
-/*    fill: none;*/
-/*}*/
 
-/*#svg #map #outer-border.select-me {*/
-/*    stroke: yellow;*/
-/*    stroke-width: 2px;*/
-/*    z-index: 1000;*/
-/*}*/
 
 /*#svg #map g.non-walls .hilite {*/
 /*    fill: blue;*/
@@ -85,10 +77,6 @@ ion-modal-view.ion-search-select .select-on-map {
     stroke-width: 2px;
 }*/
 
-/*#svg #map .filter-out {*/
-/*    opacity: 0.3;*/
-/*    fill: black;*/
-/*}*/
 
 
 

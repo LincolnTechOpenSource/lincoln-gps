@@ -1,7 +1,7 @@
 angular.module('tab.controller', [])
 
 .controller('TabCtrl', function($rootScope, $scope, $ionicModal, $ionicLoading,
-    $timeout, Auth, Locations, Users) {
+    $timeout, Firebase, Locations, Users) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -31,23 +31,25 @@ angular.module('tab.controller', [])
     }).then(function(modal) {
         $scope.modal = modal;
 
-        Auth.$onAuthStateChanged(function(user) {
+        Firebase.auth().$onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
-                console.log('Signed in... '); // + user.uid);
+                console.info('Signed in... '); // + user.uid);
                 $scope.loginData.email = ""; // clear email on success
                 $scope.closeLogin();
                 $scope.error.show = false;
                 // save the authed user
+                Users.load();
                 Users.get(user.uid).then(function(user){
                     $rootScope.user = user;
                 });
             }
             else {
                 // No user is signed in.
-                console.log('Not Authenticated');
+                console.info('Not Authenticated');
                 $scope.login();
 
+                Users.unload();
                 $rootScope.user = null;
             }
         });
@@ -69,7 +71,7 @@ angular.module('tab.controller', [])
             template: 'Signing In...'
         });
 
-        Auth.$signInWithEmailAndPassword($scope.loginData.email,
+        Firebase.auth().$signInWithEmailAndPassword($scope.loginData.email,
             $scope.loginData.password).catch(function(error) {
             // Handle Errors here
             console.log("Authentication failed (" + error.code + "): " + error.message);
@@ -84,7 +86,7 @@ angular.module('tab.controller', [])
     };
 
     $scope.logout = function() {
-        Auth.$signOut();
+        Firebase.auth().$signOut();
     };
 
 

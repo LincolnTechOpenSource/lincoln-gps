@@ -3,12 +3,23 @@
 
 /* SVG Map styling */
 
+#svg #map .loc.filter-out {
+    fill-opacity: 0.3;
+    fill: black;
+    opacity: 0.75;
+}
+
 #svg #map * {}
 
 #svg #map .wall {
     fill: none;
     stroke-width: 3px;
     stroke: #000000;
+}
+
+#svg #map #outer-border.select-me {
+    stroke: yellow;
+    stroke-width: 5px;
 }
 
 #svg #map .line {

@@ -5,8 +5,8 @@
  **/
 
 angular.module('directory.controller', [])
-    .controller('DirectoryCtrl', ['$scope', '$state', '$ionicHistory', 'Locations', 'Auth',
-        function($scope, $state, $ionicHistory, Locations, Auth) {
+    .controller('DirectoryCtrl', ['$scope', '$state', '$ionicHistory', 'Locations', 'Firebase',
+        function($scope, $state, $ionicHistory, Locations, Firebase) {
 
             $scope.selectEmployee = {
                 employees: null, // only load if user is authenticated
@@ -14,7 +14,7 @@ angular.module('directory.controller', [])
             };
 
             // load employees when signed in
-            Auth.$onAuthStateChanged(function(user) {
+            Firebase.auth().$onAuthStateChanged(function(user) {
                 if (user) {
                     $scope.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
                 }
