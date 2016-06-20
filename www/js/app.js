@@ -2,28 +2,14 @@
 (function() {
     'use strict';
 
-    // array of department class names
-    var DEPARTMENT_NAMES = [
-        'account_setup', 'accounting', 'acd', 'asset_mgmt', 'branch_dev', 'branch_serv',
-        'broom', 'busi_dev', 'compli_licens', 'conf', 'copy_scan_rm', 'doc_mgmt', 'elevator_exit',
-        'euc', 'exec_suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im_r', 'isa',
-        'mrkt_comm', 'one_time_financials', 'ops', 'prvd_mgmt', 'quality_cntrl',
-        'reception', 'rdi', 'retire_serv', 'stairs_exit', 'tpa', 'vsa'
-        //'break_area'
-    ];
-
     angular
-        .module('app', ['ionic', 'map.controller', 'app.directory',
-            'app.account', 'tab.controller', 'firebase.service', 'ion-search-select.directive',
-            'location-info.directive', 'starter.controllers', 'starter.services', 'firebase', 'graph.service'
+        .module('app', ['ionic', 'app.map', 'app.directory', 'app.account',
+            'tab.controller', 'firebase.service'
         ])
         .run(appRun)
-        .config(appConfigure)
-        .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES);
-
+        .config(appConfigure);
 
     appRun.$inject = ['$rootScope', '$ionicPlatform', '$window', 'Graphing', 'Firebase'];
-
     function appRun($rootScope, $ionicPlatform, $window, Graphing, Firebase) {
         $ionicPlatform.ready(function() {
             console.info('Ionic Charged!'); // log that ionic is ready and running
@@ -75,11 +61,8 @@
             };
 
             // initialize & create graph
-            Graphing.debug = true; // debug for testing purposes
+            // Graphing.debug = true; // debug for testing purposes
             Graphing.createGraph()
-                .then(function() {
-                    console.info('Successfully created graph!');
-                })
                 .catch(function(error) {
                     console.error(error);
                 });
@@ -105,7 +88,7 @@
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
-                        controller: 'MapCtrl',
+                        controller: 'Map',
                         controllerAs: 'vm'
                     }
                 },
@@ -125,15 +108,15 @@
                     }
                 }
             })
-            .state('tab.chat-detail', {
-                url: '/chats/:chatId',
-                views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/chat-detail.html',
-                        controller: 'ChatDetailCtrl'
-                    }
-                }
-            })
+            // .state('tab.chat-detail', {
+            //     url: '/chats/:chatId',
+            //     views: {
+            //         'tab-chats': {
+            //             templateUrl: 'templates/chat-detail.html',
+            //             controller: 'ChatDetailCtrl'
+            //         }
+            //     }
+            // })
             .state('tab.account', {
                 url: '/account',
                 views: {

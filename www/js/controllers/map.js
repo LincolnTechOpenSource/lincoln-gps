@@ -3,14 +3,29 @@
  * Matthew Vasseur
  * 06/02/16
  **/
+(function() {
+    'use strict';
 
-var mapCtrl = angular.module('map.controller', []);
+    // array of department class names
+    var DEPARTMENT_NAMES = [
+        'account_setup', 'accounting', 'acd', 'asset_mgmt', 'branch_dev', 'branch_serv',
+        'broom', 'busi_dev', 'compli_licens', 'conf', 'copy_scan_rm', 'doc_mgmt', 'elevator_exit',
+        'euc', 'exec_suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im_r', 'isa',
+        'mrkt_comm', 'one_time_financials', 'ops', 'prvd_mgmt', 'quality_cntrl',
+        'reception', 'rdi', 'retire_serv', 'stairs_exit', 'tpa', 'vsa'
+        //'break_area'
+    ];
 
-mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile',
-    'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing',
-    function($rootScope, $scope, $stateParams, $compile, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
+    angular
+        .module('app.map', ['graph.service', 'location-info.directive', 'ion-search-select.directive'])
+        .controller('Map', Map)
+        .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES);
 
-        $scope.selectNode = {
+    Map.$inject = ['$rootScope', '$scope', '$stateParams', 'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing'];
+    function Map($rootScope, $scope, $stateParams, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
+        var vm = this;
+
+        vm.selectNode = {
             nodes: null, // only load if user is authenticated
             fromNode: null, // this will also serve as the parameter employee
             toNode: null,
@@ -22,19 +37,19 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
             if (user) {
                 Locations.load();
                 Locations.all().then(function(data) {
-                    $scope.selectNode.nodes = data; // load locations
+                    vm.selectNode.nodes = data; // load locations
                 });
             }
             else {
                 Locations.unload();
-                $scope.selectNode.nodes = null;
+                vm.selectNode.nodes = null;
             }
         });
 
         // handle employee parameter
         if (!!$stateParams.employee) {
             // set current employee and from node given parameter
-            $scope.selectNode.fromNode = $stateParams.employee;
+            vm.selectNode.fromNode = $stateParams.employee;
         }
 
         // filter the map as prescribed
@@ -45,32 +60,32 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         }
 
         // resets the path and removes all highlights (but leaves employee)
-        $scope.clear = function() {
+        vm.clear = function() {
             $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
             // clear graphing parameters (keep source if employee is defined)
-            $scope.selectNode.toNode = null;
-            $scope.selectNode.fromNode = null;
+            vm.selectNode.toNode = null;
+            vm.selectNode.fromNode = null;
         };
 
         /** resets the selected location and removes path highlighting
          * @locSelect will be either "fromNode" or "toNode" (e.g., a field of selectNode)
          */
-        $scope.clearLocation = function(locSelect) {
+        vm.clearLocation = function(locSelect) {
             // remove highlighting from path
             $("#svg #map g.non-walls .path").removeClass("hilite");
-            if ($scope.selectNode[locSelect] !== $scope.selectNode.toNode ||
-                $scope.selectNode[locSelect] !== $scope.selectNode.fromNode) {
-                $('#svg #map #' + $scope.selectNode[locSelect].id).removeClass('hilite');
+            if (vm.selectNode[locSelect] !== vm.selectNode.toNode ||
+                vm.selectNode[locSelect] !== vm.selectNode.fromNode) {
+                $('#svg #map #' + vm.selectNode[locSelect].id).removeClass('hilite');
             }
-            $scope.selectNode[locSelect] = null; // clear the location
+            vm.selectNode[locSelect] = null; // clear the location
         };
 
         // watch to find directions
         $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
             // select on map option
-            if (newNode === $scope.selectNode.FIND_ON_MAP) {
-                $scope.selectNode.toNode = null; // clear value
+            if (newNode === vm.selectNode.FIND_ON_MAP) {
+                vm.selectNode.toNode = null; // clear value
                 $('#svg #map #outer-border').addClass('select-me');
                 $('#svg #map').attr('select-on-click', 'toNode');
             }
@@ -81,15 +96,15 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
                 if (!!newNode)
                     $('#svg #map #' + newNode.id).addClass('hilite');
             }
-            if (!!oldNode && ($scope.selectNode.fromNode !== oldNode) && (newNode !== oldNode)) {
+            if (!!oldNode && (vm.selectNode.fromNode !== oldNode) && (newNode !== oldNode)) {
                 $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
 
         });
         $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
             // select on map option
-            if (newNode === $scope.selectNode.FIND_ON_MAP) {
-                $scope.selectNode.fromNode = null; // clear value
+            if (newNode === vm.selectNode.FIND_ON_MAP) {
+                vm.selectNode.fromNode = null; // clear value
                 $('#svg #map #outer-border').addClass('select-me');
                 $('#svg #map').attr('select-on-click', 'fromNode');
             }
@@ -101,19 +116,19 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
                     $('#svg #map #' + newNode.id).addClass('hilite');
                 }
             }
-            if (!!oldNode && ($scope.selectNode.toNode !== oldNode) && (newNode !== oldNode)) {
+            if (!!oldNode && (vm.selectNode.toNode !== oldNode) && (newNode !== oldNode)) {
                 $('#svg #map #' + oldNode.id).removeClass('hilite');
             }
         });
 
         var findDirections = function() {
-            if (!!$scope.selectNode.fromNode && !!$scope.selectNode.toNode) {
-                var dirResults = Dijkstra.run($scope.selectNode.fromNode.$id,
-                    $scope.selectNode.toNode.$id, Graphing.graph);
+            if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
+                var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
+                    vm.selectNode.toNode.$id, Graphing.graph);
 
                 //console.assert(false, dirResults);
 
-                var directions = Dijkstra.getPath(dirResults.prev, $scope.selectNode.toNode.$id);
+                var directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
 
                 //console.log(directions);
 
@@ -128,7 +143,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
             var selectOnClick = $('#svg #map').attr('select-on-click');
             if (selectOnClick != 'false') {
                 Locations.get(this.id).then(function(loc) {
-                    $scope.selectNode[selectOnClick] = loc;
+                    vm.selectNode[selectOnClick] = loc;
                 });
 
                 $('#svg #map #outer-border').removeClass('select-me');
@@ -143,7 +158,7 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
 
             // debugging to highlight neighbors
             // $('#svg').on('click', '#map .loc', function() {
-            //     var n = $rootScope.Graphing.graph.nodes[this.id];
+            //     var n = Graphing.graph.nodes[this.id];
             //     $("#svg #map .loc").removeClass("hilite"); // clear old path
             //     for (var i = 0; i < n._neighbors.length; i++) {
             //         $("#" + n._neighbors[i]).addClass("hilite");
@@ -168,15 +183,15 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
             }
         });
     }
-]);
 
-/** batchToggleClass: toggles the @classes of the specified @selectors
- * toggles the corresponding class of an array of selectors */
-var batchToggleClass = function(selectors, classes) {
-    return function() {
-        console.assert(selectors.length == classes.length, 'Invalid Call to batchToggleClass');
-        for (var i = 0; i < selectors.length; i++) {
-            $(selectors[i]).toggleClass(classes[i]);
-        }
+    /** batchToggleClass: toggles the @classes of the specified @selectors
+     * toggles the corresponding class of an array of selectors */
+    var batchToggleClass = function(selectors, classes) {
+        return function() {
+            console.assert(selectors.length == classes.length, 'Invalid Call to batchToggleClass');
+            for (var i = 0; i < selectors.length; i++) {
+                $(selectors[i]).toggleClass(classes[i]);
+            }
+        };
     };
-};
+})();

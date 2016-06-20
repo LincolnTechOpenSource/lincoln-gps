@@ -6,11 +6,11 @@
 
     <div class="row">
       <div class="col">
-        <button class="button button-assertive" ng-click="clear()">
+        <button class="button button-assertive" ng-click="vm.clear()">
                     Clear
                 </button>
 
-        <button class="button button-positive" ng-click="logout()">
+        <button class="button button-positive" ng-click="vm.logout()">
                     Logout
                 </button>
       </div>
@@ -18,29 +18,29 @@
 
     <div class="row">
       <div id="from-loc" class="col col-50">
-        <ion-search-select title="From" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.fromNode" enable-map-select="true">
+        <ion-search-select title="From" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.fromNode" enable-map-select="true">
           <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
-                            <input type="text" ng-model="selectNode.fromNode.name" placeholder="From" disabled>
+                            <input type="text" ng-model="vm.selectNode.fromNode.name" placeholder="From" disabled>
                         </div>
                     </label>
         </ion-search-select>
-        <location-info location="selectNode.fromNode" loc-select="fromNode">
-          <i on-tap="clearLocation('fromNode')" class="x-clear icon ion-close"></i>
+        <location-info location="vm.selectNode.fromNode" loc-select="fromNode">
+          <i on-tap="vm.clearLocation('fromNode')" class="x-clear icon ion-close"></i>
         </location-info>
       </div>
       <div id="to-loc" class="col col-50">
-        <ion-search-select title="To" key-property="id" value-property="name" options="selectNode.nodes" option-selected="selectNode.toNode" enable-map-select="true">
+        <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
           <label class="item item-input-inset search-select">
                         <div class="item-input-wrapper">
                             <i class="icon ion-ios-search"></i>
-                            <input type="text" ng-model="selectNode.toNode.name" placeholder="To" disabled>
+                            <input type="text" ng-model="vm.selectNode.toNode.name" placeholder="To" disabled>
                         </div>
                     </label>
         </ion-search-select>
-        <location-info location="selectNode.toNode">
-          <i on-tap="clearLocation('toNode')" class="x-clear icon ion-close"></i>
+        <location-info location="vm.selectNode.toNode">
+          <i on-tap="vm.clearLocation('toNode')" class="x-clear icon ion-close"></i>
         </location-info>
       </div>
     </div>
