@@ -15,8 +15,8 @@
         .factory('Firebase', Firebase);
 
     // handle locations table queries
-    Locations.$inject = ['$firebaseArray'];
-    function Locations($firebaseArray) {
+    Locations.$inject = ['$q', '$firebaseArray'];
+    function Locations($q, $firebaseArray) {
         var service = {
             locations: null,
 
@@ -33,8 +33,11 @@
 
         /** load: sets the users firebase table */
         function load() {
-            var db = firebase.database().ref('locations');
-            service.locations = $firebaseArray(db);
+            if (!service.locations) { // only load if not yet loaded
+                var db = firebase.database().ref('locations');
+                service.locations = $firebaseArray(db);
+            }
+            return $q.when(service.locations);
         }
         /** unload: nulls the users firebase table */
         function unload() {
@@ -67,6 +70,7 @@
 
     // handle users table queries
     Users.inject = ['$firebaseArray'];
+
     function Users($firebaseArray) {
         var service = {
             users: null,

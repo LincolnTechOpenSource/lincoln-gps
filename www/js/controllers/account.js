@@ -1,13 +1,13 @@
-/* account.controller.js */
+/* account.js */
 (function() {
   'use strict';
 
   angular
     .module('app.account', [])
-    .controller('AccountCtrl', AccountCtrl);
+    .controller('Account', Account);
 
-  AccountCtrl.$inject = ['$rootScope'];
-  function AccountCtrl($rootScope) {
+  Account.$inject = ['$rootScope'];
+  function Account($rootScope) {
     var vm = this;
 
     vm.resetToDefault = function() {
