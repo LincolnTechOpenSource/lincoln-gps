@@ -1,5 +1,5 @@
 /**
- * map.controller.js
+ * map.js
  * Matthew Vasseur
  * 06/02/16
  **/
