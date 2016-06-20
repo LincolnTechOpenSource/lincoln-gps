@@ -7,10 +7,10 @@
         .controller('Tab', Tab);
 
     Tab.$inject = ['$rootScope', '$scope', '$ionicModal', '$ionicLoading',
-        '$timeout', 'Firebase', 'Locations', 'Users'
+        '$timeout', 'Firebase', 'Users'
     ];
     function Tab($rootScope, $scope, $ionicModal, $ionicLoading,
-        $timeout, Firebase, Locations, Users) {
+        $timeout, Firebase, Users) {
 
         // With the new view caching in Ionic, Controllers are only called
         // when they are recreated or on app start, instead of every page change.
