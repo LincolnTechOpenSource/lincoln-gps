@@ -4,55 +4,70 @@
     'use strict';
 
     angular.module('firebase.service', ['firebase'])
-        // handle locations table queries
-        .factory('Locations', function($firebaseArray, $firebaseAuth) {
-            // Might use a resource here that returns a JSON array
-            var db = firebase.database().ref('locations');
-            var locations = null;
-
-            $firebaseAuth().$onAuthStateChanged(function(user) {
-                if (user) {
-                    locations = $firebaseArray(db);
-                }
-                else {
-                    locations = null;
-                }
-            });
-
-            return {
-                /** all: returns all locations */
-                all: function() {
-                    return locations;
-                },
-                /** getByNType: returns all the locations of nType @nType */
-                getByNType: function(nType) {
-                    if (!!locations) {
-                        return $firebaseArray(db.orderByChild("nType").equalTo(nType));
-                    }
-                    else {
-                        return null;
-                    }
-                },
-                /** get: returns the location information specified by @locID via a promise */
-                get: function(locID) {
-                    return locations.$loaded(function(locations) {
-                        return locations.$getRecord(locID);
-                    });
-                }
-            };
-        })
         .constant('CONFIG', {
             apiKey: "AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs",
             authDomain: "lincoln-gps.firebaseapp.com",
             databaseURL: "https://lincoln-gps.firebaseio.com",
             storageBucket: "lincoln-gps.appspot.com",
         })
+        .factory('Locations', Locations)
         .factory('Users', Users)
         .factory('Firebase', Firebase);
 
+    // handle locations table queries
+    Locations.$inject = ['$firebaseArray'];
+    function Locations($firebaseArray) {
+        var service = {
+            locations: null,
+
+            load: load,
+            unload: unload,
+            all: all,
+            get: get,
+            getByNType: getByNType
+        };
+
+        return service;
+
+        //------------------------------------------------//
+
+        /** load: sets the users firebase table */
+        function load() {
+            var db = firebase.database().ref('locations');
+            service.locations = $firebaseArray(db);
+        }
+        /** unload: nulls the users firebase table */
+        function unload() {
+            service.locations = null;
+        }
+        /** all: returns all the locations */
+        function all() {
+            return service.locations.$loaded(function(locations) {
+                return locations;
+            });
+        }
+        /** getByNType: returns all the locations of nType @nType */
+        function getByNType(nType) {
+            if (!!service.locations) {
+                var db = firebase.database().ref('locations');
+                return $firebaseArray(db.orderByChild("nType").equalTo(nType));
+            }
+            else {
+                return null;
+            }
+        }
+
+        /** get: returns the location information specified by @locID via a promise */
+        function get(locID) {
+            return service.locations.$loaded(function(locations) {
+                return locations.$getRecord(locID);
+            });
+        }
+    }
+
     // handle users table queries
-    Users.inject = ['$firebaseAuth', '$firebaseArray'];
-    function Users($firebaseArray, $firebaseAuth) {
+    Users.inject = ['$firebaseArray'];
+    function Users($firebaseArray) {
         var service = {
             users: null,
 
@@ -62,27 +77,17 @@
             set: set
         };
 
-        // init();
         return service;
 
         //------------------------------------------------//
 
-        // function init() {
-        //     $firebaseAuth().$onAuthStateChanged(function(user) {
-        //         if (user) {
 
-        //         }
-        //         else {
-        //             service.users = null;
-        //         }
-        //     });
-        // }
-
+        /** load: sets the users firebase table */
         function load() {
             var db = firebase.database().ref('users');
             service.users = $firebaseArray(db);
         }
-
+        /** unload: nulls the users firebase table */
         function unload() {
             service.users = null;
         }
@@ -106,6 +111,7 @@
 
     // General Firebase services
     Firebase.$inject = ['$firebaseAuth', 'CONFIG'];
+
     function Firebase($firebaseAuth, CONFIG) {
         var service = {
             init: init,

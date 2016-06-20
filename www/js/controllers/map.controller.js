@@ -20,9 +20,13 @@ mapCtrl.controller('MapCtrl', ['$rootScope', '$scope', '$stateParams', '$compile
         // load employees when signed in
         Firebase.auth().$onAuthStateChanged(function(user) {
             if (user) {
-                $scope.selectNode.nodes = Locations.all(); // load locations
+                Locations.load();
+                Locations.all().then(function(data) {
+                    $scope.selectNode.nodes = data; // load locations
+                });
             }
             else {
+                Locations.unload();
                 $scope.selectNode.nodes = null;
             }
         });

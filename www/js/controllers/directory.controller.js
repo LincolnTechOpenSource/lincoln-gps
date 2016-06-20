@@ -16,9 +16,11 @@ angular.module('directory.controller', [])
             // load employees when signed in
             Firebase.auth().$onAuthStateChanged(function(user) {
                 if (user) {
+                    Locations.load();
                     $scope.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
                 }
                 else {
+                    Locations.unload();
                     $scope.selectEmployee.employees = null;
                 }
             });
