@@ -14,7 +14,7 @@
 
     angular
         .module('app', ['ionic', 'map.controller', 'directory.controller',
-            'account.controller', 'tab.controller', 'firebase.service', 'ion-search-select.directive',
+            'app.account', 'tab.controller', 'firebase.service', 'ion-search-select.directive',
             'location-info.directive', 'starter.controllers', 'starter.services', 'firebase', 'graph.service'
         ])
         .run(appRun)
@@ -105,7 +105,8 @@
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
-                        controller: 'MapCtrl'
+                        controller: 'MapCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 params: {
@@ -119,7 +120,8 @@
                 views: {
                     'tab-directory': {
                         templateUrl: 'templates/tab-directory.html',
-                        controller: 'DirectoryCtrl'
+                        controller: 'DirectoryCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -137,7 +139,8 @@
                 views: {
                     'tab-account': {
                         templateUrl: 'templates/tab-account.html',
-                        controller: 'AccountCtrl'
+                        controller: 'AccountCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             });

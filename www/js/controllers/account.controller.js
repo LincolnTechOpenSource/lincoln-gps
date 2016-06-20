@@ -1,15 +1,19 @@
 /* account.controller.js */
+(function() {
+  'use strict';
 
-var accountCtrl = angular.module('account.controller', []);
+  angular
+    .module('app.account', [])
+    .controller('AccountCtrl', AccountCtrl);
 
-accountCtrl.controller('AccountCtrl', ['$scope', '$rootScope', 'DEPARTMENT_NAMES',
-  function($scope, $rootScope, DEPARTMENT_NAMES) {
+  AccountCtrl.$inject = ['$rootScope'];
+  function AccountCtrl($rootScope) {
+    var vm = this;
 
-    $scope.resetToDefault = function() {
+    vm.resetToDefault = function() {
       for (var filter in $rootScope.filters) {
         $rootScope.filters[filter].disp = true;
       }
     };
-
   }
-]);
+})();
