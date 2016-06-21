@@ -21,9 +21,11 @@
         .controller('MapCtrl', MapCtrl)
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES);
 
-    MapCtrl.$inject = ['$rootScope', '$scope', '$stateParams', '$log', '$q', 'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing'];
-
-    function MapCtrl($rootScope, $scope, $stateParams, $log, $q, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
+    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q',
+        'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params'
+    ];
+    function MapCtrl($rootScope, $scope, $log, $q, Locations,
+        Firebase, DEPARTMENT_NAMES, Graphing, Params) {
         var vm = this;
 
         vm.selectNode = {
@@ -35,32 +37,27 @@
         vm.clear = clear;
         vm.clearLocation = clearLocation;
 
-
-
         $scope.$watch("vm.selectNode.toNode", watchNode.bind(null,'toNode'));
-        $scope.$watch("vm.selectNode.fromNode", watchNode.bind(null,'fromNode'));
+        $scope.$watch("vm.selectNode.fromNode", watchNode.bind(null, 'fromNode'));
 
-        activate();
+        // load employees when signed in
+        Firebase.auth().$onAuthStateChanged(userAuth);
 
+        // ready document specific commands
+        $(document).ready(documentReady);
+
+        // activate the controller on view enter
+        $scope.$on('$ionicView.enter', activate);
 
         //------------------------------------------------//
 
+        /** controller if active */
         function activate() {
-            // load employees when signed in
-            Firebase.auth().$onAuthStateChanged(function(user) {
-                if (user) {
-                    load();
-                }
-                else {
-                    Locations.unload();
-                    vm.selectNode.nodes = null;
-                }
-            });
-
             // handle employee parameter
-            if (!!$stateParams.employee) {
+            if (!!Params.employee) {
                 // set current employee and from node given parameter
-                vm.selectNode.fromNode = $stateParams.employee;
+                vm.selectNode.fromNode = Params.employee;
+                Params.employee = null; // null out parameter after 'use'
             }
 
             // filter the map as prescribed
@@ -70,10 +67,19 @@
                 }
             }
 
-            $(document).ready(documentReady);
-
-            $log.log('Activated Map View');
+            $log.info('Activated Map View');
             return true;
+        }
+
+        /** handle user authentication */
+        function userAuth(user) {
+            if (user) {
+                load();
+            }
+            else {
+                Locations.unload();
+                vm.selectNode.nodes = null;
+            }
         }
 
         /** load the Locations table */
@@ -84,13 +90,13 @@
             else {
                 var promises = [all()];
                 return Locations.load(promises).then(function() {
-                    $log.info('Locations loaded');
                 });
             }
         }
         function all() {
             return $q.when(Locations.all()).then(function() {
                 vm.selectNode.nodes = Locations.all();
+                $log.info('Locations Loaded');
                 return vm.selectNode.nodes;
             });
         }
@@ -137,7 +143,7 @@
             }
         }
 
-        var findDirections = function() {
+        function findDirections() {
             if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
                 var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
                     vm.selectNode.toNode.$id, Graphing.graph);
@@ -149,9 +155,9 @@
                     $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
                 }
             }
-        };
+        }
 
-        var checkSelect = function(event) {
+        function checkSelect(event) {
             var selectOnClick = $('#svg #map').attr('select-on-click');
             if (selectOnClick != 'false') {
 
@@ -162,7 +168,7 @@
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');
             }
-        };
+        }
 
         function documentReady() {
             $('#svg').on('click', '#map .non-walls .desk', checkSelect);
@@ -183,20 +189,21 @@
                         ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
                     ], ["hilite", "normal-text"]));
             }
-
-            // debugging to get neighbors
-            // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
-
-            // debugging to highlight neighbors
-            // $('#svg').on('click', '#map .loc', function() {
-            //     var n = Graphing.graph.nodes[this.id];
-            //     $("#svg #map .loc").removeClass("hilite"); // clear old path
-            //     for (var i = 0; i < n._neighbors.length; i++) {
-            //         $("#" + n._neighbors[i]).addClass("hilite");
-            //     }
-            // });
         }
     }
+    // debugging to get neighbors
+    // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
+
+    // debugging to highlight neighbors
+    /*
+    $('#svg').on('click', '#map .loc', function() {
+        var n = Graphing.graph.nodes[this.id];
+        $("#svg #map .loc").removeClass("hilite"); // clear old path
+        for (var i = 0; i < n._neighbors.length; i++) {
+            $("#" + n._neighbors[i]).addClass("hilite");
+        }
+    });
+    */
 
     /** batchToggleClass: toggles the @classes of the specified @selectors
      * toggles the corresponding class of an array of selectors */

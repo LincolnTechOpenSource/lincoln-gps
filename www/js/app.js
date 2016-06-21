@@ -4,7 +4,7 @@
 
     angular
         .module('app', ['ionic', 'app.map', 'app.directory', 'app.account',
-            'app.tab', 'firebase.service'
+            'app.tab', 'firebase.service', 'params.service'
         ])
         .run(appRun)
         .config(appConfigure);
@@ -86,18 +86,12 @@
             // Each tab has its own nav history stack:
             .state('tab.map', {
                 url: '/map',
-                cache: false,
+                // cache: false,
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
                         controller: 'MapCtrl',
                         controllerAs: 'vm'
-                    }
-                },
-
-                params: {
-                    employee: {
-                        value: null
                     }
                 }
             })

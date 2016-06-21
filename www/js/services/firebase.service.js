@@ -16,10 +16,8 @@
     // handle locations table queries
     Locations.$inject = ['$q', '$firebaseArray', '$log'];
     function Locations($q, $firebaseArray, $log) {
-        var isPrimed = false;
         var primePromise;
         const DB = firebase.database().ref('locations');
-
 
         var service = {
             locations: null,
@@ -59,7 +57,7 @@
 
         function prime() {
             // This function can only be called once.
-            if (isPrimed) {
+            if (primePromise) {
                 return primePromise;
             }
 
@@ -68,8 +66,7 @@
             return primePromise;
 
             function success(data) {
-                isPrimed = true;
-                $log.log('Primed Locations Data');
+                $log.info('Primed Locations Data');
             }
         }
 
@@ -86,7 +83,7 @@
         /** unload: nulls the users firebase table */
         function unload() {
             service.locations = null;
-            isPrimed = false;
+            primePromise = null;
         }
 
         /** loaded: returns true if locations is loaded, false otherwise */
@@ -110,7 +107,6 @@
         return service;
 
         //------------------------------------------------//
-
 
         /** load: sets the users firebase table */
         function load() {

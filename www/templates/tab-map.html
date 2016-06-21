@@ -1,18 +1,19 @@
 <!-- tab-map.html -->
 
-<ion-view view-title="Map" id="tab-map">
+<ion-view view-title="Map" id="tab-map"
+>
   <ion-content class="padding">
     <h2 class="text-center">Lincoln GPS Locator</h2>
 
     <div class="row">
       <div class="col">
         <button class="button button-assertive" ng-click="vm.clear()">
-                    Clear
-                </button>
+            Clear
+        </button>
 
         <button class="button button-positive" ng-click="logout()">
-                    Logout
-                </button>
+            Logout
+        </button>
       </div>
     </div>
 
@@ -102,10 +103,6 @@
               <text y="600" class="dep_list_text normal-text">Branch Services</text>
               <rect x="650" y="575" class="dep_list_colorbox"></rect>
             </g>
-            <!--<g class="break_area">
-              <text y="700" class="dep_list_text normal-text">Break Area/Vending</text>
-              <rect x="650" y="675" class="dep_list_colorbox"></rect>
-            </g>-->
             <g class="busi_dev">
               <text y="700" class="dep_list_text normal-text">Business Development</text>
               <rect x="650" y="675" class="dep_list_colorbox"></rect>
@@ -686,19 +683,19 @@
             <!-- Janitor, Electrical, Restrooms, Westwing break_area, vending -->
             <rect class="loc janitor facilities" id="" width="115" height="60" transform="translate(250,1120)" />
             <g class='loc stairs_exit'>
-              <rect id="" width="275" height="120" transform="translate(365,1120)" />
+              <rect id="307" width="275" height="120" transform="translate(365,1120)" />
               <image x="450" y="1090" width="105" height="170" xlink:href="img/map-icons/stairs.svg"></image>
             </g>
             <g class='loc break_area food kitchen'>
-              <rect class="loc break_area food" id="" width="165" height="200" transform="translate(250,1400)" />
-              <image x='260' y='1440' width='150' height='150' xlink:href='img/map-icons/beverage.svg'></image>
+              <rect id="305" x='250' y='1400' width="165" height="200" />
+              <image x='255' y='1430' width='150' height='150' xlink:href='img/map-icons/beverage.svg'></image>
             </g>
             <g class="loc broom wbroom">
               <polygon points="250,1180 365,1180 365,1240 640,1240 640,1400 250,1400" class="" id="301" />
               <image x="275" y="1220" width="85" height="170" xlink:href="img/map-icons/wbroom.svg"></image>
             </g>
             <g class="loc broom mbroom">
-              <rect class="" id="" width="225" height="200" transform="translate(415,1400)" />
+              <rect class="" id="302" width="225" height="200" transform="translate(415,1400)" />
               <image x="465" y="1418" width="125" height="175" xlink:href="img/map-icons/mbroom.svg"></image>
             </g>
 
@@ -707,14 +704,14 @@
 
             <!-- Outer Lobby/Front Entrance -->
             <g class='loc lobby elevator_exit stairs_exit'>
-              <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" class="loc lobby elevator_exit stairs_exit" id="" />
+              <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" id="310" />
               <image x="1900" y="1840" width="105" height="170" xlink:href="img/map-icons/stairs.svg"></image>
               <image x="1740" y="1590" width="85" height="170" xlink:href="img/map-icons/elevator.svg"></image>
             </g>
 
             <!-- Agnes' Kitchen, bottom left corner -->
             <g class='loc kitchen food'>
-              <polygon points="170,3030 370,3030 515,2850 780,3115 600,3260 600,3460 170,3460 170,3030" id="" />
+              <polygon points="170,3030 370,3030 515,2850 780,3115 600,3260 600,3460 170,3460 170,3030" id="309" />
               <image x='300' y='3100' width='250' height='250' xlink:href='img/map-icons/kitchen.svg'></image>
             </g>
 
@@ -725,20 +722,20 @@
 
             <!-- Eastwing break area, Vending, storage, bathrooms, janitor closet, exit stairs -->
             <g class='loc break_area food vending'>
-              <rect x="2045" y="3260" id="" height="120" width="160"></rect>
+              <rect x="2045" y="3260" id="306" height="120" width="160"></rect>
               <image x='2020' y='3260' width='190' height='150' xlink:href='img/map-icons/vendingmachine.svg'></image>
             </g>
             <rect x="2045" y="3075" class="loc janitor facilities" id="" height="185" width="160"></rect>
             <g class="loc broom wbroom">
-              <rect x="2205" y="2890" class="" id="" height="490" width="160"></rect>
+              <rect x="2205" y="2890" class="" id="304" height="490" width="160"></rect>
               <image x="2240" y="3050" width="85" height="170" xlink:href="img/map-icons/wbroom.svg"></image>
             </g>
             <g class="loc broom mbroom">
-              <rect x="2045" y="2890" class="" id="" height="185" width="160"></rect>
+              <rect x="2045" y="2890" class="" id="303" height="185" width="160"></rect>
               <image x="2062" y="2895" width="125" height="175" xlink:href="img/map-icons/mbroom.svg"></image>
             </g>
             <g class='loc stairs_exit'>
-              <rect x="2365" y="2890" id="" height="300" width="80"></rect>
+              <rect x="2365" y="2890" id="308" height="300" width="80"></rect>
               <image x="2365" y="2950" width="85" height="170" xlink:href="img/map-icons/stairs.svg"></image>
             </g>
             <rect x="2365" y="3190" class="loc janitor facilities" id="" height="190" width="80"></rect>
@@ -784,10 +781,10 @@
             <rect class="loc desk office branch_dev" id="6" width="220" height="220" transform="translate(170,165)" />
             <rect class="loc desk office branch_dev" id="7" width="160" height="220" transform="translate(390,165)" />
             <rect class="loc desk office im_r" id="8" width="160" height="220" transform="translate(550,165)" />
-            <rect class="loc desk office im_r" id="9" width="160" height="220" transform="translate(710,165)" />
+            <rect class="loc desk office im_r" id="9" width="150" height="220" transform="translate(710,165)" />
             <rect class="loc office conf" id="10" width="208" height="220" transform="translate(858,165)" />
             <rect class="loc desk office busi_dev" id="11" width="160" height="220" transform="translate(1066,165)" />
-            <rect class="loc desk office im_r" id="12" width="160" height="220" transform="translate(1221,165)" />
+            <rect class="loc desk office im_r" id="12" width="155" height="220" transform="translate(1221,165)" />
             <rect class="loc desk office busi_dev" id="13" width="220" height="220" transform="translate(1376,165)" />
             <rect class="loc desk office im_r" id="14" width="200" height="160" transform="translate(1396,385)" />
             <rect class="loc desk office finance" id="15" width="200" height="160" transform="translate(1396,545)" />

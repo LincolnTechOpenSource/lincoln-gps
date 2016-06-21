@@ -55,6 +55,11 @@ var NodeTypeEnum = {
             value: 6,
             code: "CONF"
         },
+        7: {
+            name: "food_lounge",
+            value: 7,
+            code: "FOOD"
+        }
     }
 };
 

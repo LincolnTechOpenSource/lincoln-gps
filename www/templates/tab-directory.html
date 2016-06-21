@@ -22,7 +22,7 @@
                 of <strong>{{ vm.selectEmployee.employee.division }}</strong>
             </p>
             <p class="text-center"> Contact at <strong>{{ vm.selectEmployee.employee.email }}</strong> or <strong>EXT: {{ vm.selectEmployee.employee.ext }}</strong> </p>
-            <p class="text-center"><a ui-sref="tab.map({employee: vm.selectEmployee.employee})"><strong>Find on Map</strong></a></p>
+            <p class="text-center"><a href="#" ng-click="vm.findOnMap(vm.selectEmployee.employee)"><strong>Find on Map</strong></a></p>
         </div>
     </ion-content>
 </ion-view>
