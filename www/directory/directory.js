@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('app.directory', ['ion-search-select.directive'])
+        .module('app.directory')
         .controller('Directory', Directory);
 
     Directory.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase', 'Params'];

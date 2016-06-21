@@ -48,37 +48,6 @@ ion-modal-view.ion-search-select .select-on-map {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
-/* old svg map styling */
-
-/*#svg {
-    width: 85%;
-    border: 2px solid black;
-    margin: 10px auto;
-}
-
-#svg #map {
-    min-width: inherit;
-    max-width: inherit;
-    height: 99.5%;
-    width: 99.5%;
-    min-height: inherit;
-    max-height: inherit;
-}*/
-
-
-
-/*#svg #map g.non-walls .hilite {*/
-/*    fill: blue;*/
-/*}*/
-
-
-/*#svg #map g.non-walls .hilite:not(.path) {
-    stroke: blue;
-    stroke-width: 2px;
-}*/
-
-
-
 
 
 /*----------------------------------------------------------------------------*/

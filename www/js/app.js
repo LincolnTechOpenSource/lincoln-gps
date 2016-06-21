@@ -9,8 +9,8 @@
         .run(appRun)
         .config(appConfigure);
 
-    appRun.$inject = ['$rootScope', '$ionicPlatform', '$window', 'Graphing', 'Firebase'];
-    function appRun($rootScope, $ionicPlatform, $window, Graphing, Firebase) {
+    appRun.$inject = ['$rootScope', '$state', '$ionicPlatform', '$window', 'Graphing', 'Firebase'];
+    function appRun($rootScope, $state, $ionicPlatform, $window, Graphing, Firebase) {
         $ionicPlatform.ready(function() {
             console.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -70,6 +70,14 @@
             // Initialize Firebase
             Firebase.init();
         });
+
+        $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+            // We can catch the error thrown when the $requireSignIn promise is rejected
+            // and redirect the user back to the home page
+            if (error === "AUTH_REQUIRED") {
+                $state.go("tab.map");
+            }
+        });
     }
 
     appConfigure.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -86,42 +94,49 @@
             // Each tab has its own nav history stack:
             .state('tab.map', {
                 url: '/map',
-                // cache: false,
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
                         controller: 'MapCtrl',
                         controllerAs: 'vm'
                     }
+                },
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    'currentAuth': ['Firebase', function(Firebase) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Firebase.auth().$waitForSignIn();
+                    }]
                 }
             })
             .state('tab.directory', {
                 url: '/directory',
                 views: {
                     'tab-directory': {
-                        templateUrl: 'templates/tab-directory.html',
+                        templateUrl: 'directory/directory.html',
                         controller: 'Directory',
                         controllerAs: 'vm'
                     }
                 }
             })
-            // .state('tab.chat-detail', {
-            //     url: '/chats/:chatId',
-            //     views: {
-            //         'tab-chats': {
-            //             templateUrl: 'templates/chat-detail.html',
-            //             controller: 'ChatDetailCtrl'
-            //         }
-            //     }
-            // })
             .state('tab.account', {
                 url: '/account',
                 views: {
                     'tab-account': {
-                        templateUrl: 'templates/tab-account.html',
+                        templateUrl: 'account/account.html',
                         controller: 'Account',
                         controllerAs: 'vm'
                     }
+                },
+                resolve: {
+                    // controller will not be loaded until $waitForSignIn resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Firebase", function(Firebase) {
+                        // $requireSignIn returns a promise so the resolve waits for it to complete
+                        // If the promise is rejected, it will throw a $stateChangeError (see above)
+                        return Firebase.auth().$requireSignIn();
+                    }]
                 }
             });
 
