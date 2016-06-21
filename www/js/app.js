@@ -90,7 +90,7 @@
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
-                        controller: 'Map',
+                        controller: 'MapCtrl',
                         controllerAs: 'vm'
                     }
                 },

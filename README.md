@@ -54,6 +54,6 @@ Matthew Vasseur
 
 David Tahvildaran
 
-vending machine by Jaime Carrion from the Noun Project
+vending machine by Dan Hetteix from the Noun Project
 (svg vending machine icon)
 

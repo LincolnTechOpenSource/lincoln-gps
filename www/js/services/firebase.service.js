@@ -1,5 +1,4 @@
 // firebase.service.js
-
 (function() {
     'use strict';
 

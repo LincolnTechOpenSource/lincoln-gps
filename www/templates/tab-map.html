@@ -685,13 +685,16 @@
           <g class="misc">
             <!-- Janitor, Electrical, Restrooms, Westwing break_area, vending -->
             <rect class="loc janitor facilities" id="" width="115" height="60" transform="translate(250,1120)" />
-            <rect class="loc stairs_exit" id="" width="275" height="120" transform="translate(365,1120)" />
+            <g class='loc stairs_exit'>
+              <rect id="" width="275" height="120" transform="translate(365,1120)" />
+              <image x="450" y="1090" width="105" height="170" xlink:href="img/map-icons/stairs.svg"></image>
+            </g>
             <g class='loc break_area food kitchen'>
               <rect class="loc break_area food" id="" width="165" height="200" transform="translate(250,1400)" />
               <image x='260' y='1440' width='150' height='150' xlink:href='img/map-icons/beverage.svg'></image>
             </g>
             <g class="loc broom wbroom">
-              <polygon points="250,1180 365,1180 365,1240 640,1240 640,1400 250,1400" class="" id="" />
+              <polygon points="250,1180 365,1180 365,1240 640,1240 640,1400 250,1400" class="" id="301" />
               <image x="275" y="1220" width="85" height="170" xlink:href="img/map-icons/wbroom.svg"></image>
             </g>
             <g class="loc broom mbroom">
@@ -703,7 +706,11 @@
             <rect class="loc copy_scan_rm copy_rm" id="" width="165" height="135" transform="translate(725,1120)" />
 
             <!-- Outer Lobby/Front Entrance -->
-            <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" class="loc lobby elevator_exit stairs_exit" id="" />
+            <g class='loc lobby elevator_exit stairs_exit'>
+              <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" class="loc lobby elevator_exit stairs_exit" id="" />
+              <image x="1900" y="1840" width="105" height="170" xlink:href="img/map-icons/stairs.svg"></image>
+              <image x="1740" y="1590" width="85" height="170" xlink:href="img/map-icons/elevator.svg"></image>
+            </g>
 
             <!-- Agnes' Kitchen, bottom left corner -->
             <g class='loc kitchen food'>
@@ -719,8 +726,7 @@
             <!-- Eastwing break area, Vending, storage, bathrooms, janitor closet, exit stairs -->
             <g class='loc break_area food vending'>
               <rect x="2045" y="3260" id="" height="120" width="160"></rect>
-              <image x='2040' y='3280' width='70' height='110' xlink:href='img/map-icons/beverage.svg'></image>
-              <image x='2120' y='3280' width='80' height='110' xlink:href='img/map-icons/vendingmachine.svg'></image>
+              <image x='2020' y='3260' width='190' height='150' xlink:href='img/map-icons/vendingmachine.svg'></image>
             </g>
             <rect x="2045" y="3075" class="loc janitor facilities" id="" height="185" width="160"></rect>
             <g class="loc broom wbroom">
@@ -733,7 +739,7 @@
             </g>
             <g class='loc stairs_exit'>
               <rect x="2365" y="2890" id="" height="300" width="80"></rect>
-              <image x="2370" y="2885" width="85" height="170" xlink:href="img/map-icons/stairs.svg"></image>
+              <image x="2365" y="2950" width="85" height="170" xlink:href="img/map-icons/stairs.svg"></image>
             </g>
             <rect x="2365" y="3190" class="loc janitor facilities" id="" height="190" width="80"></rect>
 

@@ -50,20 +50,22 @@
     stop-color: #0000FF;
 }
 
+
 #svg #map .loc.path {
     stroke: black;
     stroke-width: 1;
     fill: transparent;
 }
 
-#svg #map .loc.path.hilite,
-#svg #map .loc.path:hover{
+
+#svg #map .loc.path:hover,
+#svg #map .loc.path.hilite {
     fill: #0000FF;
-    stroke:#0000FF;
-    stroke-width: 5px;
+    stroke: #0000FF;
+    /*stroke-width: 5px;*/
     opacity: 0.7;
 }
-
+/*uncomment when want to see path outline and hover fill*/
 
 
 /* location specific fill colors */
@@ -230,6 +232,10 @@
 
 #svg #map .vsa {
     fill: #FFFF00;
+}
+
+#svg #map .kitchen{
+
 }
 
 
