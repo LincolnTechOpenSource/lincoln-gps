@@ -30,7 +30,7 @@
 
         //------------------------------------------------//
 
-        /** controller if active */
+        /** run upon controller activate */
         function activate() {
             $log.info('Activated Directory View');
             return true;

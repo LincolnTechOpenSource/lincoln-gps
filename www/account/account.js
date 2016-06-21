@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('app.account', [])
+    .module('app.account')
     .controller('Account', Account);
 
   Account.$inject = ['$rootScope', '$scope', '$log'];
@@ -17,9 +17,9 @@
 
     //------------------------------------------------//
 
-    /** controller if active */
+    /** run upon controller activate */
     function activate() {
-      $log.info('Activated Directory View');
+      $log.info('Activated Account View');
       return true;
     }
 

@@ -51,7 +51,7 @@
 
         //------------------------------------------------//
 
-        /** controller if active */
+        /** run upon controller activate */
         function activate() {
             // handle employee parameter
             if (!!Params.employee) {
