@@ -17,18 +17,16 @@
     ];
 
     angular
-        .module('app.map', ['graph.service', 'location-info.directive', 'ion-search-select.directive'])
-        .controller('MapCtrl', MapCtrl)
-        .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES);
+        .module('app.map')
+        .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
+        .controller('MapCtrl', MapCtrl);
 
     MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q',
-        'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'currentAuth'
+        'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params'
     ];
     function MapCtrl($rootScope, $scope, $log, $q, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params, currentAuth) {
+        Firebase, DEPARTMENT_NAMES, Graphing, Params) {
         var vm = this;
-
-        $log.log(currentAuth);
 
         vm.selectNode = {
             nodes: null, // only load if user is authenticated

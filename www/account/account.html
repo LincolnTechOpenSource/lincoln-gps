@@ -1,5 +1,8 @@
 <ion-view view-title="Account">
   <ion-content>
+    <button class="button button-positive" ng-click="logout()">
+        Logout
+    </button>
     <ion-list>
       <!-- display all filters -->
       <ion-toggle ng-model="filters[name].disp" ng-repeat="(name, truth) in filters">

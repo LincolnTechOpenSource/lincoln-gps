@@ -133,6 +133,8 @@
     // General Firebase services
     Firebase.$inject = ['$firebaseAuth', 'CONFIG'];
     function Firebase($firebaseAuth, CONFIG) {
+        var isInit = false;
+
         var service = {
             init: init,
             auth: auth
@@ -144,7 +146,10 @@
 
         function init() {
             // Initialize Firebase with credentials
-            firebase.initializeApp(CONFIG);
+            if (!isInit) {
+                firebase.initializeApp(CONFIG);
+                isInit = true;
+            }
         }
 
         function auth() {

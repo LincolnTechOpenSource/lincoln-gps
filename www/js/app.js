@@ -68,7 +68,7 @@
                 });
 
             // Initialize Firebase
-            Firebase.init();
+            // Firebase.init();
         });
 
         $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
@@ -89,25 +89,23 @@
                 abstract: true,
                 templateUrl: 'templates/tabs.html',
                 controller: 'Tab',
-                controllerAs: 'tab'
+                controllerAs: 'tab',
+                resolve: {
+                    // Initialize Firebase
+                    init: ['Firebase', function(Firebase) {
+                        return Firebase.init();
+                    }]
+                }
             })
             // Each tab has its own nav history stack:
             .state('tab.map', {
                 url: '/map',
                 views: {
                     'tab-map': {
-                        templateUrl: 'templates/tab-map.html',
+                        templateUrl: 'map/map.html',
                         controller: 'MapCtrl',
                         controllerAs: 'vm'
                     }
-                },
-                resolve: {
-                    // controller will not be loaded until $waitForAuth resolves
-                    // Auth refers to our $firebaseAuth wrapper in the example above
-                    'currentAuth': ['Firebase', function(Firebase) {
-                        // $waitForAuth returns a promise so the resolve waits for it to complete
-                        return Firebase.auth().$waitForSignIn();
-                    }]
                 }
             })
             .state('tab.directory', {
@@ -128,20 +126,16 @@
                         controller: 'Account',
                         controllerAs: 'vm'
                     }
-                },
-                resolve: {
-                    // controller will not be loaded until $waitForSignIn resolves
-                    // Auth refers to our $firebaseAuth wrapper in the example above
-                    "currentAuth": ["Firebase", function(Firebase) {
-                        // $requireSignIn returns a promise so the resolve waits for it to complete
-                        // If the promise is rejected, it will throw a $stateChangeError (see above)
-                        return Firebase.auth().$requireSignIn();
-                    }]
                 }
             });
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/map');
+    }
+
+    currentAuth.$inject = ['Firebase'];
+    function currentAuth(Firebase) {
+        return Firebase.auth().$requireSignIn();
     }
 })();
 
