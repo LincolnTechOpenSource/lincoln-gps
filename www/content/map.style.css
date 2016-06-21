@@ -50,13 +50,13 @@
 
 
 #svg #map .loc.path {
-    stroke: black;
+    stroke: none;
     stroke-width: 1;
     fill: transparent;
 }
 
 
-#svg #map .loc.path:hover,
+/*#svg #map .loc.path:hover,*/
 #svg #map .loc.path.hilite {
     fill: #0000FF;
     stroke: #0000FF;
