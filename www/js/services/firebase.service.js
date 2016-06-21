@@ -42,12 +42,7 @@
 
         /** getByNType: returns all the locations of nType @nType */
         function getByNType(nType) {
-            if (!!service.locations) {
-                return $firebaseArray(DB.orderByChild("nType").equalTo(nType));
-            }
-            else {
-                return null;
-            }
+            return $firebaseArray(DB.orderByChild("nType").equalTo(nType));
         }
 
         /** get: returns the location information specified by @locID via a promise */

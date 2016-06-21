@@ -10,8 +10,8 @@
         .module('app.directory', ['ion-search-select.directive'])
         .controller('Directory', Directory);
 
-    Directory.$inject = ['$state', 'Locations', 'Firebase', 'Params'];
-    function Directory($state, Locations, Firebase, Params) {
+    Directory.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase', 'Params'];
+    function Directory($scope, $state, $log, Locations, Firebase, Params) {
         var vm = this;
 
         vm.selectEmployee = {
@@ -39,11 +39,9 @@
         /** handle user authentication */
         function userAuth(user) {
             if (user) {
-                Locations.load();
                 vm.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
             }
             else {
-                Locations.unload();
                 vm.selectEmployee.employees = null;
             }
         }
@@ -55,16 +53,3 @@
         }
     }
 })();
-
-
-/*$scope.go = function(state, params) {
-    //ui-sref="tab.map({employee: selectEmployee.employee})"
-    //console.log(state);
-
-    $ionicHistory.clearCache().then(function() {
-        $ionicHistory.clearHistory();
-        console.log($ionicHistory.viewHistory());
-        $state.go(state, params);
-    });
-
-};*/
