@@ -21,6 +21,8 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 * 06/15/16: Major code remastering, bug fixes, preparation for graph.json
 * 06/16/16: Map and legend smoothing, preparing graph.json
 * 06/17/16: Created the new graph.json
+* 06/20/16: Made code more robust according to John Papa's angular style guide
+* 06/21/16: SVG Icons, "real" employee data, more robust code
 
 ## Ideas to Contribute
 
