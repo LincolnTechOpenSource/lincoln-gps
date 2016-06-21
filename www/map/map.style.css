@@ -9,8 +9,6 @@
     opacity: 0.75;
 }
 
-#svg #map * {}
-
 #svg #map .wall {
     fill: none;
     stroke-width: 3px;
