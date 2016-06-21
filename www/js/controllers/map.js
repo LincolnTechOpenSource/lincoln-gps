@@ -21,8 +21,9 @@
         .controller('Map', Map)
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES);
 
-    Map.$inject = ['$rootScope', '$scope', '$stateParams', 'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing'];
-    function Map($rootScope, $scope, $stateParams, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
+    Map.$inject = ['$rootScope', '$scope', '$stateParams', '$log', '$q', 'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing'];
+
+    function Map($rootScope, $scope, $stateParams, $log, $q, Locations, Firebase, DEPARTMENT_NAMES, Graphing) {
         var vm = this;
 
         vm.selectNode = {
@@ -35,16 +36,37 @@
         // load employees when signed in
         Firebase.auth().$onAuthStateChanged(function(user) {
             if (user) {
-                Locations.load();
-                Locations.all().then(function(data) {
-                    vm.selectNode.nodes = data; // load locations
-                });
+                activate();
+                // // Locations.load();
+                // var promises = [ all() ];
+                // return Locations.ready(promises).then(function(){
+                //     $log.info('got locations');
+                // });
+                // Locations.all().then(function(data) {
+                //     vm.selectNode.nodes = data; // load locations
+                // });
             }
             else {
                 Locations.unload();
                 vm.selectNode.nodes = null;
             }
         });
+
+        function activate() {
+            var promises = [ all() ];
+            return Locations.load(promises).then(function() {
+                // vm.selectNode.nodes = Locations.all();
+                // return vm.selectNode.nodes;
+                $log.info('Activated Map View');
+            });
+        }
+
+        function all() {
+            return $q.when(Locations.all()).then(function() {
+                vm.selectNode.nodes = Locations.all();
+                return vm.selectNode.nodes;
+            });
+        }
 
         // handle employee parameter
         if (!!$stateParams.employee) {

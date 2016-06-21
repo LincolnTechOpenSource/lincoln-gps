@@ -93,6 +93,7 @@
                         controllerAs: 'vm'
                     }
                 },
+
                 params: {
                     employee: {
                         value: null
