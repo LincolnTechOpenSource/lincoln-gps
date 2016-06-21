@@ -36,15 +36,11 @@
         // load employees when signed in
         Firebase.auth().$onAuthStateChanged(function(user) {
             if (user) {
-                activate();
-                // // Locations.load();
-                // var promises = [ all() ];
-                // return Locations.ready(promises).then(function(){
-                //     $log.info('got locations');
-                // });
-                // Locations.all().then(function(data) {
-                //     vm.selectNode.nodes = data; // load locations
-                // });
+                if(Locations.loaded()) {
+                    vm.selectNode.nodes = Locations.all();
+                } else {
+                    activate();
+                }
             }
             else {
                 Locations.unload();
@@ -55,9 +51,7 @@
         function activate() {
             var promises = [ all() ];
             return Locations.load(promises).then(function() {
-                // vm.selectNode.nodes = Locations.all();
-                // return vm.selectNode.nodes;
-                $log.info('Activated Map View');
+                $log.info('Authenticated Map View');
             });
         }
 
@@ -104,7 +98,7 @@
         };
 
         // watch to find directions
-        $scope.$watch("selectNode.toNode", function(newNode, oldNode) {
+        $scope.$watch("vm.selectNode.toNode", function(newNode, oldNode) {
             // select on map option
             if (newNode === vm.selectNode.FIND_ON_MAP) {
                 vm.selectNode.toNode = null; // clear value
@@ -123,7 +117,7 @@
             }
 
         });
-        $scope.$watch("selectNode.fromNode", function(newNode, oldNode) {
+        $scope.$watch("vm.selectNode.fromNode", function(newNode, oldNode) {
             // select on map option
             if (newNode === vm.selectNode.FIND_ON_MAP) {
                 vm.selectNode.fromNode = null; // clear value
@@ -148,11 +142,7 @@
                 var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
                     vm.selectNode.toNode.$id, Graphing.graph);
 
-                //console.assert(false, dirResults);
-
                 var directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
-
-                //console.log(directions);
 
                 $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
                 for (var i = 0; i < directions.length; i++) {
@@ -164,9 +154,10 @@
         var checkSelect = function(event) {
             var selectOnClick = $('#svg #map').attr('select-on-click');
             if (selectOnClick != 'false') {
-                Locations.get(this.id).then(function(loc) {
+
+                $q.when(Locations.get(this.id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
-                });
+                })
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');

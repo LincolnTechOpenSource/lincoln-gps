@@ -53,3 +53,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 Matthew Vasseur
 
 David Tahvildaran
+
+vending machine by Jaime Carrion from the Noun Project
+(svg vending machine icon)
+

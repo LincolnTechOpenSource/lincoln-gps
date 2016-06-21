@@ -72,6 +72,7 @@
         });
     }
 
+    appConfigure.$inject = ['$stateProvider', '$urlRouterProvider'];
     function appConfigure($stateProvider, $urlRouterProvider) {
         $stateProvider
         // setup an abstract state for the tabs directive

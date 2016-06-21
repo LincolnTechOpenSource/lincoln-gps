@@ -29,26 +29,20 @@
             get: get,
             getByNType: getByNType,
             load: load,
-            unload: unload
+            unload: unload,
+            loaded: loaded
         };
 
         return service;
 
         //------------------------------------------------//
 
-        //
-        // function load() {
-        //     if (!service.locations) { // only load if not yet loaded
-        //         service.locations = $firebaseArray(DB);
-        //     }
-        //     return service.locations.$loaded(); // $q.when(service.locations);
-        // }
-
         /** all: returns all the locations
          * can assume that service.locations is not null */
         function all() {
             return service.locations;
         }
+
         /** getByNType: returns all the locations of nType @nType */
         function getByNType(nType) {
             if (!!service.locations) {
@@ -61,9 +55,7 @@
 
         /** get: returns the location information specified by @locID via a promise */
         function get(locID) {
-            return service.locations.$loaded(function(locations) {
-                return locations.$getRecord(locID);
-            });
+            return service.locations.$getRecord(locID);
         }
 
         function prime() {
@@ -74,7 +66,6 @@
 
             service.locations = $firebaseArray(DB);
             primePromise = service.locations.$loaded().then(success);
-            // primePromise = $q.when(true).then(success);
             return primePromise;
 
             function success(data) {
@@ -98,10 +89,15 @@
             service.locations = null;
             isPrimed = false;
         }
+
+        /** loaded: returns true if locations is loaded, false otherwise */
+        function loaded() {
+            return !!service.locations;
+        }
     }
 
     // handle users table queries
-    Users.inject = ['$firebaseArray'];
+    Users.$inject = ['$firebaseArray'];
     function Users($firebaseArray) {
         var service = {
             users: null,
@@ -146,7 +142,6 @@
 
     // General Firebase services
     Firebase.$inject = ['$firebaseAuth', 'CONFIG'];
-
     function Firebase($firebaseAuth, CONFIG) {
         var service = {
             init: init,
