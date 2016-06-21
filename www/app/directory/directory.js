@@ -8,10 +8,10 @@
 
     angular
         .module('app.directory')
-        .controller('Directory', Directory);
+        .controller('DirectoryCtrl', DirectoryCtrl);
 
-    Directory.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase', 'Params'];
-    function Directory($scope, $state, $log, Locations, Firebase, Params) {
+    DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase', 'Params'];
+    function DirectoryCtrl($scope, $state, $log, Locations, Firebase, Params) {
         var vm = this;
 
         vm.selectEmployee = {

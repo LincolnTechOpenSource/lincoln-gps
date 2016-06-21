@@ -171,7 +171,7 @@
         }
 
         function documentReady() {
-            $('#svg').on('click', '#map .non-walls .desk', checkSelect);
+            $('#svg').on('click', '#map .non-walls .loc', checkSelect);
 
             for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
                 $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(

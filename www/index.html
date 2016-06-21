@@ -11,7 +11,8 @@
 
     <!-- stylesheets -->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="content/style.css" rel="stylesheet">
+    <link href="content/map.style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -33,29 +34,33 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
+    <script src="app/app.js"></script>
+
+    <!-- core module -->
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/firebase.js"></script>
+    <script src="app/core/params.js"></script>
+    <script src="app/core/searchSelect.js"></script>
 
     <!-- account module -->
-    <script src="account/account.module.js"></script>
-    <!--<script src="account/account.config.js"></script>-->
-    <script src="account/account.js"></script>
+    <script src="app/account/account.module.js"></script>
+    <!--<script src="app/account/account.config.js"></script>-->
+    <script src="app/account/account.js"></script>
 
     <!--directory module-->
-    <script src="directory/directory.module.js"></script>
-    <script src="directory/directory.js"></script>
+    <script src="app/directory/directory.module.js"></script>
+    <script src="app/directory/directory.js"></script>
 
     <!--map module-->
-    <script src="map/map.module.js"></script>
-    <script src="map/map.js"></script>
-    <link href="map/map.style.css" rel="stylesheet">
+    <script src="app/map/map.module.js"></script>
+    <script src="app/map/map.js"></script>
+    <script src="app/map/locationInfo.js"></script>
+    <script src="app/map/graph.js"></script>
 
+    <!--tabs module-->
+    <script src="app/tabs/tabs.module.js"></script>
+    <script src="app/tabs/tabs.js"></script>
 
-    <script src="js/controllers/tab.js"></script>
-    <script src="js/services/firebase.service.js"></script>
-    <script src="js/services/graph.service.js"></script>
-    <script src="js/services/params.service.js"></script>
-    <script src="js/directives/search-select.directive.js"></script>
-    <script src="js/directives/location-info.directive.js"></script>
 
     <!-- graph library -->
     <script src="lib/graph/graph.js"></script>
@@ -63,7 +68,6 @@
     <script src="lib/graph/min_heap.js"></script>
 
     <!-- plugins -->
-    <script src=""></script>
 
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">

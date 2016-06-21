@@ -1,14 +1,12 @@
-// graph.service.js
+// graph.js
 (function() {
     'use strict';
 
     angular
-        .module('graph.service', [])
+        .module('app.map')
         .factory('Graphing', Graphing);
 
-
     Graphing.$inject = ['$q'];
-
     function Graphing($q) {
         var service = {
             debug: false,
@@ -23,13 +21,13 @@
 
         function createGraph(data) {
             var url = 'lib/graph/new-graph.json';
-            var getGraph = $.getJSON(url, function(data) {
+            $.getJSON(url, function(data) {
                 service.graph = new Graph(data, service.debug);
 
                 return service.graph;
+            }).fail(function(error) {
+                console.error(error);
             });
-
-            return $q.when(getGraph);
         }
     }
 
@@ -213,7 +211,7 @@
             var n = graph.nodes[i];
             // should have non-negative weight and type between 1 and 6
             _assert(n._weight >= 0, "Negative Weight (" + n._weight + ")");
-            _assert(n._nType > 0 && n._nType <= 6, "Irregular Type (" +
+            _assert(n._nType > 0 && n._nType <= 7, "Irregular Type (" +
                 n._nType + ")");
 
             // should have consistent edges and no self edges

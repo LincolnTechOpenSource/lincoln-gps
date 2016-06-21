@@ -1,14 +1,13 @@
-// params.service.js
+// params.js
 (function() {
     'use strict';
 
-    angular.module('params.service', [])
+    angular.module('app.core')
         .factory('Params', Params);
 
     // handle parameters across controllers
     Params.$inject = [];
     function Params() {
-
         var service = {
             employee: null // employee parameter for directory to map
         };

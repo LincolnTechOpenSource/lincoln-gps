@@ -5,5 +5,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.directory', ['ion-search-select.directive'])
+  angular.module('app.directory', []);
 })();

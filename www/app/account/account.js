@@ -4,10 +4,10 @@
 
   angular
     .module('app.account')
-    .controller('Account', Account);
+    .controller('AccountCtrl', AccountCtrl);
 
-  Account.$inject = ['$rootScope', '$scope', '$log'];
-  function Account($rootScope, $scope, $log) {
+  AccountCtrl.$inject = ['$rootScope', '$scope', '$log'];
+  function AccountCtrl($rootScope, $scope, $log) {
     var vm = this;
 
     vm.resetToDefault = resetToDefault;

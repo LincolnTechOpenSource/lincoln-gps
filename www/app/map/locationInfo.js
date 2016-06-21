@@ -1,6 +1,7 @@
-// location-info.directive.js
+// locationInfo.js
 
-angular.module('location-info.directive', [])
+angular
+    .module('app.map')
     .directive('locationInfo', [function() {
         return {
             restrict: 'E',
@@ -9,6 +10,6 @@ angular.module('location-info.directive', [])
                 location: '='
             },
             transclude: true,
-            templateUrl: 'templates/location-info.html'
+            templateUrl: 'app/map/locationInfo.html'
         };
     }]);

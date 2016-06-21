@@ -4,7 +4,7 @@
 
     angular
         .module('app', ['ionic', 'app.map', 'app.directory', 'app.account',
-            'app.tab', 'firebase.service', 'params.service'
+            'app.tab', 'app.core'
         ])
         .run(appRun)
         .config(appConfigure);
@@ -61,11 +61,8 @@
             };
 
             // initialize & create graph
-            // Graphing.debug = true; // debug for testing purposes
-            Graphing.createGraph()
-                .catch(function(error) {
-                    console.error(error);
-                });
+            Graphing.debug = true; // debug for testing purposes
+            Graphing.createGraph();
 
             // Initialize Firebase
             // Firebase.init();
@@ -87,8 +84,8 @@
             .state('tab', {
                 url: '/tab',
                 abstract: true,
-                templateUrl: 'templates/tabs.html',
-                controller: 'Tab',
+                templateUrl: 'app/tabs/tabs.html',
+                controller: 'TabCtrl',
                 controllerAs: 'tab',
                 resolve: {
                     // Initialize Firebase
@@ -102,7 +99,7 @@
                 url: '/map',
                 views: {
                     'tab-map': {
-                        templateUrl: 'map/map.html',
+                        templateUrl: 'app/map/map.html',
                         controller: 'MapCtrl',
                         controllerAs: 'vm'
                     }
@@ -112,8 +109,8 @@
                 url: '/directory',
                 views: {
                     'tab-directory': {
-                        templateUrl: 'directory/directory.html',
-                        controller: 'Directory',
+                        templateUrl: 'app/directory/directory.html',
+                        controller: 'DirectoryCtrl',
                         controllerAs: 'vm'
                     }
                 }
@@ -122,8 +119,8 @@
                 url: '/account',
                 views: {
                     'tab-account': {
-                        templateUrl: 'account/account.html',
-                        controller: 'Account',
+                        templateUrl: 'app/account/account.html',
+                        controller: 'AccountCtrl',
                         controllerAs: 'vm'
                     }
                 }
@@ -131,11 +128,6 @@
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/map');
-    }
-
-    currentAuth.$inject = ['Firebase'];
-    function currentAuth(Firebase) {
-        return Firebase.auth().$requireSignIn();
     }
 })();
 

@@ -17,6 +17,7 @@ var NodeTypeEnum = {
     BROOM: 4, // a bathroom
     DESK: 5, // a desk, cubicle, or office
     CONF: 6, // a conference room
+    FOOD: 7, // a location for food (e.g., kitchen, vending machine)
 
     // enumeration properties
     properties: {

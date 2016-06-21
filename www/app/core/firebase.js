@@ -1,8 +1,8 @@
-// firebase.service.js
+// firebase.js
 (function() {
     'use strict';
 
-    angular.module('firebase.service', ['firebase'])
+    angular.module('app.core')
         .constant('CONFIG', {
             apiKey: "AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs",
             authDomain: "lincoln-gps.firebaseapp.com",
