@@ -25,18 +25,6 @@
             code: null
         };
 
-        // Triggered in the login modal to close it
-        $scope.closeLogin = function() { $scope.modal.hide(); };
-
-        // Open the login modal
-        $scope.login = function() { $scope.modal.show(); };
-
-        // Login action
-        $scope.doLogin = doLogin;
-
-        // Log out
-        $scope.logout = function() { Firebase.auth().$signOut(); };
-
         // Create the login modal that we will use later
         $ionicModal
             .fromTemplateUrl('app/tabs/modal-login.html', {
@@ -44,9 +32,29 @@
                 backdropClickToClose: false,
                 hardwareBackButtonClose: false
             })
-            .then(function(modal) { $scope.modal = modal; });
+            .then(function(modal) {
+                $scope.modal = modal;
 
-        Firebase.auth().$onAuthStateChanged(userAuth);
+                // Triggered in the login modal to close it
+                $scope.closeLogin = function() {
+                    $scope.modal.hide();
+                };
+
+                // Open the login modal
+                $scope.login = function() {
+                    $scope.modal.show();
+                };
+
+                // Login action
+                $scope.doLogin = doLogin;
+
+                // Log out
+                $scope.logout = function() {
+                    Firebase.auth().$signOut();
+                };
+
+                Firebase.auth().$onAuthStateChanged(userAuth);
+            });
 
         //------------------------------------------------//
 
