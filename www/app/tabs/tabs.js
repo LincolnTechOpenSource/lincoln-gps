@@ -34,27 +34,26 @@
             })
             .then(function(modal) {
                 $scope.modal = modal;
-
-                // Triggered in the login modal to close it
-                $scope.closeLogin = function() {
-                    $scope.modal.hide();
-                };
-
-                // Open the login modal
-                $scope.login = function() {
-                    $scope.modal.show();
-                };
-
-                // Login action
-                $scope.doLogin = doLogin;
-
-                // Log out
-                $scope.logout = function() {
-                    Firebase.auth().$signOut();
-                };
-
-                Firebase.auth().$onAuthStateChanged(userAuth);
             });
+
+            // Triggered in the login modal to close it
+            $scope.closeLogin = function() {
+                $scope.modal.hide();
+            };
+
+            // Open the login modal
+            $scope.login = function() {
+                $scope.modal.show();
+            };
+
+            // Login action
+            $scope.doLogin = doLogin;
+
+            // Log out
+            $scope.logout = function() {
+                Firebase.auth().$signOut();
+            };
+            Firebase.auth().$onAuthStateChanged(userAuth);
 
         //------------------------------------------------//
 
@@ -64,8 +63,10 @@
                 // User is signed in.
                 $log.info('Signed in... '); // + user.uid);
 
+                if (!!$scope.loginData.email) {
+                    $scope.closeLogin();
+                }
                 $scope.loginData.email = ""; // clear email on success
-                $scope.closeLogin();
                 $scope.error.show = false;
 
                 // load & save the authed user

@@ -37,7 +37,7 @@
     function resetToDefault() {
       for (var filter in $rootScope.user.filters) {
         $rootScope.user.filters[filter].disp = true;
-        Users.set($rootScope.user.id, ['filters', filter, 'disp'], true);
+        // Users.set($rootScope.user.id, ['filters', filter, 'disp'], true);
       }
     }
   }

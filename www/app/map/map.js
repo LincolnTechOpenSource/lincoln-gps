@@ -172,7 +172,7 @@
 
                 $q.when(Locations.get(this.id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
-                })
+                });
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');
@@ -180,7 +180,7 @@
         }
 
         function documentReady() {
-            $('#svg').on('click', '#map .non-walls .loc', checkSelect);
+            $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
 
             for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
                 $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(

@@ -16,6 +16,7 @@
     fill: url(#filtered);
     stroke: none;
     fill-opacity: 0.65;
+    opacity: 0.65;
 }
 
 #svg #map .wall {

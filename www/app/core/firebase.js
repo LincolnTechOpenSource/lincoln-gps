@@ -178,7 +178,6 @@
         function loaded() {
             return !!service.users;
         }
-
     }
 
     // General Firebase services
