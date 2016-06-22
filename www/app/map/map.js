@@ -21,10 +21,10 @@
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
         .controller('MapCtrl', MapCtrl);
 
-    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q',
+    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users',
         'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
     ];
-    function MapCtrl($rootScope, $scope, $log, $q, Locations,
+    function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
         Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
         var vm = this;
 
@@ -44,7 +44,7 @@
         Firebase.auth().$onAuthStateChanged(userAuth);
 
         // ready document specific commands
-        $(document).ready(documentReady);
+        // $(document).ready(documentReady);
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
@@ -65,14 +65,39 @@
             }
 
             // filter the map as prescribed
-            for (var filter in $rootScope.filters) {
-                if (!$rootScope.filters[filter].disp) {
+            Users.load().then(usersLoad);
+
+            // $log.info('Activated Map View');
+            return true;
+        }
+
+        /** functions for after users have loaded */
+        function usersLoad() {
+            $("#svg #map .loc").removeClass("filter-out"); // remove old filter
+            for (var filter in $rootScope.user.filters) {
+                if (!$rootScope.user.filters[filter].disp) {
                     $('#svg #map .loc.' + filter).addClass('filter-out');
                 }
             }
 
-            $log.info('Activated Map View');
-            return true;
+            $('#svg').on('click', '#map .non-walls .loc', checkSelect);
+
+            for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
+                $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
+                    // attach hover element to each legend component so that hovering over text
+                    // makes all corresponding locations highlight
+                    batchToggleClass([".loc." + DEPARTMENT_NAMES[i] + ":not(.filter-out), " +
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
+                    ], ["hilite", "normal-text"]));
+
+                // attach hover element to each loc component so that hovering over location
+                // makes the corresponding legend item highlight
+                $(".loc:not(.filter-out)." + DEPARTMENT_NAMES[i]).hover(
+                    batchToggleClass([".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
+                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
+                    ], ["hilite", "normal-text"]));
+            }
         }
 
         /** handle user authentication */
@@ -153,9 +178,9 @@
 
                 var directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
 
-                $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
+                $("#svg #map .loc").removeClass("hilite"); // clear old path
                 for (var i = 0; i < directions.length; i++) {
-                    $('#svg #map #' + directions[i]).addClass('hilite'); // hilite each block in the path
+                    $('#svg #map .loc#' + directions[i]).addClass('hilite'); // hilite each block in the path
                 }
             }
         }
@@ -173,26 +198,8 @@
             }
         }
 
-        function documentReady() {
-            $('#svg').on('click', '#map .non-walls .loc', checkSelect);
-
-            for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
-                $(".dep_list ." + DEPARTMENT_NAMES[i]).hover(
-                    // attach hover element to each legend component so that hovering over text
-                    // makes all corresponding locations highlight
-                    batchToggleClass([".loc." + DEPARTMENT_NAMES[i] + ", " +
-                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
-                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
-                    ], ["hilite", "normal-text"]));
-
-                // attach hover element to each loc component so that hovering over location
-                // makes the corresponding legend item highlight
-                $(".loc." + DEPARTMENT_NAMES[i]).hover(
-                    batchToggleClass([".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_colorbox",
-                        ".dep_list ." + DEPARTMENT_NAMES[i] + " .dep_list_text"
-                    ], ["hilite", "normal-text"]));
-            }
-        }
+        // function documentReady() {
+        // }
     }
     // debugging to get neighbors
     // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });

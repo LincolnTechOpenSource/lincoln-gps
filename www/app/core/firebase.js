@@ -121,10 +121,20 @@
             return service.users[uid];
         }
 
-        /** set: sets the user @uid's @key to @value
+        /** set: sets the user @uid's @keys (should be an array) to @value
          * can assume that service.users is not null */
-        function set(uid, key, value) {
-            service.users[uid][key] = value;
+        function set(uid, keys, value) {
+            var i = 0,
+                obj = service.users[uid],
+                len = keys.length - 1;
+
+            for (; i < len; i++) {
+                obj = obj[keys[i]];
+            }
+
+            obj[keys[i]] = value;
+
+            // service.users[uid][key] = value;
             service.users.$save();
         }
 
@@ -168,6 +178,7 @@
         function loaded() {
             return !!service.users;
         }
+
     }
 
     // General Firebase services

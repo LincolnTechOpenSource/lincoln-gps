@@ -33,32 +33,7 @@
              * dispName is the name to show in the toggle view
              * disp is the truth-value of whether to display or not
              */
-            $rootScope.filters = {
-                office: {
-                    dispName: "Offices",
-                    disp: true
-                },
-                desk: {
-                    dispName: "Desks",
-                    disp: true
-                },
-                broom: {
-                    dispName: "Bathrooms",
-                    disp: true
-                },
-                cubicle: {
-                    dispName: "Cubicles",
-                    disp: true
-                },
-                conf: {
-                    dispName: "Conference Rooms",
-                    disp: true
-                },
-                wbroom: {
-                    dispName: "Woman's Bathrooms",
-                    disp: true
-                }
-            };
+            // $rootScope.filters = {}
 
             // Initialize Firebase
             // Firebase.init();
@@ -87,6 +62,9 @@
                     // Initialize Firebase
                     init: ['Firebase', function(Firebase) {
                         return Firebase.init();
+                    }],
+                    auth: ["Firebase", function(Firebase) {
+                        return Firebase.auth().$waitForSignIn();
                     }]
                 }
             })

@@ -5,8 +5,8 @@
     </button>
     <ion-list>
       <!-- display all filters -->
-      <ion-toggle ng-model="filters[name].disp" ng-repeat="(name, truth) in filters">
-        Display {{filters[name].dispName}}
+      <ion-toggle ng-model="user.filters[name].disp" ng-repeat="(name, truth) in user.filters">
+        Display {{user.filters[name].dispName}}
       </ion-toggle>
     </ion-list>
 

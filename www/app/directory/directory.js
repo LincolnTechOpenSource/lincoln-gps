@@ -32,7 +32,7 @@
 
         /** run upon controller activate */
         function activate() {
-            $log.info('Activated Directory View');
+            // $log.info('Activated Directory View');
             return true;
         }
 

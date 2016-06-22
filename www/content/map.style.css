@@ -3,11 +3,19 @@
 
 /* SVG Map styling */
 
+#svg #map #filtered line {
+    stroke: #FF0000;
+    stroke-width: 0.1;
+}
+#svg #map #filtered rect {
+    fill: #777;
+}
+
 #svg #map .loc.filter-out,
 #svg #map .loc.filter-out:hover {
-    fill-opacity: 0.3;
-    fill: black;
-    opacity: 0.75;
+    fill: url(#filtered);
+    stroke: none;
+    fill-opacity: 0.65;
 }
 
 #svg #map .wall {
@@ -21,7 +29,7 @@
     stroke-width: 5px;
 }
 
-#svg #map .line {
+#svg #map .red-line {
     stroke: #FF0000;
     stroke-width: 3px;
 }
@@ -51,13 +59,14 @@
 
 
 #svg #map .loc.path {
-    stroke: black;
+    /*stroke: black;*/
+    stroke: none;
     stroke-width: 1;
     fill: transparent;
 }
 
 
-#svg #map .loc.path:hover,
+/*#svg #map .loc.path:hover,*/
 #svg #map .loc.path.hilite {
     fill: #0000FF;
     stroke: #0000FF;
