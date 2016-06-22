@@ -306,6 +306,8 @@
         "314":{"_id":314,"_neighbors":[1272],"_weight":0,"_nType":8},
         "315":{"_id":315,"_neighbors":[1227, 1281],"_weight":0,"_nType":8},
         "316":{"_id":316,"_neighbors":[1265],"_weight":0,"_nType":9},
+        "317":{"_id":317,"_neighbors":[1221],"_weight":0,"_nType":9},
+        "318":{"_id":318,"_neighbors":[1217],"_weight":0,"_nType":9},
 
 
         "1001":{"_id":1001,"_neighbors":[7, 20, 1002, 1012],"_weight":1,"_nType":3},
@@ -524,11 +526,11 @@
         "1214":{"_id":1214,"_neighbors":[303, 1213, 1231, 1232],"_weight":2,"_nType":3},
         "1215":{"_id":1215,"_neighbors":[1203, 1212, 1216, 1217],"_weight":1,"_nType":3},
         "1216":{"_id":1216,"_neighbors":[1215, 1218],"_weight":2,"_nType":3},
-        "1217":{"_id":1217,"_neighbors":[1213, 1215, 1218],"_weight":1,"_nType":3},
+        "1217":{"_id":1217,"_neighbors":[318, 1213, 1215, 1218],"_weight":1,"_nType":3},
         "1218":{"_id":1218,"_neighbors":[306, 1216, 1217, 1219],"_weight":2,"_nType":3},
         "1219":{"_id":1219,"_neighbors":[306, 1218, 1220],"_weight":2,"_nType":3},
         "1220":{"_id":1220,"_neighbors":[304, 1219, 1221],"_weight":2,"_nType":3},
-        "1221":{"_id":1221,"_neighbors":[1220, 1222],"_weight":1,"_nType":3},
+        "1221":{"_id":1221,"_neighbors":[317, 1220, 1222],"_weight":1,"_nType":3},
         "1222":{"_id":1222,"_neighbors":[1221, 1223],"_weight":2,"_nType":3},
         "1223":{"_id":1223,"_neighbors":[1222, 1224, 1289, 1290],"_weight":2,"_nType":3},
         "1224":{"_id":1224,"_neighbors":[1223, 1225, 1289],"_weight":1,"_nType":3},
@@ -671,6 +673,6 @@
 
 
     },
-    "_nodeCount": 664,
-    "_edgeCount": 767
+    "_nodeCount": 666,
+    "_edgeCount": 770
 }

@@ -22,10 +22,10 @@
         .controller('MapCtrl', MapCtrl);
 
     MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q',
-        'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params'
+        'Locations', 'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
     ];
     function MapCtrl($rootScope, $scope, $log, $q, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params) {
+        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
         var vm = this;
 
         vm.selectNode = {
@@ -48,6 +48,10 @@
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
+
+        // initialize & create graph
+        Graphing.debug = true; // debug for testing purposes
+        Graphing.createGraph();
 
         //------------------------------------------------//
 

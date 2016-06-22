@@ -62,7 +62,7 @@
             return primePromise;
 
             function success(data) {
-                $log.info('Primed Locations Data');
+                // $log.info('Primed Locations Data');
             }
         }
 
@@ -145,7 +145,7 @@
             return primePromise;
 
             function success(data) {
-                $log.info('Primed Users Data');
+                // $log.info('Primed Users Data');
             }
         }
 

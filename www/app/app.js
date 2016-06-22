@@ -9,10 +9,10 @@
         .run(appRun)
         .config(appConfigure);
 
-    appRun.$inject = ['$rootScope', '$state', '$ionicPlatform', '$window', 'Graphing', 'Firebase'];
-    function appRun($rootScope, $state, $ionicPlatform, $window, Graphing, Firebase) {
+    appRun.$inject = ['$rootScope', '$state', '$ionicPlatform', '$window', '$log', 'Firebase'];
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase) {
         $ionicPlatform.ready(function() {
-            console.info('Ionic Charged!'); // log that ionic is ready and running
+            $log.info('Ionic Charged!'); // log that ionic is ready and running
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -59,10 +59,6 @@
                     disp: true
                 }
             };
-
-            // initialize & create graph
-            Graphing.debug = true; // debug for testing purposes
-            Graphing.createGraph();
 
             // Initialize Firebase
             // Firebase.init();

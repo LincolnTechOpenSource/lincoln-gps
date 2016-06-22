@@ -26,7 +26,7 @@
 
                 return service.graph;
             }).fail(function(error) {
-                console.error(error);
+                $log.error(error);
             });
         }
     }
@@ -44,14 +44,14 @@
         if (debug && graph) {
             _verify(this);
         }
-        console.info('Graph Constructed!');
+        // $log.info('Graph Constructed!');
     };
 
     /**
      * Graph define properties
      */
     Object.defineProperties(Graph.prototype, {
-        // _nodeCount
+        // nodeCount
         nodeCount: {
             get: function() { // getter
                 return this._nodeCount;
