@@ -89,8 +89,7 @@
             }
             else {
                 var promises = [all()];
-                return Locations.load(promises).then(function() {
-                });
+                return Locations.load(promises).then();
             }
         }
         function all() {

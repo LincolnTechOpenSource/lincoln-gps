@@ -89,7 +89,7 @@
                                     text: 'Do not show again',
                                     type: 'button-assertive',
                                     onTap: function(e) {
-                                        Users.set($rootScope.user.$id, 'showMapPopup', false);
+                                        Users.set($rootScope.user.id, 'showMapPopup', false);
                                     }
                                 }]
                             });

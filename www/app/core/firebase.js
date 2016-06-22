@@ -45,7 +45,8 @@
             return $firebaseArray(DB.orderByChild("nType").equalTo(nType));
         }
 
-        /** get: returns the location information specified by @locID via a promise */
+        /** get: returns the location information specified by @locID
+         * can assume that service.locations is not null */
         function get(locID) {
             return service.locations.$getRecord(locID);
         }
@@ -65,7 +66,7 @@
             }
         }
 
-        /** load: sets the users firebase table then runs next promises */
+        /** load: sets the locations firebase table then runs next promises */
         function load(nextPromises) {
             var loadPromise = primePromise || prime();
 
@@ -75,7 +76,7 @@
 
         }
 
-        /** unload: nulls the users firebase table */
+        /** unload: nulls the locations firebase table */
         function unload() {
             service.locations = null;
             primePromise = null;
@@ -88,45 +89,84 @@
     }
 
     // handle users table queries
-    Users.$inject = ['$firebaseArray'];
-    function Users($firebaseArray) {
+    Users.$inject = ['$q', '$firebaseObject', '$log'];
+    function Users($q, $firebaseObject, $log) {
+        var primePromise;
+        const DB = firebase.database().ref('users');
+
         var service = {
             users: null,
 
+            all: all,
+            get: get,
+            set: set,
+            bind: bind,
             load: load,
             unload: unload,
-            get: get,
-            set: set
+            loaded: loaded
         };
 
         return service;
 
         //------------------------------------------------//
 
-        /** load: sets the users firebase table */
-        function load() {
-            var db = firebase.database().ref('users');
-            service.users = $firebaseArray(db);
+        /** all: returns all users (can assume that service.users is not null) */
+        function all() {
+            return service.users;
         }
+
+        /** get: returns the user specified by @uid
+         * can assume that service.users is not null */
+        function get(uid) {
+            return service.users[uid];
+        }
+
+        /** set: sets the user @uid's @key to @value
+         * can assume that service.users is not null */
+        function set(uid, key, value) {
+            service.users[uid][key] = value;
+            service.users.$save();
+        }
+
+        /** bind: binds the @scope and @varName to the specified @uid
+         * can assume that service.users is not null */
+        function bind(scope, varName, uid) {
+            service.users[uid].$bindTo(scope, varName);
+        }
+
+        function prime() {
+            // This function can only be called once
+            if (primePromise) {
+                return primePromise;
+            }
+
+            service.users = $firebaseObject(DB);
+            primePromise = service.users.$loaded().then(success);
+            return primePromise;
+
+            function success(data) {
+                $log.info('Primed Users Data');
+            }
+        }
+
+        /** load: sets the users firebase table then runs next promises */
+        function load(nextPromises) {
+            var loadPromise = primePromise || prime();
+
+            return loadPromise
+                .then(function() { return $q.all(nextPromises); })
+                .catch(function() { $log.error(loadPromise); });
+        }
+
         /** unload: nulls the users firebase table */
         function unload() {
             service.users = null;
+            primePromise = null;
         }
 
-        /** get: returns the user specified by @uid via a promise */
-        function get(uid) {
-            return service.users.$loaded(function(users) {
-                return users.$getRecord(uid);
-            });
-        }
-
-        /** set: sets the user @uid's @key to @value */
-        function set(uid, key, value) {
-            service.users.$loaded(function(users) {
-                var index = users.$indexFor(uid);
-                users[index][key] = value;
-                users.$save(index);
-            });
+        /** loaded: returns true if users is laoded, false otherwise */
+        function loaded() {
+            return !!service.users;
         }
     }
 

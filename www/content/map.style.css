@@ -3,7 +3,8 @@
 
 /* SVG Map styling */
 
-#svg #map .loc.filter-out {
+#svg #map .loc.filter-out,
+#svg #map .loc.filter-out:hover {
     fill-opacity: 0.3;
     fill: black;
     opacity: 0.75;
@@ -50,13 +51,13 @@
 
 
 #svg #map .loc.path {
-    stroke: none;
+    stroke: black;
     stroke-width: 1;
     fill: transparent;
 }
 
 
-/*#svg #map .loc.path:hover,*/
+#svg #map .loc.path:hover,
 #svg #map .loc.path.hilite {
     fill: #0000FF;
     stroke: #0000FF;

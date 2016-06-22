@@ -211,7 +211,7 @@
             var n = graph.nodes[i];
             // should have non-negative weight and type between 1 and 6
             _assert(n._weight >= 0, "Negative Weight (" + n._weight + ")");
-            _assert(n._nType > 0 && n._nType <= 7, "Irregular Type (" +
+            _assert(n._nType > 0 && n._nType <= 8, "Irregular Type (" +
                 n._nType + ")");
 
             // should have consistent edges and no self edges

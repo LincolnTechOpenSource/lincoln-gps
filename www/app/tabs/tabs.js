@@ -7,10 +7,10 @@
         .controller('TabCtrl', TabCtrl);
 
     TabCtrl.$inject = ['$rootScope', '$scope', '$ionicModal', '$ionicLoading',
-        '$timeout', 'Firebase', 'Users'
+        '$timeout', '$q', '$log', 'Firebase', 'Users'
     ];
     function TabCtrl($rootScope, $scope, $ionicModal, $ionicLoading,
-        $timeout, Firebase, Users) {
+        $timeout, $q, $log, Firebase, Users) {
 
         // Form data for the login modal
         $scope.loginData = {
@@ -25,50 +25,72 @@
             code: null
         };
 
-        // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('templates/modal-login.html', {
-            scope: $scope,
-            backdropClickToClose: false,
-            hardwareBackButtonClose: false
-        }).then(function(modal) {
-            $scope.modal = modal;
-
-            Firebase.auth().$onAuthStateChanged(function(user) {
-                if (user) {
-                    // User is signed in.
-                    console.info('Signed in... '); // + user.uid);
-                    $scope.loginData.email = ""; // clear email on success
-                    $scope.closeLogin();
-                    $scope.error.show = false;
-                    // save the authed user
-                    Users.load();
-                    Users.get(user.uid).then(function(user) {
-                        $rootScope.user = user;
-                    });
-                }
-                else {
-                    // No user is signed in.
-                    console.info('Not Authenticated');
-                    $scope.login();
-
-                    Users.unload();
-                    $rootScope.user = null;
-                }
-            });
-        });
-
         // Triggered in the login modal to close it
-        $scope.closeLogin = function() {
-            $scope.modal.hide();
-        };
+        $scope.closeLogin = function() { $scope.modal.hide(); };
 
         // Open the login modal
-        $scope.login = function() {
-            $scope.modal.show();
-        };
+        $scope.login = function() { $scope.modal.show(); };
+
+        // Login action
+        $scope.doLogin = doLogin;
+
+        // Log out
+        $scope.logout = function() { Firebase.auth().$signOut(); };
+
+        // Create the login modal that we will use later
+        $ionicModal
+            .fromTemplateUrl('app/tabs/modal-login.html', {
+                scope: $scope,
+                backdropClickToClose: false,
+                hardwareBackButtonClose: false
+            })
+            .then(function(modal) { $scope.modal = modal; });
+
+        Firebase.auth().$onAuthStateChanged(userAuth);
+
+        //------------------------------------------------//
+
+        /** handle user authentication */
+        function userAuth(user) {
+            if (user) {
+                // User is signed in.
+                $log.info('Signed in... '); // + user.uid);
+
+                $scope.loginData.email = ""; // clear email on success
+                $scope.closeLogin();
+                $scope.error.show = false;
+
+                // load & save the authed user
+                load(user);
+            }
+            else {
+                // No user is signed in.
+                $log.info('Not Authenticated');
+                $scope.login();
+
+                Users.unload();
+                $rootScope.user = null;
+            }
+        }
+
+        /** load the Users table */
+        function load(user) {
+            if (Users.loaded()) {
+                return $rootScope.user = Users.get(user.uid);
+            }
+            else {
+                // var promises = [get(user)];
+                return Users.load().then(function() {
+
+                    $rootScope.user = Users.get(user.uid);
+                    // Users.bind($rootScope, 'user', user.uid);
+                    $log.info('User Loaded');
+                });
+            }
+        }
 
         // Perform the login action when the user submits the login form
-        $scope.doLogin = function() {
+        function doLogin() {
             $ionicLoading.show({
                 template: 'Signing In...'
             });
@@ -76,7 +98,7 @@
             Firebase.auth().$signInWithEmailAndPassword($scope.loginData.email,
                 $scope.loginData.password).catch(function(error) {
                 // Handle Errors here
-                console.log("Authentication failed (" + error.code + "): " + error.message);
+                $log.log("Authentication failed (" + error.code + "): " + error.message);
                 _handleError(error);
             }).then(function() {
                 // reset login form
@@ -85,12 +107,7 @@
                     $ionicLoading.hide();
                 }, 100);
             });
-        };
-
-        $scope.logout = function() {
-            Firebase.auth().$signOut();
-        };
-
+        }
 
         /**
          * _handleError: helper function to handle a firebase authentication error
@@ -124,7 +141,7 @@
 
                     // firebase says the code should be one of the above
                 default:
-                    console.alert('Invalid Return Type... Firebase error!');
+                    $log.alert('Invalid Return Type... Firebase error!');
                     break;
             }
         }
