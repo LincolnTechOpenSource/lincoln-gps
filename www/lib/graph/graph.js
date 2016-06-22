@@ -19,6 +19,7 @@ var NodeTypeEnum = {
     CONF: 6, // a conference room
     FOOD: 7, // a location for food (e.g., kitchen, vending machine)
     COPY: 8, // a room/area with a copier/scanner
+    JANITOR: 9, //janitor closet, storage room, etc
 
     // enumeration properties
     properties: {
@@ -66,6 +67,11 @@ var NodeTypeEnum = {
             name: "copy_rm",
             value: 8,
             code: "COPY"
+        },
+        9: {
+            name: "janitor_closet",
+            value: 9,
+            code: "JANITOR"
         }
     }
 };
