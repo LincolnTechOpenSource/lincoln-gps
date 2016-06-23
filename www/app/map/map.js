@@ -111,7 +111,7 @@
             });
         }
 
-        /** resets the path and removes all highlights (but leaves employee) */
+        // /** resets the path and removes all highlights (but leaves employee) */
         // function clear() {
         //     $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
@@ -202,23 +202,6 @@
         }
     }
 
-
-
-
-    // debugging to get neighbors
-    // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
-
-    // debugging to highlight neighbors
-    /*
-    $('#svg').on('click', '#map .loc', function() {
-        var n = Graphing.graph.nodes[this.id];
-        $("#svg #map .loc").removeClass("hilite"); // clear old path
-        for (var i = 0; i < n._neighbors.length; i++) {
-            $("#" + n._neighbors[i]).addClass("hilite");
-        }
-    });
-    */
-
     /** batchToggleClass: toggles the @classes of the specified @selectors
      * toggles the corresponding class of an array of selectors */
     var batchToggleClass = function(selectors, classes) {
@@ -230,3 +213,15 @@
         };
     };
 })();
+
+// debugging to get neighbors
+// $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
+
+// debugging to highlight neighbors
+// $('#svg').on('click', '#map .loc', function() {
+//     var n = Graphing.graph.nodes[this.id];
+//     $("#svg #map .loc").removeClass("hilite"); // clear old path
+//     for (var i = 0; i < n._neighbors.length; i++) {
+//         $("#" + n._neighbors[i]).addClass("hilite");
+//     }
+// });
