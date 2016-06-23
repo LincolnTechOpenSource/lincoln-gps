@@ -12,8 +12,8 @@
         .module('app.map')
         .factory('Dijkstra', Dijkstra);
 
-    // Dijkstra.$inject = [];
-    function Dijkstra() {
+    Dijkstra.$inject = ['MinHeap'];
+    function Dijkstra(MinHeap) {
         var service = {
             run: run,
             getPath: getPath
@@ -32,7 +32,7 @@
          */
         function run(source, target, graph) {
             // binary min heap of the unvisited nodes (on distance)
-            var unvisited = new BinaryHeap(
+            var unvisited = new MinHeap(
                 function(e) {
                     return e.distance;
                 },
