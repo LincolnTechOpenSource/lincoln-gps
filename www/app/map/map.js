@@ -50,7 +50,7 @@
         $scope.$on('$ionicView.enter', activate);
 
         // initialize & create graph
-        Graphing.debug = true; // debug for testing purposes
+        // Graphing.debug = true; // debug for testing purposes
         Graphing.createGraph();
 
         //------------------------------------------------//
@@ -73,9 +73,10 @@
 
         /** functions for after users have loaded */
         function usersLoad() {
+            var user = $rootScope.user || Users.get(Firebase.auth().$getAuth().uid);
             $("#svg #map .loc").removeClass("filter-out"); // remove old filter
-            for (var filter in $rootScope.user.filters) {
-                if (!$rootScope.user.filters[filter].disp) {
+            for (var filter in user.filters) {
+                if (!user.filters[filter].disp) {
                     $('#svg #map .loc.' + filter).addClass('filter-out');
                 }
             }
