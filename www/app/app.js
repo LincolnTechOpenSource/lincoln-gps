@@ -26,9 +26,6 @@
                 StatusBar.styleDefault();
             }
 
-            // should we show the select on map info popup? (default true)
-            $rootScope.showMapPopup = true;
-
             /* define fitlers
              * dispName is the name to show in the toggle view
              * disp is the truth-value of whether to display or not

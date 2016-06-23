@@ -24,16 +24,14 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- Firebase -->
+    <!-- Firebase & AngularFire -->
     <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
-
-    <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
+    <!-- app -->
     <script src="app/app.js"></script>
 
     <!-- core module -->
@@ -64,9 +62,6 @@
     <script src="app/tabs/tabs.module.js"></script>
     <script src="app/tabs/tabs.js"></script>
 
-    <!-- graph library -->
-    <!--<script src="lib/graph/graph.js"></script>-->
-
     <!-- plugins -->
 
     <!-- favicon -->
@@ -89,7 +84,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body data-ng-app="app" ng-strict-di="">
+<body data-ng-app="app" ng-strict-di>
     <!-- The nav bar that will be updated as we navigate between views. -->
     <ion-nav-bar class="bar-stable">
         <ion-nav-back-button>
