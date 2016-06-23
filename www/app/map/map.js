@@ -225,3 +225,21 @@
 //         $("#" + n._neighbors[i]).addClass("hilite");
 //     }
 // });
+
+
+
+
+/*
+    require.config({
+        paths: {
+            'svg-pan-zoom': 'lib/plugins/svg-pan-zoom.js'
+        }
+    });
+
+    require(["svg-pan-zoom"], function(svgPanZoom){
+       svgPanZoom('#svg', {
+          zoomEnabled: true,
+          controlIconsEnabled: true
+       });
+    });
+*/

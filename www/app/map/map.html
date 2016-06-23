@@ -1156,7 +1156,56 @@
                 <line class="wall" x1="2280" x2="2300" y1="2545" y2="2545"></line>
             </g>
             <!-- End walls group -->
+            <!--<button id="fitAndCenter">Fit, Center and .log getSizes()</button> -->
         </svg>
+
+        <script>
+            // Don't use window.onLoad like this in production, because it can only listen to one function.
+            $(document).ready(function(){
+            /*window.onload = function() {*/
+
+                var beforePan;
+
+                beforePan = function(oldPan, newPan) {
+                    var stopHorizontal = false,
+                        stopVertical = false,
+                        gutterWidth = 100,
+                        gutterHeight = 100,
+                        // Computed variables
+                        sizes = this.getSizes(),
+                        leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+                        rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
+                        topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
+                        bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+                    customPan = {};//({x:0,y:0});
+                    customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
+                    customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y));
+                    return customPan;
+                };
+
+                // Expose to window namespace for testing purposes
+              //  document.getElementById("#map").style.width = window.screen.availWidth + "px";
+              //  document.getElementById("#map").style.height = window.screen.availHeight + "px";
+                window.panZoom = svgPanZoom("#map", {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: 1,
+                    center: 1,
+                    beforePan: beforePan
+                });
+                panZoom.setBeforePan(beforePan);
+            });
+
+
+         /*       $("#fitAndCenter").on("click", function() {
+                    console.log(panZoomInstance.getSizes());
+                    panZoomInstance.fit();
+                    panZoomInstance.center();
+                }); */
+
+        </script>
+
+
         </div>
     </ion-content>
 </ion-view>
