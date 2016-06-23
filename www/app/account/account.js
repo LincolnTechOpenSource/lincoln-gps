@@ -28,9 +28,13 @@
 
     /** run upon controller terminate */
     function terminate() {
+      // save filter preferences
       for (var filter in $rootScope.user.filters) {
         Users.set($rootScope.user.id, ['filters', filter, 'disp'], $rootScope.user.filters[filter].disp);
       }
+
+      // save popup preference
+      Users.set($rootScope.user.id, ['showMapPopup'], $rootScope.user.showMapPopup);
     }
 
     /** rest all filters to true */

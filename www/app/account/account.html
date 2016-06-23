@@ -7,6 +7,13 @@
         Display {{user.filters[name].dispName}}
       </ion-toggle>
     </ion-list>
+
+    <ion-list>
+      <ion-toggle ng-model="user.showMapPopup">
+        Show Select on Map Popup
+      </ion-toggle>
+    </ion-list>
+
     <button class="btn button button-assertive" ng-click="logout()">
         Logout
     </button>
