@@ -1,0 +1,16 @@
+/* account.style.css */
+
+
+/* Reset to Default button styling */
+
+#tab-account .btn {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#tab-account .right {
+    float: right;
+}
+
+
+/*----------------------------------------------------------------------------*/

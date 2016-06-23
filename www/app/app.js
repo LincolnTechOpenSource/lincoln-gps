@@ -19,7 +19,6 @@
             if ($window.cordova && $window.cordova.plugins && $window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-
             }
             if ($window.StatusBar) {
                 // org.apache.cordova.statusbar required
@@ -103,13 +102,13 @@
 })();
 
 /*
-  // Manually Bootstrap App
+// Manually Bootstrap App
 
-  var initInjector = angular.injector(['ng']);
-  var $http = initInjector.get('$http');
-  var $q = initInjector.get('$q');
+var initInjector = angular.injector(['ng']);
+var $http = initInjector.get('$http');
+var $q = initInjector.get('$q');
 
-  $q.all([getUserSession()]) // Get userToken and userSession
+$q.all([getUserSession()]) // Get userToken and userSession
     .then(function(data) {
         angular.module('aws')
             .constant('USERSESSION', data[0].data) // Save userSession as constant
@@ -121,9 +120,11 @@
         angular.element(document).ready(function() { // manually bootstrap
             angular.bootstrap(document, ['aws']);
         });
-  });
+    });
 
-  function getUserSession() {
-    return $http.get('/userSession/', {cache: false});
-  }
+function getUserSession() {
+    return $http.get('/userSession/', {
+        cache: false
+    });
+}
 */

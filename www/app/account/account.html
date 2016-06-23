@@ -1,16 +1,16 @@
-<ion-view view-title="Account">
-  <ion-content>
-    <button class="button button-positive" ng-click="logout()">
-        Logout
-    </button>
+<ion-view view-title="Account" id="tab-account">
+  <ion-content class="padding">
+    <h2 class="text-center">Lincoln GPS Account</h2>
     <ion-list>
       <!-- display all filters -->
       <ion-toggle ng-model="user.filters[name].disp" ng-repeat="(name, truth) in user.filters">
         Display {{user.filters[name].dispName}}
       </ion-toggle>
     </ion-list>
-
-    <button class="button button-positive" ng-click="vm.resetToDefault()">
+    <button class="btn button button-assertive" ng-click="logout()">
+        Logout
+    </button>
+    <button class="btn right button button-balanced" ng-click="vm.resetToDefault()">
       Reset to Default
     </button>
   </ion-content>

@@ -34,7 +34,7 @@
             toNode: null,
             FIND_ON_MAP: "FIND_ON_MAP"
         };
-        vm.clear = clear;
+        // vm.clear = clear;
         vm.clearLocation = clearLocation;
 
         $scope.$watch("vm.selectNode.toNode", watchNode.bind(null,'toNode'));
@@ -112,13 +112,13 @@
         }
 
         /** resets the path and removes all highlights (but leaves employee) */
-        function clear() {
-            $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
+        // function clear() {
+        //     $("#svg #map g.non-walls *").removeClass("hilite"); // clear old path
 
-            // clear graphing parameters (keep source if employee is defined)
-            vm.selectNode.toNode = null;
-            vm.selectNode.fromNode = null;
-        }
+        //     // clear graphing parameters
+        //     vm.selectNode.toNode = null;
+        //     vm.selectNode.fromNode = null;
+        // }
 
         /** resets the selected location and removes path highlighting
          * @locSelect will be either "fromNode" or "toNode" (e.g., a field of selectNode)
@@ -201,10 +201,16 @@
             }
         }
     }
+
+    var myElement = document.getElementById('myElement');
+
+
 /*
+    $(element).hammer(options).bind("pan", myPanHandler);
     var hammerTime = new Hammer.Manager($('#svg')[0], {
         touchAction: "pan-x pan-y"
     });
+
     var pinch = new Hammer.Pinch();
     var lastZoom;
     hammerTime.add(pinch);
@@ -223,7 +229,7 @@
         //Seems clunky, but reset the lastZoom on a new pinch
         lastZoom = undefined;
     });
-    */
+*/
 
 
     // debugging to get neighbors
