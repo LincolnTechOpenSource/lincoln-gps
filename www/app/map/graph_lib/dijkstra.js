@@ -12,8 +12,8 @@
         .module('app.map')
         .factory('Dijkstra', Dijkstra);
 
-    Dijkstra.$inject = ['MinHeap'];
-    function Dijkstra(MinHeap) {
+    Dijkstra.$inject = ['MinHeap', 'NodeTypeEnum'];
+    function Dijkstra(MinHeap, NodeTypeEnum) {
         var service = {
             run: run,
             getPath: getPath

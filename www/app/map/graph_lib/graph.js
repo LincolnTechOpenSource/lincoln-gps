@@ -1,4 +1,10 @@
-// graph.js
+/*
+ * graph.js
+ * Matthew Vasseur
+ * 05/31/16
+ *
+ * a simple undirected graph to represent the office
+ /*---------------------------------------------------------------------------*/
 (function() {
     'use strict';
 
@@ -6,8 +12,10 @@
         .module('app.map')
         .factory('Graphing', Graphing);
 
-    Graphing.$inject = ['$q'];
-    function Graphing($q) {
+    Graphing.$inject = ['$q', 'NodeTypeEnum'];
+    function Graphing($q, NodeTypeEnum) {
+        const URL = 'lib/graph/new-graph.json';
+
         var service = {
             debug: false,
             graph: null,
@@ -20,8 +28,7 @@
         //------------------------------------------------//
 
         function createGraph(data) {
-            var url = 'lib/graph/new-graph.json';
-            $.getJSON(url, function(data) {
+            $.getJSON(URL, function(data) {
                 service.graph = new Graph(data, service.debug);
 
                 return service.graph;

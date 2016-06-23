@@ -10,8 +10,10 @@
         .module('app.directory')
         .controller('DirectoryCtrl', DirectoryCtrl);
 
-    DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase', 'Params'];
-    function DirectoryCtrl($scope, $state, $log, Locations, Firebase, Params) {
+    DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase',
+        'Params', 'NodeTypeEnum'];
+    function DirectoryCtrl($scope, $state, $log, Locations, Firebase,
+        Params, NodeTypeEnum) {
         var vm = this;
 
         vm.selectEmployee = {
