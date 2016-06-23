@@ -18,7 +18,7 @@
         "16":{"_id":16,"_neighbors":[1040],"_weight":0,"_nType":5},
         "17":{"_id":17,"_neighbors":[1045],"_weight":0,"_nType":5},
         "18":{"_id":18,"_neighbors":[1093],"_weight":0,"_nType":5},
-        "19":{"_id":19,"_neighbors":[1],"_weight":0,"_nType":5},
+        "19":{"_id":19,"_neighbors":[1, 1093, 1097],"_weight":0,"_nType":5},
         "20":{"_id":20,"_neighbors":[1001],"_weight":0,"_nType":5},
         "21":{"_id":21,"_neighbors":[1002],"_weight":0,"_nType":5},
         "22":{"_id":22,"_neighbors":[1003],"_weight":0,"_nType":5},
@@ -406,11 +406,11 @@
         "1090":{"_id":1090,"_neighbors":[1081, 1091],"_weight":2,"_nType":3},
         "1091":{"_id":1091,"_neighbors":[1074, 1090, 1099],"_weight":1,"_nType":3},
         "1092":{"_id":1092,"_neighbors":[1085],"_weight":1,"_nType":3},
-        "1093":{"_id":1093,"_neighbors":[1, 18, 1045, 1056],"_weight":1,"_nType":3},
+        "1093":{"_id":1093,"_neighbors":[1, 18, 19, 1045, 1056],"_weight":1,"_nType":3},
         "1094":{"_id":1094,"_neighbors":[94, 1083, 1095],"_weight":1,"_nType":3},
         "1095":{"_id":1095,"_neighbors":[95, 133, 1094, 1096],"_weight":1,"_nType":3},
         "1096":{"_id":1096,"_neighbors":[96, 1095, 1097, 1161],"_weight":1,"_nType":3},
-        "1097":{"_id":1097,"_neighbors":[1, 1096, 1098, 1135, 1160],"_weight":2,"_nType":3},
+        "1097":{"_id":1097,"_neighbors":[1, 19, 1096, 1098, 1160],"_weight":2,"_nType":3},
         "1098":{"_id":1098,"_neighbors":[1097, 1135],"_weight":2,"_nType":3},
         "1099":{"_id":1099,"_neighbors":[97, 105, 1091, 1100],"_weight":1,"_nType":3},
         "1100":{"_id":1100,"_neighbors":[106, 1099, 1101],"_weight":1,"_nType":3},
@@ -448,7 +448,7 @@
         "1132":{"_id":1132,"_neighbors":[1130, 1140, 1141],"_weight":1,"_nType":3},
         "1133":{"_id":1133,"_neighbors":[1128, 1134, 1160, 1164, 1167],"_weight":2,"_nType":3},
         "1134":{"_id":1134,"_neighbors":[134, 1133, 1135, 1160],"_weight":1,"_nType":3},
-        "1135":{"_id":1135,"_neighbors":[1097, 1098, 1134, 1136, 1160],"_weight":2,"_nType":3},
+        "1135":{"_id":1135,"_neighbors":[1098, 1134, 1136, 1160],"_weight":2,"_nType":3},
         "1136":{"_id":1136,"_neighbors":[135, 310, 1135, 1137],"_weight":2,"_nType":3},
         "1137":{"_id":1137,"_neighbors":[1136, 1256],"_weight":1,"_nType":3},
         "1138":{"_id":1138,"_neighbors":[136, 1139, 1252, 1256],"_weight":1,"_nType":3},
@@ -678,5 +678,5 @@
 
     },
     "_nodeCount": 669,
-    "_edgeCount": 773
+    "_edgeCount": 774
 }

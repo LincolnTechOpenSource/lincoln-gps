@@ -50,7 +50,7 @@
         $scope.$on('$ionicView.enter', activate);
 
         // initialize & create graph
-        // Graphing.debug = true; // debug for testing purposes
+        Graphing.debug = true; // debug for testing purposes
         Graphing.createGraph();
 
         //------------------------------------------------//
@@ -201,6 +201,27 @@
             }
         }
     }
+     /*   var hammerTime = new Hammer.Manager($('#svg')[0], {touchAction: "pan-x pan-y"});
+        var pinch = new Hammer.Pinch();
+        var lastZoom;
+        hammerTime.add(pinch);
+        hammerTime.on("pinchout pinchin", function(e) {
+           var currentZoom = Number($('#svg').css("zoom"));
+           if (lastZoom) {
+              var newZoom = currentZoom + (e.scale - lastZoom);
+
+              //bounds checking for your zoom, min=1 and max=3 here
+              newZoom = newZoom < 1 ? 1 : (newZoom > 4 ? 4 : newZoom);
+              $('#svg').css("zoom", newZoom);
+           }
+           lastZoom = e.scale;
+        });
+
+        hammerTime.on("pinchstart", function (e) {
+           //Seems clunky, but reset the lastZoom on a new pinch
+           lastZoom = undefined;
+        });
+        */
     // debugging to get neighbors
     // $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
 
