@@ -132,3 +132,7 @@ through locations in order to see them on the map.
 Matthew Vasseur
 
 David Tahvildaran
+
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
