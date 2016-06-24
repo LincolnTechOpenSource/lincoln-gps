@@ -9,7 +9,7 @@
     Users.$inject = ['$q', '$firebaseObject', '$log'];
     function Users($q, $firebaseObject, $log) {
         var primePromise;
-        const DB = firebase.database().ref('users');
+        var DB = firebase.database().ref('users'); // constant
 
         var service = {
             users: null,

@@ -9,7 +9,7 @@
     Locations.$inject = ['$q', '$firebaseArray', '$log'];
     function Locations($q, $firebaseArray, $log) {
         var primePromise;
-        const DB = firebase.database().ref('locations');
+        var DB = firebase.database().ref('locations'); // constant
 
         var service = {
             locations: null,

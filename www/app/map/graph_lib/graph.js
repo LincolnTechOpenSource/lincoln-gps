@@ -14,7 +14,7 @@
 
     Graphing.$inject = ['$q', 'NodeTypeEnum'];
     function Graphing($q, NodeTypeEnum) {
-        const URL = 'lib/graph/graph.json';
+        var URL = 'lib/graph/graph.json'; // constant
 
         var service = {
             debug: false,

@@ -47,7 +47,7 @@
         <!--</object>-->
         <!--</ion-scroll>-->
         <div id="svg" class="col col-75 col-offset-10">
-            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 3600 3600" xml:space="preserve">
+            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 10000 10000" xml:space="preserve">
             <defs>
                 <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                     <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
@@ -1168,8 +1168,8 @@
                 beforePan = function(oldPan, newPan) {
                     var stopHorizontal = false,
                         stopVertical = false,
-                        gutterWidth = 100,
-                        gutterHeight = 100,
+                        gutterWidth = 0,
+                        gutterHeight = 0,
                         // Computed variables
                         sizes = this.getSizes(),
                         leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
@@ -1183,8 +1183,6 @@
                 };
 
                 // Expose to window namespace for testing purposes
-              //  document.getElementById("#map").style.width = window.screen.availWidth + "px";
-              //  document.getElementById("#map").style.height = window.screen.availHeight + "px";
                 window.panZoom = svgPanZoom("#map", {
                     viewportSelector: '#map',
                     useCurrentView: true,
@@ -1198,14 +1196,14 @@
             });
 
 
-         /*       $("#fitAndCenter").on("click", function() {
+            /*    $("#map").on("click", function() {
                     console.log(panZoomInstance.getSizes());
                     panZoomInstance.fit();
                     panZoomInstance.center();
-                }); */
+                });*/
 
         </script>
-
+<!--<-->
 
         </div>
     </ion-content>

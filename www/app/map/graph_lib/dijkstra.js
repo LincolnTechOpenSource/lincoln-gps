@@ -71,8 +71,10 @@
             // return if source is the same as target (i.e., already there)
             if (source === target) {
                 console.log('Same Spot');
-                var ret = {dist, prev};
-                return ret;
+                return {
+                    dist: dist,
+                    prev: prev
+                };
             }
 
             // The loop of the algorithm
@@ -103,8 +105,8 @@
 
             // return distances and previous
             return {
-                dist,
-                prev
+                dist: dist,
+                prev: prev
             };
         }
 
