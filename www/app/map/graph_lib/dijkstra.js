@@ -51,9 +51,11 @@
 
             // Initialization
             dist[source] = 0; // source is distance 0 from source
-            for (var i of Object.keys(graph.nodes)) {
+            var keys = Object.keys(graph.nodes);
+            // for (var i in keys) {
+            for (var i = 0; i < keys.length; i++) {
                 // for each node in the graph...
-                var node = graph.nodes[i];
+                var node = graph.nodes[keys[i]];
 
                 if (node._id != source) {
                     prev[node._id] = null; // set previous to undefined
@@ -69,10 +71,8 @@
             // return if source is the same as target (i.e., already there)
             if (source === target) {
                 console.log('Same Spot');
-                return {
-                    dist,
-                    prev
-                };
+                var ret = {dist, prev};
+                return ret;
             }
 
             // The loop of the algorithm

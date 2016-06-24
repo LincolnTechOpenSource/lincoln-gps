@@ -43,7 +43,8 @@
      * @graph: (optional) a JSON representation of the graph to initialize
      * @debug: only verify if debug is set to true (defaults to false)
      */
-    var Graph = function(graph, debug = false) {
+    var Graph = function(graph, debug) {
+        debug = debug || false;
         this._nodes = graph ? graph._nodes : {}; // set of nodes in graph
         this._nodeCount = graph ? graph._nodeCount : 0; // number of nodes
         this._edgeCount = graph ? graph._edgeCount : 0; // number of edges
@@ -214,8 +215,10 @@
 
         // verify each node
         var numEdges = 0;
-        for (var i of Object.keys(graph.nodes)) {
-            var n = graph.nodes[i];
+        var keys = Object.keys(graph.nodes);
+        // for (var i in keys) {
+        for (var i = 0; i < keys.length; i++) {
+            var n = graph.nodes[keys[i]];
             // should have non-negative weight and type between 1 and 6
             _assert(n._weight >= 0, "Negative Weight (" + n._weight + ")");
             _assert(n._nType > 0 && n._nType <= 9, "Irregular Type (" +

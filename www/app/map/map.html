@@ -1186,10 +1186,12 @@
               //  document.getElementById("#map").style.width = window.screen.availWidth + "px";
               //  document.getElementById("#map").style.height = window.screen.availHeight + "px";
                 window.panZoom = svgPanZoom("#map", {
+                    viewportSelector: '#map',
+                    useCurrentView: true,
                     zoomEnabled: true,
                     controlIconsEnabled: true,
-                    fit: 1,
-                    center: 1,
+                    fit: true,
+                    center: true,
                     beforePan: beforePan
                 });
                 panZoom.setBeforePan(beforePan);
