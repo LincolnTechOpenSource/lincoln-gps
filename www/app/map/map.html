@@ -15,7 +15,7 @@
             <div id="from-loc" class="col col-50">
                 <ion-search-select title="From" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.fromNode" enable-map-select="true">
                     <label class="item item-input-inset search-select">
-                        <div class="item-input-wrapper">
+                        <div class="item-input-wrapper" >
                             <i class="icon ion-ios-search"></i>
                             <input type="text" ng-model="vm.selectNode.fromNode.name" placeholder="From" disabled>
                         </div>
@@ -40,6 +40,8 @@
             </div>
         </div>
 
+
+
         <!--<ion-scroll id='' zooming='true' direction='xy' style='width: 100%; height: 100%;' class='has-header'>-->
         <!--    <div style='position: absolute; top: 0; left: 0; width: 1368px;height: 1938px;'></div>-->
         <!--    <object id='mapObject' type="image/svg+xml" data="app/map/map.svg">-->
@@ -47,7 +49,8 @@
         <!--</object>-->
         <!--</ion-scroll>-->
         <div id="svg" class="col col-75 col-offset-10">
-            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="900" width="100%" viewBox="0 0 3600 3600" xml:space="preserve">
+            <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="100%" viewBox="0 0 3600 3600" xml:space="preserve">
             <defs>
                 <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                     <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
@@ -1163,14 +1166,46 @@
             // Don't use window.onLoad like this in production, because it can only listen to one function.
             $(document).ready(function(){
             /*window.onload = function() {*/
-
                 var beforePan;
+                var w;
+                var h;
+                var x;
+                var doc_height = (window.outerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight);
+                var offset = $("ion-content").position().top + $("#svg").position().top;
+                /*var x = $('#svg').offset();
+                        w = window.innerWidth
+                        || document.documentElement.clientWidth
+                        || document.body.clientWidth;
+
+                         h = (window.outerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight) - x.top;*/
+                        //console.log(x.top);
+                        h = (window.outerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight) - $('.text-center').height() - $('.tab-nav').outerHeight() -
+                        $('.title-center').outerHeight()
+                        - $('.item-input-wrapper').outerHeight() -90;
+                     //   console.log(w);
+                        console.log(offset);
+                        $('#map').height(doc_height-306);
+                      //  $('#map').width(w);
+
                 beforePan = function(oldPan, newPan) {
                     var stopHorizontal = false,
                         stopVertical = false,
                         gutterWidth = 150,
                         gutterHeight = 150,
                         // Computed variables
+                        //for across different browsers
+                       /* w = window.innerWidth
+                        || document.documentElement.clientWidth
+                        || document.body.clientWidth,
+                        h = window.innerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight,*/
                         sizes = this.getSizes(),
                         leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
                         rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),

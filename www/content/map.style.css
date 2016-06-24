@@ -19,6 +19,12 @@
     opacity: 0.8;
 }
 
+/*
+#map {
+    border:black;
+}
+*/
+
 #svg #map .wall {
     fill: none;
     stroke-width: 3px;
