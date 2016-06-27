@@ -18,13 +18,11 @@
     var runSequence = require('run-sequence');
     var merge = require('merge-stream');
     var ripple = require('ripple-emulator');
-    var wiredep = require('wiredep');
-
+    // var wiredep = require('wiredep');
     // var plato = require('plato');
 
     var plugins = require('gulp-load-plugins')();
     // var glob = require('glob');
-
     // var log = plugins.util.log;
 
 
