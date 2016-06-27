@@ -1,0 +1,28 @@
+<!-- tab-directory.html (adapted from https://codepen.io/anon/pen/VjLYjW) -->
+
+<ion-view view-title="Directory">
+    <ion-content class="padding">
+
+        <h2 class="text-center">Lincoln Employee Directory</h2>
+
+        <div class="item">
+            <ion-search-select title="Search by Name" key-property="id" value-property="name" options="vm.selectEmployee.employees" option-selected="vm.selectEmployee.employee">
+                <label class="item item-input-inset search-select">
+                    <div class="item-input-wrapper">
+                        <i class="icon ion-ios-search"></i>
+                        <input type="text" ng-model="vm.selectEmployee.employee.name" placeholder="Select an Employee" disabled>
+                    </div>
+                </label>
+            </ion-search-select>
+        </div>
+
+        <div class="item " ng-show="!!vm.selectEmployee.employee">
+            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.name }}</strong> </p>
+            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.title }}</strong>
+                of <strong>{{ vm.selectEmployee.employee.division }}</strong>
+            </p>
+            <p class="text-center"> Contact at <strong>{{ vm.selectEmployee.employee.email }}</strong> or <strong>EXT: {{ vm.selectEmployee.employee.ext }}</strong> </p>
+            <p class="text-center"><a href="#" ng-click="vm.findOnMap(vm.selectEmployee.employee)"><strong>Find on Map</strong></a></p>
+        </div>
+    </ion-content>
+</ion-view>

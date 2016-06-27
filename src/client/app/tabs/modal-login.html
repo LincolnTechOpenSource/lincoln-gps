@@ -1,0 +1,33 @@
+<!-- modal-login.html -->
+
+<ion-modal-view id="login-modal">
+  <ion-header-bar>
+    <h1 class="title">Sign In</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="card text-center" ng-show="error.show">
+      <div class="item item-divider assertive-bg stable">
+        <i on-tap="error.show = false" class="x-clear icon ion-close"></i>
+        Unable to Sign In
+      </div>
+      <div class="item item-text-wrap assertive">
+        {{ error.message}}
+      </div>
+    </div>
+    <form ng-submit="doLogin()" name="login">
+      <div class="list">
+        <label class="item item-input" id="login-email" ng-class="{'has-error': login.email.$invalid}">
+          <span class="input-label">Email Address</span>
+          <input name="email"type="email" ng-model="loginData.email" autocomplete="off" autocorrect="off" autocapitalize="off">
+        </label>
+        <label class="item item-input" id="login-password" ng-class="{'has-error': login.password.$invalid}">
+          <span class="input-label">Password</span>
+          <input name="password" type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Sign In</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
