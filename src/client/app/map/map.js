@@ -204,7 +204,72 @@
                         '.dep_list .' + DEPARTMENT_NAMES[i] + ' .dep_list_text'
                     ], ['hilite', 'normal-text']));
             }
+
+            /*window.onload = function() {*/
+            var beforePan;
+            var w;
+            var h;
+            var x;
+            var doc_height = (window.outerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight);
+            var offset = $("ion-content").position().top + $("#svg").position().top;
+            /*var x = $('#svg').offset();
+                    w = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+
+                     h = (window.outerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight) - x.top;*/
+            //console.log(x.top);
+            h = (window.outerHeight ||
+                    document.documentElement.clientHeight ||
+                    document.body.clientHeight) - $('.text-center').height() - $('.tab-nav').outerHeight() -
+                $('.title-center').outerHeight() -
+                $('.item-input-wrapper').outerHeight() - 90;
+            //   console.log(w);
+            $('#svg').height(doc_height - 306);
+            $('#map').height($('#svg').height());
+            //  $('#map').width(w);
+
+            beforePan = function(oldPan, newPan) {
+                var stopHorizontal = false,
+                    stopVertical = false,
+                    gutterWidth = 100,
+                    gutterHeight = 100,
+                    // Computed variables
+                    //for across different browsers
+                    /* w = window.innerWidth
+                     || document.documentElement.clientWidth
+                     || document.body.clientWidth,
+                     h = window.innerHeight
+                     || document.documentElement.clientHeight
+                     || document.body.clientHeight,*/
+                    sizes = this.getSizes(),
+                    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+                    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
+                    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
+                    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+                var customPan = {}; //({x:0,y:0});
+                customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
+                customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y));
+                return customPan;
+            };
+
+            // Expose to window namespace for testing purposes
+            window.panZoom = svgPanZoom("#map", {
+                viewportSelector: '#map',
+                useCurrentView: true,
+                zoomEnabled: true,
+                controlIconsEnabled: true,
+                fit: true,
+                center: true,
+                beforePan: beforePan
+            });
+            panZoom.setBeforePan(beforePan);
         }
+
     }
 
     /** batchToggleClass: toggles the @classes of the specified @selectors
