@@ -59,8 +59,10 @@
         function activate() {
             // handle employee parameter
             if (!!Params.employee) {
+                $('#svg #map g.non-walls .path').removeClass('hilite'); // clear
                 // set current employee and from node given parameter
                 vm.selectNode.fromNode = Params.employee;
+                vm.selectNode.toNode = null; // null out 'to'
                 Params.employee = null; // null out parameter after 'use'
             }
 
@@ -181,16 +183,17 @@
 
                 // hilite each block in the path
                 for (var i = 0; i < directions.length; i++) {
-                    $('#svg #map .loc#' + directions[i]).delay(300 * i).queued('addClass', 'hilite');
+                    $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
                 }
             }
         }
 
         function checkSelect(event) {
+            var id = event.target.id || $(event.target).parent('g')[0].id;
             var selectOnClick = $('#svg #map').attr('select-on-click');
-            if (selectOnClick !== 'false') {
 
-                $q.when(Locations.get(event.target.id)).then(function(loc) {
+            if (selectOnClick !== 'false') {
+                $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
 
@@ -219,10 +222,9 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            var beforePan;
             $('#map').height($('#svg').height() * 0.9);
 
-            beforePan = function(oldPan, newPan) {
+            function beforePan(oldPan, newPan) {
                 var gutterWidth = 75;
                 var gutterHeight = 75;
                 // Computed variables
@@ -236,7 +238,7 @@
                     x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
                     y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
                 };
-            };
+            }
 
             // Expose to window namespace for testing purposes
             /* global svgPanZoom */
@@ -245,7 +247,7 @@
                 useCurrentView: true,
                 zoomEnabled: true,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false,
+                // preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan
@@ -267,6 +269,8 @@
                 ev.preventDefault();
 
                 mapPanZoom.resetZoom();
+                mapPanZoom.fit();
+                mapPanZoom.resize();
             });
         }
 

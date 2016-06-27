@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">67.85</p>
+      <p class="stat">67.62</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">280</p>
+      <p class="stat">284</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">31.57</p>
+      <p class="stat">32.19</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">2.83</p>
+      <p class="stat">2.92</p>
     </div>
   </div>
 </div>
@@ -150,8 +150,10 @@
         function activate() {
             // handle employee parameter
             if (!!Params.employee) {
+                $(&#039;#svg #map g.non-walls .path&#039;).removeClass(&#039;hilite&#039;); // clear
                 // set current employee and from node given parameter
                 vm.selectNode.fromNode = Params.employee;
+                vm.selectNode.toNode = null; // null out &#039;to&#039;
                 Params.employee = null; // null out parameter after &#039;use&#039;
             }
 
@@ -272,16 +274,17 @@
 
                 // hilite each block in the path
                 for (var i = 0; i &lt; directions.length; i++) {
-                    $(&#039;#svg #map .loc#&#039; + directions[i]).delay(300 * i).queued(&#039;addClass&#039;, &#039;hilite&#039;);
+                    $(&#039;#svg #map .loc#&#039; + directions[i]).delay(100 * i).queued(&#039;addClass&#039;, &#039;hilite&#039;);
                 }
             }
         }
 
         function checkSelect(event) {
+            var id = event.target.id || $(event.target).parent(&#039;g&#039;)[0].id;
             var selectOnClick = $(&#039;#svg #map&#039;).attr(&#039;select-on-click&#039;);
-            if (selectOnClick !== &#039;false&#039;) {
 
-                $q.when(Locations.get(event.target.id)).then(function(loc) {
+            if (selectOnClick !== &#039;false&#039;) {
+                $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
 
@@ -310,10 +313,9 @@
                     ], [&#039;hilite&#039;, &#039;normal-text&#039;]));
             }
 
-            var beforePan;
             $(&#039;#map&#039;).height($(&#039;#svg&#039;).height() * 0.9);
 
-            beforePan = function(oldPan, newPan) {
+            function beforePan(oldPan, newPan) {
                 var gutterWidth = 75;
                 var gutterHeight = 75;
                 // Computed variables
@@ -327,7 +329,7 @@
                     x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
                     y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
                 };
-            };
+            }
 
             // Expose to window namespace for testing purposes
             /* global svgPanZoom */
@@ -336,7 +338,7 @@
                 useCurrentView: true,
                 zoomEnabled: true,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false,
+                // preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan
@@ -358,6 +360,8 @@
                 ev.preventDefault();
 
                 mapPanZoom.resetZoom();
+                mapPanZoom.fit();
+                mapPanZoom.resize();
             });
         }
 
