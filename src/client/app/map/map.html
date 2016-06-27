@@ -3,17 +3,17 @@
     <ion-content class="padding">
 
         <div class="flexbox-container">
-        <h2 class="text-center">Lincoln GPS Locator</h2>
+            <h2 class="text-center">Lincoln GPS Locator</h2>
 
-        <!--<div class="row">-->
-        <!--    <div class="col">-->
-        <!--        <button class="button button-assertive" ng-click="vm.clear()">-->
-        <!--            Clear-->
-        <!--        </button>-->
-        <!--    </div>-->
-        <!--</div>-->
-            <div class="row directions">
-                <div id="from-loc" class="col col-50">
+            <!--<div class="row">-->
+            <!--    <div class="col">-->
+            <!--        <button class="button button-assertive" ng-click="vm.clear()">-->
+            <!--            Clear-->
+            <!--        </button>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="directions">
+                <div id="from-loc" class="col">
                     <ion-search-select title="From" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.fromNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
                             <div class="item-input-wrapper" >
@@ -26,7 +26,7 @@
                         <i on-tap="vm.clearLocation('fromNode')" class="x-clear icon ion-close"></i>
                     </location-info>
                 </div>
-                <div id="to-loc" class="col col-50">
+                <div id="to-loc" class="col">
                     <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
                                     <div class="item-input-wrapper">
@@ -42,7 +42,7 @@
             </div>
 
             <div id="svg" class="col col-75 col-offset-10">
-                <svg version="1.1" id="map" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3600 3600" xml:space="preserve">
+                <svg version="1.1" id="map" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3600 3600" xml:space="preserve">
                     <defs>
                         <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                             <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
@@ -1152,6 +1152,12 @@
                     </g>
                     <!-- End walls group -->
                 </svg>
+            </div>
+
+            <div class="controls text-center">
+                <button class="button button-balanced" id="zoom-in">Zoom in</button>
+                <button class="button button-assertive" id="zoom-out">Zoom out</button>
+                <button class="button button-positive" id="reset">Reset</button>
             </div>
         </div> <!-- End flexbox-container div -->
     </ion-content>

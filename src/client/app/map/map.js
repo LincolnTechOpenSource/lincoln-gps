@@ -20,11 +20,11 @@
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
         .controller('MapCtrl', MapCtrl);
 
-    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', '$timeout', 'Users', 'Locations',
+    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
         'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
     ];
     // jshint maxparams:12
-    function MapCtrl($rootScope, $scope, $log, $q, $timeout, Users, Locations,
+    function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
         Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
         var vm = this;
 
@@ -159,6 +159,7 @@
         }
 
         function findDirections() {
+
             if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
                 var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
                     vm.selectNode.toNode.$id, Graphing.graph);
@@ -167,11 +168,20 @@
 
                 $('#svg #map .loc').removeClass('hilite'); // clear old path
 
+                (function($) {
+                    $.fn.queued = function() {
+                        var self = this;
+                        var func = arguments[0];
+                        var args = [].slice.call(arguments, 1);
+                        return this.queue(function() {
+                            $.fn[func].apply(self, args).dequeue();
+                        });
+                    };
+                }($));
+
                 // hilite each block in the path
                 for (var i = 0; i < directions.length; i++) {
-                    $timeout(function() {
-                        $('#svg #map .loc#' + directions[i]).addClass('hilite');
-                    }, 1000);
+                    $('#svg #map .loc#' + directions[i]).delay(300 * i).queued('addClass', 'hilite');
                 }
             }
         }
@@ -210,23 +220,11 @@
             }
 
             var beforePan;
-            var docHeight = (window.outerHeight ||
-                document.documentElement.clientHeight ||
-                document.body.clientHeight);
-            var offset = $('ion-content').position().top + $('#svg').position().top;
-            var fudgeFactor = 200;
-            var height;
-
-            // height = docHeight - offset - fudgeFactor;
-
-            // $('#svg').height(height);
-            $log.log($('#svg').height());
-            $('#map').height($('#svg').height());
-
+            $('#map').height($('#svg').height() * 0.9);
 
             beforePan = function(oldPan, newPan) {
-                var gutterWidth = 100;
-                var gutterHeight = 100;
+                var gutterWidth = 75;
+                var gutterHeight = 75;
                 // Computed variables
                 var sizes = this.getSizes();
                 var leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth;
@@ -242,14 +240,33 @@
 
             // Expose to window namespace for testing purposes
             /* global svgPanZoom */
-            svgPanZoom('#map', {
+            var mapPanZoom = svgPanZoom('#map', {
                 viewportSelector: '#map',
                 useCurrentView: true,
                 zoomEnabled: true,
-                controlIconsEnabled: true,
+                controlIconsEnabled: false,
+                preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan
+            });
+
+            $('#zoom-in').on('click', function(ev) {
+                ev.preventDefault();
+
+                mapPanZoom.zoomIn();
+            });
+
+            $('#zoom-out').on('click', function(ev) {
+                ev.preventDefault();
+
+                mapPanZoom.zoomOut();
+            });
+
+            $('#reset').on('click', function(ev) {
+                ev.preventDefault();
+
+                mapPanZoom.resetZoom();
             });
         }
 

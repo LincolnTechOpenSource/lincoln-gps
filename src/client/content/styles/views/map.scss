@@ -284,13 +284,18 @@ $vsa-color: #FFFF00;
 
 
 /* flex box container */
-.flexbox-container {
+.flexbox-container,
+.flexbox-container #svg {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
+
+
     height: 100%;
-    // flex-direction:column;
-    flex-flow:column;
-    // display: -webkit-flex; /* Safari */
-    //-webkit-flex-direction: column; /* Safari */
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 ion-content .scroll {
@@ -298,11 +303,24 @@ ion-content .scroll {
 }
 
 .flexbox-container .directions {
-  flex: 0 1 auto;
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
 }
 
 .flexbox-container #svg {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+}
+
+.flexbox-container .controls {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+
+    padding: 0;
+    margin: 0;
 }
 
 
