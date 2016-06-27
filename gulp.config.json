@@ -13,7 +13,8 @@
   "vendorjs": [
     "./bower_components/jquery/dist/jquery.js",
     "./bower_components/ionic/release/js/ionic.bundle.js",
-    "./bower_components/ngCordova/dist/ng-cordova.js"
+    "./bower_components/ngCordova/dist/ng-cordova.js",
+    "./resources/plugins/**/*.js"
   ],
   "fonts": [
     "./src/client/content/fonts/**/*.*",
