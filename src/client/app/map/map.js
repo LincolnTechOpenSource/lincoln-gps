@@ -186,6 +186,16 @@
                     $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
                 }
             }
+
+                            //TODO: Create function that resizes/positions map according to path weight that was calculated via Djikstra
+                //function resizeMap(event){
+                /*      if (node._weight > 50) {
+                          mapPanZoom.fit();
+                          mapPanZoom.resize();
+                          mapPanZoom.center();
+                          mapPanZoom.resetZoom();
+                      } */
+                //}
         }
 
         function checkSelect(event) {
@@ -224,7 +234,7 @@
 
             $('#map').height($('#svg').height() * 0.9);
 
-            function beforePan(oldPan, newPan) {
+            var beforePan = function(oldPan, newPan) {
                 var gutterWidth = 75;
                 var gutterHeight = 75;
                 // Computed variables
@@ -238,7 +248,7 @@
                     x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
                     y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
                 };
-            }
+            };
 
             // Expose to window namespace for testing purposes
             /* global svgPanZoom */
@@ -247,7 +257,7 @@
                 useCurrentView: true,
                 zoomEnabled: true,
                 controlIconsEnabled: false,
-                // preventMouseEventsDefault: false,
+                preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan
@@ -268,9 +278,10 @@
             $('#reset').on('click', function(ev) {
                 ev.preventDefault();
 
-                mapPanZoom.resetZoom();
                 mapPanZoom.fit();
                 mapPanZoom.resize();
+                mapPanZoom.center();
+                mapPanZoom.resetZoom();
             });
         }
 
