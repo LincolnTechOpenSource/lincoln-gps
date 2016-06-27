@@ -1,3 +1,4 @@
+// jshint maxstatements:51
 (function(){
     'use strict';
 
