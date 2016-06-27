@@ -82,185 +82,238 @@
     opacity: 0.7;
 }
 
-/* location specific fill colors */
+/* location specific fill color variables */
+
+$accounting-color: #006600;
+$account-setup-color: #FF8080;
+$acd-color: #808080;
+$asset-mgmt-color: #90EE90;
+$branch-dev-color: #FF0000;
+$branch-serv-color: #33CC33;
+$broom-color: #787878;
+$busi-dev-color: #FF6600;
+$ceo-color: #D3D3D3;
+$cfo-color: #D3D3D3;
+$compli-licens-color: #FFFF99;
+$copy-scan-rm-color: #1AD1FF;
+$conf-color: #ADD8E6;
+$doc-mgmt-color: #CC5200;
+$elevator-exit-color: #FF9988;
+$euc-color: #5CD65C;
+$exec-suite-color: #D3D3D3;
+$facilities-color: #DB4DFF;
+$finance-color: #00FF00;
+$food-color: #D3D3D3;
+$hr-color: #CCCC00;
+$im-r-color: #FFC0CB;
+$isa-color: #FFFF33;
+$isd-color: #3377FF;
+$lobby-color: #FF9988;
+$mrkt-comm-color: #3399FF;
+$one-time-financials-color: #F4A460;
+$ops-color: #FF6347;
+$privacy-pod-color: #D3D3D3;
+$prvd-mgmt-color: #00FFFF;
+$quality-cntrl-color: #EE82EE;
+$rdi-color: #FF3333;
+$reception-color: #595959;
+$retire-serv-color: #990066;
+$stairs-exit-color: #FF9988;
+$storage-rm-color: #D3D3D3;
+$tpa-color: #FF7F50;
+$vacant-color: #898989;
+$vsa-color: #FFFF00;
+
+
+/* set fill colors accordingly */
+#svg #map .accounting {
+    fill: $accounting-color;
+}
+
+#svg #map .account-setup {
+    fill: $account-setup-color;
+}
 
 #svg #map .acd {
-    fill: #808080;
+    fill: $acd-color;
 }
 
-#svg #map .accounting {
-    fill: #006600;
+#svg #map .asset-mgmt {
+    fill: $asset-mgmt-color;
 }
 
-#svg #map .account_setup {
-    fill: #FF8080;
+#svg #map .branch-dev {
+    fill: $branch-dev-color;
 }
 
-#svg #map .asset_mgmt {
-    fill: #90EE90;
-}
-
-#svg #map .branch_dev {
-    fill: #FF0000;
-}
-
-#svg #map .branch_serv {
-    fill: #33CC33;
+#svg #map .branch-serv {
+    fill: $branch-serv-color;
 }
 
 #svg #map .broom {
-    fill: #787878;
+    fill: $broom-color;
 }
 
-#svg #map .busi_dev {
-    fill: #FF6600;
+#svg #map .busi-dev {
+    fill: $busi-dev-color;
 }
 
 #svg #map .ceo {
-    fill: #D3D3D3;
+    fill: $ceo-color;
 }
 
 #svg #map .cfo {
-    fill: #D3D3D3;
+    fill: $cfo-color;
 }
 
-#svg #map .compli_licens {
-    fill: #FFFF99;
+#svg #map .compli-licens {
+    fill: $compli-licens-color;
 }
 
-
-/*#svg #map .copy_rm,
-#svg #map .scan_rm */
-
-#svg #map .copy_scan_rm {
-    fill: #1AD1FF;
+#svg #map .copy-scan-rm {
+    fill: $copy-scan-rm-color;
 }
 
 #svg #map .conf {
-    fill: #ADD8E6;
+    fill: $conf-color;
 }
 
-#svg #map .doc_mgmt {
-    fill: #CC5200;
+#svg #map .doc-mgmt {
+    fill: $doc-mgmt-color;
 }
 
-#svg #map .elevator_exit {
-    fill: #FF9988;
+#svg #map .elevator-exit {
+    fill: $elevator-exit-color;
 }
 
 #svg #map .euc {
-    fill: #5CD65C;
+    fill: $euc-color;
 }
 
-#svg #map .exec_suite {
-    fill: #D3D3D3;
+#svg #map .exec-suite {
+    fill: $exec-suite-color;
 }
 
 #svg #map .facilities {
-    fill: #DB4DFF;
+    fill: $facilities-color;
 }
 
 #svg #map .finance {
-    fill: #00FF00;
+    fill: $finance-color;
 }
 
 #svg #map .food {
-    fill: #D3D3D3;
+    fill: $food-color;
 }
 
 #svg #map .hr {
-    fill: #CCCC00;
+    fill: $hr-color;
 }
 
-#svg #map .im_r {
-    fill: #FFC0CB;
+#svg #map .im-r {
+    fill: $im-r-color;
 }
 
 #svg #map .isa {
-    fill: #FFFF33;
+    fill: $isa-color;
 }
 
 #svg #map .isd {
-    fill: #3377FF;
-}
-
-#svg #map .janitor {
-    /*fill: #DB4DFF;*/
+    fill: $isd-color;
 }
 
 #svg #map .lobby {
-    fill: #FF9988;
+    fill: $lobby-color;
 }
 
-#svg #map .mrkt_comm {
-    fill: #3399FF;
+#svg #map .mrkt-comm {
+    fill: $mrkt-comm-color;
 }
 
-#svg #map .one_time_financials {
-    fill: #F4A460;
+#svg #map .one-time-financials {
+    fill: $one-time-financials-color;
 }
 
 #svg #map .ops {
-    fill: #FF6347;
+    fill: $ops-color;
 }
 
-#svg #map .privacy_pod {
-    fill: #D3D3D3;
+#svg #map .privacy-pod {
+    fill: $privacy-pod-color;
 }
 
-#svg #map .prvd_mgmt {
-    fill: #00FFFF;
+#svg #map .prvd-mgmt {
+    fill: $prvd-mgmt-color;
 }
 
-#svg #map .quality_cntrl {
-    fill: #EE82EE;
+#svg #map .quality-cntrl {
+    fill: $quality-cntrl-color;
 }
 
 #svg #map .rdi {
-    fill: #FF3333;
+    fill: $rdi-color;
 }
 
 #svg #map .reception {
-    fill: #595959;
+    fill: $reception-color;
 }
 
-#svg #map .retire_serv {
-    fill: #990066;
+#svg #map .retire-serv {
+    fill: $retire-serv-color;
 }
 
-#svg #map .stairs_exit {
-    fill: #FF9988;
+#svg #map .stairs-exit {
+    fill: $stairs-exit-color;
 }
 
-#svg #map .storage_rm {
-    fill: #D3D3D3;
+#svg #map .storage-rm {
+    fill: $storage-rm-color;
 }
 
 #svg #map .tpa {
-    fill: #FF7F50;
+    fill: $tpa-color;
 }
 
 #svg #map .vacant {
-    fill: #898989;
+    fill: $vacant-color;
 }
 
 #svg #map .vsa {
-    fill: #FFFF00;
+    fill: $vsa-color;
 }
 
-#svg #map .kitchen{
-
-}
 
 /* flex box container */
-#svg {
+.flexbox-container {
     display: flex;
+    height: 100%;
+    // flex-direction:column;
+    flex-flow:column;
+    // display: -webkit-flex; /* Safari */
+    //-webkit-flex-direction: column; /* Safari */
 }
 
-/* flex box item within container */
-#map{
-    flex-shrink: 100;
+ion-content .scroll {
+    height: 100%;
 }
+
+.flexbox-container .directions {
+  flex: 0 1 auto;
+}
+
+.flexbox-container #svg {
+  flex: 1 1 auto;
+}
+
+
+// /* flex box items within container: #map, #item-input-wrapper, #footer(to be added later if we want) */
+// #map{
+//     flex: 0 1 auto;
+// }
+
+// #item-input-wrapper{
+//     flex: 1 0 auto;
+// }
 
 /* SVG Map Legend Styles */
 

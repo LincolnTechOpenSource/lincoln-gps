@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - map/graph_lib/graph.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>map/graph_lib/graph.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">68.14</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">254</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">66.12</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.71</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">/*
+ * graph.js
+ * Matthew Vasseur
+ * 05/31/16
+ *
+ * a simple undirected graph to represent the office
+ /*---------------------------------------------------------------------------*/
+(function() {
+    &#039;use strict&#039;;
+
+    angular
+        .module(&#039;app.map&#039;)
+        .factory(&#039;Graphing&#039;, Graphing);
+
+    // Graphing.$inject = [&#039;$q&#039;, &#039;NodeTypeEnum&#039;];
+    /* @ngInject */
+    function Graphing($q, NodeTypeEnum) {
+        var URL = &#039;data/graph.json&#039;; // constant
+
+        var service = {
+            debug: false,
+            graph: null,
+
+            createGraph: createGraph
+        };
+
+        return service;
+
+        //------------------------------------------------//
+
+        function createGraph(data) {
+            $.getJSON(URL, function(data) {
+                service.graph = new Graph(data, service.debug);
+
+                console.info(&#039;Graph Created!&#039;);
+                return service.graph;
+            }).fail(function(error) {
+                console.error(error);
+            });
+        }
+    }
+
+    /**
+     * Graph
+     * @graph: (optional) a JSON representation of the graph to initialize
+     * @debug: only verify if debug is set to true (defaults to false)
+     */
+    function Graph(graph, debug) {
+        debug = debug || false;
+        this._nodes = graph ? graph._nodes : {}; // set of nodes in graph
+        this._nodeCount = graph ? graph._nodeCount : 0; // number of nodes
+        this._edgeCount = graph ? graph._edgeCount : 0; // number of edges
+
+        if (debug &amp;&amp; graph) {
+            _verify(this);
+        }
+    }
+
+    /**
+     * Graph define properties
+     */
+    Object.defineProperties(Graph.prototype, {
+        // nodeCount
+        nodeCount: {
+            get: function() { // getter
+                return this._nodeCount;
+            },
+        },
+        // edgeCount
+        edgeCount: {
+            get: function() { // getter
+                return this._edgeCount;
+            },
+        },
+        // nodes
+        nodes: {
+            get: function() { // getter
+                return this._nodes;
+            },
+        },
+    });
+
+    /**
+     * Graph.find: returns the node specified by ID (or undefined)
+     * @id: the ID of the node to find
+     */
+    Graph.prototype.find = function(id) {
+        return this._nodes[id];
+    };
+
+    /**
+     * Graph.exists: checks if the specified ID already exists in the graph
+     * @id: the ID of the node to check
+     */
+    Graph.prototype.exists = function(id) {
+        return this._nodes[id] !== undefined;
+    };
+
+    /**
+     * Graph.addNode: add a new node to the graph
+     * @id: the node&#039;s ID (a number)
+     * @weight: the weight of the node to create
+     * @nType: the type of the node to create
+     */
+    Graph.prototype.addNode = function(id, weight, nType) {
+        // only add node if it does not already exist (TODO: might change)
+        if (!this.exists(id)) {
+            // create &amp; add new node
+            this._nodes[id] = new Graph.Node(id, weight, nType);
+            ++this._nodeCount;
+        }
+        return this._nodes[id];
+    };
+
+    /**
+     * Graph.deleteNode: delete a node from the graph. true if successful
+     * @id: the ID of the node to delete
+     */
+    Graph.prototype.deleteNode = function(id) {
+        // only remove if it exists
+        if (this.exists(id)) {
+            // remove all incident edges
+            for (var i = 0; i &lt; this._nodes[id]._neighbors.length; i++) {
+                var n = this._nodes[this._nodes[id]._neighbors[i]]; // get node
+                var index = n._neighbors.indexOf(id); // index n&#039;s neighbors w/ id
+
+                if (index &gt; -1) {
+                    n._neighbors.splice(index, 1);
+                    --this._edgeCount;
+                }
+            }
+            // remove from nodes
+            delete this._nodes[id];
+            --this._nodeCount;
+
+            return true;
+        }
+
+        return false;
+    };
+
+    /**
+     * Graph.addEdge: connect two nodes (undirected edges)
+     * @source: ID of one end of the edge
+     * @target: ID of the other end of the edge
+     */
+    Graph.prototype.addEdge = function(source, target) {
+        // create the source &amp; target nodes
+        var s = this.addNode(source);
+        var t = this.addNode(target);
+
+        // add each node to the other&#039;s edge list
+        s._neighbors.push(t._id);
+        t._neighbors.push(s._id);
+        ++this._edgeCount;
+
+        return true;
+    };
+
+    /**
+     * Graph.deleteEdge: delete an edge from the graph. true if successful
+     * @source: ID of one end of the edge to delete
+     * @target: ID of the other end of the edge to delete
+     */
+    Graph.prototype.deleteEdge = function(source, target) {
+        var s = this._nodes[source]; // the node corresponding to source ID
+        var t = this._nodes[target]; // the node corresponding to target ID
+
+        // ensure they exist
+        if (s === undefined || t === undefined) {
+            return false;
+        }
+
+        // delete from neighbor array
+        s._neighbors.splice(s._neighbors.indexOf(target), 1);
+        t._neighbors.splice(t._neighbors.indexOf(source), 1);
+        --this._edgeCount;
+
+        return true;
+    };
+
+    /**
+     * Graph.edgeWeight: return the weight of the specified edge
+     * the weight of the edge is defined as the weight of the source node
+     * @source: ID of one end of the edge
+     * @target:ID of the other end of the edge
+     */
+    Graph.prototype.edgeWeight = function(source, target) {
+        return this._nodes[source]._weight;
+    };
+
+    /**
+     * Node
+     */
+    Graph.Node = function(id, weight, nType) {
+        var node = {}; // create a new node
+
+        node._id = id; // node&#039;s ID
+        node._neighbors = []; // neighbors of this node (i.e., list of node IDs)
+        node._weight = weight || 0; // weight of this node (e.g., distance)
+        node._nType = nType || 0; // node&#039;s type (an enumeration)
+
+        return node;
+    };
+
+    /**
+     * _verify: ensure that the graph is consistent (debugging)
+     * i.e., nodes and edges exist and that all edges are bi-directional
+     */
+    function _verify(graph) {
+        console.info(&#039;Verifying Graph&#039;);
+        // the number of nodes should be the same as the nodeCount
+        var numNodes = Object.keys(graph.nodes).length;
+        _assert(numNodes === graph.nodeCount, &#039;Inconsistent nodeCount (&#039; +
+            numNodes + &#039; != &#039; + graph.nodeCount + &#039;)&#039;);
+
+        // verify each node
+        var numEdges = 0;
+        var keys = Object.keys(graph.nodes);
+        // for (var i in keys) {
+        for (var i = 0; i &lt; keys.length; i++) {
+            var n = graph.nodes[keys[i]];
+            // should have non-negative weight and type between 1 and 6
+            _assert(n._weight &gt;= 0, &#039;Negative Weight (&#039; + n._weight + &#039;)&#039;);
+            _assert(n._nType &gt; 0 &amp;&amp; n._nType &lt;= 9, &#039;Irregular Type (&#039; +
+                n._nType + &#039;)&#039;);
+
+            // should have consistent edges and no self edges
+            for (var j = 0; j &lt; n._neighbors.length; j++) {
+                numEdges++; // count number of edges (should be double)
+                var k = graph.nodes[n._neighbors[j]];
+
+                _assert(k._id !== n._id, &#039;Cannot have self edge (&#039; +
+                    n._id + &#039;)&#039;);
+
+                _assert(k._neighbors.includes(n._id), &#039;Inconsisent Edge (&#039; +
+                    &#039;Inconsisent Edge (&#039; + n._id + &#039;,&#039; + k._id + &#039;)&#039;);
+            }
+        }
+        // number of edges should be same as the edgeCount
+        _assert(numEdges / 2 === graph.edgeCount, &#039;Inconsistent edgeCount (&#039; +
+            numEdges / 2 + &#039; != &#039; + graph.edgeCount + &#039;)&#039;);
+
+        return true;
+    }
+
+    /**
+     * _assert: debugging function
+     * @condition: condition that should be true
+     * @message: error message to display in failure
+     */
+    function _assert(condition, message) {
+        if (!condition) {
+            message = message || &#039;Assertion failed&#039;;
+            if (typeof Error !== &#039;undefined&#039;) {
+                throw new Error(message);
+            }
+            throw message; // Fallback
+        }
+    }
+})();
+/*----------------------------------------------------------------------------*/</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

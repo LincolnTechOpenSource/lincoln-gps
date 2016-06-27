@@ -423,9 +423,8 @@
             title: 'Plato Inspections Report',
             // exclude: excludeFiles
         };
-        var outputDir = './report/plato';
 
-        plato.inspect(files, outputDir, options, platoCompleted);
+        plato.inspect(files, paths.platoDir, options, platoCompleted);
 
         function platoCompleted(report) {
             var overview = plato.getOverviewReport(report);

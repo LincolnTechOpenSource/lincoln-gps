@@ -28,5 +28,6 @@
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"
   },
-  "data": "./src/server/data/*.json"
+  "data": "./src/server/data/*.json",
+  "platoDir": "./reports/plato"
 }

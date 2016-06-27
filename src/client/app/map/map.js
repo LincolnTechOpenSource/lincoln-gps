@@ -20,11 +20,11 @@
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
         .controller('MapCtrl', MapCtrl);
 
-    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
+    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', '$timeout', 'Users', 'Locations',
         'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
     ];
-    // jshint maxparams:11
-    function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
+    // jshint maxparams:12
+    function MapCtrl($rootScope, $scope, $log, $q, $timeout, Users, Locations,
         Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
         var vm = this;
 
@@ -166,8 +166,12 @@
                 var directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
 
                 $('#svg #map .loc').removeClass('hilite'); // clear old path
+
+                // hilite each block in the path
                 for (var i = 0; i < directions.length; i++) {
-                    $('#svg #map .loc#' + directions[i]).addClass('hilite'); // hilite each block in the path
+                    $timeout(function() {
+                        $('#svg #map .loc#' + directions[i]).addClass('hilite');
+                    }, 1000);
                 }
             }
         }
@@ -213,13 +217,14 @@
             var fudgeFactor = 200;
             var height;
 
-            height = docHeight - offset - fudgeFactor;
+            // height = docHeight - offset - fudgeFactor;
 
-            $('#svg').height(height);
+            // $('#svg').height(height);
+            $log.log($('#svg').height());
             $('#map').height($('#svg').height());
 
-            beforePan = function(oldPan, newPan) {
 
+            beforePan = function(oldPan, newPan) {
                 var gutterWidth = 100;
                 var gutterHeight = 100;
                 // Computed variables
