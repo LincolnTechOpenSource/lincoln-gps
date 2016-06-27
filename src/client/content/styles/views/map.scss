@@ -252,6 +252,15 @@
 
 }
 
+/* flex box container */
+#svg {
+    display: flex;
+}
+
+/* flex box item within container */
+#map{
+    flex-shrink: 100;
+}
 
 /* SVG Map Legend Styles */
 

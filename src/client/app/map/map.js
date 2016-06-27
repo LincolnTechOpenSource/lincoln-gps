@@ -205,60 +205,39 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            /*window.onload = function() {*/
             var beforePan;
-            var w;
-            var h;
-            var x;
-            var doc_height = (window.outerHeight ||
+            var docHeight = (window.outerHeight ||
                 document.documentElement.clientHeight ||
                 document.body.clientHeight);
-            var offset = $("ion-content").position().top + $("#svg").position().top;
-            /*var x = $('#svg').offset();
-                    w = window.innerWidth
-                    || document.documentElement.clientWidth
-                    || document.body.clientWidth;
+            var offset = $('ion-content').position().top + $('#svg').position().top;
+            var fudgeFactor = 200;
+            var height;
 
-                     h = (window.outerHeight
-                    || document.documentElement.clientHeight
-                    || document.body.clientHeight) - x.top;*/
-            //console.log(x.top);
-            h = (window.outerHeight ||
-                    document.documentElement.clientHeight ||
-                    document.body.clientHeight) - $('.text-center').height() - $('.tab-nav').outerHeight() -
-                $('.title-center').outerHeight() -
-                $('.item-input-wrapper').outerHeight() - 90;
-            //   console.log(w);
-            $('#svg').height(doc_height - 306);
+            height = docHeight - offset - fudgeFactor;
+
+            $('#svg').height(height);
             $('#map').height($('#svg').height());
-            //  $('#map').width(w);
 
             beforePan = function(oldPan, newPan) {
-                var stopHorizontal = false,
-                    stopVertical = false,
-                    gutterWidth = 100,
-                    gutterHeight = 100,
-                    // Computed variables
-                    //for across different browsers
-                    /* w = window.innerWidth
-                     || document.documentElement.clientWidth
-                     || document.body.clientWidth,
-                     h = window.innerHeight
-                     || document.documentElement.clientHeight
-                     || document.body.clientHeight,*/
-                    sizes = this.getSizes(),
-                    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
-                    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
-                    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
-                    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
-                var customPan = {}; //({x:0,y:0});
-                customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
-                customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y));
-                return customPan;
+
+                var gutterWidth = 100;
+                var gutterHeight = 100;
+                // Computed variables
+                var sizes = this.getSizes();
+                var leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth;
+                var rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom);
+                var topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight;
+                var bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+
+                return {
+                    x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
+                    y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+                };
             };
 
             // Expose to window namespace for testing purposes
-            window.panZoom = svgPanZoom("#map", {
+            /* global svgPanZoom */
+            svgPanZoom('#map', {
                 viewportSelector: '#map',
                 useCurrentView: true,
                 zoomEnabled: true,
@@ -267,7 +246,6 @@
                 center: true,
                 beforePan: beforePan
             });
-            panZoom.setBeforePan(beforePan);
         }
 
     }

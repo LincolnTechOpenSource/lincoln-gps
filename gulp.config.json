@@ -1,6 +1,8 @@
 {
   "client": "./src/client/",
   "server": "./src/server/",
+  "buildDev": ".dev",
+  "build": "www",
   "html": "./src/client/**/*.html",
   "htmltemplates": "./src/client/app/**/*.html",
   "sass": "./src/client/content/styles/main.scss",

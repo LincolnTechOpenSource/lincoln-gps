@@ -5,7 +5,7 @@ node_modules/
 platforms/
 plugins/
 bower_components/
-
+report/
 .dev/
 www/
 .sass-cache

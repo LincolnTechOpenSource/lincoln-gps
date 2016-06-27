@@ -117,12 +117,12 @@ BinaryHeap code may be freely distributed under the MIT License
                     if (child2N < this.content.length) {
                         var child2 = this.content[child2N];
                         var child2score = this.scoreFunction(child2);
-                        if ((swap == null ? score : child1score) > child2score) {
+                        if ((swap === null ? score : child1score) > child2score) {
                             swap = child2N;
                         }
                     }
 
-                    if (swap == null) {
+                    if (swap === null) {
                         break;
                     }
 

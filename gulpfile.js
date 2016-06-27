@@ -1,4 +1,5 @@
-// jshint maxstatements:51
+/* gulpfile.js */
+// jshint maxstatements:53
 (function(){
     'use strict';
 
@@ -19,12 +20,9 @@
     var merge = require('merge-stream');
     var ripple = require('ripple-emulator');
     // var wiredep = require('wiredep');
-    // var plato = require('plato');
-
+    var plato = require('plato');
+    var glob = require('glob');
     var plugins = require('gulp-load-plugins')();
-    // var glob = require('glob');
-    // var log = plugins.util.log;
-
 
     /**
      * Parse arguments
@@ -45,7 +43,7 @@
     var run = args.run;
     var port = args.port;
     var stripDebug = !!args.stripDebug;
-    var targetDir = path.resolve(build ? 'www' : '.dev');
+    var targetDir = path.resolve(build ? paths.build : paths.buildDev);
 
     // if we just use emualate or run without specifying platform, we assume iOS
     // in this case the value returned from yargs would just be true
@@ -121,7 +119,7 @@
         var jshint = analyzejshint(paths.js.concat('./gulpfile.js'));
         var jscs = analyzejscs(paths.js.concat('./gulpfile.js'));
 
-        // startPlatoVisualizer();
+        startPlatoVisualizer();
 
         return merge(jshint, jscs);
     });
@@ -415,23 +413,23 @@
     /**
      * Start Plato inspector and visualizer
      */
-    // function startPlatoVisualizer() {
-    //     log('Running Plato');
+    function startPlatoVisualizer() {
+        plugins.util.log('Running Plato');
 
-    //     var files = glob.sync('./src/client/app/**/*.js');
-    //     var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;
+        var files = glob.sync('./src/client/app/**/*.js');
+        // var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;
 
-    //     var options = {
-    //         title: 'Plato Inspections Report',
-    //         exclude: excludeFiles
-    //     };
-    //     var outputDir = './report/plato';
+        var options = {
+            title: 'Plato Inspections Report',
+            // exclude: excludeFiles
+        };
+        var outputDir = './report/plato';
 
-    //     plato.inspect(files, outputDir, options, platoCompleted);
+        plato.inspect(files, outputDir, options, platoCompleted);
 
-    //     function platoCompleted(report) {
-    //         var overview = plato.getOverviewReport(report);
-    //         log(overview.summary);
-    //     }
-    // }
+        function platoCompleted(report) {
+            var overview = plato.getOverviewReport(report);
+            plugins.util.log(overview.summary);
+        }
+    }
 })();
