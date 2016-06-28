@@ -24,11 +24,11 @@
                 <div id="to-loc" class="col col-48">
                     <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
-                                    <div class="item-input-wrapper">
-                                        <i class="icon ion-ios-search"></i>
-                                        <input type="text" ng-change="vm.changed()" ng-model="vm.selectNode.toNode.name" placeholder="To" disabled>
-                                    </div>
-                                </label>
+                            <div class="item-input-wrapper">
+                                <i class="icon ion-ios-search"></i>
+                                <input type="text" ng-model="vm.selectNode.toNode.name" placeholder="To" disabled>
+                            </div>
+                        </label>
                     </ion-search-select>
                     <location-info location="vm.selectNode.toNode">
                         <i on-tap="vm.clearLocation('toNode')" class="x-clear icon ion-close"></i>
@@ -279,7 +279,8 @@
                             <rect class="path loc" id="1060" width="80" height="160" transform="translate(170,1240)" />
                             <rect class="path loc" id="1061" width="80" height="60" transform="translate(170,1400)" />
                             <rect class="path loc" id="1062" width="80" height="140" transform="translate(170,1460)" />
-                            <rect class="path loc" id="1063" width="140" height="60" transform="translate(170,1600)" />
+                            <rect class="path loc" id="1063" width="75" height="60" transform="translate(170,1600)" />
+                            <rect class='path loc' id='1380' width='65' height='60' transform='translate(245, 1600)' ></rect>
                             <rect class="path loc" id="1064" width="105" height="60" transform="translate(310,1600)" />
                             <rect class="path loc" id="1065" width="105" height="60" transform="translate(415,1600)" />
                             <rect class="path loc" id="1066" width="120" height="60" transform="translate(520,1600)" />
@@ -484,12 +485,22 @@
                                 <rect x='1436' y='3115' class='path loc' id='1379' width='10' height='45' ></rect>
                                 <rect x='1446' y='3115' class='path loc' id="1368" width='34' height='45' ></rect>
                                 <polygon points='1298,3170 1310,3160 1390,3160 1339,3211' class='path loc' id='1370'></polygon>
-                                <polygon points='1339,3211 1390,3160 1390,3265' class='path loc' id="1381" ></polygon>
+                                <polygon points='1339,3211 1390,3160 1390,3265' class='path loc' id="1375" ></polygon>
                                 <rect x='1390' y='3160' class='path loc' id='1371' width='46' height='52' ></rect>
                                 <rect x='1436' y='3160' class='path loc' id='1372' width='46' height='52' ></rect>
                                 <rect x='1390' y='3212' class='path loc' id='1373' width='46' height='53' ></rect>
                                 <rect x='1436' y='3212' class='path loc' id='1374' width='46' height='53' ></rect>
-                                <rect x="1480" y="3115" width="200" height="145" class="path loc" id="1194"></rect>
+                                <rect x="1480" y="3115" width="50" height="45" class="path loc" id="1194"></rect>
+                                <rect x="1530" y="3115" width="100" height="45" class="path loc" id="1381"></rect>
+                                <rect x="1630" y="3115" width="50" height="45" class="path loc" id="1382"></rect>
+                                <rect x="1480" y="3160" width="50" height="52" class="path loc" id="1383"></rect>
+                                <rect x="1530" y="3160" width="100" height="52" class="path loc" id="1384"></rect>
+                                <rect x="1630" y="3160" width="50" height="52" class="path loc" id="1385"></rect>
+                                <rect x="1480" y="3212" width="50" height="53" class="path loc" id="1386"></rect>
+                                <rect x="1530" y="3212" width="100" height="53" class="path loc" id="1387"></rect>
+                                <rect x="1630" y="3212" width="50" height="53" class="path loc" id="1388"></rect>
+
+
                                 <polygon points="1680,3115 1925,3115 1770,3260 1680,3260" class="path loc" id="1195"></polygon>
                                 <polygon points="1230,3080 1300,3080 1298,3147" class="path loc" id="1181"></polygon>
                             </g>

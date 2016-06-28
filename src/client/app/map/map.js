@@ -169,9 +169,9 @@
                     $('#svg #map #' + newNode.id).addClass('hilite');
                 }
             }
-            if (!!oldNode && (vm.selectNode[node] !== oldNode) && (newNode !== oldNode)) {
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
-            }
+            // if (!!oldNode && (vm.selectNode[node] !== oldNode) && (newNode !== oldNode)) {
+            //     $('#svg #map #' + oldNode.id).removeClass('hilite');
+            // }
         }
 
         function findDirections() {
@@ -181,6 +181,10 @@
             }
             var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
                 vm.selectNode.toNode.$id, Graphing.graph);
+
+            if (dirResults.cached) {
+                return;
+            }
 
             // clear old path and queue
             for (var i = 0; i < vm.directions.length; i++) {
@@ -198,14 +202,13 @@
             }
 
             // hilite each block in the path (immediately highlight from and to)
-            $('#svg #map .loc#' + vm.selectNode.fromNode.$id).addClass('hilite');
-            $('#svg #map .loc#' + vm.selectNode.toNode.$id).addClass('hilite');
-            for (i = 1; i < vm.directions.length - 1; i++) {
+            // $('#svg #map .loc#' + vm.selectNode.fromNode.$id).addClass('hilite');
+            // $('#svg #map .loc#' + vm.selectNode.toNode.$id).addClass('hilite');
+            for (i = 0; i < vm.directions.length; i++) {
                 var j = Math.floor(i / 2); // show two at a time
                 $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
                 // $('#svg #map .loc#' + vm.directions[i]).addClass('hilite');
             }
-            // }
         }
 
         function checkSelect(event) {

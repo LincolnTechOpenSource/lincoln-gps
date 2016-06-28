@@ -15,6 +15,12 @@
     Dijkstra.$inject = ['MinHeap', 'NodeTypeEnum'];
     function Dijkstra(MinHeap, NodeTypeEnum) {
         var service = {
+            prev: { // the previously run search (caching)
+                s: null, // prev source
+                t: null, // prev target
+                r: {} // prev results
+            },
+
             run: run,
             getPath: getPath
         };
@@ -31,6 +37,15 @@
          * @graph: the graph on which to run algorithm`
          */
         function run(source, target, graph) {
+            if (source === service.prev.s && target === service.prev.t) {
+                service.prev.r.cached = true;
+                return service.prev.r;
+            } else {
+                service.prev.r.cached = false;
+                service.prev.s = source;
+                service.prev.t = target;
+            }
+
             // binary min heap of the unvisited nodes (on distance)
             var unvisited = new MinHeap(
                 function(e) {
@@ -71,10 +86,11 @@
             // return if source is the same as target (i.e., already there)
             if (source === target) {
                 console.log('Same Spot');
-                return {
+                service.prev.r = {
                     dist: dist,
                     prev: prev
                 };
+                return service.prev.r;
             }
 
             return runAlgorithm();
@@ -107,11 +123,12 @@
                     }
                 }
 
-                // return distances and previous
-                return {
+                // return distances and previous (and cache)
+                service.prev.r = {
                     dist: dist,
                     prev: prev
                 };
+                return service.prev.r;
             }
         }
 
