@@ -38,6 +38,7 @@
         };
         // vm.clear = clear;
         vm.clearLocation = clearLocation;
+        vm.swap = swap;
 
         $scope.$watch('vm.selectNode.toNode', watchNode.bind(null, 'toNode'));
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
@@ -141,6 +142,13 @@
             vm.selectNode[locSelect] = null; // clear the location
         }
 
+        /** swaps the from and to locations */
+        function swap() {
+            var tmpNode = vm.selectNode.fromNode;
+            vm.selectNode.fromNode = vm.selectNode.toNode;
+            vm.selectNode.toNode = tmpNode;
+        }
+
         /** watch a @node (to or from) for changes and handle them (via mapping) */
         function watchNode(node, newNode, oldNode) {
             // select on map option
@@ -172,16 +180,16 @@
 
                 $('#svg #map .loc').removeClass('hilite'); // clear old path
 
-                (function($) {
-                    $.fn.queued = function() {
-                        var self = this;
-                        var func = arguments[0];
-                        var args = [].slice.call(arguments, 1);
-                        return this.queue(function() {
-                            $.fn[func].apply(self, args).dequeue();
-                        });
-                    };
-                }($));
+                // (function($) {
+                //     $.fn.queued = function() {
+                //         var self = this;
+                //         var func = arguments[0];
+                //         var args = [].slice.call(arguments, 1);
+                //         return this.queue(function() {
+                //             $.fn[func].apply(self, args).dequeue();
+                //         });
+                //     };
+                // }($));
 
 
                 // reset view for long paths
@@ -193,7 +201,8 @@
 
                 // hilite each block in the path
                 for (var i = 0; i < directions.length; i++) {
-                    $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
+                    // $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
+                    $('#svg #map .loc#' + directions[i]).addClass('hilite');
                 }
             }
         }

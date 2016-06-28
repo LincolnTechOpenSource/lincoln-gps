@@ -18,7 +18,9 @@
                         <i on-tap="vm.clearLocation('fromNode')" class="x-clear icon ion-close"></i>
                     </location-info>
                 </div>
-                <div class="col icon ion-arrow-swap text-center swap"></div>
+                <div class="col text-center">
+                    <a class="swap button calm button-icon icon ion-arrow-swap" on-tap="vm.swap()"></a>
+                </div>
                 <div id="to-loc" class="col col-48">
                     <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
