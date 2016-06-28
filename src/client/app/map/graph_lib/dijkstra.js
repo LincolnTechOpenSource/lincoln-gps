@@ -15,10 +15,11 @@
     Dijkstra.$inject = ['MinHeap', 'NodeTypeEnum'];
     function Dijkstra(MinHeap, NodeTypeEnum) {
         var service = {
-            prev: { // the previously run search (caching)
-                s: null, // prev source
-                t: null, // prev target
-                r: {} // prev results
+            // the previously run search (caching)
+            prev: {
+                s: null, // previous source
+                t: null, // previous target
+                r: {} // previous results
             },
 
             run: run,

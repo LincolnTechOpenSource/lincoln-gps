@@ -349,6 +349,7 @@
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
+        gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
             .on('error', errorHandler);

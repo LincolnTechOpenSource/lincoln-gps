@@ -24,9 +24,9 @@
     //     'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
     // ];
 
-    // jshint maxparams:13
+    // jshint maxparams:14
     /* @ngInject */
-    function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
+    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, Users, Locations,
         Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser, PanZoom) {
         var vm = this;
 
@@ -55,6 +55,11 @@
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
+
+        $ionicGesture.on('pinch', function(e) {
+            // $scope.zoom = e.gesture.scale;
+            console.log(e.gesture.scale);
+        }, $('#map'));
 
         // initialize & create graph
         Graphing.debug = true; // debug for testing purposes
@@ -183,7 +188,7 @@
                 vm.selectNode.toNode.$id, Graphing.graph);
 
             if (dirResults.cached) {
-                return;
+                return; // stop if the results are the same !
             }
 
             // clear old path and queue
@@ -202,8 +207,6 @@
             }
 
             // hilite each block in the path (immediately highlight from and to)
-            // $('#svg #map .loc#' + vm.selectNode.fromNode.$id).addClass('hilite');
-            // $('#svg #map .loc#' + vm.selectNode.toNode.$id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
                 var j = Math.floor(i / 2); // show two at a time
                 $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
@@ -251,6 +254,8 @@
                 viewportSelector: '#map',
                 useCurrentView: true,
                 zoomEnabled: true,
+                minZoom: 0.1,
+                maxZoom: 20,
                 controlIconsEnabled: false,
                 // preventMouseEventsDefault: false,
                 fit: true,
