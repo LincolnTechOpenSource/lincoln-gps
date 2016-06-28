@@ -56,9 +56,9 @@
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
 
-        $ionicGesture.on('pinch', function(e) {
-            // $scope.zoom = e.gesture.scale;
-            console.log(e.gesture.scale);
+        // enable pinch to zoom (for mobile)
+        $ionicGesture.on('pinch', function(ev) {
+            PanZoom.map.zoom(PanZoom.map.getZoom() * ev.gesture.scale);
         }, $('#map'));
 
         // initialize & create graph
