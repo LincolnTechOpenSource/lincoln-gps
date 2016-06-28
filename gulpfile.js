@@ -414,7 +414,7 @@
      * Start Plato inspector and visualizer
      */
     function startPlatoVisualizer() {
-        plugins.util.log('Running Plato');
+        // plugins.util.log('Running Plato');
 
         var files = glob.sync('./src/client/app/**/*.js');
         // var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;

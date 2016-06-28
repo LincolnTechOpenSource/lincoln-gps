@@ -27,7 +27,7 @@
     // jshint maxparams:13
     /* @ngInject */
     function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser) {
+        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser, PanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -183,19 +183,17 @@
                     };
                 }($));
 
+
+                // reset view for long paths
+                if (dirResults.dist[vm.selectNode.toNode.$id] > 50) {
+                    PanZoom.map.fit();
+                    PanZoom.map.center();
+                    PanZoom.map.resetZoom();
+                }
+
                 // hilite each block in the path
                 for (var i = 0; i < directions.length; i++) {
                     $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
-                }
-
-                //TODO: Create function that resizes/positions map according to
-                //path weight that was calculated via Djikstra
-                if (dirResults.dist[vm.selectNode.toNode] > 10) {
-
-                    vm.map.panZoom.fit();
-                    vm.map.panZoom.resize();
-                    vm.map.panZoom.center();
-                    vm.map.panZoom.resetZoom();
                 }
             }
         }
@@ -234,26 +232,9 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            $('#map').height($('#svg').height() * 0.9);
+            $('#map').height($('#svg').height() * 0.89);
 
-            var beforePan = function(oldPan, newPan) {
-                var gutterWidth = 75;
-                var gutterHeight = 75;
-                // Computed variables
-                var sizes = this.getSizes();
-                var leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth;
-                var rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom);
-                var topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight;
-                var bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
-
-                return {
-                    x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
-                    y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-                };
-            };
-
-            /* global svgPanZoom */
-            var mapPanZoom = svgPanZoom('#map', {
+            PanZoom.init('#map', {
                 viewportSelector: '#map',
                 useCurrentView: true,
                 zoomEnabled: true,
@@ -264,25 +245,40 @@
                 beforePan: beforePan
             });
 
+            function beforePan(oldPan, newPan) {
+                var gutterWidth = 75;
+                var gutterHeight = 75;
+                // Computed variables
+                var sizes = PanZoom.map.getSizes();
+                var leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth;
+                var rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom);
+                var topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight;
+                var bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+
+                return {
+                    x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
+                    y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+                };
+            }
+
             $('#zoom-in').on('click', function(ev) {
                 ev.preventDefault();
 
-                mapPanZoom.zoomIn();
+                PanZoom.map.zoomIn();
             });
 
             $('#zoom-out').on('click', function(ev) {
                 ev.preventDefault();
 
-                mapPanZoom.zoomOut();
+                PanZoom.map.zoomOut();
             });
 
             $('#reset').on('click', function(ev) {
                 ev.preventDefault();
 
-                mapPanZoom.fit();
-                mapPanZoom.resize();
-                mapPanZoom.center();
-                mapPanZoom.resetZoom();
+                PanZoom.map.fit();
+                PanZoom.map.center();
+                PanZoom.map.resetZoom();
             });
 
         } // end document ready
