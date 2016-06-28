@@ -32,7 +32,7 @@
             $.getJSON(URL, function(data) {
                 service.graph = new Graph(data, service.debug);
 
-                console.info('Graph Created!');
+                // console.info('Graph Created!');
                 return service.graph;
             }).fail(function(error) {
                 console.error(error);

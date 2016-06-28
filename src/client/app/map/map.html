@@ -5,7 +5,7 @@
         <div class="flexbox-container">
             <!--<h2 class="text-center">Lincoln GPS Locator</h2>-->
             <div class="row directions responsive-sm">
-                <div id="from-loc" class="col col-50">
+                <div id="from-loc" class="col col-48">
                     <ion-search-select title="From" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.fromNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
                             <div class="item-input-wrapper" >
@@ -18,7 +18,8 @@
                         <i on-tap="vm.clearLocation('fromNode')" class="x-clear icon ion-close"></i>
                     </location-info>
                 </div>
-                <div id="to-loc" class="col col-50">
+                <div class="col icon ion-arrow-swap text-center swap"></div>
+                <div id="to-loc" class="col col-48">
                     <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
                                     <div class="item-input-wrapper">
@@ -427,7 +428,8 @@
                                 <rect class="path loc" id="1156" x="1480" y="3080" width="50" height="35"></rect>
                                 <rect class="path loc" id="1157" x="1480" y="3000" width="50" height="80"></rect>
                                 <rect class="path loc" id="1158" x="1480" y="2920" width="50" height="80"></rect>
-                                <rect class="path loc" id="1159" x="1300" y="3080" width="180" height="35"></rect>
+                                <rect class="path loc" id="1159" x="1300" y="3080" width="90" height="35"></rect>
+                                <rect class="path loc" id="1369" x="1390" y="3080" width="90" height="35"></rect>
                             </g>
                             <polygon points="530,2520 620,2520 530,2610" class="path loc" id="1180"></polygon>
                             <polygon points="620,2420 725,2420 620,2520" class="path loc" id="1189"></polygon>
@@ -469,7 +471,13 @@
                             <rect x="530" y="2440" class="path loc" id="1188" width="90" height="80"></rect>
                             <rect x="440" y="2720" width="75" height="130" class="path loc" id="1192"></rect>
                             <g transform="rotate(45,1450,2000)">
-                                <polygon points="1300,3115 1298,3147 1310,3157 1310,3115" class="path loc" id="1193"></polygon>
+                                <polygon points="1300,3115 1298,3147 1310,3160 1310,3115" class="path loc" id="1193"></polygon>
+                                <rect x='1310' y='3115' class='path loc' id="1364" width='34' height='45' ></rect>
+                                <rect x='1344' y='3115' class='path loc' id="1365" width='34' height='45' ></rect>
+                                <rect x='1378' y='3115' class='path loc' id="1366" width='34' height='45' ></rect>
+                                <rect x='1412' y='3115' class='path loc' id="1367" width='34' height='45' ></rect>
+                                <rect x='1446' y='3115' class='path loc' id="1368" width='34' height='45' ></rect>
+                                <polygon points='1300,3170 1310,3160 1370,3160 1370,3250' class='path loc' id='1370'></polygon>
                                 <rect x="1480" y="3115" width="200" height="145" class="path loc" id="1194"></rect>
                                 <polygon points="1680,3115 1925,3115 1770,3260 1680,3260" class="path loc" id="1195"></polygon>
                                 <polygon points="1230,3080 1300,3080 1298,3147" class="path loc" id="1181"></polygon>

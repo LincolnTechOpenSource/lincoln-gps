@@ -6,3 +6,15 @@
 
 // Include all of Ionic for compilation
 @import 'bower_components/ionic/scss/ionic';
+
+// Addition column sizing
+.col-48 {
+  @include flex(0, 0, 48%);
+  max-width: 48%;
+}
+
+.col-offset-16,
+.col-offset-17 {
+    margin-left: 16.666%;
+}
+

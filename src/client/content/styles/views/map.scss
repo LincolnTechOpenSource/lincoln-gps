@@ -1,6 +1,48 @@
 /* map.scss */
 
 
+#tab-map .swap {
+    font-size: 35px;
+    color: $balanced;
+    padding: 0;
+}
+
+/* flex box container */
+#tab-map .flexbox-container,
+#tab-map .flexbox-container #svg {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+
+    height: 100%;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#tab-map ion-content .scroll {
+    height: 100%;
+}
+
+#tab-map .flexbox-container .directions,
+#tab-map .flexbox-container #svg {
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+}
+
+#tab-map .flexbox-container .controls {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+
+    padding: 0;
+    margin: 0;
+}
+
+
 /* SVG Map styling */
 
 #svg #map #filtered line {
@@ -281,57 +323,6 @@ $vsa-color: #FFFF00;
     fill: $vsa-color;
 }
 
-
-/* flex box container */
-.flexbox-container,
-.flexbox-container #svg {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-
-
-    height: 100%;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-ion-content .scroll {
-    height: 100%;
-}
-
-.flexbox-container .directions {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-}
-
-.flexbox-container #svg {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-}
-
-.flexbox-container .controls {
-    flex: 0 0 auto;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-
-    padding: 0;
-    margin: 0;
-}
-
-
-// /* flex box items within container: #map, #item-input-wrapper, #footer(to be added later if we want) */
-// #map{
-//     flex: 0 1 auto;
-// }
-
-// #item-input-wrapper{
-//     flex: 1 0 auto;
-// }
-
 /* SVG Map Legend Styles */
 
 #svg #map .dep-list .dep-list-text,
@@ -361,6 +352,4 @@ ion-content .scroll {
     stroke-width: 2px;
     stroke: #000000;
 }
-
-
 /*----------------------------------------------------------------------------*/
