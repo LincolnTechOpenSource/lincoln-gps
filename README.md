@@ -103,12 +103,13 @@ through locations in order to see them on the map.
 * 06/22/16: Made code and map more robust
 * 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
 * 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
-* 06/28/16: Updated paths on SVG; added minor features
+* 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
 
 ## Ideas to Contribute
 
 
 * [x] ~Enable map zoom and pan~
+* [x] ~Mobile pinch to zoom~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
