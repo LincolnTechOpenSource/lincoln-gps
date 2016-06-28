@@ -297,7 +297,7 @@
 
     // ionic emulate wrapper
     gulp.task('ionic:emulate', plugins.shell.task([
-        'ionic emulate ' + emulate + ' --livereload --consolelogs'
+        'ionic emulate ' + emulate + ' -p $PORT --consolelogs'
     ]));
 
     // ionic run wrapper
@@ -327,7 +327,7 @@
         var options = {
             keepAlive: false,
             open: true,
-            port: 4400
+            port: 8080
         };
 
         // Start the ripple server

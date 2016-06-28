@@ -187,7 +187,7 @@
                 }
             }
 
-                            //TODO: Create function that resizes/positions map according to path weight that was calculated via Djikstra
+                //TODO: Create function that resizes/positions map according to path weight that was calculated via Djikstra
                 //function resizeMap(event){
                 /*      if (node._weight > 50) {
                           mapPanZoom.fit();
