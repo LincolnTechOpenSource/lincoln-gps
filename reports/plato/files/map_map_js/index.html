@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">67.45</p>
+      <p class="stat">67.62</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">295</p>
+      <p class="stat">289</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">32.32</p>
+      <p class="stat">33.17</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">2.95</p>
+      <p class="stat">2.86</p>
     </div>
   </div>
 </div>
@@ -99,11 +99,11 @@
 
     // array of department class names
     var DEPARTMENT_NAMES = [
-        &#039;account_setup&#039;, &#039;accounting&#039;, &#039;acd&#039;, &#039;asset_mgmt&#039;, &#039;branch_dev&#039;, &#039;branch_serv&#039;,
-        &#039;broom&#039;, &#039;busi_dev&#039;, &#039;compli_licens&#039;, &#039;conf&#039;, &#039;copy_scan_rm&#039;, &#039;doc_mgmt&#039;, &#039;elevator_exit&#039;,
-        &#039;euc&#039;, &#039;exec_suite&#039;, &#039;facilities&#039;, &#039;finance&#039;, &#039;food&#039;, &#039;hr&#039;, &#039;isd&#039;, &#039;im_r&#039;, &#039;isa&#039;,
-        &#039;mrkt_comm&#039;, &#039;one_time_financials&#039;, &#039;ops&#039;, &#039;prvd_mgmt&#039;, &#039;quality_cntrl&#039;,
-        &#039;reception&#039;, &#039;rdi&#039;, &#039;retire_serv&#039;, &#039;stairs_exit&#039;, &#039;tpa&#039;, &#039;vsa&#039;
+        &#039;account-setup&#039;, &#039;accounting&#039;, &#039;acd&#039;, &#039;asset-mgmt&#039;, &#039;branch-dev&#039;, &#039;branch-serv&#039;,
+        &#039;broom&#039;, &#039;busi-dev&#039;, &#039;compli-licens&#039;, &#039;conf&#039;, &#039;copy-scan-rm&#039;, &#039;doc-mgmt&#039;, &#039;elevator-exit&#039;,
+        &#039;euc&#039;, &#039;exec-suite&#039;, &#039;facilities&#039;, &#039;finance&#039;, &#039;food&#039;, &#039;hr&#039;, &#039;isd&#039;, &#039;im-r&#039;, &#039;isa&#039;,
+        &#039;mrkt-comm&#039;, &#039;one-time-financials&#039;, &#039;ops&#039;, &#039;prvd-mgmt&#039;, &#039;quality-cntrl&#039;,
+        &#039;reception&#039;, &#039;rdi&#039;, &#039;retire-serv&#039;, &#039;stairs-exit&#039;, &#039;tpa&#039;, &#039;vsa&#039;
     ];
 
     angular
@@ -111,12 +111,14 @@
         .constant(&#039;DEPARTMENT_NAMES&#039;, DEPARTMENT_NAMES)
         .controller(&#039;MapCtrl&#039;, MapCtrl);
 
-    MapCtrl.$inject = [&#039;$rootScope&#039;, &#039;$scope&#039;, &#039;$log&#039;, &#039;$q&#039;, &#039;Users&#039;, &#039;Locations&#039;,
-        &#039;Firebase&#039;, &#039;DEPARTMENT_NAMES&#039;, &#039;Graphing&#039;, &#039;Params&#039;, &#039;Dijkstra&#039;
-    ];
-    // jshint maxparams:12
+    // MapCtrl.$inject = [&#039;$rootScope&#039;, &#039;$scope&#039;, &#039;$log&#039;, &#039;$q&#039;, &#039;Users&#039;, &#039;Locations&#039;,
+    //     &#039;Firebase&#039;, &#039;DEPARTMENT_NAMES&#039;, &#039;Graphing&#039;, &#039;Params&#039;, &#039;Dijkstra&#039;
+    // ];
+
+    // jshint maxparams:13
+    /* @ngInject */
     function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
+        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser) {
         var vm = this;
 
         vm.selectNode = {
@@ -166,7 +168,7 @@
 
         /** functions for after users have loaded */
         function usersLoad() {
-            var user = $rootScope.user || Users.get(Firebase.auth().$getAuth().uid);
+            var user = $rootScope.user || Users.get(currentUser.uid);
             $(&#039;#svg #map .loc&#039;).removeClass(&#039;filter-out&#039;); // remove old filter
             for (var filter in user.filters) {
                 if (user.filters.hasOwnProperty(filter)) {
@@ -278,15 +280,7 @@
                 }
             }
 
-                //TODO: Create function that resizes/positions map according to path weight that was calculated via Djikstra
-                //function resizeMap(event){
-                /*      if (node._weight &gt; 50) {
-                          mapPanZoom.fit();
-                          mapPanZoom.resize();
-                          mapPanZoom.center();
-                          mapPanZoom.resetZoom();
-                      } */
-                //}
+
         }
 
         function checkSelect(event) {
@@ -307,19 +301,19 @@
             $(&#039;#svg&#039;).on(&#039;click&#039;, &#039;#map .loc:not(.path)&#039;, checkSelect);
 
             for (var i = 0; i &lt; DEPARTMENT_NAMES.length; i++) {
-                $(&#039;.dep_list .&#039; + DEPARTMENT_NAMES[i]).hover(
+                $(&#039;.dep-list .&#039; + DEPARTMENT_NAMES[i]).hover(
                     // attach hover element to each legend component so that hovering over text
                     // makes all corresponding locations highlight
                     batchToggleClass([&#039;.loc.&#039; + DEPARTMENT_NAMES[i] + &#039;:not(.filter-out), &#039; +
-                        &#039;.dep_list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep_list_colorbox&#039;,
-                        &#039;.dep_list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep_list_text&#039;
+                        &#039;.dep-list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep-list-colorbox&#039;,
+                        &#039;.dep-list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep-list-text&#039;
                     ], [&#039;hilite&#039;, &#039;normal-text&#039;]));
 
                 // attach hover element to each loc component so that hovering over location
                 // makes the corresponding legend item highlight
                 $(&#039;.loc:not(.filter-out).&#039; + DEPARTMENT_NAMES[i]).hover(
-                    batchToggleClass([&#039;.dep_list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep_list_colorbox&#039;,
-                        &#039;.dep_list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep_list_text&#039;
+                    batchToggleClass([&#039;.dep-list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep-list-colorbox&#039;,
+                        &#039;.dep-list .&#039; + DEPARTMENT_NAMES[i] + &#039; .dep-list-text&#039;
                     ], [&#039;hilite&#039;, &#039;normal-text&#039;]));
             }
 
@@ -348,7 +342,7 @@
                 useCurrentView: true,
                 zoomEnabled: true,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false,
+                // preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan

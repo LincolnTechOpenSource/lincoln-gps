@@ -103,6 +103,7 @@ through locations in order to see them on the map.
 * 06/22/16: Made code and map more robust
 * 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
 * 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
+* 06/28/16:
 
 ## Ideas to Contribute
 

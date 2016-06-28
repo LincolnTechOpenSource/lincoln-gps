@@ -8,11 +8,11 @@
 
     // array of department class names
     var DEPARTMENT_NAMES = [
-        'account_setup', 'accounting', 'acd', 'asset_mgmt', 'branch_dev', 'branch_serv',
-        'broom', 'busi_dev', 'compli_licens', 'conf', 'copy_scan_rm', 'doc_mgmt', 'elevator_exit',
-        'euc', 'exec_suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im_r', 'isa',
-        'mrkt_comm', 'one_time_financials', 'ops', 'prvd_mgmt', 'quality_cntrl',
-        'reception', 'rdi', 'retire_serv', 'stairs_exit', 'tpa', 'vsa'
+        'account-setup', 'accounting', 'acd', 'asset-mgmt', 'branch-dev', 'branch-serv',
+        'broom', 'busi-dev', 'compli-licens', 'conf', 'copy-scan-rm', 'doc-mgmt', 'elevator-exit',
+        'euc', 'exec-suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im-r', 'isa',
+        'mrkt-comm', 'one-time-financials', 'ops', 'prvd-mgmt', 'quality-cntrl',
+        'reception', 'rdi', 'retire-serv', 'stairs-exit', 'tpa', 'vsa'
     ];
 
     angular
@@ -20,12 +20,14 @@
         .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
         .controller('MapCtrl', MapCtrl);
 
-    MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
-        'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
-    ];
-    // jshint maxparams:12
+    // MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
+    //     'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
+    // ];
+
+    // jshint maxparams:13
+    /* @ngInject */
     function MapCtrl($rootScope, $scope, $log, $q, Users, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra) {
+        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser) {
         var vm = this;
 
         vm.selectNode = {
@@ -75,7 +77,7 @@
 
         /** functions for after users have loaded */
         function usersLoad() {
-            var user = $rootScope.user || Users.get(Firebase.auth().$getAuth().uid);
+            var user = $rootScope.user || Users.get(currentUser.uid);
             $('#svg #map .loc').removeClass('filter-out'); // remove old filter
             for (var filter in user.filters) {
                 if (user.filters.hasOwnProperty(filter)) {
@@ -187,15 +189,7 @@
                 }
             }
 
-                //TODO: Create function that resizes/positions map according to path weight that was calculated via Djikstra
-                //function resizeMap(event){
-                /*      if (node._weight > 50) {
-                          mapPanZoom.fit();
-                          mapPanZoom.resize();
-                          mapPanZoom.center();
-                          mapPanZoom.resetZoom();
-                      } */
-                //}
+
         }
 
         function checkSelect(event) {
@@ -216,19 +210,19 @@
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
 
             for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
-                $('.dep_list .' + DEPARTMENT_NAMES[i]).hover(
+                $('.dep-list .' + DEPARTMENT_NAMES[i]).hover(
                     // attach hover element to each legend component so that hovering over text
                     // makes all corresponding locations highlight
                     batchToggleClass(['.loc.' + DEPARTMENT_NAMES[i] + ':not(.filter-out), ' +
-                        '.dep_list .' + DEPARTMENT_NAMES[i] + ' .dep_list_colorbox',
-                        '.dep_list .' + DEPARTMENT_NAMES[i] + ' .dep_list_text'
+                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
 
                 // attach hover element to each loc component so that hovering over location
                 // makes the corresponding legend item highlight
                 $('.loc:not(.filter-out).' + DEPARTMENT_NAMES[i]).hover(
-                    batchToggleClass(['.dep_list .' + DEPARTMENT_NAMES[i] + ' .dep_list_colorbox',
-                        '.dep_list .' + DEPARTMENT_NAMES[i] + ' .dep_list_text'
+                    batchToggleClass(['.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 
@@ -257,7 +251,7 @@
                 useCurrentView: true,
                 zoomEnabled: true,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false,
+                // preventMouseEventsDefault: false,
                 fit: true,
                 center: true,
                 beforePan: beforePan

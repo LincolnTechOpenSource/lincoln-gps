@@ -48,7 +48,8 @@
             // We can catch the error thrown when the $requireSignIn promise is rejected
             // and redirect the user back to the home page
             if (error === 'AUTH_REQUIRED') {
-                $state.go('tab.map');
+                // $log.log('HEY!');
+                $state.go('tab.account');
             }
         });
     }
@@ -69,7 +70,7 @@
                     init: ['Firebase', function(Firebase) {
                         return Firebase.init();
                     }],
-                    auth: ['Firebase', function(Firebase) {
+                    currentUser: ['Firebase', function(Firebase) {
                         return Firebase.auth().$waitForSignIn();
                     }]
                 }
@@ -83,6 +84,11 @@
                         controller: 'MapCtrl',
                         controllerAs: 'vm'
                     }
+                },
+                resolve: {
+                    currentUser: ['Firebase', function(Firebase) {
+                        return Firebase.auth().$requireSignIn();
+                    }]
                 }
             })
             .state('tab.directory', {
@@ -93,6 +99,11 @@
                         controller: 'DirectoryCtrl',
                         controllerAs: 'vm'
                     }
+                },
+                resolve: {
+                    currentUser: ['Firebase', function(Firebase) {
+                        return Firebase.auth().$requireSignIn();
+                    }]
                 }
             })
             .state('tab.account', {

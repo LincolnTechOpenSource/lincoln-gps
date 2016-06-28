@@ -1,4 +1,7 @@
-/* gulpfile.js */
+/**
+ * gulpfile.js
+ * adapted from https://github.com/tmaximini/generator-ionic-gulp
+ */
 // jshint maxstatements:53
 (function(){
     'use strict';
@@ -12,9 +15,6 @@
     var express = require('express');
     var path = require('path');
     var gulpOpen = require('open');
-    // var stylish = require('jshint-stylish');
-    // var connectLr = require('connect-livereload');
-    // var browserSync = require('browser-sync');
     var streamqueue = require('streamqueue');
     var runSequence = require('run-sequence');
     var merge = require('merge-stream');

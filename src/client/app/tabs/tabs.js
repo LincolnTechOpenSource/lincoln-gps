@@ -12,11 +12,12 @@
         .module('app.tab')
         .controller('TabCtrl', TabCtrl);
 
-    TabCtrl.$inject = ['$rootScope', '$scope', '$ionicModal', '$ionicLoading',
-        '$timeout', '$q', '$log', 'Firebase', 'Users'
-    ];
+    // TabCtrl.$inject = ['$rootScope', '$scope', '$ionicModal', '$ionicLoading',
+    //     '$timeout', '$q', '$log', 'Firebase', 'Users', 'currentUser'
+    // ];
+    /* @ngInject */
     function TabCtrl($rootScope, $scope, $ionicModal, $ionicLoading,
-        $timeout, $q, $log, Firebase, Users) {
+        $timeout, $q, $log, Firebase, Users, currentUser) {
 
         // Form data for the login modal
         $scope.loginData = {
@@ -42,24 +43,25 @@
                 $scope.modal = modal;
             });
 
-            // Triggered in the login modal to close it
-            $scope.closeLogin = function() {
-                $scope.modal.hide();
-            };
+        // Triggered in the login modal to close it
+        $scope.closeLogin = function() {
+            $scope.modal.hide();
+        };
 
-            // Open the login modal
-            $scope.login = function() {
-                $scope.modal.show();
-            };
+        // Open the login modal
+        $scope.login = function() {
+            $scope.modal.show();
+        };
 
-            // Login action
-            $scope.doLogin = doLogin;
+        // Login action
+        $scope.doLogin = doLogin;
 
-            // Log out
-            $scope.logout = function() {
-                Firebase.auth().$signOut();
-            };
-            Firebase.auth().$onAuthStateChanged(userAuth);
+        // Log out
+        $scope.logout = function() {
+            Firebase.auth().$signOut();
+        };
+
+        Firebase.auth().$onAuthStateChanged(userAuth);
 
         //------------------------------------------------//
 
