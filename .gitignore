@@ -8,7 +8,6 @@ bower_components/
 reports/
 .dev/
 www/
-mega/
 .sass-cache
 *.DS_Store
 *.log
