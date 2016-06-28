@@ -36,7 +36,11 @@
             toNode: null,
             FIND_ON_MAP: 'FIND_ON_MAP'
         };
+        vm.directions = []; // current directions
         // vm.clear = clear;
+        vm.changed = function() {
+          $log.log('changed it!');
+        };
         vm.clearLocation = clearLocation;
         vm.swap = swap;
 
@@ -171,40 +175,37 @@
         }
 
         function findDirections() {
-
-            if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
-                var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
-                    vm.selectNode.toNode.$id, Graphing.graph);
-
-                var directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
-
-                $('#svg #map .loc').removeClass('hilite'); // clear old path
-
-                // (function($) {
-                //     $.fn.queued = function() {
-                //         var self = this;
-                //         var func = arguments[0];
-                //         var args = [].slice.call(arguments, 1);
-                //         return this.queue(function() {
-                //             $.fn[func].apply(self, args).dequeue();
-                //         });
-                //     };
-                // }($));
-
-
-                // reset view for long paths
-                if (dirResults.dist[vm.selectNode.toNode.$id] > 50) {
-                    PanZoom.map.fit();
-                    PanZoom.map.center();
-                    PanZoom.map.resetZoom();
-                }
-
-                // hilite each block in the path
-                for (var i = 0; i < directions.length; i++) {
-                    // $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
-                    $('#svg #map .loc#' + directions[i]).addClass('hilite');
-                }
+            // if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
+            if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
+                return;
             }
+            var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
+                vm.selectNode.toNode.$id, Graphing.graph);
+
+            // clear old path and queue
+            for (var i = 0; i < vm.directions.length; i++) {
+                $('#svg #map .loc#' + vm.directions[i]).removeClass('hilite');
+                $('#svg #map .loc#' + vm.directions[i]).clearQueue();
+            }
+            // set new directions
+            vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
+
+            // reset view for long paths
+            if (dirResults.dist[vm.selectNode.toNode.$id] > 50) {
+                PanZoom.map.fit();
+                PanZoom.map.center();
+                PanZoom.map.resetZoom();
+            }
+
+            // hilite each block in the path (immediately highlight from and to)
+            $('#svg #map .loc#' + vm.selectNode.fromNode.$id).addClass('hilite');
+            $('#svg #map .loc#' + vm.selectNode.toNode.$id).addClass('hilite');
+            for (i = 1; i < vm.directions.length - 1; i++) {
+                var j = Math.floor(i / 2); // show two at a time
+                $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
+                // $('#svg #map .loc#' + vm.directions[i]).addClass('hilite');
+            }
+            // }
         }
 
         function checkSelect(event) {
