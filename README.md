@@ -103,22 +103,23 @@ through locations in order to see them on the map.
 * 06/22/16: Made code and map more robust
 * 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
 * 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
-* 06/28/16:
+* 06/28/16: Updated paths on SVG; added minor features
 
 ## Ideas to Contribute
 
-* Enable map zoom and pan
-* Get directions from "my current location" (implement GPS locator)
-* Give turn-by-turn directions (a la google maps)
-* "Track" employees' location (via cellphone, key-fob, or desk-phone)
-* Integrate employees' calendar to find location
-* Integrate availability of conference rooms and employees (via phone system)
-* Connect authentication to custom system through token
-* Dynamic SVG map and graph creation
-* Directions with detours/via points (e.g., from A to B to C)
-* Optimize for mobile platform
-* Add custom tags/notes to locations
-* See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
+
+* [x] Enable map zoom and pan
+* [ ] Get directions from "my current location" (implement GPS locator)
+* [ ] Give turn-by-turn directions (a la google maps)
+* [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
+* [ ] Integrate employees' calendar to find location
+* [ ] Integrate availability of conference rooms and employees (via phone system)
+* [ ] Connect authentication to custom system through token
+* [ ] Dynamic SVG map and graph creation
+* [ ] Directions with detours/via points (e.g., from A to B to C)
+* [ ] Optimize for mobile platform
+* [ ] Add custom tags/notes to locations
+* [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
 
