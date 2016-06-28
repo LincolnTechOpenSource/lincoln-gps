@@ -108,7 +108,7 @@ through locations in order to see them on the map.
 ## Ideas to Contribute
 
 
-* [x] Enable map zoom and pan
+* [x] ~Enable map zoom and pan~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
