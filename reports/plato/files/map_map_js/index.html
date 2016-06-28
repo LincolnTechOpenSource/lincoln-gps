@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">67.62</p>
+      <p class="stat">67.08</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">289</p>
+      <p class="stat">297</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">33.17</p>
+      <p class="stat">35.17</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">2.86</p>
+      <p class="stat">2.99</p>
     </div>
   </div>
 </div>
@@ -278,9 +278,17 @@
                 for (var i = 0; i &lt; directions.length; i++) {
                     $(&#039;#svg #map .loc#&#039; + directions[i]).delay(100 * i).queued(&#039;addClass&#039;, &#039;hilite&#039;);
                 }
+
+                //TODO: Create function that resizes/positions map according to
+                //path weight that was calculated via Djikstra
+                if (dirResults.dist[vm.selectNode.toNode] &gt; 10) {
+
+                    vm.map.panZoom.fit();
+                    vm.map.panZoom.resize();
+                    vm.map.panZoom.center();
+                    vm.map.panZoom.resetZoom();
+                }
             }
-
-
         }
 
         function checkSelect(event) {
@@ -335,7 +343,6 @@
                 };
             };
 
-            // Expose to window namespace for testing purposes
             /* global svgPanZoom */
             var mapPanZoom = svgPanZoom(&#039;#map&#039;, {
                 viewportSelector: &#039;#map&#039;,
@@ -368,9 +375,10 @@
                 mapPanZoom.center();
                 mapPanZoom.resetZoom();
             });
-        }
 
-    }
+        } // end document ready
+
+    } //end mapCntrl
 
     /** batchToggleClass: toggles the @classes of the specified @selectors
      * toggles the corresponding class of an array of selectors */

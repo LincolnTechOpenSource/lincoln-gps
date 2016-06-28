@@ -187,9 +187,17 @@
                 for (var i = 0; i < directions.length; i++) {
                     $('#svg #map .loc#' + directions[i]).delay(100 * i).queued('addClass', 'hilite');
                 }
+
+                //TODO: Create function that resizes/positions map according to
+                //path weight that was calculated via Djikstra
+                if (dirResults.dist[vm.selectNode.toNode] > 10) {
+
+                    vm.map.panZoom.fit();
+                    vm.map.panZoom.resize();
+                    vm.map.panZoom.center();
+                    vm.map.panZoom.resetZoom();
+                }
             }
-
-
         }
 
         function checkSelect(event) {
@@ -244,7 +252,6 @@
                 };
             };
 
-            // Expose to window namespace for testing purposes
             /* global svgPanZoom */
             var mapPanZoom = svgPanZoom('#map', {
                 viewportSelector: '#map',
@@ -277,9 +284,10 @@
                 mapPanZoom.center();
                 mapPanZoom.resetZoom();
             });
-        }
 
-    }
+        } // end document ready
+
+    } //end mapCntrl
 
     /** batchToggleClass: toggles the @classes of the specified @selectors
      * toggles the corresponding class of an array of selectors */

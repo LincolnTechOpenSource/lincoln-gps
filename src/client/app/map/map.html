@@ -1147,9 +1147,9 @@
             </div>
 
             <div class="controls text-center">
-                <button class="button button-balanced" id="zoom-in">Zoom in</button>
-                <button class="button button-positive" id="reset">Reset</button>
-                <button class="button button-assertive" id="zoom-out">Zoom out</button>
+                <button class="button button-balanced" ng-click="vm.map.zoomIn" id="zoom-in">Zoom in</button>
+                <button class="button button-positive" ng-click="vm.map.reset" id="reset">Reset</button>
+                <button class="button button-assertive" ng-click="vm.map.zoomOut" id="zoom-out">Zoom out</button>
             </div>
         </div> <!-- End flexbox-container div -->
     </ion-content>
