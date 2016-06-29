@@ -234,7 +234,7 @@
                     n._id + ')');
 
                 _assert(k._neighbors.includes(n._id), 'Inconsisent Edge (' +
-                    'Inconsisent Edge (' + n._id + ',' + k._id + ')');
+                    n._id + ',' + k._id + ')');
             }
         }
         // number of edges should be same as the edgeCount
