@@ -1,4 +1,21 @@
 /* directory.scss */
 
+ion-content .scroll {
+    height: 100%;
+}
+
+.filters-list .filters.row:last-of-type {
+    padding-top: 1px;
+    padding-bottom: 5px;
+}
+
+.filters-list .filters.row .col {
+    padding: 0;
+}
+
+.filters-list .filters.row .col:last-of-type {
+    padding-right: 1px;
+}
+
 
 /*----------------------------------------------------------------------------*/

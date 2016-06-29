@@ -3,24 +3,55 @@
 <ion-view view-title="Lincoln Employee Directory">
     <ion-content class="padding">
         <!--<h2 class="text-center">Lincoln Employee Directory</h2>-->
+        <!--{{ vm.filters }}-->
+        <ion-scroll direction="y" style="width: 100%; height: 50%;">
+            <ion-list class="filters-list">
+                <div class="filters row responsive-sm" ng-repeat="filter in vm.filters" ng-if="$index % 4 === 0">
+                    <div class="col col-25">
+                        <ion-checkbox negate ng-model="filter.hide">
+                            {{filter.name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters[$index+1]">
+                        <ion-checkbox ng-model="vm.filters[$index+1].hide">
+                            {{vm.filters[$index+1].name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters[$index+2]">
+                        <ion-checkbox ng-model="vm.filters[$index+2].hide">
+                            {{vm.filters[$index+2].name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters[$index+3]">
+                        <ion-checkbox ng-model="vm.filters[$index+3].hide">
+                            {{vm.filters[$index+3].name}}
+                        </ion-checkbox>
+                    </div>
+                </div>
+            </ion-list>
+        </ion-scroll>
+
+        {{ vm.filters }}
+
         <div class="item">
             <ion-search-select title="Search by Name" key-property="id" value-property="name" options="vm.selectEmployee.employees" option-selected="vm.selectEmployee.employee">
                 <label class="item item-input-inset search-select">
-                    <div class="item-input-wrapper">
-                        <i class="icon ion-ios-search"></i>
-                        <input type="text" ng-model="vm.selectEmployee.employee.name" placeholder="Select an Employee" disabled>
-                    </div>
-                </label>
+                            <div class="item-input-wrapper">
+                                <i class="icon ion-ios-search"></i>
+                                <input type="text" ng-model="vm.selectEmployee.employee.name" placeholder="Select an Employee" disabled>
+                            </div>
+                        </label>
             </ion-search-select>
         </div>
 
         <div class="item " ng-show="!!vm.selectEmployee.employee">
             <p class="text-center"> <strong>{{ vm.selectEmployee.employee.name }}</strong> </p>
-            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.title }}</strong>
-                of <strong>{{ vm.selectEmployee.employee.division }}</strong>
+            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.title }}</strong> of <strong>{{ vm.selectEmployee.employee.division }}</strong>
             </p>
             <p class="text-center"> Contact at <strong>{{ vm.selectEmployee.employee.email }}</strong> or <strong>EXT: {{ vm.selectEmployee.employee.ext }}</strong> </p>
             <p class="text-center"><a href="#" ng-click="vm.findOnMap(vm.selectEmployee.employee)"><strong>Find on Map</strong></a></p>
         </div>
+
     </ion-content>
 </ion-view>
+>

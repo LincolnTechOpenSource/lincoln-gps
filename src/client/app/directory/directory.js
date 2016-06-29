@@ -10,16 +10,18 @@
         .module('app.directory')
         .controller('DirectoryCtrl', DirectoryCtrl);
 
-    DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase',
-        'Params', 'NodeTypeEnum'];
+    // DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase',
+    //     'Params', 'NodeTypeEnum', 'DEPARTMENTS'];
+    /* @ngInject */
     function DirectoryCtrl($scope, $state, $log, Locations, Firebase,
-        Params, NodeTypeEnum) {
+        Params, NodeTypeEnum, DEPARTMENTS) {
         var vm = this;
 
         vm.selectEmployee = {
             employees: null, // only load if user is authenticated
             employee: null
         };
+        vm.filters = DEPARTMENTS;
 
         // set employee parameter and link to map
         vm.findOnMap = findOnMap;

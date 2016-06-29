@@ -7,17 +7,16 @@
     'use strict';
 
     // array of department class names
-    var DEPARTMENT_NAMES = [
-        'account-setup', 'accounting', 'acd', 'asset-mgmt', 'branch-dev', 'branch-serv',
-        'broom', 'busi-dev', 'compli-licens', 'conf', 'copy-scan-rm', 'doc-mgmt', 'elevator-exit',
-        'euc', 'exec-suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im-r', 'isa',
-        'mrkt-comm', 'one-time-financials', 'ops', 'prvd-mgmt', 'quality-cntrl',
-        'reception', 'rdi', 'retire-serv', 'stairs-exit', 'tpa', 'vsa'
-    ];
+    // var DEPARTMENTS = [
+    //     'account-setup', 'accounting', 'acd', 'asset-mgmt', 'branch-dev', 'branch-serv',
+    //     'broom', 'busi-dev', 'compli-licens', 'conf', 'copy-scan-rm', 'doc-mgmt', 'elevator-exit',
+    //     'euc', 'exec-suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im-r', 'isa',
+    //     'mrkt-comm', 'one-time-financials', 'ops', 'prvd-mgmt', 'quality-cntrl',
+    //     'reception', 'rdi', 'retire-serv', 'stairs-exit', 'tpa', 'vsa'
+    // ];
 
     angular
         .module('app.map')
-        .constant('DEPARTMENT_NAMES', DEPARTMENT_NAMES)
         .controller('MapCtrl', MapCtrl);
 
     // MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
@@ -27,7 +26,7 @@
     // jshint maxparams:14
     /* @ngInject */
     function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, Users, Locations,
-        Firebase, DEPARTMENT_NAMES, Graphing, Params, Dijkstra, currentUser, PanZoom) {
+        Firebase, DEPARTMENTS, Graphing, Params, Dijkstra, currentUser, PanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -231,20 +230,20 @@
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
 
-            for (var i = 0; i < DEPARTMENT_NAMES.length; i++) {
-                $('.dep-list .' + DEPARTMENT_NAMES[i]).hover(
+            for (var i = 0; i < DEPARTMENTS.length; i++) {
+                $('.dep-list .' + DEPARTMENTS[i].class).hover(
                     // attach hover element to each legend component so that hovering over text
                     // makes all corresponding locations highlight
-                    batchToggleClass(['.loc.' + DEPARTMENT_NAMES[i] + ':not(.filter-out), ' +
-                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-text'
+                    batchToggleClass(['.loc.' + DEPARTMENTS[i].class + ':not(.filter-out), ' +
+                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
 
                 // attach hover element to each loc component so that hovering over location
                 // makes the corresponding legend item highlight
-                $('.loc:not(.filter-out).' + DEPARTMENT_NAMES[i]).hover(
-                    batchToggleClass(['.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENT_NAMES[i] + ' .dep-list-text'
+                $('.loc:not(.filter-out).' + DEPARTMENTS[i].class).hover(
+                    batchToggleClass(['.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 
