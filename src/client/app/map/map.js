@@ -244,9 +244,9 @@
                     ], ['hilite', 'normal-text']));
             }
 
-                    // initialize svg pan zoom and set height (magic 0.89)
-                    $('#map').height($('#svg').height() * 0.89);
-                    PanZoom.init();
+            // initialize svg pan zoom and set height (magic 0.89)
+            $('#map').height($('#svg').height() * 0.89);
+            PanZoom.init();
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors
