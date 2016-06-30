@@ -6,27 +6,14 @@
 (function() {
     'use strict';
 
-    // array of department class names
-    // var DEPARTMENTS = [
-    //     'account-setup', 'accounting', 'acd', 'asset-mgmt', 'branch-dev', 'branch-serv',
-    //     'broom', 'busi-dev', 'compli-licens', 'conf', 'copy-scan-rm', 'doc-mgmt', 'elevator-exit',
-    //     'euc', 'exec-suite', 'facilities', 'finance', 'food', 'hr', 'isd', 'im-r', 'isa',
-    //     'mrkt-comm', 'one-time-financials', 'ops', 'prvd-mgmt', 'quality-cntrl',
-    //     'reception', 'rdi', 'retire-serv', 'stairs-exit', 'tpa', 'vsa'
-    // ];
-
     angular
         .module('app.map')
         .controller('MapCtrl', MapCtrl);
 
-    // MapCtrl.$inject = ['$rootScope', '$scope', '$log', '$q', 'Users', 'Locations',
-    //     'Firebase', 'DEPARTMENT_NAMES', 'Graphing', 'Params', 'Dijkstra'
-    // ];
-
-    // jshint maxparams:14
+    // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, $document, $timeout, Users, Locations,
-        Firebase, DEPARTMENTS, Graphing, Params, Dijkstra, currentUser, PanZoom) {
+    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, $document,
+        currentUser, UNITS, Users, Locations, Firebase, Graphing, Params, Dijkstra, PanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -37,8 +24,8 @@
         };
         vm.directions = []; // current directions
         vm.deps = [
-            DEPARTMENTS.slice(0, 14),
-            DEPARTMENTS.slice(14)
+            UNITS.ALL.slice(0, 14),
+            UNITS.ALL.slice(14)
         ];
 
         vm.clearLocation = clearLocation;
@@ -135,15 +122,6 @@
             });
         }
 
-        // /** resets the path and removes all highlights (but leaves employee) */
-        // function clear() {
-        //     $('#svg #map g.non-walls *').removeClass('hilite'); // clear old path
-
-        //     // clear graphing parameters
-        //     vm.selectNode.toNode = null;
-        //     vm.selectNode.fromNode = null;
-        // }
-
         /** resets the selected location and removes path highlighting
          * @locSelect will be either 'fromNode' or 'toNode' (e.g., a field of selectNode)
          */
@@ -205,9 +183,6 @@
                     $('#svg #map #' + newNode.id).addClass('hilite');
                 }
             }
-            // if (!!oldNode && (vm.selectNode[node] !== oldNode) && (newNode !== oldNode)) {
-            //     $('#svg #map #' + oldNode.id).removeClass('hilite');
-            // }
         }
 
         function findDirections() {
@@ -232,9 +207,7 @@
 
             // reset view for long paths
             if (dirResults.dist[vm.selectNode.toNode.id] > 50) {
-                PanZoom.map.fit();
-                PanZoom.map.center();
-                PanZoom.map.resetZoom();
+                reset();
             }
 
             // hilite each block in the path (immediately highlight from and to)
@@ -264,10 +237,10 @@
 
             // attach hover element to each loc component so that hovering over location
             // makes the corresponding legend item highlight
-            for (var i = 0; i < DEPARTMENTS.length; i++) {
-                $('.loc:not(.filter-out).' + DEPARTMENTS[i].code).hover(
-                    batchToggleClass(['.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-text'
+            for (var i = 0; i < UNITS.ALL.length; i++) {
+                $('.loc:not(.filter-out).' + UNITS.ALL[i].code).hover(
+                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].code + ' .dep-list-colorbox',
+                        '.dep-list .' + UNITS.ALL[i].code + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 
@@ -300,3 +273,12 @@
 //         $('#' + n._neighbors[i]).addClass('hilite');
 //     }
 // });
+
+// /** resets the path and removes all highlights (but leaves employee) */
+// function clear() {
+//     $('#svg #map g.non-walls *').removeClass('hilite'); // clear old path
+
+//     // clear graphing parameters
+//     vm.selectNode.toNode = null;
+//     vm.selectNode.fromNode = null;
+// }

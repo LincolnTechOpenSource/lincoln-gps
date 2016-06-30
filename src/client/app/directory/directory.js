@@ -11,11 +11,9 @@
         .controller('DirectoryCtrl', DirectoryCtrl)
         .filter('byDepartment', byDepartment);
 
-    // DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase',
-    //     'Params', 'NodeTypeEnum', 'DEPARTMENTS'];
     /* @ngInject */
     function DirectoryCtrl($scope, $state, $log, Locations, Firebase,
-        Params, NodeTypeEnum, DEPARTMENTS) {
+        Params, NodeTypeEnum, UNITS) {
         var vm = this;
 
         vm.selectEmployee = {
@@ -23,7 +21,7 @@
             employee: null
         };
         vm.filters = {
-            d: DEPARTMENTS,
+            d: UNITS.DEPARTMENTS,
             count: 0,
 
             counter: function(checked) {

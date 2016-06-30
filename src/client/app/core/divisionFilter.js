@@ -6,9 +6,9 @@
         .filter('division', division);
 
     /* @ngInject */
-    function division($filter, DEPARTMENTS) {
+    function division($filter, UNITS) {
         return function(divCode) {
-            var division = $filter('filter')(DEPARTMENTS, {
+            var division = $filter('filter')(UNITS.DEPARTMENTS, {
                 code: divCode
             }, true)[0];
 

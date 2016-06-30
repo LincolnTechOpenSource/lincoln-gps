@@ -37,7 +37,7 @@
                 minZoom: 0.1,
                 maxZoom: 20,
                 controlIconsEnabled: false,
-                // preventMouseEventsDefault: false,
+                // preventMouseEventsDefault: false, // enable before pushing to mobile
                 fit: true,
                 center: true,
                 beforePan: beforePan
