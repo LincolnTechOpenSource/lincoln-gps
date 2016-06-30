@@ -44,7 +44,7 @@
 
         <div class="item " ng-show="!!vm.selectEmployee.employee">
             <p class="text-center"> <strong>{{ vm.selectEmployee.employee.name }}</strong> </p>
-            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.title }}</strong> of <strong>{{ vm.selectEmployee.employee.divCode | division }}</strong>
+            <p class="text-center"> <strong>{{ vm.selectEmployee.employee.title }}</strong> of <strong>{{ vm.selectEmployee.employee.depCode | division }}</strong>
             </p>
             <p class="text-center"> Contact at <strong>{{ vm.selectEmployee.employee.email }}</strong> or <strong>EXT: {{ vm.selectEmployee.employee.ext }}</strong> </p>
             <p class="text-center"><a href="#" ng-click="vm.findOnMap(vm.selectEmployee.employee)"><strong>Find on Map</strong></a></p>

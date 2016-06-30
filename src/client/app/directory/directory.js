@@ -85,7 +85,7 @@
                 return options.filter(function(option) {
                     // determines whether this particularly option matches any filter
                     var ret = depFilters.filter(function(depFilter) {
-                        return depFilter.code === option.divCode; // match ?
+                        return depFilter.code === option.depCode; // match ?
                     });
                     return (ret.length > 0) ? ret : false; // return results if not empty
                 });

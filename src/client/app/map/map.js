@@ -41,13 +41,14 @@
             DEPARTMENTS.slice(14)
         ];
 
-        vm.changed = function() { $log.log('changed it!'); };
         vm.clearLocation = clearLocation;
         vm.swap = swap;
 
         vm.zoomIn = zoomIn;
         vm.reset = reset;
         vm.zoomOut = zoomOut;
+
+        vm.legendHover = legendHover;
 
         $scope.$watch('vm.selectNode.toNode', watchNode.bind(null, 'toNode'));
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
@@ -176,6 +177,18 @@
             PanZoom.map.zoomOut();
         }
 
+        /** hover functions for the legend (mouseenter and mouseleave)
+         * attach hover element to each legend component so that hovering over text
+         * makes all corresponding locations highlight
+         */
+        function legendHover(ev) {
+            var code = angular.element(ev.currentTarget).data('code');
+
+            $('.loc.' + code + ':not(.filter-out)').toggleClass('hilite');
+            $('.dep-list .' + code + ' .dep-list-colorbox').toggleClass('hilite');
+            $('.dep-list .' + code + ' .dep-list-text').toggleClass('normal-text');
+        }
+
         /** watch a @node (to or from) for changes and handle them (via mapping) */
         function watchNode(node, newNode, oldNode) {
             // select on map option
@@ -249,38 +262,31 @@
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
 
+            // attach hover element to each loc component so that hovering over location
+            // makes the corresponding legend item highlight
             for (var i = 0; i < DEPARTMENTS.length; i++) {
-                $('.dep-list .' + DEPARTMENTS[i].code).hover(
-                    // attach hover element to each legend component so that hovering over text
-                    // makes all corresponding locations highlight
-                    batchToggleClass(['.loc.' + DEPARTMENTS[i].code + ':not(.filter-out), ' +
-                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-text'
-                    ], ['hilite', 'normal-text']));
-
-                // attach hover element to each loc component so that hovering over location
-                // makes the corresponding legend item highlight
                 $('.loc:not(.filter-out).' + DEPARTMENTS[i].code).hover(
                     batchToggleClass(['.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-colorbox',
                         '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 
+            // initialize svg pan zoom and set height (magic 0.89)
             $('#map').height($('#svg').height() * 0.89);
             PanZoom.init();
         }
-    } //end mapCntrl
 
-    /** batchToggleClass: toggles the @classes of the specified @selectors
-     * toggles the corresponding class of an array of selectors */
-    function batchToggleClass(selectors, classes) {
-        return function() {
-            console.assert(selectors.length === classes.length, 'Invalid Call to batchToggleClass');
-            for (var i = 0; i < selectors.length; i++) {
-                $(selectors[i]).toggleClass(classes[i]);
-            }
-        };
-    }
+        /** batchToggleClass: toggles the @classes of the specified @selectors
+         *  toggles the corresponding class of an array of selectors */
+        function batchToggleClass(selectors, classes) {
+            return function() {
+                console.assert(selectors.length === classes.length, 'Invalid Call to batchToggleClass');
+                for (var i = 0; i < selectors.length; i++) {
+                    $(selectors[i]).toggleClass(classes[i]);
+                }
+            };
+        }
+    } //end mapCntrl
 })();
 
 // debugging to get neighbors
