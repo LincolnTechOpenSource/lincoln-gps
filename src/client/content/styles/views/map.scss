@@ -103,19 +103,6 @@
     stop-color: #0000FF;
 }
 
-/* background canvas styling, and gradient */
-#svg #map .canvas {
-    fill: url(#canvas);
-    stroke: none;
-}
-
-#svg #map #canvas stop.outer {
-    stop-color: lightgrey;
-}
-#svg #map #canvas stop.inner {
-    stop-color: white;
-}
-
 /* path highlighting and coloring */
 #svg #map .loc.path {
      stroke: black;

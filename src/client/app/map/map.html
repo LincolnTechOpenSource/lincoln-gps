@@ -37,32 +37,26 @@
             </div>
 
             <div id="svg" class="col col-75 col-offset-10">
-                <svg version="1.1" id="map" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3600 3600" xml:space="preserve">
-                    <!-- white background canvas -->
-                    <rect class="canvas" width="3600" height="3600" rx="50" ry="50" />
+                <svg version="1.1" id="map" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3650 3650" xml:space="preserve">
 
+                    <!--BACKGROUND CANVAS-->
+                    <rect height="3600" width="3600" class="canvas" y="0" x="0" rx="12%" ry="12%" fill="url(#rgrad)" filter="url(#filterX)"></rect>
                     <defs>
-                        <pattern id="canvas" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
-                            <linearGradient id="canHor" gradientUnits="objectBoundingBox">
-                                <!--<stop class="inner" offset="0" />-->
-                                <stop class="inner" offset="0" />
-                                <stop class="outer" offset="0.03" />
-                                <stop class="inner" offset="0.1" />
-                                <stop class="inner" offset="0.95" />
-                                <stop class="outer" offset="0.99" />
-                                <stop class="inner" offset="1" />
-                            </linearGradient>
-                            <linearGradient id="canVert" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
-                                <stop class="inner" offset="0" />
-                                <stop class="outer" offset="0.001" stop-opacity="0.7" />
-                                <stop class="inner" offset="0.04" stop-opacity="0.1" />
-                                <stop class="inner" offset="0.93" stop-opacity="0.1" />
-                                <stop class="outer" offset="0.999" stop-opacity="1" />
-                                <stop class="inner" offset="1" />
-                            </linearGradient>
-                            <rect fill="url(#canHor)" x="0" y="0" width="1" height="1"/>
-                            <rect fill="url(#canVert)" x=".03" y="0" width=".97" height="1"/>
-                        </pattern>
+                        <!-- Background filter and gradient -->
+                        <radialGradient id="rgrad" cx="0%" cy="0%" r="100%" gradientUnits="objectBoundingBox">
+                            <stop offset="5%" style="stop-color:rgb(254, 254, 254); stop-opacity:1"></stop>
+                            <stop offset="42%" style="stop-color:rgb(237, 237, 237); stop-opacity:1"></stop>
+                        </radialGradient>
+                        <filter id="filterX" primitiveUnits="objectBoundingBox" x="0" y="0">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="0.009"></feGaussianBlur>
+                            <feOffset dx="0.015" dy="0.021" result="offsetblur"></feOffset>
+                            <feFlood flood-color="rgba(0, 0, 0, 0.6)"></feFlood>
+                            <feComposite in2="offsetblur" operator="in"></feComposite>
+                            <feMerge>
+                                <feMergeNode></feMergeNode>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                            </feMerge>
+                        </filter>
 
                         <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                             <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
@@ -227,7 +221,7 @@
                             <rect class="path loc" id="1091" width="70" height="95" transform="translate(370,1705)" />
 
                             <!-- Nested path in between Provider Management cubicles next to executive suite -->
-                            <rect class="path loc" id="1092" width="90" height="80" transform="translate(1040,1565)" />
+                            <rect class="desk cubicle copy-scan-rm copy-rm loc" id="1092" width="90" height="80" transform="translate(1040,1565)" />
 
                             <!-- Single path space above exec suite, to the left of CFO office -->
                             <rect class="path loc" id="1093" width="85" height="100" transform="translate(1310,1025)" />
@@ -686,7 +680,11 @@
 
                             <!-- Printer in HR wing -->
                             <!--<polygon points="2100,2220 2170,2220 2170,2335 2120,2335 2120,2335 2100,2320" class="path loc" id="1260"></polygon>-->
-                            <polygon points='2100,2265 2170,2265 2170,2335 2120,2335 2120,2335 2100,2320' class='loc copy-scan-rm copy-rm' id="322" ></polygon>
+                            <g id="322" class='loc copy-scan-rm copy-rm'>
+                                <polygon points='2100,2265 2170,2265 2170,2335 2120,2335 2120,2335 2100,2320' ></polygon>
+                                <image x='2110' y='2275' width='40' height='40' xlink:href="content/images/map-icons/printer.svg"></image>
+                               <!-- <image x="450" y="1090" width="105" height="170" xlink:href="content/images/map-icons/stairs.svg"></image> -->
+                            </g>
                         </g>
                         <!-- End misc group -->
 

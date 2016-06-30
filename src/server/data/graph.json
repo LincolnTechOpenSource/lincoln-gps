@@ -229,7 +229,7 @@
         "227":{"_id":227,"_neighbors":[1300],"_weight":0,"_nType":5},
         "228":{"_id":228,"_neighbors":[1301],"_weight":0,"_nType":5},
         "229":{"_id":229,"_neighbors":[1302],"_weight":0,"_nType":5},
-        "230":{"_id":230,"_neighbors":[1303],"_weight":0,"_nType":5},
+        "230":{"_id":230,"_neighbors":[1303],"_weight":0,"_nType":8},
         "231":{"_id":231,"_neighbors":[1331],"_weight":0,"_nType":5},
         "232":{"_id":232,"_neighbors":[1330],"_weight":0,"_nType":5},
         "233":{"_id":233,"_neighbors":[1329],"_weight":0,"_nType":5},
@@ -407,7 +407,7 @@
         "1089":{"_id":1089,"_neighbors":[88, 1088],"_weight":1,"_nType":3},
         "1090":{"_id":1090,"_neighbors":[1081, 1091],"_weight":2,"_nType":3},
         "1091":{"_id":1091,"_neighbors":[1074, 1090, 1099],"_weight":1,"_nType":3},
-        "1092":{"_id":1092,"_neighbors":[1085],"_weight":1,"_nType":3},
+        "1092":{"_id":1092,"_neighbors":[1085],"_weight":0,"_nType":8},
         "1093":{"_id":1093,"_neighbors":[1, 18, 19, 1045, 1056],"_weight":1,"_nType":3},
         "1094":{"_id":1094,"_neighbors":[94, 1083, 1095],"_weight":1,"_nType":3},
         "1095":{"_id":1095,"_neighbors":[95, 133, 1094, 1096],"_weight":1,"_nType":3},
@@ -720,6 +720,6 @@
 
 
     },
-    "_nodeCount": 709,
+    "_nodeCount": 710,
     "_edgeCount": 790
 }
