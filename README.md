@@ -104,6 +104,7 @@ through locations in order to see them on the map.
 * 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
 * 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
 * 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
+* 06/30/16: Major path updates; Directory search filters; more robust deparment constant
 
 ## Ideas to Contribute
 

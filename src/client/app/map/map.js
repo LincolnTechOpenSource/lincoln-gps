@@ -25,7 +25,7 @@
 
     // jshint maxparams:14
     /* @ngInject */
-    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, Users, Locations,
+    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, $document, $timeout, Users, Locations,
         Firebase, DEPARTMENTS, Graphing, Params, Dijkstra, currentUser, PanZoom) {
         var vm = this;
 
@@ -45,6 +45,10 @@
         vm.clearLocation = clearLocation;
         vm.swap = swap;
 
+        vm.zoomIn = zoomIn;
+        vm.reset = reset;
+        vm.zoomOut = zoomOut;
+
         $scope.$watch('vm.selectNode.toNode', watchNode.bind(null, 'toNode'));
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
 
@@ -52,7 +56,7 @@
         Firebase.auth().$onAuthStateChanged(userAuth);
 
         // ready document specific commands
-        $(document).ready(documentReady);
+        $document.ready(documentReady);
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
@@ -159,6 +163,19 @@
             vm.selectNode.toNode = tmpNode;
         }
 
+        /** PanZoom button click functions */
+        function zoomIn() {
+            PanZoom.map.zoomIn();
+        }
+        function reset() {
+            PanZoom.map.fit();
+            PanZoom.map.center();
+            PanZoom.map.resetZoom();
+        }
+        function zoomOut() {
+            PanZoom.map.zoomOut();
+        }
+
         /** watch a @node (to or from) for changes and handle them (via mapping) */
         function watchNode(node, newNode, oldNode) {
             // select on map option
@@ -250,58 +267,8 @@
             }
 
             $('#map').height($('#svg').height() * 0.89);
-
-            // PanZoom.init('#map', {
-            //     viewportSelector: '#map',
-            //     useCurrentView: true,
-            //     zoomEnabled: true,
-            //     minZoom: 0.1,
-            //     maxZoom: 20,
-            //     controlIconsEnabled: false,
-            //     // preventMouseEventsDefault: false,
-            //     fit: true,
-            //     center: true,
-            //     beforePan: beforePan
-            // });
-
-            function beforePan(oldPan, newPan) {
-                var gutterWidth = 75;
-                var gutterHeight = 75;
-                // Computed variables
-                var sizes = PanZoom.map.getSizes();
-                var leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth;
-                var rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom);
-                var topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight;
-                var bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
-
-                return {
-                    x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
-                    y: Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-                };
-            }
-
-            $('#zoom-in').on('click', function(ev) {
-                ev.preventDefault();
-
-                PanZoom.map.zoomIn();
-            });
-
-            $('#zoom-out').on('click', function(ev) {
-                ev.preventDefault();
-
-                PanZoom.map.zoomOut();
-            });
-
-            $('#reset').on('click', function(ev) {
-                ev.preventDefault();
-
-                PanZoom.map.fit();
-                PanZoom.map.center();
-                PanZoom.map.resetZoom();
-            });
-
-        } // end document ready
-
+            PanZoom.init();
+        }
     } //end mapCntrl
 
     /** batchToggleClass: toggles the @classes of the specified @selectors
