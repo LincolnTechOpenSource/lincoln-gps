@@ -2,8 +2,7 @@
 
 angular
     .module('app.map')
-    .directive('locationInfo', locationInfo)
-    .filter('division', division);
+    .directive('locationInfo', locationInfo);
 
 function locationInfo() {
     return {
@@ -17,13 +16,3 @@ function locationInfo() {
     };
 }
 
-/* @ngInject */
-function division($filter, DEPARTMENTS) {
-    return function(divCode) {
-        var division = $filter('filter')(DEPARTMENTS, {
-            code: divCode
-        }, true)[0];
-
-        return division ? division.name : 'ERROR';
-    };
-}

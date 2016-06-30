@@ -1,11 +1,10 @@
 // searchSelect.js (adapted from https://codepen.io/anon/pen/VjLYjW)
 (function() {
-        'use strict';
+    'use strict';
 
-        angular
-            .module('app.core')
-            .directive('ionSearchSelect', ionSearchSelect)
-            .filter('byDepartment', byDepartment);
+    angular
+        .module('app.core')
+        .directive('ionSearchSelect', ionSearchSelect);
 
     function ionSearchSelect() {
         var directive = {
@@ -13,39 +12,12 @@
             scope: {
                 options: '=',
                 optionSelected: '=',
-                saveCallback: '=',
                 filters: '='
             },
             controller: controller
         };
 
         return directive;
-    }
-
-    /* @ngInject */
-    function byDepartment($filter, $log) {
-        return function(options, filters) {
-            if (filters.count === 0) {
-                return options;
-            }
-
-            // get departments to display (if none are shown, all should show)
-            var depFilters = $filter('filter')(filters.d, { dirShow: true }, true);
-            depFilters = (depFilters.length > 0) ? depFilters : filters.d;
-
-            var results = filterOptions();
-
-            function filterOptions() {
-                return options.filter(function(option) {
-                    var ret = depFilters.filter(function(depFilter) {
-                        return depFilter.code === option.divCode;
-                    });
-                    return (ret.length > 0) ? ret : false;
-                });
-            }
-
-            return results;
-        };
     }
 
     // controller.$inject = ['$rootScope', '$scope', '$element', '$attrs', '$ionicModal',
@@ -69,9 +41,13 @@
         $scope.saveOption = saveOption;
         $scope.selectOnMap = selectOnMap;
 
-        $scope.clearSearch = function() { $scope.searchSelect.searchvalue = ''; };
+        $scope.clearSearch = function() {
+            $scope.searchSelect.searchvalue = '';
+        };
 
-        $scope.closeModal = function() { $scope.modal.remove(); };
+        $scope.closeModal = function() {
+            $scope.modal.remove();
+        };
 
         $scope.$on('$destroy', function() {
             if ($scope.modal) {
@@ -116,11 +92,6 @@
             }
             $scope.clearSearch();
             $scope.closeModal();
-
-            // call back function after option save
-            if (!!$scope.saveCallback) {
-                $scope.saveCallback();
-            }
         }
 
         function selectOnMap() {

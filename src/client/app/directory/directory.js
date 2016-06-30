@@ -8,7 +8,8 @@
 
     angular
         .module('app.directory')
-        .controller('DirectoryCtrl', DirectoryCtrl);
+        .controller('DirectoryCtrl', DirectoryCtrl)
+        .filter('byDepartment', byDepartment);
 
     // DirectoryCtrl.$inject = ['$scope', '$state', '$log', 'Locations', 'Firebase',
     //     'Params', 'NodeTypeEnum', 'DEPARTMENTS'];
@@ -29,7 +30,6 @@
                 return checked ? vm.filters.count++ : vm.filters.count--;
             }
         };
-        // vm.filters = DEPARTMENTS;
 
         // set employee parameter and link to map
         vm.findOnMap = findOnMap;
@@ -63,5 +63,33 @@
             Params.employee = employee;
             $state.go('tab.map');
         }
+    }
+
+    /* @ngInject */
+    function byDepartment($filter) {
+        return function(options, filters) {
+            // return everything if there are no filters (QoL feature)
+            if (filters.count <= 0) {
+                return options;
+            }
+
+            // get the departments to show (we know depFilters is not empty because count > 0)
+            var depFilters = $filter('filter')(filters.d, { dirShow: true }, true);
+
+            return filterOptions();
+
+            //-----------------------------------------
+
+            /** filter the options by department that should be shown */
+            function filterOptions() {
+                return options.filter(function(option) {
+                    // determines whether this particularly option matches any filter
+                    var ret = depFilters.filter(function(depFilter) {
+                        return depFilter.code === option.divCode; // match ?
+                    });
+                    return (ret.length > 0) ? ret : false; // return results if not empty
+                });
+            }
+        };
     }
 })();
