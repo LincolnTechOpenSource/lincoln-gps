@@ -244,9 +244,9 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            // initialize svg pan zoom and set height (magic 0.89)
-            $('#map').height($('#svg').height() * 0.89);
-            PanZoom.init();
+                    // initialize svg pan zoom and set height (magic 0.89)
+                    $('#map').height($('#svg').height() * 0.89);
+                    PanZoom.init();
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors
@@ -262,10 +262,14 @@
     } //end mapCntrl
 })();
 
-// debugging to get neighbors
-// $('#svg').on('click', '#map .loc', function() { console.log(this.id); });
 
-// debugging to highlight neighbors
+
+// //       debugging to get neighbors
+// $('#svg').on('click', '#map .loc', function() {
+//     console.log(this.id);
+// });
+
+// //debugging to highlight neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     var n = Graphing.graph.nodes[this.id];
 //     $('#svg #map .loc').removeClass('hilite'); // clear old path

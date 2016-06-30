@@ -62,12 +62,6 @@
     opacity: 0.8;
 }
 
-/*
-#map {
-    border:black;
-}
-*/
-
 #svg #map .wall {
     fill: none;
     stroke-width: 3px;
@@ -84,6 +78,7 @@
     stroke-width: 3px;
 }
 
+/* location styling and highlighting */
 #svg #map .loc {
     stroke: #000000;
     stroke-width: 2px;
@@ -100,6 +95,7 @@
     stroke: #FFFF00;
 }
 
+/* highlight gradient colors */
 #svg #map #highlighter stop.outer {
     stop-color: #FFFF00;
 }
@@ -107,17 +103,30 @@
     stop-color: #0000FF;
 }
 
+/* background canvas styling, and gradient */
+#svg #map .canvas {
+    fill: url(#canvas);
+    stroke: none;
+}
 
+#svg #map #canvas stop.outer {
+    stop-color: lightgrey;
+}
+#svg #map #canvas stop.inner {
+    stop-color: white;
+}
+
+/* path highlighting and coloring */
 #svg #map .loc.path {
-    stroke: black;
-   // stroke: none;
+     stroke: black;
+    //stroke: none;
     stroke-width: 1px;
     fill: darkgray;
     // fill: none;
 }
 
 
-#svg #map .loc.path:hover,
+// #svg #map .loc.path:hover,
 #svg #map .loc.path.hilite {
     fill: #0000FF;
     stroke: #0000FF;
