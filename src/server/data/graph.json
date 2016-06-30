@@ -311,6 +311,8 @@
         "319":{"_id":319,"_neighbors":[1211],"_weight":0,"_nType":9},
         "320":{"_id":320,"_neighbors":[1234],"_weight":0,"_nType":9},
         "321":{"_id":321,"_neighbors":[1058],"_weight":0,"_nType":9},
+        "322":{"_id":322,"_neighbors":[1260],"_weight":0,"_nType":8},
+
 
 
 
