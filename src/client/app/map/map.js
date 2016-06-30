@@ -36,10 +36,12 @@
             FIND_ON_MAP: 'FIND_ON_MAP'
         };
         vm.directions = []; // current directions
-        // vm.clear = clear;
-        vm.changed = function() {
-          $log.log('changed it!');
-        };
+        vm.deps = [
+            DEPARTMENTS.slice(0, 14),
+            DEPARTMENTS.slice(14)
+        ];
+
+        vm.changed = function() { $log.log('changed it!'); };
         vm.clearLocation = clearLocation;
         vm.swap = swap;
 
@@ -249,18 +251,18 @@
 
             $('#map').height($('#svg').height() * 0.89);
 
-            PanZoom.init('#map', {
-                viewportSelector: '#map',
-                useCurrentView: true,
-                zoomEnabled: true,
-                minZoom: 0.1,
-                maxZoom: 20,
-                controlIconsEnabled: false,
-                // preventMouseEventsDefault: false,
-                fit: true,
-                center: true,
-                beforePan: beforePan
-            });
+            // PanZoom.init('#map', {
+            //     viewportSelector: '#map',
+            //     useCurrentView: true,
+            //     zoomEnabled: true,
+            //     minZoom: 0.1,
+            //     maxZoom: 20,
+            //     controlIconsEnabled: false,
+            //     // preventMouseEventsDefault: false,
+            //     fit: true,
+            //     center: true,
+            //     beforePan: beforePan
+            // });
 
             function beforePan(oldPan, newPan) {
                 var gutterWidth = 75;

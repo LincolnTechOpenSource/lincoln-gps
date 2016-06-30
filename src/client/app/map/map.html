@@ -69,138 +69,16 @@
                         <g class="legend-title">
                             <text x="1850" y="75">DEPARTMENTS/UTILITIES</text>
                         </g>
+
                         <g class="dep-list" transform="translate(1700, 196)">
-                            <g class="account-setup">
-                                <text class="dep-list-text normal-text">Account Set-Up</text>
-                                <rect class="dep-list-colorbox" x="650" y="-25"></rect>
+                            <g ng-repeat="dep in vm.deps[0]" ng-class="dep.code">
+                                <text class="dep-list-text normal-text" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
+                                <rect class="dep-list-colorbox" x="680" ng-attr-y="{{ -25 + $index * 100}}"></rect>
                             </g>
-                            <g class="accounting">
-                                <text y="100" class="dep-list-text normal-text">Accounting</text>
-                                <rect x="650" y="65" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="acd">
-                                <text y="200" class="dep-list-text normal-text">ACD</text>
-                                <rect x="650" y="175" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="asset-mgmt">
-                                <text y="300" class="dep-list-text normal-text">Asset Management</text>
-                                <rect x="650" y="275" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="broom">
-                                <text y="400" class="dep-list-text normal-text">Bathrooms</text>
-                                <rect x="650" y="375" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="branch-dev">
-                                <text y="500" class="dep-list-text normal-text">Branch Development</text>
-                                <rect x="650" y="475" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="branch-serv">
-                                <text y="600" class="dep-list-text normal-text">Branch Services</text>
-                                <rect x="650" y="575" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="busi-dev">
-                                <text y="700" class="dep-list-text normal-text">Business Development</text>
-                                <rect x="650" y="675" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="compli-licens">
-                                <text y="800" class="dep-list-text normal-text">Compliance and Licensing</text>
-                                <rect x="650" y="775" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="conf">
-                                <text y="900" class="dep-list-text normal-text">Conference Rooms</text>
-                                <rect x="650" y="875" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="copy-scan-rm">
-                                <text y="1000" class="dep-list-text normal-text">Copy and Scanning Rooms</text>
-                                <rect x="650" y="975" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="doc-mgmt">
-                                <text y="1100" class="dep-list-text normal-text">Document Management</text>
-                                <rect x="650" y="1075" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="elevator-exit">
-                                <text y="1200" class="dep-list-text normal-text">Elevator Exits</text>
-                                <rect x="650" y="1175" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="euc">
-                                <text y="1300" class="dep-list-text normal-text">End User Computing</text>
-                                <rect x="650" y="1275" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="exec-suite">
-                                <text x="800" class="dep-list-text normal-text">Executive Offices</text>
-                                <rect x="1725" y="-25" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="facilities">
-                                <text x="800" y="100" class="dep-list-text normal-text">Facilities</text>
-                                <rect x="1725" y="75" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="finance">
-                                <text x="800" y="200" class="dep-list-text normal-text">Finance</text>
-                                <rect x="1725" y="175" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="hr">
-                                <text x="800" y="300" class="dep-list-text normal-text">Human Resources</text>
-                                <rect x="1725" y="275" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="isd">
-                                <text x="800" y="400" class="dep-list-text normal-text">Information Services Division</text>
-                                <rect x="1725" y="375" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="im-r">
-                                <text x="800" y="500" class="dep-list-text normal-text">Investment Management and Research</text>
-                                <rect x="1725" y="475" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="isa">
-                                <text x="800" y="600" class="dep-list-text normal-text">Investor Services Advisor</text>
-                                <rect x="1725" y="575" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="food">
-                                <text x="800" y="700" class="dep-list-text normal-text">Lounge and Food</text>
-                                <rect x="1725" y="675" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="mrkt-comm">
-                                <text x="800" y="800" class="dep-list-text normal-text">Marketing and Communication</text>
-                                <rect x="1725" y="775" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="one-time-financials">
-                                <text x="800" y="900" class="dep-list-text normal-text">One Time Financials</text>
-                                <rect x="1725" y="875" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="ops">
-                                <text x="800" y="1000" class="dep-list-text normal-text">Operations</text>
-                                <rect x="1725" y="975" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="prvd-mgmt">
-                                <text x="800" y="1100" class="dep-list-text normal-text">Provider Management</text>
-                                <rect x="1725" y="1075" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="quality-cntrl">
-                                <text x="800" y="1200" class="dep-list-text normal-text">Quality Control</text>
-                                <rect x="1725" y="1175" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="reception" >
-                                <text x="800" y="1300" class="dep-list-text normal-text">Reception</text>
-                                <rect x="1725" y="1275" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="rdi">
-                                <text x="800" y="1400" class="dep-list-text normal-text">Research Development Implementation</text>
-                                <rect x="1725" y="1375" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="retire-serv">
-                                <text x="800" y="1500" class="dep-list-text normal-text">Retirement Services</text>
-                                <rect x="1725" y="1475" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="stairs-exit">
-                                <text x="800" y="1600" class="dep-list-text normal-text">Stairs Exits</text>
-                                <rect x="1725" y="1575" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="tpa">
-                                <text x="800" y="1700" class="dep-list-text normal-text">Third Party Administrator</text>
-                                <rect x="1725" y="1675" class="dep-list-colorbox"></rect>
-                            </g>
-                            <g class="vsa">
-                                <text x="800" y="1800" class="dep-list-text normal-text">Virtual Service Associate</text>
-                                <rect x="1725" y="1775" class="dep-list-colorbox"></rect>
+
+                            <g ng-repeat="dep in vm.deps[1]" ng-class="dep.code">
+                                <text class="dep-list-text normal-text" x="800" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
+                                <rect class="dep-list-colorbox" x="1725" ng-attr-y="{{ -25 + $index * 100}}"></rect>
                             </g>
                         </g> <!-- End Department List -->
                     </g>
@@ -383,8 +261,8 @@
                                 <rect x='1820' y='2300' class='path loc' id="1398" width='40' height='60'></rect>
                                 <rect x='1820' y='2230' class='path loc' id="1399" width='40' height='70'></rect>
                                 <polygon points='1860,2226 1932,2300 1860,2300' class='path loc' id="1400"></polygon>
-                                <rect x="1300" y="2010" class="path loc" id="1133" width="40" height="300"></rect>
-                                <rect x="1300" y="1950" class="path loc" id="1134" width="40" height="60"></rect>
+                                <rect x="1300" y="2092" class="path loc" id="1133" width="40" height="218"></rect>
+                                <rect x="1300" y="1950" class="path loc" id="1134" width="40" height="140"></rect>
                             </g>
 
                             <!-- Path in between outer lobby and reception/nick's board room/phila room -->
@@ -441,8 +319,10 @@
                             <polygon points="620,2420 725,2420 620,2520" class="path loc" id="1189"></polygon>
 
                             <!-- Pathway going from beneath exec suite down diagonally between cubicles and central conference rooms -->
-                            <polygon points="1220,1800 1380,1800 1380,1860 1280,1960 1220,1960" class="path loc" id="1160"></polygon>
-                            <rect class="path loc" id="1161" x="1130" y="1800" width="90" height="80"></rect>
+                            <rect class='path loc' id="1160" x='1220' y='1800' width='160' height='60' ></rect>
+                            <polygon points='1220,1860 1380,1860 1275,1960 1220,1960' class='path loc' id="1373" ></polygon>
+                            <rect class="path loc" id="1161" x="1130" y="1800" width="90" height="60"></rect>
+                            <rect class='path loc' id="1372" x='1130' y='1860' width='90' height='20' ></rect>
                             <rect class="path loc" id="1162" x="1130" y="1880" width="90" height="80"></rect>
                             <rect class="path loc" id="1163" x="1040" y="1960" width="90" height="80"></rect>
                             <polygon points="1220,1960 1280,1960 1220,2017" class="path loc" id="1164"></polygon>

@@ -87,7 +87,8 @@
         {code: 'conf', name: 'Conference Rooms'},
         {code: 'copy-scan-rm', name: 'Copy and Scanning Rooms'},
         {code: 'doc-mgmt', name: 'Document Management'},
-        {code: 'euc', name: 'End User Computer'},
+        {code: 'elevator-exit', name: 'Elevator Exits'},
+        {code: 'euc', name: 'End User Computing'},
         {code: 'exec-suite', name: 'Executive Offices'},
         {code: 'facilities', name: 'Facilites'},
         {code: 'finance', name: 'Finance'},
@@ -104,6 +105,7 @@
         {code: 'rdi', name: 'Research Development Implementation'},
         {code: 'reception', name: 'Reception'},
         {code: 'retire-serv', name: 'Retirement Services'},
+        {code: 'stairs-exit', name: 'Stairs Exits'},
         {code: 'tpa', name: 'Third Party Administrators'},
         {code: 'vsa', name: 'Virtual Service Associates'}
     ];
