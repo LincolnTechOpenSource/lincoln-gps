@@ -183,8 +183,8 @@
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
-            var dirResults = Dijkstra.run(vm.selectNode.fromNode.$id,
-                vm.selectNode.toNode.$id, Graphing.graph);
+            var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
+                vm.selectNode.toNode.id, Graphing.graph);
 
             if (dirResults.cached) {
                 return; // stop if the results are the same !
@@ -196,10 +196,10 @@
                 $('#svg #map .loc#' + vm.directions[i]).clearQueue();
             }
             // set new directions
-            vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.$id);
+            vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
 
             // reset view for long paths
-            if (dirResults.dist[vm.selectNode.toNode.$id] > 50) {
+            if (dirResults.dist[vm.selectNode.toNode.id] > 50) {
                 PanZoom.map.fit();
                 PanZoom.map.center();
                 PanZoom.map.resetZoom();
@@ -231,19 +231,19 @@
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
 
             for (var i = 0; i < DEPARTMENTS.length; i++) {
-                $('.dep-list .' + DEPARTMENTS[i].class).hover(
+                $('.dep-list .' + DEPARTMENTS[i].code).hover(
                     // attach hover element to each legend component so that hovering over text
                     // makes all corresponding locations highlight
-                    batchToggleClass(['.loc.' + DEPARTMENTS[i].class + ':not(.filter-out), ' +
-                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-text'
+                    batchToggleClass(['.loc.' + DEPARTMENTS[i].code + ':not(.filter-out), ' +
+                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
 
                 // attach hover element to each loc component so that hovering over location
                 // makes the corresponding legend item highlight
-                $('.loc:not(.filter-out).' + DEPARTMENTS[i].class).hover(
-                    batchToggleClass(['.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-colorbox',
-                        '.dep-list .' + DEPARTMENTS[i].class + ' .dep-list-text'
+                $('.loc:not(.filter-out).' + DEPARTMENTS[i].code).hover(
+                    batchToggleClass(['.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENTS[i].code + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 

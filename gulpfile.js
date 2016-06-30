@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:53
+// jshint maxstatements:54
 (function(){
     'use strict';
 
@@ -31,11 +31,13 @@
         .alias('e', 'emulate')
         .alias('b', 'build')
         .alias('r', 'run')
+        .alias('na', 'noAnalyze')
         // remove all debug messages (plugins.util.logs, alerts etc) from release build
         .alias('release', 'strip-debug')
         .default('build', false)
         .default('port', 8080)
         .default('strip-debug', false)
+        .default('noAnalyze', false)
         .argv;
 
     var build = !!(args.build || args.emulate || args.run);
@@ -43,6 +45,7 @@
     var run = args.run;
     var port = args.port;
     var stripDebug = !!args.stripDebug;
+    var analyze = !args.noAnalyze;
     var targetDir = path.resolve(build ? paths.build : paths.buildDev);
 
     // if we just use emualate or run without specifying platform, we assume iOS
@@ -126,9 +129,8 @@
 
     // build templatecache, copy scripts.
     // if build: concat, minsafe, uglify and versionize
-    gulp.task('scripts', ['analyze'], function() {
+    gulp.task('scripts',  (analyze ? ['analyze'] : null), function() {
         var dest = path.join(targetDir, 'app');
-
         var minifyConfig = {
             collapseWhitespace: true,
             collapseBooleanAttributes: true,

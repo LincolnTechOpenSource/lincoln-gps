@@ -4,7 +4,8 @@
 
         angular
             .module('app.core')
-            .directive('ionSearchSelect', ionSearchSelect);
+            .directive('ionSearchSelect', ionSearchSelect)
+            .filter('byDepartment', byDepartment);
 
     function ionSearchSelect() {
         var directive = {
@@ -12,7 +13,8 @@
             scope: {
                 options: '=',
                 optionSelected: '=',
-                saveCallback: '='
+                saveCallback: '=',
+                filters: '='
             },
             controller: controller
         };
@@ -20,9 +22,36 @@
         return directive;
     }
 
-    controller.$inject = ['$rootScope', '$scope', '$element', '$attrs', '$ionicModal',
-        '$ionicGesture', '$ionicPopup', '$timeout', 'Users'
-    ];
+    /* @ngInject */
+    function byDepartment($filter, $log) {
+        return function(options, filters) {
+            if (filters.count === 0) {
+                return options;
+            }
+
+            // get departments to display (if none are shown, all should show)
+            var depFilters = $filter('filter')(filters.d, { dirShow: true }, true);
+            depFilters = (depFilters.length > 0) ? depFilters : filters.d;
+
+            var results = filterOptions();
+
+            function filterOptions() {
+                return options.filter(function(option) {
+                    var ret = depFilters.filter(function(depFilter) {
+                        return depFilter.code === option.divCode;
+                    });
+                    return (ret.length > 0) ? ret : false;
+                });
+            }
+
+            return results;
+        };
+    }
+
+    // controller.$inject = ['$rootScope', '$scope', '$element', '$attrs', '$ionicModal',
+    //     '$ionicGesture', '$ionicPopup', '$timeout', 'Users'
+    // ];
+    /* @ngInject */
     function controller($rootScope, $scope, $element, $attrs, $ionicModal,
         $ionicGesture, $ionicPopup, $timeout, Users) {
         $scope.searchSelect = {

@@ -18,8 +18,13 @@
             <ion-radio class="text-center select-on-map" ng-if="searchSelect.enableMapSelect" ng-click="selectOnMap()">
                 <i class="icon ion-map" style="font-size: 20px;"></i> Select on Map
             </ion-radio>
-            <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty">
-                <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
+            <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty && !!filters">
+                <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue | orderBy: searchSelect.valueProperty | byDepartment:filters" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
+                    {{ option[searchSelect.valueProperty] }}
+                </ion-radio>
+            </div>
+            <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty && !filters">
+                <ion-radio collection-repeat="option in options | filter: searchSelect.searchvalue | orderBy: searchSelect.valueProperty" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
                     {{ option[searchSelect.valueProperty] }}
                 </ion-radio>
             </div>

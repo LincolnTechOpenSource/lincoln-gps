@@ -21,7 +21,15 @@
             employees: null, // only load if user is authenticated
             employee: null
         };
-        vm.filters = DEPARTMENTS;
+        vm.filters = {
+            d: DEPARTMENTS,
+            count: 0,
+
+            counter: function(checked) {
+                return checked ? vm.filters.count++ : vm.filters.count--;
+            }
+        };
+        // vm.filters = DEPARTMENTS;
 
         // set employee parameter and link to map
         vm.findOnMap = findOnMap;
