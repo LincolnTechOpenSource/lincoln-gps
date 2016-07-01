@@ -214,7 +214,7 @@
                 reset();
             }
 
-            // hilite each block in the path (immediately highlight to)
+            // hilite each block in the path (immediately highlight the to node)
             $('#svg #map .loc#' + vm.selectNode.toNode.id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
                 var j = Math.floor(i / 2); // show two at a time
