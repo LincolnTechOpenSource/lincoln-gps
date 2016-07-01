@@ -246,9 +246,9 @@
             // attach hover element to each loc component so that hovering over location
             // makes the corresponding legend item highlight
             for (var i = 0; i < UNITS.ALL.length; i++) {
-                $('.loc:not(.filter-out).' + UNITS.ALL[i].code).hover(
-                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].code + ' .dep-list-colorbox',
-                        '.dep-list .' + UNITS.ALL[i].code + ' .dep-list-text'
+                $('.loc:not(.filter-out).' + UNITS.ALL[i].depCode).hover(
+                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-colorbox',
+                        '.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 

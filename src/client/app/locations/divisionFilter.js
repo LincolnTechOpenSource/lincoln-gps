@@ -8,9 +8,9 @@
     /** displays the division name for a given divCode */
     /* @ngInject */
     function division($filter, UNITS) {
-        return function(divCode) {
+        return function(depCode) {
             var division = $filter('filter')(UNITS.ALL, {
-                code: divCode
+                depCode: depCode
             }, true)[0];
 
             return division ? division.name : 'ERROR';

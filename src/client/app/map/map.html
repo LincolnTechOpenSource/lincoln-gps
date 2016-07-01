@@ -90,12 +90,12 @@
                         </g>
 
                         <g class="dep-list" transform="translate(1700, 196)">
-                            <g ng-repeat="dep in vm.deps[0]" ng-class="dep.code" data-code="{{ dep.code }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
+                            <g ng-repeat="dep in vm.deps[0]" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
                                 <text class="dep-list-text normal-text" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
                                 <rect class="dep-list-colorbox" x="680" ng-attr-y="{{ -25 + $index * 100}}"></rect>
                             </g>
 
-                            <g ng-repeat="dep in vm.deps[1]" ng-class="dep.code" data-code="{{ dep.code }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
+                            <g ng-repeat="dep in vm.deps[1]" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
                                 <text class="dep-list-text normal-text" x="800" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
                                 <rect class="dep-list-colorbox" x="1725" ng-attr-y="{{ -25 + $index * 100}}"></rect>
                             </g>
@@ -993,7 +993,8 @@
                                 <rect class="desk cubicle isd loc" id="226" width="90" height="90" transform="translate(430,736)" />
                                 <g id="227" class="desk cubicle rdi loc copy-scan-rm copy-rm">
                                     <rect width="90" height="90" transform="translate(520,736)" />
-                                    <image x='548' y='775' width='40' height='50' xlink:href='content/images/map-icons/printer.svg'></image>
+                                    <rect class='copy-scan-rm' x='545' y='775' width='60' height='50'></rect>
+                                    <image x='555' y='775' width='40' height='50' xlink:href='content/images/map-icons/printer.svg'></image>
                                 </g>
                                 <rect class="desk cubicle rdi loc" id="228" width="90" height="90" transform="translate(610,736)" />
                                 <rect class="desk cubicle isd loc" id="229" width="90" height="90" transform="translate(700,736)" />
@@ -1008,7 +1009,7 @@
                                 <rect class="desk cubicle compli-licens loc" id="234" width="90" height="90" transform="translate(1220,646)" />
                                 <rect class="desk cubicle euc loc" id="235" width="90" height="90" transform="translate(950,736)" />
                                 <rect class="desk cubicle compli-licens loc" id="236" width="90" height="90" transform="translate(1040,736)" />
-                                <rect class="desk cubicle compli-licens loc" id="237" width="90" height="90" transform="translate(1130,736)" />
+                                <rect class="desk cubicle compli-licens loc copy-scan-rm" id="237" width="90" height="90" transform="translate(1130,736)" />
                                 <rect class="desk cubicle compli-licens loc" id="238" width="90" height="90" transform="translate(1220,736)" />
 
                                 <!-- RDI, ISD, Compliance and Licensing cubicles -->
