@@ -81,14 +81,20 @@
 
     /* @ngInject */
     function byDepartment($filter) {
+
+        /** filter the specified @options by the @filters */
         return function(options, filters) {
             // return everything if there are no filters (QoL feature)
-            if (filters.count <= 0) {
-                return options;
-            }
+            // if (filters.count <= 0) {
+            //     return options;
+            // }
 
             // get the departments to show (we know depFilters is not empty because count > 0)
-            var depFilters = $filter('filter')(filters.d, { dirShow: true }, true);
+            var depFilters = $filter('filter')(filters, { dirShow: true }, true);
+
+            if (depFilters.length <= 0) {
+                return options;
+            }
 
             return filterOptions();
 
