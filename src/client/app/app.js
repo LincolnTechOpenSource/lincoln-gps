@@ -11,7 +11,7 @@
      */
     angular
         .module('app', ['ionic', 'app.map', 'app.directory', 'app.account',
-            'app.tab', 'app.core'
+            'app.tab', 'app.loc', 'app.core'
         ])
         .run(appRun)
         .config(appConfigure);

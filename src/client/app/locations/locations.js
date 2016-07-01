@@ -2,11 +2,11 @@
 (function() {
     'use strict';
 
-    angular.module('app.core')
+    angular.module('app.loc')
         .factory('Locations', Locations);
 
     // handle locations table queries
-    Locations.$inject = ['$q', '$firebaseArray', '$log'];
+    /* @ngInject */
     function Locations($q, $firebaseArray, $log) {
         var primePromise;
         /* global firebase */
