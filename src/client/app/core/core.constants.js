@@ -131,12 +131,22 @@
         function ALL() {
           return DEPARTMENTS().concat(UTILITIES());
         }
-
     })();
+
+    var TITLES = [
+        {titleCode: 'vp', name: 'Vice President'},
+        {titleCode: 'exec', name: 'Executive'},
+        {titleCode: 'md', name: 'Managing Director'},
+        {titleCode: 'int', name: 'Intern'},
+        {titleCode: 'ana', name: 'Analyst'},
+        {titleCode: 'ass', name: 'Associate'},
+        {titleCode: 'pres', name: 'President'}
+    ];
 
     angular
         .module('app.core')
         .constant('NodeTypeEnum', NodeTypeEnum)
-        .constant('UNITS', UNITS);
+        .constant('UNITS', UNITS)
+        .constant('TITLES', TITLES);
 
 })();

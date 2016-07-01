@@ -25,7 +25,7 @@ and **name**
    In addition to the above properties, employee locations (i.e., desks and offices)
 must also define **division**, **title**, **email**, and **ext**
 
-   * **division:** the employee's division (e.g., ISD)
+   * **depCode:** the code for the employee's department (e.g., isd)
    * **title:** the employee's professional title (e.g., Executive Director)
    * **email:** the employee's contact email
    * **ext:** the employee's phone contact extension
