@@ -9,11 +9,11 @@
     angular
         .module('app.directory')
         .controller('DirectoryCtrl', DirectoryCtrl)
-        .filter('byDepartment', byDepartment);
+        .filter('byField', byField);
 
     /* @ngInject */
     function DirectoryCtrl($scope, $state, $log, Locations, Firebase,
-        Params, NodeTypeEnum, UNITS) {
+        Params, NodeTypeEnum, UNITS, TITLES) {
         var vm = this;
 
         vm.selectEmployee = {
@@ -22,11 +22,18 @@
         };
         vm.filters = {
             d: UNITS.DEPARTMENTS,
-            count: 0,
-            show: false,
+            t: TITLES,
+            count: {
+                d: 0,
+                t: 0
+            },
+            show: {
+                d: false,
+                t: false,
+            },
 
-            counter: function(checked) {
-                return checked ? vm.filters.count++ : vm.filters.count--;
+            counter: function(checked, key) {
+                return checked ? vm.filters.count[key]++ : vm.filters.count[key]--;
             }
         };
         // filter accordion toggle
@@ -47,8 +54,8 @@
         //------------------------------------------------//
 
         /** handle filter accordion toggle and show */
-        function toggleFilters() {
-            vm.filters.show = !vm.filters.show;
+        function toggleFilters(key) {
+            vm.filters.show[key] = !vm.filters.show[key];
         }
 
         /** run upon controller activate */
@@ -80,29 +87,28 @@
     }
 
     /* @ngInject */
-    function byDepartment($filter) {
-
-        /** filter the specified @options by the @filters */
-        return function(options, filters) {
-
-            // get the departments to show
-            var depFilters = $filter('filter')(filters, { dirShow: true }, true);
+    function byField($filter) {
+        /** filter the specified @options across the @filtersList by @filterCode
+         * e.g. across department filters by depCode */
+        return function(options, filtersList, filterCode) {
+            // get the filters to use (i.e., those that are active)
+            var activeFilters = $filter('filter')(filtersList, { show: true }, true);
 
             // return everything if there are no filters (QoL feature)
-            if (depFilters.length <= 0) {
+            if (activeFilters.length <= 0) {
                 return options;
             }
 
-            return filterOptions();
+            return filterOptions(activeFilters, filterCode);
 
             //-----------------------------------------
 
-            /** filter the options by department that should be shown */
-            function filterOptions() {
+            /** filter the options according to the active filters that should be shown */
+            function filterOptions(activeFilters, filterCode) {
                 return options.filter(function(option) {
                     // determines whether this particularly option matches any filter
-                    var ret = depFilters.filter(function(depFilter) {
-                        return depFilter.depCode === option.depCode; // match ?
+                    var ret = activeFilters.filter(function(filter) {
+                        return filter[filterCode] === option[filterCode]; // match ?
                     });
                     return (ret.length > 0) ? ret : false; // return results if not empty
                 });

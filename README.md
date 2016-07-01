@@ -26,7 +26,7 @@ and **name**
 must also define **division**, **title**, **email**, and **ext**
 
    * **depCode:** the code for the employee's department (e.g., isd)
-   * **title:** the employee's professional title (e.g., Executive Director)
+   * **titleCode:** the code for the employee's professional title (e.g., exec, vp)
    * **email:** the employee's contact email
    * **ext:** the employee's phone contact extension
 

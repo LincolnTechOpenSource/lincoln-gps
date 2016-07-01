@@ -135,7 +135,7 @@
 
     var TITLES = [
         {titleCode: 'vp', name: 'Vice President'},
-        {titleCode: 'exec', name: 'Executive'},
+        {titleCode: 'exec', name: 'Executive Director'},
         {titleCode: 'md', name: 'Managing Director'},
         {titleCode: 'int', name: 'Intern'},
         {titleCode: 'ana', name: 'Analyst'},

@@ -2,7 +2,7 @@
 <div class="item location-info" ng-show="!!location">
     <span ng-transclude="above"></span>
     <p class="text-center"> <strong>{{ location.name }}</strong> </p>
-    <p class="text-center" ng-if-start="location.nType == 5"> <strong>{{ location.title }}</strong> of <strong>{{ location.depCode | division }}</strong></p>
+    <p class="text-center" ng-if-start="location.nType == 5"> <strong>{{ location.titleCode | title }}</strong> of <strong>{{ location.depCode | division }}</strong></p>
     <p class="text-center" ng-if-end> Contact at <strong>{{ location.email }}</strong> or <strong>{{ location.ext }}</strong> </p>
     <span ng-transclude="below"></span>
 </div>

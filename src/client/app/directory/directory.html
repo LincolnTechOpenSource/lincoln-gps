@@ -3,32 +3,32 @@
 <ion-view view-title="Lincoln Employee Directory">
     <ion-content class="padding">
         <!--<h2 class="text-center">Lincoln Employee Directory</h2>-->
-        <!--{{ vm.filters }}-->
 
-        <ion-item class="item-stable" ng-click="vm.toggleFilters()" ng-class="{active: vm.filters.show}">
-            <i class="icon" ng-class="vm.filters.show ? 'ion-minus' : 'ion-plus'"></i>
+        <!--Filter By Department-->
+        <ion-item class="item-stable" ng-click="vm.toggleFilters('d')" ng-class="{active: vm.filters.show.d}">
+            <i class="icon" ng-class="vm.filters.show.d ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp; Filter by Department
         </ion-item>
         <ion-scroll direction="y" class="filter-scroll">
-            <ion-list class="filters-list ng-hide" ng-show="vm.filters.show">
+            <ion-list class="filters-list ng-hide" ng-show="vm.filters.show.d">
                 <div class="filters row responsive-sm" ng-repeat="filter in vm.filters.d" ng-if="$index % 4 === 0">
                     <div class="col col-25">
-                        <ion-checkbox ng-change="vm.filters.counter(filter.dirShow)" ng-model="filter.dirShow">
+                        <ion-checkbox ng-change="vm.filters.counter(filter.show, 'd')" ng-model="filter.show">
                             {{filter.name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+1]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+1].dirShow)" ng-model="vm.filters.d[$index+1].dirShow">
+                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+1].show, 'd')" ng-model="vm.filters.d[$index+1].show">
                             {{vm.filters.d[$index+1].name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+2]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+2].dirShow)" ng-model="vm.filters.d[$index+2].dirShow">
+                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+2].show, 'd')" ng-model="vm.filters.d[$index+2].show">
                             {{vm.filters.d[$index+2].name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+3]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+3].dirShow)" ng-model="vm.filters.d[$index+3].dirShow">
+                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+3].show, 'd')" ng-model="vm.filters.d[$index+3].show">
                             {{vm.filters.d[$index+3].name}}
                         </ion-checkbox>
                     </div>
@@ -36,8 +36,40 @@
             </ion-list>
         </ion-scroll>
 
+        <!--Filter by Title-->
+        <ion-item class="item-stable" ng-click="vm.toggleFilters('t')" ng-class="{active: vm.filters.show.t}">
+            <i class="icon" ng-class="vm.filters.show.t ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp; Filter by Title
+        </ion-item>
+        <ion-scroll direction="y" class="filter-scroll">
+            <ion-list class="filters-list ng-hide" ng-show="vm.filters.show.t">
+                <div class="filters row responsive-sm" ng-repeat="filter in vm.filters.t" ng-if="$index % 4 === 0">
+                    <div class="col col-25">
+                        <ion-checkbox ng-model="filter.show">
+                            {{filter.name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters.t[$index+1]">
+                        <ion-checkbox ng-model="vm.filters.t[$index+1].show">
+                            {{vm.filters.t[$index+1].name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters.t[$index+2]">
+                        <ion-checkbox ng-model="vm.filters.t[$index+2].show">
+                            {{vm.filters.t[$index+2].name}}
+                        </ion-checkbox>
+                    </div>
+                    <div class="col col-25" ng-if="vm.filters.t[$index+3]">
+                        <ion-checkbox ng-model="vm.filters.t[$index+3].show">
+                            {{vm.filters.t[$index+3].name}}
+                        </ion-checkbox>
+                    </div>
+                </div>
+            </ion-list>
+        </ion-scroll>
+
         <div class="item">
-            <ion-search-select title="Search by Name" key-property="id" value-property="name" options="vm.selectEmployee.employees" option-selected="vm.selectEmployee.employee" filters="vm.filters.d">
+            <ion-search-select title="Search by Name" key-property="id" value-property="name" options="vm.selectEmployee.employees" option-selected="vm.selectEmployee.employee" filters="vm.filters">
                 <label class="item item-input-inset search-select">
                     <div class="item-input-wrapper">
                         <i class="icon ion-ios-search"></i>
