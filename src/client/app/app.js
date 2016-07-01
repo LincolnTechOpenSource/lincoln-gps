@@ -16,7 +16,7 @@
         .run(appRun)
         .config(appConfigure);
 
-    appRun.$inject = ['$rootScope', '$state', '$ionicPlatform', '$window', '$log', 'Firebase'];
+    /* @ngInject */
     function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running

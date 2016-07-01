@@ -41,7 +41,8 @@
         /** get: returns the location information specified by @locID
          * can assume that service.locations is not null */
         function get(locID) {
-            return service.locations.$getRecord(locID);
+            locID = ("00"+locID).slice(-3); // 0 pad number (we know range is 1..100s)
+            return service.locations.$getRecord("loc"+locID);
         }
 
         function prime() {

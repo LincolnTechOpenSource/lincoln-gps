@@ -34,7 +34,7 @@
                 viewportSelector: '#map',
                 useCurrentView: true,
                 zoomEnabled: true,
-                minZoom: 0.1,
+                minZoom: 0.5,
                 maxZoom: 20,
                 controlIconsEnabled: false,
                 // preventMouseEventsDefault: false, // enable before pushing to mobile

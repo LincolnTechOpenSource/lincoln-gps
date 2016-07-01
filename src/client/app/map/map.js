@@ -219,13 +219,16 @@
         }
 
         function checkSelect(event) {
-            var id = event.target.id || $(event.target).parent('g')[0].id;
             var selectOnClick = $('#svg #map').attr('select-on-click');
 
             if (selectOnClick !== 'false') {
+                var id = event.target.id || $(event.target).parent('g')[0].id;
+
                 $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
+                // vm.selectNode[selectOnClick] = vm.selectNode.nodes[id];
+                $scope.$apply();
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');

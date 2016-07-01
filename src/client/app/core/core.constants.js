@@ -121,7 +121,7 @@
             return [
                 {code: 'broom', name: 'Bathrooms'},
                 {code: 'conf', name: 'Conference Rooms'},
-                {code: 'copy-scan-rm', name: 'Copy and Scanning Rooms'},
+                {code: 'copy-scan-rm', name: 'Copy Scan and Printing Rooms'},
                 {code: 'elevator-exit', name: 'Elevator Exits'},
                 {code: 'food', name: 'Lounge and Food'},
                 {code: 'stairs-exit', name: 'Stairs Exits'},
