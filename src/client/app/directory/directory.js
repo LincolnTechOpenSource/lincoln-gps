@@ -84,14 +84,11 @@
 
         /** filter the specified @options by the @filters */
         return function(options, filters) {
-            // return everything if there are no filters (QoL feature)
-            // if (filters.count <= 0) {
-            //     return options;
-            // }
 
-            // get the departments to show (we know depFilters is not empty because count > 0)
+            // get the departments to show
             var depFilters = $filter('filter')(filters, { dirShow: true }, true);
 
+            // return everything if there are no filters (QoL feature)
             if (depFilters.length <= 0) {
                 return options;
             }
