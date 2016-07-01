@@ -183,10 +183,14 @@
                     $('#svg #map #' + newNode.id).addClass('hilite');
                 }
             }
+
+            if (!!oldNode && (newNode !== oldNode) &&
+                vm.selectNode[node === 'toNode' ? 'fromNode' : 'toNode'] !== oldNode) {
+                $('#svg #map #' + oldNode.id).removeClass('hilite');
+            }
         }
 
         function findDirections() {
-            // if (!!vm.selectNode.fromNode && !!vm.selectNode.toNode) {
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
@@ -210,7 +214,8 @@
                 reset();
             }
 
-            // hilite each block in the path (immediately highlight from and to)
+            // hilite each block in the path (immediately highlight to)
+            $('#svg #map .loc#' + vm.selectNode.toNode.id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
                 var j = Math.floor(i / 2); // show two at a time
                 $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
@@ -228,7 +233,7 @@
                     vm.selectNode[selectOnClick] = loc;
                 });
                 // vm.selectNode[selectOnClick] = vm.selectNode.nodes[id];
-                $scope.$apply();
+                // $scope.$apply();
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');

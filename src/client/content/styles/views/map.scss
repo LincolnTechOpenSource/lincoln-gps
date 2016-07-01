@@ -105,11 +105,11 @@
 
 /* path highlighting and coloring */
 #svg #map .loc.path {
-     stroke: black;
-    //stroke: none;
-    stroke-width: 1px;
+    stroke: black;
     fill: darkgray;
+    // stroke: none;
     // fill: none;
+    stroke-width: 1px;
 }
 
 

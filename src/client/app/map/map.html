@@ -655,7 +655,10 @@
                             <rect x="2365" y="3190" class="loc janitor facilities" id="317" height="190" width="80"></rect>
 
                             <!-- Print copy-rm next to ten block of branch services cubicles -->
-                            <rect x="2365" y="2625" class="loc copy-scan-rm copy-rm" id="315" height="180" width="120"></rect>
+                            <g id="315" class="loc copy-scan-rm copy-rm">
+                                <rect x="2365" y="2625" height="180" width="120"></rect>
+                                <image x='2370' y='2630' width='100' height='160' xlink:href='content/images/map-icons/printer.svg'></image>
+                            </g>
 
                             <!-- Storage room between compli-licens cubicle and north team room, near HR wing -->
                             <rect x="2380" y="2265" class="loc janitor facilities" id="316" width="80" height="70"></rect>
@@ -663,7 +666,8 @@
                             <!-- Scanning area -->
                             <g id="314" class="loc copy-scan-rm scan-rm">
                                 <rect x="1915" y="2475" width="285" height="70"></rect>
-                                <image x='1920' y='2477' width='50' height='40' xlink:href='content/images/map-icons/stairs.svg'></image>
+                                <image x='1920' y='2477' width='70' height='65' xlink:href='content/images/map-icons/1467393957_Appliances-38.svg'></image>
+                                <image x='2120' y='2477' width='70' height='65' xlink:href='content/images/map-icons/1467393957_Appliances-38.svg'></image>
                             </g>
 
                             <g transform="rotate(45,1450,2000)">
@@ -975,7 +979,10 @@
                                 <rect class="desk cubicle rdi loc" id="227" width="90" height="90" transform="translate(520,736)" />
                                 <rect class="desk cubicle rdi loc" id="228" width="90" height="90" transform="translate(610,736)" />
                                 <rect class="desk cubicle isd loc" id="229" width="90" height="90" transform="translate(700,736)" />
-                                <rect class="desk cubicle copy-scan-rm copy-rm loc" id="230" width="90" height="90" transform="translate(790,736)" />
+                                <g id="230" class="desk cubicle copy-scan-rm copy-rm loc euc-printer">
+                                    <rect width="90" height="90" transform="translate(790,736)" />
+                                    <image x='795' y='738' width='70' height='70' xlink:href='content/images/map-icons/printer.svg' transform='rotate(45)'></image>
+                                </g>
                                 <rect class="desk cubicle euc loc" id="231" width="90" height="90" transform="translate(950,646)" />
                                 <rect class="desk cubicle compli-licens loc" id="232" width="90" height="90" transform="translate(1040,646)" />
                                 <rect class="desk cubicle compli-licens loc" id="233" width="90" height="90" transform="translate(1130,646)" />

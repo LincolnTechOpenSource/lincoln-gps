@@ -280,7 +280,7 @@
         "278":{"_id":278,"_neighbors":[1353],"_weight":0,"_nType":5},
         "279":{"_id":279,"_neighbors":[1261],"_weight":0,"_nType":5},
         "280":{"_id":280,"_neighbors":[1262],"_weight":0,"_nType":5},
-        "281":{"_id":281,"_neighbors":[1271],"_weight":0,"_nType":5},
+        "281":{"_id":281,"_neighbors":[1273],"_weight":0,"_nType":5},
         "282":{"_id":282,"_neighbors":[1273],"_weight":0,"_nType":5},
         "283":{"_id":283,"_neighbors":[1273],"_weight":0,"_nType":5},
         "284":{"_id":284,"_neighbors":[1275],"_weight":0,"_nType":5},
@@ -312,8 +312,6 @@
         "320":{"_id":320,"_neighbors":[1234],"_weight":0,"_nType":9},
         "321":{"_id":321,"_neighbors":[1058],"_weight":0,"_nType":9},
         "322":{"_id":322,"_neighbors":[1260],"_weight":0,"_nType":8},
-
-
 
 
         "1001":{"_id":1001,"_neighbors":[7, 20, 1002, 1012],"_weight":1,"_nType":3},
@@ -575,7 +573,7 @@
         "1257":{"_id":1257,"_neighbors":[1250, 1258, 1272],"_weight":1,"_nType":3},
         "1258":{"_id":1258,"_neighbors":[1255, 1257, 1355, 1356],"_weight":1,"_nType":3},
         "1259":{"_id":1259,"_neighbors":[276, 277, 1353, 1355],"_weight":1,"_nType":3},
-        "1260":{"_id":1260,"_neighbors":[1261, 1271, 1353],"_weight":1,"_nType":3},
+        "1260":{"_id":1260,"_neighbors":[322, 1261, 1353],"_weight":1,"_nType":3},
         "1261":{"_id":1261,"_neighbors":[275, 279, 1260, 1262],"_weight":1,"_nType":3},
         "1262":{"_id":1262,"_neighbors":[280, 1261, 1263],"_weight":1,"_nType":3},
         "1263":{"_id":1263,"_neighbors":[274, 1262, 1264, 1265],"_weight":1,"_nType":3},
@@ -586,9 +584,9 @@
         "1268":{"_id":1268,"_neighbors":[286, 1267, 1269],"_weight":1,"_nType":3},
         "1269":{"_id":1269,"_neighbors":[215, 287, 1268, 1352],"_weight":1,"_nType":3},
         "1270":{"_id":1270,"_neighbors":[214, 288, 1282, 1352],"_weight":1,"_nType":3},
-        "1271":{"_id":1271,"_neighbors":[281, 1260, 1274],"_weight":1,"_nType":3},
+        "1271":{"_id":1271,"_neighbors":[1274],"_weight":1,"_nType":3},
         "1272":{"_id":1272,"_neighbors":[314, 1257, 1274],"_weight":2,"_nType":3},
-        "1273":{"_id":1273,"_neighbors":[282, 283, 1274, 1275],"_weight":1,"_nType":3},
+        "1273":{"_id":1273,"_neighbors":[281, 282, 283, 1274, 1275],"_weight":1,"_nType":3},
         "1274":{"_id":1274,"_neighbors":[1271, 1272, 1273],"_weight":1,"_nType":3},
         "1275":{"_id":1275,"_neighbors":[284, 285, 1273],"_weight":1,"_nType":3},
         "1276":{"_id":1276,"_neighbors":[197, 1249, 1277],"_weight":1,"_nType":3},
