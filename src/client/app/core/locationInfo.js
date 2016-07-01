@@ -1,18 +1,20 @@
 // locationInfo.js
 
 angular
-    .module('app.map')
+    .module('app.core')
     .directive('locationInfo', locationInfo);
 
 function locationInfo() {
     return {
         restrict: 'E',
         scope: {
-            locSelect: '@',
+            // locSelect: '@',
             location: '='
         },
-        transclude: true,
-        templateUrl: 'app/map/locationInfo.html'
+        transclude: {
+            'above': '?above',
+            'below': '?below'
+        },
+        templateUrl: 'app/core/locationInfo.html'
     };
 }
-

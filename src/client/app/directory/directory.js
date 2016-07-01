@@ -29,12 +29,14 @@
                 return checked ? vm.filters.count++ : vm.filters.count--;
             }
         };
+        // filter accordion toggle
+        vm.toggleFilters = toggleFilters;
+
+        // click to clear selected employee
+        vm.clearEmployee = clearEmployee;
 
         // set employee parameter and link to map
         vm.findOnMap = findOnMap;
-
-        // accordion functions
-        vm.toggleFilters = toggleFilters;
 
         // load employees when signed in
         Firebase.auth().$onAuthStateChanged(userAuth);
@@ -69,6 +71,11 @@
         function findOnMap(employee) {
             Params.employee = employee;
             $state.go('tab.map');
+        }
+
+        /** resets the selected employee */
+        function clearEmployee() {
+            vm.selectEmployee.employee = null;
         }
     }
 
