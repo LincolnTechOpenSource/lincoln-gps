@@ -17,5 +17,29 @@ ion-content .scroll {
     padding-right: 1px;
 }
 
+// filter accordion styles (http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations)
+$transition: all 1s ease !important;
 
+.filter-scroll {
+    width: 100%;
+}
+.filter-scroll .filters-list .list {
+    line-height: 38px;
+    max-height: 300px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    -webkit-transition: $transition;
+	-moz-transition: $transition;
+	transition: $transition;
+}
+
+.filter-scroll .filters-list.ng-hide .list {
+    line-height: 0px;
+    max-height: 0px;
+}
+
+.filter-scroll .filters-list.ng-hide {
+    display: inline !important;
+}
 /*----------------------------------------------------------------------------*/

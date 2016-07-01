@@ -23,6 +23,7 @@
         vm.filters = {
             d: UNITS.DEPARTMENTS,
             count: 0,
+            show: false,
 
             counter: function(checked) {
                 return checked ? vm.filters.count++ : vm.filters.count--;
@@ -32,6 +33,9 @@
         // set employee parameter and link to map
         vm.findOnMap = findOnMap;
 
+        // accordion functions
+        vm.toggleFilters = toggleFilters;
+
         // load employees when signed in
         Firebase.auth().$onAuthStateChanged(userAuth);
 
@@ -39,6 +43,11 @@
         $scope.$on('$ionicView.enter', activate);
 
         //------------------------------------------------//
+
+        /** handle filter accordion toggle and show */
+        function toggleFilters() {
+            vm.filters.show = !vm.filters.show;
+        }
 
         /** run upon controller activate */
         function activate() {

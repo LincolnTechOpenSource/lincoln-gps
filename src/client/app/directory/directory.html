@@ -4,8 +4,13 @@
     <ion-content class="padding">
         <!--<h2 class="text-center">Lincoln Employee Directory</h2>-->
         <!--{{ vm.filters }}-->
-        <ion-scroll direction="y" style="width: 100%; height: 50%;">
-            <ion-list class="filters-list">
+
+        <ion-item class="item-stable" ng-click="vm.toggleFilters()" ng-class="{active: vm.filters.show}">
+            <i class="icon" ng-class="vm.filters.show ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp; Filter by Department
+        </ion-item>
+        <ion-scroll direction="y" class="filter-scroll">
+            <ion-list class="filters-list ng-hide" ng-show="vm.filters.show">
                 <div class="filters row responsive-sm" ng-repeat="filter in vm.filters.d" ng-if="$index % 4 === 0">
                     <div class="col col-25">
                         <ion-checkbox ng-change="vm.filters.counter(filter.dirShow)" ng-model="filter.dirShow">
