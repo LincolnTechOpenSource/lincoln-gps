@@ -12,13 +12,11 @@
         .module('app.map')
         .factory('Graphing', Graphing);
 
-    // Graphing.$inject = ['$q', 'NodeTypeEnum'];
     /* @ngInject */
     function Graphing($q, NodeTypeEnum) {
         var URL = 'data/graph.json'; // constant
 
         var service = {
-            debug: false,
             graph: null,
 
             createGraph: createGraph
@@ -30,9 +28,9 @@
 
         function createGraph(data) {
             $.getJSON(URL, function(data) {
-                service.graph = new Graph(data, service.debug);
+                // service.graph = new Graph(data, true); // debug for testing purposes
+                service.graph = new Graph(data, false);
 
-                // console.info('Graph Created!');
                 return service.graph;
             }).fail(function(error) {
                 console.error(error);

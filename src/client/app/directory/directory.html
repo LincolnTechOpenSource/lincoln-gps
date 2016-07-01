@@ -13,22 +13,22 @@
             <ion-list class="filters-list ng-hide" ng-show="vm.filters.show.d">
                 <div class="filters row responsive-sm" ng-repeat="filter in vm.filters.d" ng-if="$index % 4 === 0">
                     <div class="col col-25">
-                        <ion-checkbox ng-change="vm.filters.counter(filter.show, 'd')" ng-model="filter.show">
+                        <ion-checkbox ng-model="filter.show">
                             {{filter.name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+1]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+1].show, 'd')" ng-model="vm.filters.d[$index+1].show">
+                        <ion-checkbox ng-model="vm.filters.d[$index+1].show">
                             {{vm.filters.d[$index+1].name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+2]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+2].show, 'd')" ng-model="vm.filters.d[$index+2].show">
+                        <ion-checkbox ng-model="vm.filters.d[$index+2].show">
                             {{vm.filters.d[$index+2].name}}
                         </ion-checkbox>
                     </div>
                     <div class="col col-25" ng-if="vm.filters.d[$index+3]">
-                        <ion-checkbox ng-change="vm.filters.counter(vm.filters.d[$index+3].show, 'd')" ng-model="vm.filters.d[$index+3].show">
+                        <ion-checkbox ng-model="vm.filters.d[$index+3].show">
                             {{vm.filters.d[$index+3].name}}
                         </ion-checkbox>
                     </div>

@@ -21,19 +21,11 @@
             employee: null
         };
         vm.filters = {
-            d: UNITS.DEPARTMENTS,
-            t: TITLES,
-            count: {
-                d: 0,
-                t: 0
-            },
+            d: UNITS.DEPARTMENTS, // department filters
+            t: TITLES, // title filter
             show: {
-                d: false,
-                t: false,
-            },
-
-            counter: function(checked, key) {
-                return checked ? vm.filters.count[key]++ : vm.filters.count[key]--;
+                d: false, // accordion show department filters
+                t: false, // accordion show title filters
             }
         };
         // filter accordion toggle
