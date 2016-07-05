@@ -229,16 +229,22 @@
             }
         }
 
+        // TODO: handle case when data-id is array
         function checkSelect(event) {
             var selectOnClick = $('#svg #map').attr('select-on-click');
 
             if (selectOnClick !== 'false') {
-                var id = $(event.currentTarget).data('id');
+                // id is an array (usually only 1 element) representing locations
+                var id = event.currentTarget.id;
 
-                // TODO: handle case when data-id is array
                 $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
+
+                var dataIDs = $(event.currentTarget).data('id');
+                if (dataIDs) {
+                    console.log(dataIDs);
+                }
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');
