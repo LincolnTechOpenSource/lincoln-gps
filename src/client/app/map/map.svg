@@ -715,6 +715,7 @@
                 <rect x="1300" y="2480" class="loc copy-scan-rm copy-rm" id="312" width="180" height="110"></rect>
                 <!-- Print copy-rm next to betsy-ross-room conference room -->
                 <rect x="1680" y="2480" class="loc copy-scan-rm copy-rm" id="313" width="180" height="110"></rect>
+                <image x='1681' y='2481' width='150' height='100' xlink:href='content/images/map-icons/printer.svg'></image>
             </g>
             <!-- Privacy pods beneath independence conference room -->
             <g class="central-conf-rooms-cubicles" transform="rotate(45,1450,2000)">

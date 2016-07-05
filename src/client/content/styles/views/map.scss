@@ -1,23 +1,19 @@
 /* map.scss */
 
-
 #tab-map .swap {
-    // font-size: 14px;
-    // padding: 0;
-    // line-height: 30%;
     top: -10px;
 }
 
 /* flex box container */
 #tab-map .flexbox-container,
 #tab-map .flexbox-container #svg {
+    height: 100%;
+
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
 
-
-    height: 100%;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -46,17 +42,17 @@
 
 /* SVG Map styling */
 
-#svg #map #filtered line {
+#svg #map #cross-out line {
     stroke: #FF0000;
     stroke-width: 0.1;
 }
-#svg #map #filtered rect {
+#svg #map #filter-out rect {
     fill: #777;
 }
 
 #svg #map .loc.filter-out,
 #svg #map .loc.filter-out:hover {
-    fill: url(#filtered);
+    fill: url(#filter-out);
     stroke: none;
     fill-opacity: 0.8;
     opacity: 0.8;
@@ -67,15 +63,13 @@
     stroke-width: 3px;
     stroke: #000000;
 }
+#svg #map .wall.inner-rect-wall {
+    fill: url(#inner-rect-wall);
+}
 
 #svg #map #outer-border.select-me {
     stroke: yellow;
     stroke-width: 5px;
-}
-
-#svg #map .red-line {
-    stroke: #FF0000;
-    stroke-width: 3px;
 }
 
 /* location styling and highlighting */
@@ -105,10 +99,10 @@
 
 /* path highlighting and coloring */
 #svg #map .loc.path {
-    stroke: black;
-    fill: darkgray;
-    // stroke: none;
-    // fill: none;
+    // stroke: black;
+    // fill: darkgray;
+    stroke: none;
+    fill: none;
     stroke-width: 1px;
 }
 

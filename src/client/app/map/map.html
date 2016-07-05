@@ -37,7 +37,7 @@
             </div>
 
             <div id="svg" class="">
-                <svg version="1.1" id="map" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3650 3650" xml:space="preserve">
+                <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3650 3650" xml:space="preserve">
 
                     <!--BACKGROUND CANVAS-->
                     <rect height="3600" width="3600" class="canvas" y="0" x="0" rx="12%" ry="12%" fill="url(#rgrad)" filter="url(#filterX)"></rect>
@@ -76,11 +76,17 @@
                             <!--<circle cx="0.5" cy="0.5" r="0.25" fill="yellow" />-->
                         </pattern>
 
-                        <pattern id="filtered" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+                        <pattern id="filter-out" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                             <rect x="0" y="0" width="1" height="1" />
                             <line x1="0" y1="0" x2="1" y2="1" />
                             <line x1="0" y1="1" x2="1" y2="0" />
                         </pattern>
+
+                        <pattern id="inner-rect-wall" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+                            <line x1="0" y1="0" x2="1" y2="1" />
+                            <line x1="0" y1="1" x2="1" y2="0" />
+                        </pattern>
+
                     </defs>
 
                     <g class="legend">
@@ -689,11 +695,15 @@
                                 <image x='2100' y='2477' width='90' height='65' xlink:href='content/images/map-icons/1467393957_Appliances-38.svg'></image>
                             </g>
 
-                            <g transform="rotate(45,1450,2000)">
+                            <g class='loc copy-scan-rm' transform="rotate(45,1450,2000)">
                                 <!-- Print copy-rm next to will-penn-room conference room -->
-                                <rect x="1300" y="2480" class="loc copy-scan-rm copy-rm" id="312" width="180" height="110"></rect>
+                                <rect x="1300" y="2480" class="" id="312" width="180" height="110"></rect>
+                                <image x='1308' y='2481' width='150' height='100' xlink:href='content/images/map-icons/printer.svg'></image>
+                            </g>
+                            <g class='loc copy-scan-rm' transform="rotate(45,1450,2000)">
                                 <!-- Print copy-rm next to betsy-ross-room conference room -->
-                                <rect x="1680" y="2480" class="loc copy-scan-rm copy-rm" id="313" width="180" height="110"></rect>
+                                <rect x="1680" y="2480" class="" id="313" width="180" height="110"></rect>
+                                <image x='1688' y='2481' width='150' height='100' xlink:href='content/images/map-icons/printer.svg'></image>
                             </g>
                             <!-- Privacy pods beneath independence conference room -->
                             <g class="central-conf-rooms-cubicles" transform="rotate(45,1450,2000)">
@@ -772,7 +782,11 @@
                             <rect class="desk cubicle vsa loc" id="46" width="90" height="90" transform="translate(700,736)" />
                             <rect class="desk cubicle vsa loc" id="47" width="90" height="90" transform="translate(790,736)" />
                             <rect class="desk cubicle accounting loc" id="48" width="90" height="90" transform="translate(950,646)" />
-                            <rect class="desk cubicle accounting loc" id="49" width="90" height="90" transform="translate(1040,646)" />
+                            <g class='desk cubicle accounting loc'>
+                                <rect class="" id="49" width="90" height="90" transform="translate(1040,646)" />
+                                <rect class='copy-scan-rm' x='1060' y='646' width='50' height='50'></rect>
+                                <image x='1065' y='647' width='40' height='40' xlink:href='content/images/map-icons/printer.svg'></image>
+                            </g>
                             <rect class="desk cubicle accounting loc" id="50" width="90" height="90" transform="translate(1130,646)" />
                             <rect class="desk cubicle accounting loc" id="51" width="90" height="90" transform="translate(1220,646)" />
                             <rect class="desk cubicle accounting loc" id="52" width="90" height="90" transform="translate(950,736)" />
@@ -783,7 +797,11 @@
                             <!-- Lower row of ACD, VSA,Operations Expansion and Accounting cubicles -->
                             <rect class="desk cubicle acd loc" id="56" width="90" height="90" transform="translate(430,860)" />
                             <rect class="desk cubicle vsa loc" id="57" width="90" height="90" transform="translate(520,860)" />
-                            <rect class="desk cubicle vsa loc" id="58" width="90" height="90" transform="translate(610,860)" />
+                            <g class='desk cubicle vsa loc'>
+                                <rect class="" id="58" width="90" height="90" transform="translate(610,860)" />
+                                <rect class='copy-scan-rm' x='630' y='880' width='50' height='55'></rect>
+                                <image x='635' y='885' width='40' height='50' xlink:href='content/images/map-icons/printer.svg'></image>
+                            </g>
                             <rect class="desk cubicle vsa loc" id="59" width="90" height="90" transform="translate(700,860)" />
                             <rect class="desk cubicle vsa loc" id="60" width="90" height="90" transform="translate(790,860)" />
                             <rect class="desk cubicle acd loc" id="61" width="90" height="90" transform="translate(430,950)" />
@@ -1013,9 +1031,9 @@
                                 <rect class="desk cubicle compli-licens loc" id="234" width="90" height="90" transform="translate(1220,646)" />
                                 <rect class="desk cubicle euc loc" id="235" width="90" height="90" transform="translate(950,736)" />
                                 <rect class="desk cubicle compli-licens loc" id="236" width="90" height="90" transform="translate(1040,736)" />
-                                <g id="237" class='desk cubicle compli-licens copy-scan-rm loc'>
+                                <g id="237" class='desk cubicle compli-licens loc'>
                                     <rect width="90" height="90" transform="translate(1130,736)" />
-                                    <rect x='1130' y='775' width='50' height='50'></rect>
+                                    <rect class='copy-scan-rm' x='1130' y='775' width='50' height='50'></rect>
                                     <image x='1135' y='775' width='40' height='40' xlink:href='content/images/map-icons/printer.svg'></image>
                                 </g>
                                 <rect class="desk cubicle compli-licens loc" id="238" width="90" height="90" transform="translate(1220,736)" />
@@ -1094,18 +1112,15 @@
                             <polyline points="1680,2920 1680,3080" class="wall"></polyline>
                         </g>
                         <!-- Block/wall in front of vending machines and westwing break area -->
-                        <rect class="wall" id="" width="395" height="45" transform="translate(245,1660)" />
-                        <!-- Red lines going through this^ wall -->
-                        <line class="red-line" x1="245" y1="1660" x2="640" y2="1705" ></line>
-                        <line class="red-line" x1="245" y1="1705" x2="640" y2="1660" ></line>
+                        <rect class="wall inner-rect-wall" id="" width="395" height="45" transform="translate(245,1660)" />
+
                         <!-- Block/wall to the left of the east wing men"s room, near account set-up cubicles, beneath branch services cubicles -->
-                        <rect x="1850" y="2890" class="wall" id="" height="90" width="110"></rect>
-                        <!-- Red lines going through this^ wall -->
-                        <line class="red-line" x1="1850" x2="1960" y1="2890" y2="2980"></line>
-                        <line class="red-line" x1="1850" x2="1960" y1="2980" y2="2890"></line>
+                        <rect x="1850" y="2890" class="wall inner-rect-wall" id="" height="90" width="110"></rect>
+
                         <!-- Blocks/walls that separates HR office and document management office -->
                         <line class="wall" x1="2120" x2="2170" y1="2335" y2="2335"></line>
                         <line class="wall" x1="2280" x2="2300" y1="2545" y2="2545"></line>
+
                         <!-- Wall that separates Executive Suite and Accounting cubicles, printers, financial offices on other side-->
                         <line class="wall" x1='1310' x2='1310' y1='1025' y2='1120'></line>
                     </g>
