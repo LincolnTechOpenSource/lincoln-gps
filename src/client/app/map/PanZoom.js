@@ -25,21 +25,22 @@
         function init() {
             // Apply the script inject in the next tick of the event loop. This
             // will give AngularJS time to safely finish its compile and linking.
-            $timeout(initSync, 0, false);
+            return $timeout(initSync, 0, false);
         }
 
         function initSync(selector, options) {
             /* global svgPanZoom */
             service.map = svgPanZoom('#map', {
-                viewportSelector: '#map',
-                useCurrentView: true,
+                // viewportSelector: '#map',
+                // useCurrentView: true,
                 zoomEnabled: true,
                 minZoom: 0.5,
                 maxZoom: 10,
                 controlIconsEnabled: false,
                 // preventMouseEventsDefault: false, // enable before pushing to mobile
-                fit: true,
-                center: true,
+                // fit: true,
+                // center: true,
+                // contain: true
                 beforePan: beforePan
             });
 

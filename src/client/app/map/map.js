@@ -196,17 +196,16 @@
             var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
                 vm.selectNode.toNode.id, Graphing.graph);
 
-            if (dirResults.cached) {
-                return; // stop if the results are the same !
+            // only clear and get path if results are not cached (e.g., new path)
+            if (!dirResults.cached) {
+                // clear old path and queue
+                for (var i = 0; i < vm.directions.length; i++) {
+                    $('#svg #map .loc#' + vm.directions[i]).removeClass('hilite');
+                    $('#svg #map .loc#' + vm.directions[i]).clearQueue();
+                }
+                // set new directions (will be the same as before if cached)
+                vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
             }
-
-            // clear old path and queue
-            for (var i = 0; i < vm.directions.length; i++) {
-                $('#svg #map .loc#' + vm.directions[i]).removeClass('hilite');
-                $('#svg #map .loc#' + vm.directions[i]).clearQueue();
-            }
-            // set new directions
-            vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
 
             // reset view for long paths
             if (dirResults.dist[vm.selectNode.toNode.id] > 50) {
@@ -216,8 +215,11 @@
             // hilite each block in the path (immediately highlight the to node)
             $('#svg #map .loc#' + vm.selectNode.toNode.id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
-                var j = Math.floor(i / 2); // show two at a time
+                // highlight in sets of 2 with 100ms delay to animate "walking"
+                var j = Math.floor(i / 2);
                 $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
+
+                // // highlight all at once
                 // $('#svg #map .loc#' + vm.directions[i]).addClass('hilite');
             }
         }
@@ -253,7 +255,9 @@
 
             // initialize svg pan zoom and set height (magic 0.89)
             $('#map').height($('#svg').height() * 0.89);
-            PanZoom.init();
+            PanZoom.init().then(function() {
+                // PanZoom.map.resize();
+            });
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors
