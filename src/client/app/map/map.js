@@ -131,7 +131,8 @@
 
             if (vm.selectNode[locSelect] !== vm.selectNode.toNode ||
                 vm.selectNode[locSelect] !== vm.selectNode.fromNode) {
-                $('#svg #map #' + vm.selectNode[locSelect].id).removeClass('hilite');
+                var el = getNodeByID(vm.selectNode[locSelect].id);
+                el.removeClass('hilite');
             }
             vm.selectNode[locSelect] = null; // clear the location
         }
@@ -148,9 +149,9 @@
             PanZoom.map.zoomIn();
         }
         function reset() {
+            PanZoom.map.resize(); // resize needed for flexbox
             PanZoom.map.fit();
             PanZoom.map.center();
-            PanZoom.map.resetZoom();
         }
         function zoomOut() {
             PanZoom.map.zoomOut();
@@ -181,13 +182,13 @@
                 findDirections();
                 // also change highlight from old node to new node
                 if (!!newNode) {
-                    $('#svg #map #' + newNode.id).addClass('hilite');
+                    getNodeByID(newNode.id).addClass('hilite');
                 }
             }
 
             if (!!oldNode && (newNode !== oldNode) &&
                 vm.selectNode[node === 'toNode' ? 'fromNode' : 'toNode'] !== oldNode) {
-                $('#svg #map #' + oldNode.id).removeClass('hilite');
+                getNodeByID(oldNode.id).removeClass('hilite');
             }
         }
 
@@ -204,8 +205,9 @@
             if (!dirResults.cached) {
                 // clear old path and queue
                 for (i = 0; i < vm.directions.length; i++) {
-                    $('#svg #map .loc#' + vm.directions[i]).removeClass('hilite');
-                    $('#svg #map .loc#' + vm.directions[i]).clearQueue();
+                    var el = getNodeByID(vm.directions[i]);
+                    el.removeClass('hilite');
+                    el.clearQueue();
                 }
                 // set new directions (will be the same as before if cached)
                 vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
@@ -220,10 +222,10 @@
             $('#svg #map .loc#' + vm.selectNode.toNode.id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
                 // highlight with 50ms delay to animate "walking"
-                $('#svg #map .loc#' + vm.directions[i]).delay(50 * i).queued('addClass', 'hilite');
+                getNodeByID(vm.directions[i]).delay(50 * i).queued('addClass', 'hilite');
 
                 // // highlight all at once
-                // $('#svg #map .loc#' + vm.directions[i]).addClass('hilite');
+                // getNodeByID(vm.directions[i]).addClass('hilite');
             }
         }
 
@@ -231,8 +233,9 @@
             var selectOnClick = $('#svg #map').attr('select-on-click');
 
             if (selectOnClick !== 'false') {
-                var id = event.target.id || $(event.target).parent('g')[0].id;
+                var id = $(event.currentTarget).data('id');
 
+                // TODO: handle case when data-id is array
                 $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
@@ -254,8 +257,6 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            // initialize svg pan zoom and set height (magic 0.89)
-            // $('#map').height($('#svg').height() * 0.89);
             PanZoom.init();
         }
 
@@ -269,6 +270,17 @@
                 }
             };
         }
+
+        /** getNodeByID: retrieves an SVG node given the @id (checks data-id) */
+        function getNodeByID(id) {
+            var el = $('#svg #map #' + id);
+            // if element with id does not exist, check in data-id
+            if (el.length <= 0) {
+                el = $('#svg #map [data-id~="' + id + '"]');
+            }
+            return el;
+        }
+
     } //end mapCntrl
 })();
 

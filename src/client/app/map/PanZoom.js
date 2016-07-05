@@ -22,6 +22,7 @@
 
         //------------------------------------------------//
 
+        /** initialize svg pan zoom */
         function init() {
             // Apply the script inject in the next tick of the event loop. This
             // will give AngularJS time to safely finish its compile and linking.
@@ -38,9 +39,6 @@
                 maxZoom: 10,
                 controlIconsEnabled: false,
                 // preventMouseEventsDefault: false, // enable before pushing to mobile
-                // fit: true,
-                // center: true,
-                // contain: true
                 beforePan: beforePan
             });
 

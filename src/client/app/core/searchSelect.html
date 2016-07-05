@@ -19,19 +19,19 @@
                 <i class="icon ion-map" style="font-size: 20px;"></i> Select on Map
             </ion-radio>
             <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty && !!filters">
-                <ion-radio collection-repeat="option in filteredOptions = (options | filter: searchSelect.searchvalue | orderBy: searchSelect.valueProperty | byField: filters.d : 'depCode' | byField: filters.t : 'titleCode' )" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
+                <ion-radio collection-repeat="option in filteredOptions = (options | filter: {name: searchSelect.searchvalue} | orderBy: searchSelect.valueProperty | byField: filters.d : 'depCode' | byField: filters.t : 'titleCode' )" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
                     {{ option[searchSelect.valueProperty] }}
                 </ion-radio>
                 <ion-radio ng-hide="filteredOptions.length">No items found</ion-radio>
             </div>
             <div ng-if="searchSelect.keyProperty && searchSelect.valueProperty && !filters">
-                <ion-radio collection-repeat="option in filteredOptions = (options | filter: searchSelect.searchvalue | orderBy: searchSelect.valueProperty)" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
+                <ion-radio collection-repeat="option in filteredOptions = (options | filter: {name: searchSelect.searchvalue} | orderBy: searchSelect.valueProperty)" item-height="55px" item-width="100%" ng-value="option[searchSelect.keyProperty]" ng-click="saveOption()" ng-checked="option[searchSelect.selectedProperty]" ng-model="searchSelect.option">
                     {{ option[searchSelect.valueProperty] }}
                 </ion-radio>
                 <ion-radio ng-hide="filteredOptions.length">No items found</ion-radio>
             </div>
             <div ng-if="!searchSelect.keyProperty || !searchSelect.valueProperty">
-                <ion-radio collection-repeat="option in filteredOptions = (options | filter: searchSelect.searchvalue)" item-height="55px" ng-value="option" item-width="100%" ng-click="saveOption()" ng-model="searchSelect.option">
+                <ion-radio collection-repeat="option in filteredOptions = (options | filter: {name: searchSelect.searchvalue})" item-height="55px" ng-value="option" item-width="100%" ng-click="saveOption()" ng-model="searchSelect.option">
                     {{ option }}
                 </ion-radio>
                 <ion-radio ng-hide="filteredOptions.length">No items found</ion-radio>

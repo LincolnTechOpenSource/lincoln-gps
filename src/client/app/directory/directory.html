@@ -5,7 +5,7 @@
         <!--<h2 class="text-center">Lincoln Employee Directory</h2>-->
 
         <!--Filter By Department-->
-        <ion-item class="item-stable" ng-click="vm.toggleFilters('d')" ng-class="{active: vm.filters.show.d}">
+        <ion-item class="filter-toggle item-stable" on-tap="vm.toggleFilters('d')" ng-class="{active: vm.filters.show.d}">
             <i class="icon" ng-class="vm.filters.show.d ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp; Filter by Department
         </ion-item>
@@ -37,7 +37,7 @@
         </ion-scroll>
 
         <!--Filter by Title-->
-        <ion-item class="item-stable" ng-click="vm.toggleFilters('t')" ng-class="{active: vm.filters.show.t}">
+        <ion-item class="filter-toggle item-stable" on-tap="vm.toggleFilters('t')" ng-class="{active: vm.filters.show.t}">
             <i class="icon" ng-class="vm.filters.show.t ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp; Filter by Title
         </ion-item>

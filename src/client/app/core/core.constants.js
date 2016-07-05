@@ -140,6 +140,7 @@
         {titleCode: 'int', name: 'Intern'},
         {titleCode: 'ana', name: 'Analyst'},
         {titleCode: 'ass', name: 'Associate'},
+        {titleCode: 'dev', name: 'Software Developer'},
         {titleCode: 'pres', name: 'President'}
     ];
 
