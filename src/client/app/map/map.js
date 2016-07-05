@@ -127,6 +127,8 @@
         function clearLocation(locSelect) {
             // remove highlighting from path
             $('#svg #map g.non-walls .path').removeClass('hilite');
+            $('#svg #map g.non-walls .path').clearQueue();
+
             if (vm.selectNode[locSelect] !== vm.selectNode.toNode ||
                 vm.selectNode[locSelect] !== vm.selectNode.fromNode) {
                 $('#svg #map #' + vm.selectNode[locSelect].id).removeClass('hilite');
