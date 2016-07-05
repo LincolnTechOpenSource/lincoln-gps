@@ -72,6 +72,13 @@
     stroke-width: 5px;
 }
 
+/* svg canvas */
+
+#svg #map .canvas {
+    fill: url(#canvas-grad);
+    filter: url(#canvas-filter);
+}
+
 /* location styling and highlighting */
 #svg #map .loc {
     stroke: #000000;
@@ -105,7 +112,6 @@
     fill: none;
     stroke-width: 1px;
 }
-
 
 // #svg #map .loc.path:hover,
 #svg #map .loc.path.hilite {

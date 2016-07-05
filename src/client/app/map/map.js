@@ -235,8 +235,6 @@
                 $q.when(Locations.get(id)).then(function(loc) {
                     vm.selectNode[selectOnClick] = loc;
                 });
-                // vm.selectNode[selectOnClick] = vm.selectNode.nodes[id];
-                // $scope.$apply();
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');
@@ -256,10 +254,8 @@
             }
 
             // initialize svg pan zoom and set height (magic 0.89)
-            $('#map').height($('#svg').height() * 0.89);
-            PanZoom.init().then(function() {
-                // PanZoom.map.resize();
-            });
+            // $('#map').height($('#svg').height() * 0.89);
+            PanZoom.init();
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors

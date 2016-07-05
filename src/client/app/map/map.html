@@ -37,17 +37,15 @@
             </div>
 
             <div id="svg" class="">
-                <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3650 3650" xml:space="preserve">
+                <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 3600 3700" xml:space="preserve">
 
-                    <!--BACKGROUND CANVAS-->
-                    <rect height="3600" width="3600" class="canvas" y="0" x="0" rx="12%" ry="12%" fill="url(#rgrad)" filter="url(#filterX)"></rect>
                     <defs>
                         <!-- Background filter and gradient -->
-                        <radialGradient id="rgrad" cx="0%" cy="0%" r="100%" gradientUnits="objectBoundingBox">
-                            <stop offset="5%" style="stop-color:rgb(254, 254, 254); stop-opacity:1"></stop>
+                        <radialGradient id="canvas-grad" cx="0%" cy="0%" r="100%" gradientUnits="objectBoundingBox">
+                            <stop offset="5%" style="stop-color:rgb(247, 247, 247); stop-opacity:1"></stop>
                             <stop offset="42%" style="stop-color:rgb(237, 237, 237); stop-opacity:1"></stop>
                         </radialGradient>
-                        <filter id="filterX" primitiveUnits="objectBoundingBox" x="0" y="0">
+                        <filter id="canvas-filter" primitiveUnits="objectBoundingBox" x="0" y="0">
                             <feGaussianBlur in="SourceAlpha" stdDeviation="0.009"></feGaussianBlur>
                             <feOffset dx="0.015" dy="0.021" result="offsetblur"></feOffset>
                             <feFlood flood-color="rgba(0, 0, 0, 0.6)"></feFlood>
@@ -58,6 +56,7 @@
                             </feMerge>
                         </filter>
 
+                        <!-- highlight pattern -->
                         <pattern id="highlighter" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                             <linearGradient id="gradHor" gradientUnits="objectBoundingBox">
                                 <stop class="outer" offset=".05" />
@@ -76,18 +75,24 @@
                             <!--<circle cx="0.5" cy="0.5" r="0.25" fill="yellow" />-->
                         </pattern>
 
+                        <!-- lines that cross out a rectangle -->
+                        <g id="cross-out">
+                            <line x1="0" y1="0" x2="1" y2="1" />
+                            <line x1="0" y1="1" x2="1" y2="0" />
+                        </g>
+                        <!-- fill for filtered out locations -->
                         <pattern id="filter-out" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
                             <rect x="0" y="0" width="1" height="1" />
-                            <line x1="0" y1="0" x2="1" y2="1" />
-                            <line x1="0" y1="1" x2="1" y2="0" />
+                            <use xlink:href="#cross-out" />
                         </pattern>
-
+                        <!-- fill for inner rectangular walls -->
                         <pattern id="inner-rect-wall" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
-                            <line x1="0" y1="0" x2="1" y2="1" />
-                            <line x1="0" y1="1" x2="1" y2="0" />
+                            <use xlink:href="#cross-out" />
                         </pattern>
-
                     </defs>
+
+                    <!-- BACKGROUND CANVAS -->
+                    <rect height="3600" width="3600" class="canvas" y="0" x="0" rx="12%" ry="12%"></rect>
 
                     <g class="legend">
                         <!-- Map legend/key -->
@@ -695,15 +700,11 @@
                                 <image x='2100' y='2477' width='90' height='65' xlink:href='content/images/map-icons/1467393957_Appliances-38.svg'></image>
                             </g>
 
-                            <g class='loc copy-scan-rm' transform="rotate(45,1450,2000)">
+                            <g transform="rotate(45,1450,2000)">
                                 <!-- Print copy-rm next to will-penn-room conference room -->
-                                <rect x="1300" y="2480" class="" id="312" width="180" height="110"></rect>
-                                <image x='1308' y='2481' width='150' height='100' xlink:href='content/images/map-icons/printer.svg'></image>
-                            </g>
-                            <g class='loc copy-scan-rm' transform="rotate(45,1450,2000)">
+                                <rect x="1300" y="2480" class="loc copy-scan-rm copy-rm" id="312" width="180" height="110"></rect>
                                 <!-- Print copy-rm next to betsy-ross-room conference room -->
-                                <rect x="1680" y="2480" class="" id="313" width="180" height="110"></rect>
-                                <image x='1688' y='2481' width='150' height='100' xlink:href='content/images/map-icons/printer.svg'></image>
+                                <rect x="1680" y="2480" class="loc copy-scan-rm copy-rm" id="313" width="180" height="110"></rect>
                             </g>
                             <!-- Privacy pods beneath independence conference room -->
                             <g class="central-conf-rooms-cubicles" transform="rotate(45,1450,2000)">
@@ -773,11 +774,7 @@
                             <!-- ACD, VSA and Accounting cubicles -->
                             <rect class="desk cubicle acd loc" id="38" width="90" height="90" transform="translate(430,646)" />
                             <rect class="desk cubicle acd loc" id="39" width="90" height="90" transform="translate(520,646)" />
-                            <g class='desk cubicle acd loc'>
-                                <rect class="" id="40" width="90" height="90" transform="translate(610,646)" />
-                                <rect class='copy-scan-rm' x='610' y='646' width='50' height='50'></rect>
-                                <image x='611' y='647' width='40' height='40' xlink:href='content/images/map-icons/printer.svg'></image>
-                            </g>
+                            <rect class="desk cubicle acd loc" id="40" width="90" height="90" transform="translate(610,646)" />
                             <rect class="desk cubicle acd loc" id="41" width="90" height="90" transform="translate(700,646)" />
                             <rect class="desk cubicle acd loc" id="42" width="90" height="90" transform="translate(790,646)" />
                             <rect class="desk cubicle acd loc" id="43" width="90" height="90" transform="translate(430,736)" />
@@ -786,11 +783,7 @@
                             <rect class="desk cubicle vsa loc" id="46" width="90" height="90" transform="translate(700,736)" />
                             <rect class="desk cubicle vsa loc" id="47" width="90" height="90" transform="translate(790,736)" />
                             <rect class="desk cubicle accounting loc" id="48" width="90" height="90" transform="translate(950,646)" />
-                            <g class='desk cubicle accounting loc'>
-                                <rect class="" id="49" width="90" height="90" transform="translate(1040,646)" />
-                                <rect class='copy-scan-rm' x='1085' y='646' width='50' height='50'></rect>
-                                <image x='1090' y='647' width='40' height='40' xlink:href='content/images/map-icons/printer.svg'></image>
-                            </g>
+                            <rect class="desk cubicle accounting loc" id="49" width="90" height="90" transform="translate(1040,646)" />
                             <rect class="desk cubicle accounting loc" id="50" width="90" height="90" transform="translate(1130,646)" />
                             <rect class="desk cubicle accounting loc" id="51" width="90" height="90" transform="translate(1220,646)" />
                             <rect class="desk cubicle accounting loc" id="52" width="90" height="90" transform="translate(950,736)" />
@@ -801,11 +794,7 @@
                             <!-- Lower row of ACD, VSA,Operations Expansion and Accounting cubicles -->
                             <rect class="desk cubicle acd loc" id="56" width="90" height="90" transform="translate(430,860)" />
                             <rect class="desk cubicle vsa loc" id="57" width="90" height="90" transform="translate(520,860)" />
-                            <g class='desk cubicle vsa loc'>
-                                <rect class="" id="58" width="90" height="90" transform="translate(610,860)" />
-                                <rect class='copy-scan-rm' x='630' y='880' width='50' height='55'></rect>
-                                <image x='635' y='885' width='40' height='50' xlink:href='content/images/map-icons/printer.svg'></image>
-                            </g>
+                            <rect class="desk cubicle vsa loc" id="58" width="90" height="90" transform="translate(610,860)" />
                             <rect class="desk cubicle vsa loc" id="59" width="90" height="90" transform="translate(700,860)" />
                             <rect class="desk cubicle vsa loc" id="60" width="90" height="90" transform="translate(790,860)" />
                             <rect class="desk cubicle acd loc" id="61" width="90" height="90" transform="translate(430,950)" />
@@ -1035,9 +1024,9 @@
                                 <rect class="desk cubicle compli-licens loc" id="234" width="90" height="90" transform="translate(1220,646)" />
                                 <rect class="desk cubicle euc loc" id="235" width="90" height="90" transform="translate(950,736)" />
                                 <rect class="desk cubicle compli-licens loc" id="236" width="90" height="90" transform="translate(1040,736)" />
-                                <g id="237" class='desk cubicle compli-licens loc'>
+                                <g id="237" class='desk cubicle compli-licens copy-scan-rm loc'>
                                     <rect width="90" height="90" transform="translate(1130,736)" />
-                                    <rect class='copy-scan-rm' x='1130' y='775' width='50' height='50'></rect>
+                                    <rect x='1130' y='775' width='50' height='50'></rect>
                                     <image x='1135' y='775' width='40' height='40' xlink:href='content/images/map-icons/printer.svg'></image>
                                 </g>
                                 <rect class="desk cubicle compli-licens loc" id="238" width="90" height="90" transform="translate(1220,736)" />
