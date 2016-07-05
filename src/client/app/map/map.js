@@ -192,6 +192,8 @@
         }
 
         function findDirections() {
+            var i = 0; // for loops
+
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
@@ -201,7 +203,7 @@
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {
                 // clear old path and queue
-                for (var i = 0; i < vm.directions.length; i++) {
+                for (i = 0; i < vm.directions.length; i++) {
                     $('#svg #map .loc#' + vm.directions[i]).removeClass('hilite');
                     $('#svg #map .loc#' + vm.directions[i]).clearQueue();
                 }
@@ -217,9 +219,8 @@
             // hilite each block in the path (immediately highlight the to node)
             $('#svg #map .loc#' + vm.selectNode.toNode.id).addClass('hilite');
             for (i = 0; i < vm.directions.length; i++) {
-                // highlight in sets of 2 with 100ms delay to animate "walking"
-                var j = Math.floor(i / 2);
-                $('#svg #map .loc#' + vm.directions[i]).delay(100 * j).queued('addClass', 'hilite');
+                // highlight with 50ms delay to animate "walking"
+                $('#svg #map .loc#' + vm.directions[i]).delay(50 * i).queued('addClass', 'hilite');
 
                 // // highlight all at once
                 // $('#svg #map .loc#' + vm.directions[i]).addClass('hilite');
