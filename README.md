@@ -10,7 +10,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
 ## Database Structure
 
-There are two main tables: **Locations** and **Users**.
+There are two main tables: **Locations** (_**Users** table removed commit [master b5c6de1]_)
 
 **Locations:** The locations table describes every *START* or *END* location on
 the map (e.g., an employee's desk, or a conference room).
