@@ -80,6 +80,14 @@ _Note:_ In cases where two entities (i.e., separate locations in the table) must
 occupy the same SVG location, add a **data-id** attribute to the element which
 serves as a space delimited array of all location IDs that should reside at that element.
 
+## Authentication
+
+Authentication is done through [firebase](https://firebase.google.com/).
+
+To allow users access to the application, you must create a new firebase project
+and replace the credentials located in [firebase.js](src/client/app/core/firebase.js)
+with your own. Then you can manage users in the **Auth** tab of the firebase console.
+
 ## History
 
 * 06/01/16: Added graph library to default ionic template
