@@ -14,7 +14,8 @@
     "angular": "^1.5.7",
     "angular-resource": "^1.5.7",
     "ngCordova": "~0.1.26-alpha",
-    "ngstorage": "^0.3.10"
+    "ngstorage": "^0.3.10",
+    "svg-pan-zoom": "^3.2.9"
   },
   "resolutions": {
     "angular": "1.5.7"

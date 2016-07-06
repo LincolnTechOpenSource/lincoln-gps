@@ -140,7 +140,7 @@
                     $scope.error.show = true;
                     break;
 
-                    // do not distinguish between bad password and bad user
+                // do not distinguish between bad password and bad user
                 case 'auth/user-disabled':
                 case 'auth/user-not-found':
                 case 'auth/wrong-password':
@@ -152,7 +152,7 @@
                     $scope.error.show = true;
                     break;
 
-                    // firebase says the code should be one of the above
+                // firebase says the code should be one of the above
                 default:
                     $log.alert('Invalid Return Type... Firebase error!');
                     break;

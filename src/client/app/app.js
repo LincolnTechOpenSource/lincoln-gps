@@ -35,24 +35,12 @@
             }
 
             // load/set local storage preferences
-            console.log($localStorage.prefs);
             if (!$localStorage.hasOwnProperty('prefs')) {
                 $localStorage.prefs = {
                     filters: DEFAULT_FILTERS,
                     showMapPopup: true
                 };
             }
-
-            // $rootScope.prefs.filters = localStorage.get('filters');
-            // if (!$rootScope.prefs.filters) {
-            //     $rootScope.prefs.filters = DEFAULT_FILTERS;
-            //     localStorage.set('filters', DEFAULT_FILTERS);
-            // }
-            // $rootScope.prefs.showMapPopup = localStorage.get('showMapPopup');
-            // if (!$rootScope.prefs.showMapPopup) {
-            //     $rootScope.prefs.showMapPopup = true; // default to true
-            //     localStorage.set('showMapPopup', true);
-            // }
         });
 
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {

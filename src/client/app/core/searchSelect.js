@@ -91,6 +91,7 @@
             $scope.closeModal();
         }
 
+        // TODO: move this to a transclude into the controller
         function selectOnMap() {
             $scope.optionSelected = 'FIND_ON_MAP';
 
@@ -110,8 +111,6 @@
                         type: 'button-assertive',
                         onTap: function(e) {
                             $localStorage.prefs.showMapPopup = false;
-                            // $rootScope.prefs.showMapPopup = false;
-                            // Users.set($rootScope.user.id, ['showMapPopup'], false);
                         }
                     }]
                 });

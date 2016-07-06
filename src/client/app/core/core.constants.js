@@ -145,39 +145,39 @@
     ];
 
     var DEFAULT_FILTERS = {
-        "broom": {
-            "disp": true,
-            "dispName": "Bathrooms"
+        'broom': {
+            'disp': true,
+            'dispName': 'Bathrooms'
         },
-        "conf": {
-            "disp": true,
-            "dispName": "Conference Rooms"
+        'conf': {
+            'disp': true,
+            'dispName': 'Conference Rooms'
         },
-        "cubicle": {
-            "disp": true,
-            "dispName": "Cubicles"
+        'cubicle': {
+            'disp': true,
+            'dispName': 'Cubicles'
         },
-        "desk": {
-            "disp": true,
-            "dispName": "Desks"
+        'desk': {
+            'disp': true,
+            'dispName': 'Desks'
         },
-        "food": {
-            "disp": true,
-            "dispName": "Food & Vending Locations"
+        'food': {
+            'disp': true,
+            'dispName': 'Food & Vending Locations'
         },
-        "mbroom": {
-            "disp": true,
-            "dispName": "Men's Bathrooms"
+        'mbroom': {
+            'disp': true,
+            'dispName': 'Men\'s Bathrooms'
         },
-        "office": {
-            "disp": true,
-            "dispName": "Offices"
+        'office': {
+            'disp': true,
+            'dispName': 'Offices'
         },
-        "wbroom": {
-            "disp": true,
-            "dispName": "Women's Bathrooms"
+        'wbroom': {
+            'disp': true,
+            'dispName': 'Women\'s Bathrooms'
         }
-    }
+    };
 
     angular
         .module('app.core')

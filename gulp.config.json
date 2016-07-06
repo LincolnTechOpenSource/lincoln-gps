@@ -17,6 +17,15 @@
     "./bower_components/ionic/release/js/ionic.bundle.js",
     "./bower_components/ngCordova/dist/ng-cordova.js",
     "./bower_components/ngstorage/ngStorage.js",
+    "./bower_components/svg-pan-zoom/dist/svg-pan-zoom.js",
+    "./plugins/**/*.js"
+  ],
+  "vendorjsBuild": [
+    "./bower_components/jquery/dist/jquery.min.js",
+    "./bower_components/ionic/release/js/ionic.bundle.min.js",
+    "./bower_components/ngCordova/dist/ng-cordova.min.js",
+    "./bower_components/ngstorage/ngStorage.min.js",
+    "./bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js",
     "./plugins/**/*.js"
   ],
   "fonts": [
