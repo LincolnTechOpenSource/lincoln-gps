@@ -10,7 +10,7 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
 ## Database Structure
 
-There are two main tables: **Locations** (_**Users** table removed commit [master b5c6de1]_)
+There is one main table: **Locations** (_**Users** table removed commit [[master b5c6de1]](https://github.com/LincolnTechOpenSource/lincoln-gps/commit/b5c6de161b5de50991142f6dfa0ea39b120f368b)_)
 
 **Locations:** The locations table describes every *START* or *END* location on
 the map (e.g., an employee's desk, or a conference room).
@@ -32,14 +32,8 @@ must also define **division**, **title**, **email**, and **ext**
 
 ---
 
-**Users:** The users table describes each user who has access to the application
-
-For each of these users the following properties must be defined: **id**, **showMapPopup**,
-and **filters**
-
-   * **id:** the id of the user (this should be the same as created by Firebase Authentication)
-   * **showMapPopup:** a boolean representing the user's preference on whether to show the "Select on Map" popup
-   * **filters:** a JSON object representing each of the possible filters and the user's display preference for them
+Local Storage (via **ngStorage**) stores the user's preferences. i.e., which map
+filters are active and whether to show the select on map popup.
 
 ## Graph Structure
 
@@ -82,6 +76,10 @@ graph, and the locations table, enabling the user to traverse the graph for the 
 path between two locations and then display it on map, as well as search and filter
 through locations in order to see them on the map.
 
+_Note:_ In cases where two entities (i.e., separate locations in the table) must
+occupy the same SVG location, add a **data-id** attribute to the element which
+serves as a space delimited array of all location IDs that should reside at that element.
+
 ## History
 
 * 06/01/16: Added graph library to default ionic template
@@ -105,12 +103,16 @@ through locations in order to see them on the map.
 * 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
 * 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
 * 06/30/16: Major path updates; Directory search filters; more robust deparment constant
+* 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
+dependence on firebase, shifting prefences to local storage and data to an internal
+json file
+*
 
 ## Ideas to Contribute
 
 
-* [x] ~Enable map zoom and pan~
-* [x] ~Mobile pinch to zoom~
+* [x] ~~Enable map zoom and pan~~
+* [x] ~~Mobile pinch to zoom~~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
@@ -135,9 +137,14 @@ through locations in order to see them on the map.
 
 ## Credits
 
-Matthew Vasseur
+**Authors:** Matthew Vasseur and David Tahvildaran
 
-David Tahvildaran
+**Adapted Repositories:**
+   1. [Min Heap with Decrease Key](https://github.com/rombdn/js-binaryheap-decreasekey)
+   2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
+
+**Bower Resources**
+   1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
 
