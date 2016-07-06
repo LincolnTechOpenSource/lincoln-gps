@@ -122,14 +122,15 @@ TODO: How to build the application
 
 1. Installing Ionic and Cordova CLI
    * `npm install -g ionic cordova`
-2. Installing Bower
-   * `npm install -g bower`
+2. Installing Gulp and Bower
+   * This doc assumes gulp and bower are installed globally
+   * `npm install -g gulp bower`
 2. Installing Node.js and Bower Packages
    * `npm install`
    * `bower install`
 3. Building with Gulp
    * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
-   * Run `npm run gulp` (unless `gulp` is installed globally) to start the development build process
+   * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/sclient/content/styles/main.scss](src/sclient/content/styles/main.scss)
       * Creating `vendor.js` from `bower.js` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
