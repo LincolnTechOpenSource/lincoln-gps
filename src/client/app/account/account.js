@@ -7,19 +7,18 @@
     .controller('AccountCtrl', AccountCtrl);
 
   /* @ngInject */
-  function AccountCtrl($rootScope, $scope, $log, Users, $localStorage) {
+  function AccountCtrl($scope, $log, $localStorage, DEFAULT_FILTERS) {
     var vm = this;
 
-    vm.filters = $localStorage.prefs.filters;
-    vm.showMapPopup = $localStorage.prefs.showMapPopup;
+    vm.prefs = $localStorage.prefs;
 
     vm.resetToDefault = resetToDefault;
 
     // activate the controller on view enter
-    $scope.$on('$ionicView.enter', activate);
+    // $scope.$on('$ionicView.enter', activate);
 
     // terminate the controller on view exit
-    $scope.$on('$ionicView.leave', terminate);
+    // $scope.$on('$ionicView.leave', terminate);
 
     //------------------------------------------------//
 
@@ -51,14 +50,16 @@
 
     /** rest all preferences to true */
     function resetToDefault() {
-      // reset filters
-      // for (var filter in $rootScope.prefs.filters) {
-      //   if ($rootScope.prefs.filters.hasOwnProperty(filter)) {
-      //     $rootScope.prefs.filters[filter].disp = true;
+      // reset preferences (filters & map popup)
+      vm.prefs.filters = DEFAULT_FILTERS;
+      vm.prefs.showMapPopup = true;
+      // for (var filter in vm.prefs.filters) {
+      //   if (vm.prefs.filters.hasOwnProperty(filter)) {
+      //     vm.prefs.filters[filter].disp = true;
       //   }
       // }
       // // reset map popup
-      // $rootScope.prefs.showMapPopup = true;
+      // vm.prefs.showMapPopup = true;
     }
   }
 })();

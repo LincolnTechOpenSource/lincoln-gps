@@ -20,12 +20,9 @@
         return directive;
     }
 
-    // controller.$inject = ['$rootScope', '$scope', '$element', '$attrs', '$ionicModal',
-    //     '$ionicGesture', '$ionicPopup', '$timeout', 'Users'
-    // ];
     /* @ngInject */
-    function controller($rootScope, $scope, $element, $attrs, $ionicModal,
-        $ionicGesture, $ionicPopup, $timeout, Users) {
+    function controller($scope, $element, $attrs, $ionicModal,
+        $ionicGesture, $ionicPopup, $localStorage) {
         $scope.searchSelect = {
             title: $attrs.title || 'Search',
             keyProperty: $attrs.keyProperty,
@@ -101,7 +98,7 @@
             $scope.closeModal();
 
             // Popup to alert the user to click on the map (only show if preferred)
-            if ($rootScope.prefs.showMapPopup) {
+            if ($localStorage.prefs.showMapPopup) {
                 $ionicPopup.alert({
                     title: 'Select a Location on the Map',
                     template: 'Please click on a location on the map to select it',
@@ -112,9 +109,9 @@
                         text: 'Do not show again',
                         type: 'button-assertive',
                         onTap: function(e) {
-                            $rootScope.prefs.showMapPopup = false;
+                            $localStorage.prefs.showMapPopup = false;
+                            // $rootScope.prefs.showMapPopup = false;
                             // Users.set($rootScope.user.id, ['showMapPopup'], false);
-                            localStorage.set('showMapPopup', false);
                         }
                     }]
                 });

@@ -11,7 +11,7 @@
 
     // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($rootScope, $scope, $log, $q, $ionicGesture, $document,
+    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
         currentUser, UNITS, Users, Locations, Firebase, Graphing, Params, Dijkstra, PanZoom) {
         var vm = this;
 
@@ -78,11 +78,10 @@
 
         /** functions for after users have loaded */
         function usersLoad() {
-            var user = $rootScope.user || Users.get(currentUser.uid);
             $('#svg #map .loc').removeClass('filter-out'); // remove old filter
-            for (var filter in user.filters) {
-                if (user.filters.hasOwnProperty(filter)) {
-                    if (!user.filters[filter].disp) {
+            for (var filter in $localStorage.prefs.filters) {
+                if ($localStorage.prefs.filters.hasOwnProperty(filter)) {
+                    if (!$localStorage.prefs.filters[filter].disp) {
                         $('#svg #map .loc.' + filter).addClass('filter-out');
                     }
                 }

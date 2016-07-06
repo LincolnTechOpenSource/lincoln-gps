@@ -36,11 +36,11 @@
 
             // load/set local storage preferences
             console.log($localStorage.prefs);
-            if (!$localStorage.hasOwnProperty('prefs') || !$localStorage.prefs.hasOwnProperty('filters')) {
-                $localStorage.prefs.filters = DEFAULT_FILTERS;
-            }
-            if (!$localStorage.hasOwnProperty('prefs') || !$localStorage.prefs.hasOwnProperty('showMapPopup')) {
-                $localStorage.prefs.showMapPopup = true;
+            if (!$localStorage.hasOwnProperty('prefs')) {
+                $localStorage.prefs = {
+                    filters: DEFAULT_FILTERS,
+                    showMapPopup: true
+                };
             }
 
             // $rootScope.prefs.filters = localStorage.get('filters');
