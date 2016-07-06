@@ -127,9 +127,8 @@ json file
    * `npm install`
    * `bower install`
 3. Building with Gulp
-   * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
    * Run `gulp` to start the development build process
-      * Compiling, concatenating, auto-prefixing `.scss` files required by [src/sclient/content/styles/main.scss](src/sclient/content/styles/main.scss)
+      * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
       * Creating `vendor.js` from `bower.js` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
       * Injecting sources into `index.html`
@@ -142,6 +141,7 @@ json file
       * Versions `main.css` and `app.js`
       * Builds everything into `www`
    * The `--release` flag removes debug messages (e.g. `console.log`)
+   * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
 
 ## Ideas to Contribute
 
