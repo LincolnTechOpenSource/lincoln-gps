@@ -11,7 +11,7 @@
         .filter('byField', byField);
 
     /* @ngInject */
-    function DirectoryCtrl($scope, $state, $log, Locations, Firebase,
+    function DirectoryCtrl($scope, $state, $log, $q, Locations, Firebase,
         Params, NodeTypeEnum, UNITS, TITLES) {
         var vm = this;
 
@@ -58,11 +58,24 @@
         /** handle user authentication */
         function userAuth(user) {
             if (user) {
-                vm.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
+                // vm.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
+                var promises = [ getByNType() ];
+
+                return $q.all(promises).then();
             }
             else {
+                Locations.unload();
                 vm.selectEmployee.employees = null;
             }
+        }
+
+        /** load the Locations table as an array */
+        function getByNType() {
+            return $q.when(Locations.getByNType(NodeTypeEnum.DESK)).then(function(data) {
+                vm.selectEmployee.employees = data;
+                $log.info('Employees Loaded');
+                return vm.selectEmployee.employees;
+            });
         }
 
         /** click function to find @employee on map tab */

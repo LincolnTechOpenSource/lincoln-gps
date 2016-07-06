@@ -86,6 +86,9 @@
                 resolve: {
                     currentUser: ['Firebase', function(Firebase) {
                         return Firebase.auth().$requireSignIn();
+                    }],
+                    locations: ['Locations', function(Locations) {
+                        return Locations.load();
                     }]
                 }
             })
@@ -101,6 +104,9 @@
                 resolve: {
                     currentUser: ['Firebase', function(Firebase) {
                         return Firebase.auth().$requireSignIn();
+                    }],
+                    locations: ['Locations', function(Locations) {
+                        return Locations.load();
                     }]
                 }
             })

@@ -12,7 +12,7 @@
         .factory('Graphing', Graphing);
 
     /* @ngInject */
-    function Graphing($q, NodeTypeEnum) {
+    function Graphing($q, $http, $log, NodeTypeEnum) {
         var URL = 'data/graph.json'; // constant
 
         var service = {
@@ -26,14 +26,16 @@
         //------------------------------------------------//
 
         function createGraph(data) {
-            $.getJSON(URL, function(data) {
-                service.graph = new Graph(data, true); // debug for testing purposes
-                // service.graph = new Graph(data, false);
+            $http.get(URL)
+                .success(function(data) {
+                    service.graph = new Graph(data, true); // debug for testing purposes
+                    // service.graph = new Graph(data, false);
 
-                return service.graph;
-            }).fail(function(error) {
-                console.error(error);
-            });
+                    return service.graph;
+                })
+                .error(function(error) {
+                    console.error(error || 'Request failed');
+                });
         }
     }
 

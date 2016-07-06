@@ -93,7 +93,9 @@
         /** handle user authentication */
         function userAuth(user) {
             if (user) {
-                load();
+                var promises = [ allArray() ];
+
+                return $q.all(promises).then();
             }
             else {
                 Locations.unload();
@@ -101,21 +103,10 @@
             }
         }
 
-        /** load the Locations table */
-        function load() {
-            if (Locations.loaded()) {
-                vm.selectNode.nodes = Locations.all();
-                return true;
-            }
-            else {
-                var promises = [all()];
-                return Locations.load(promises).then();
-            }
-        }
-
-        function all() {
-            return $q.when(Locations.all()).then(function() {
-                vm.selectNode.nodes = Locations.all();
+        /** load the Locations table as an array */
+        function allArray() {
+            return $q.when(Locations.allArray()).then(function(data) {
+                vm.selectNode.nodes = data;
                 $log.info('Locations Loaded');
                 return vm.selectNode.nodes;
             });
