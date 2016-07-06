@@ -284,7 +284,7 @@
             // .use(!build ? connectLr() : function(){})
             .use(express.static(targetDir))
             .listen(port);
-        gulpOpen('https://lincoln-gps-waze-mvasseur.c9users.io/');
+        gulpOpen('http://localhost:' + port + '/');
     });
 
     // gulp.task('browser-sync', function() {

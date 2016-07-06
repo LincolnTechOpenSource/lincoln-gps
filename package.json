@@ -1,8 +1,16 @@
 {
   "name": "lincoln_gps_waze",
   "version": "1.0.0",
-  "author": "Matthew Vasseur <mattvasseur@gmail.com>",
+  "authors": [
+    "Matthew Vasseur <mattvasseur@gmail.com>",
+    "David Tahvildaran <davildaran@gmail.com>"
+  ],
   "description": "Lincoln GPS: A Lincoln Office Locator",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LincolnTechOpenSource/lincoln-gps"
+  },
   "dependencies": {},
   "devDependencies": {
     "beepbeep": "^1.2.0",

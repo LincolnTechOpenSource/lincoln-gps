@@ -120,6 +120,29 @@ json file
 
 TODO: How to build the application
 
+1. Installing Ionic and Cordova CLI
+   * `npm install -g ionic cordova`
+2. Installing Bower
+   * `npm install -g bower`
+2. Installing Node.js and Bower Packages
+   * `npm install`
+   * `bower install`
+3. Building with Gulp
+   * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
+   * Run `npm run gulp` (unless `gulp` is installed globally) to start the development build process
+      * Compiling, concatenating, auto-prefixing `.scss` files required by [src/sclient/content/styles/main.scss](src/sclient/content/styles/main.scss)
+      * Creating `vendor.js` from `bower.js` and `plugins`
+      * Linting all `*.js` files, analyzing the source files with `plato`
+      * Injecting sources into `index.html`
+      * Building everything into `.dev`
+      * Starting the local server to serve from `.dev`
+      * Starting watchers to automatically rebuild upon saved changes
+   * The `--noAnalyze` flag (`--na`) is the same as above, but does not analyze (making recompile faster)
+   * The `--build` flag (`--b`) starts the non-development build process
+      * In addition to the above: Concats all `*.js` sources into a single `app.js` file
+      * Versions `main.css` and `app.js`
+      * Builds everything into `www`
+   * The `--release` flag removes debug messages (e.g. `console.log`)
 
 ## Ideas to Contribute
 
@@ -152,9 +175,10 @@ TODO: How to build the application
 
 **Authors:** Matthew Vasseur and David Tahvildaran
 
-**Adapted Repositories:**
+**Adapted Resources:**
    1. [Min Heap with Decrease Key](https://github.com/rombdn/js-binaryheap-decreasekey)
    2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
+   3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
 **Bower Resources**
    1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
