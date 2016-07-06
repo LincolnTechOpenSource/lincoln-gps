@@ -3,7 +3,7 @@
 
 node_modules/
 platforms/
-plugins/
+#plugins/
 bower_components/
 reports/
 .dev/
