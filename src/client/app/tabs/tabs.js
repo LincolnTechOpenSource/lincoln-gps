@@ -14,7 +14,7 @@
 
     /* @ngInject */
     function TabCtrl($scope, $ionicModal, $ionicLoading,
-        $timeout, $q, $log, $localStorage, Firebase, Users, currentUser) {
+        $timeout, $q, $log, $localStorage, Firebase, currentUser) {
 
         // Form data for the login modal
         $scope.loginData = {
@@ -75,30 +75,14 @@
                 $scope.error.show = false;
 
                 // load & save the authed user
-                load(user);
+                $localStorage.uid = user.uid;
             }
             else {
                 // No user is signed in.
                 $log.info('Not Authenticated');
                 $scope.login();
 
-                Users.unload();
-                $localStorage.user = null;
-            }
-        }
-
-        /** load the Users table */
-        function load(user) {
-            if (Users.loaded()) {
-                $localStorage.user = Users.get(user.uid);
-                return true;
-            }
-            else {
-                // var promises = [get(user)];
-                return Users.load().then(function() {
-                    $localStorage.user = Users.get(user.uid);
-                    $log.info('User Loaded');
-                });
+                $localStorage.uid = null;
             }
         }
 

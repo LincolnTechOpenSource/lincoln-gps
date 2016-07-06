@@ -12,7 +12,7 @@
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Users, Locations, Firebase, Graphing, Params, Dijkstra, PanZoom) {
+        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, PanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -69,19 +69,21 @@
                 Params.employee = null; // null out parameter after 'use'
             }
 
-            // filter the map as prescribed
-            // Users.load().then(usersLoad);
+            filterMap();
 
             // $log.info('Activated Map View');
             return true;
         }
 
-        /** functions for after users have loaded */
-        function usersLoad() {
+        /** filter the map according to preferences */
+        function filterMap() {
             $('#svg #map .loc').removeClass('filter-out'); // remove old filter
-            for (var filter in $localStorage.prefs.filters) {
-                if ($localStorage.prefs.filters.hasOwnProperty(filter)) {
-                    if (!$localStorage.prefs.filters[filter].disp) {
+
+            // filter each preference that has display false
+            var filters = $localStorage.prefs.filters;
+            for (var filter in filters) {
+                if (filters.hasOwnProperty(filter)) {
+                    if (!filters[filter].disp) {
                         $('#svg #map .loc.' + filter).addClass('filter-out');
                     }
                 }
@@ -160,7 +162,7 @@
          * makes all corresponding locations highlight
          */
         function legendHover(ev) {
-            var code = angular.element(ev.currentTarget).data('code');
+            var code = $(ev.currentTarget).data('code');
 
             $('.loc.' + code + ':not(.filter-out)').toggleClass('hilite');
             $('.dep-list .' + code + ' .dep-list-colorbox').toggleClass('hilite');

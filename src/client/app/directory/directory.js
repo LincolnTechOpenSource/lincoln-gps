@@ -40,7 +40,7 @@
         Firebase.auth().$onAuthStateChanged(userAuth);
 
         // activate the controller on view enter
-        $scope.$on('$ionicView.enter', activate);
+        // $scope.$on('$ionicView.enter', activate);
 
         //------------------------------------------------//
 
@@ -50,10 +50,10 @@
         }
 
         /** run upon controller activate */
-        function activate() {
-            // $log.info('Activated Directory View');
-            return true;
-        }
+        // function activate() {
+        //     // $log.info('Activated Directory View');
+        //     return true;
+        // }
 
         /** handle user authentication */
         function userAuth(user) {
