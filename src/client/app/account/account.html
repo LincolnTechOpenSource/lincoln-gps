@@ -9,13 +9,13 @@
     </button>
     <ion-list>
       <!-- display all filters -->
-      <ion-toggle ng-model="user.filters[name].disp" ng-repeat="(name, truth) in user.filters">
-        Display {{user.filters[name].dispName}}
+      <ion-toggle ng-model="vm.filters[name].disp" ng-repeat="(name, truth) in vm.filters">
+        Display {{vm.filters[name].dispName}}
       </ion-toggle>
     </ion-list>
 
     <ion-list>
-      <ion-toggle ng-model="user.showMapPopup">
+      <ion-toggle ng-model="vm.showMapPopup">
         Show Select on Map Popup
       </ion-toggle>
     </ion-list>

@@ -13,7 +13,8 @@
     "ionic": "~1.3.0",
     "angular": "^1.5.7",
     "angular-resource": "^1.5.7",
-    "ngCordova": "~0.1.26-alpha"
+    "ngCordova": "~0.1.26-alpha",
+    "ngstorage": "^0.3.10"
   },
   "resolutions": {
     "angular": "1.5.7"

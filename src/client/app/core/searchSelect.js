@@ -101,7 +101,7 @@
             $scope.closeModal();
 
             // Popup to alert the user to click on the map (only show if preferred)
-            if ($rootScope.user.showMapPopup) {
+            if ($rootScope.prefs.showMapPopup) {
                 $ionicPopup.alert({
                     title: 'Select a Location on the Map',
                     template: 'Please click on a location on the map to select it',
@@ -112,8 +112,9 @@
                         text: 'Do not show again',
                         type: 'button-assertive',
                         onTap: function(e) {
-                            $rootScope.user.showMapPopup = false;
-                            Users.set($rootScope.user.id, ['showMapPopup'], false);
+                            $rootScope.prefs.showMapPopup = false;
+                            // Users.set($rootScope.user.id, ['showMapPopup'], false);
+                            localStorage.set('showMapPopup', false);
                         }
                     }]
                 });

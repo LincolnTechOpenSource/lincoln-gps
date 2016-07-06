@@ -6,10 +6,12 @@
     .module('app.account')
     .controller('AccountCtrl', AccountCtrl);
 
-  // AccountCtrl.$inject = ['$rootScope', '$scope', '$log', 'Users'];
   /* @ngInject */
-  function AccountCtrl($rootScope, $scope, $log, Users, localStorage) {
+  function AccountCtrl($rootScope, $scope, $log, Users, $localStorage) {
     var vm = this;
+
+    vm.filters = $localStorage.prefs.filters;
+    vm.showMapPopup = $localStorage.prefs.showMapPopup;
 
     vm.resetToDefault = resetToDefault;
 
@@ -43,20 +45,20 @@
       // Users.set($rootScope.user.id, ['showMapPopup'], $rootScope.user.showMapPopup);
 
       // save filter and map popup preferences in local storage
-      localStorage.set('filters', $rootScope.prefs.filters);
-      localStorage.set('showMapPopup', $rootScope.prefs.showMapPopup);
-
-
+      // localStorage.set('filters', $rootScope.prefs.filters);
+      // localStorage.set('showMapPopup', $rootScope.prefs.showMapPopup);
     }
 
-    /** rest all filters to true */
+    /** rest all preferences to true */
     function resetToDefault() {
-      for (var filter in $rootScope.user.filters) {
-        if ($rootScope.user.filters.hasOwnProperty(filter)) {
-          $rootScope.user.filters[filter].disp = true;
-          // Users.set($rootScope.user.id, ['filters', filter, 'disp'], true);
-        }
-      }
+      // reset filters
+      // for (var filter in $rootScope.prefs.filters) {
+      //   if ($rootScope.prefs.filters.hasOwnProperty(filter)) {
+      //     $rootScope.prefs.filters[filter].disp = true;
+      //   }
+      // }
+      // // reset map popup
+      // $rootScope.prefs.showMapPopup = true;
     }
   }
 })();

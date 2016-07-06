@@ -10,14 +10,14 @@
      * Main module of the application.
      */
     angular
-        .module('app', ['ionic', 'app.map', 'app.directory', 'app.account',
+        .module('app', ['ionic', 'ngStorage', 'app.map', 'app.directory', 'app.account',
             'app.tab', 'app.loc', 'app.core'
         ])
         .run(appRun)
         .config(appConfigure);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, localStorage, DEFAULT_FILTERS) {
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, DEFAULT_FILTERS) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -35,16 +35,24 @@
             }
 
             // load/set local storage preferences
-            $rootScope.prefs.filters = localStorage.get('filters');
-            if (!$rootScope.prefs.filters) {
-                $rootScope.prefs.filters = DEFAULT_FILTERS;
-                localStorage.set('filters', DEFAULT_FILTERS);
+            console.log($localStorage.prefs);
+            if (!$localStorage.hasOwnProperty('prefs') || !$localStorage.prefs.hasOwnProperty('filters')) {
+                $localStorage.prefs.filters = DEFAULT_FILTERS;
             }
-            $rootScope.prefs.showMapPopup = localStorage.get('showMapPopup');
-            if (!$rootScope.prefs.showMapPopup) {
-                $rootScope.prefs.showMapPopup = true; // default to true
-                localStorage.set('showMapPopup', true);
+            if (!$localStorage.hasOwnProperty('prefs') || !$localStorage.prefs.hasOwnProperty('showMapPopup')) {
+                $localStorage.prefs.showMapPopup = true;
             }
+
+            // $rootScope.prefs.filters = localStorage.get('filters');
+            // if (!$rootScope.prefs.filters) {
+            //     $rootScope.prefs.filters = DEFAULT_FILTERS;
+            //     localStorage.set('filters', DEFAULT_FILTERS);
+            // }
+            // $rootScope.prefs.showMapPopup = localStorage.get('showMapPopup');
+            // if (!$rootScope.prefs.showMapPopup) {
+            //     $rootScope.prefs.showMapPopup = true; // default to true
+            //     localStorage.set('showMapPopup', true);
+            // }
         });
 
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
