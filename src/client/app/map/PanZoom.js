@@ -32,8 +32,6 @@
         function initSync(selector, options) {
             /* global svgPanZoom */
             service.map = svgPanZoom('#map', {
-                // viewportSelector: '#map',
-                // useCurrentView: true,
                 zoomEnabled: true,
                 minZoom: 0.5,
                 maxZoom: 10,

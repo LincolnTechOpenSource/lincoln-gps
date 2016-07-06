@@ -70,7 +70,7 @@
             }
 
             // filter the map as prescribed
-            Users.load().then(usersLoad);
+            // Users.load().then(usersLoad);
 
             // $log.info('Activated Map View');
             return true;
