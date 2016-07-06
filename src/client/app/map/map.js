@@ -241,10 +241,10 @@
                     vm.selectNode[selectOnClick] = loc;
                 });
 
-                var dataIDs = $(event.currentTarget).data('id');
-                if (dataIDs) {
-                    console.log(dataIDs.split(' '));
-                }
+                // var dataIDs = $(event.currentTarget).data('id');
+                // if (dataIDs) {
+                //     console.log(dataIDs.split(' '));
+                // }
 
                 $('#svg #map #outer-border').removeClass('select-me');
                 $('#svg #map').attr('select-on-click', 'false');

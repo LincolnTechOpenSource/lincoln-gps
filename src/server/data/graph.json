@@ -313,6 +313,7 @@
         "321":{"_id":321,"_neighbors":[1058],"_weight":0,"_nType":9},
         "322":{"_id":322,"_neighbors":[1260],"_weight":0,"_nType":8},
         "323":{"_id":323,"_neighbors":[1300],"_weight":0,"_nType":8},
+        "329":{"_id":329,"_neighbors":[1056],"_weight":0,"_nType":8},
 
 
 
@@ -371,7 +372,7 @@
         "1053":{"_id":1053,"_neighbors":[70, 84, 1052, 1054],"_weight":1,"_nType":3},
         "1054":{"_id":1054,"_neighbors":[71, 1053, 1055],"_weight":1,"_nType":3},
         "1055":{"_id":1055,"_neighbors":[72, 85, 1054, 1056],"_weight":1,"_nType":3},
-        "1056":{"_id":1056,"_neighbors":[73, 1055, 1093],"_weight":1,"_nType":3},
+        "1056":{"_id":1056,"_neighbors":[73, 329, 1055],"_weight":1,"_nType":3},
         "1057":{"_id":1057,"_neighbors":[1046, 1058],"_weight":2,"_nType":3},
         "1058":{"_id":1058,"_neighbors":[321, 1057, 1059],"_weight":1,"_nType":3},
         "1059":{"_id":1059,"_neighbors":[301, 1058, 1060],"_weight":1,"_nType":3},
@@ -408,7 +409,7 @@
         "1090":{"_id":1090,"_neighbors":[1081, 1091],"_weight":2,"_nType":3},
         "1091":{"_id":1091,"_neighbors":[1074, 1090, 1099],"_weight":1,"_nType":3},
         "1092":{"_id":1092,"_neighbors":[],"_weight":0,"_nType":8},
-        "1093":{"_id":1093,"_neighbors":[1, 18, 19, 1045, 1056],"_weight":1,"_nType":3},
+        "1093":{"_id":1093,"_neighbors":[1, 18, 19, 1045],"_weight":1,"_nType":3},
         "1094":{"_id":1094,"_neighbors":[94, 1083, 1095],"_weight":1,"_nType":3},
         "1095":{"_id":1095,"_neighbors":[95, 133, 1094, 1096],"_weight":1,"_nType":3},
         "1096":{"_id":1096,"_neighbors":[96, 1095, 1097, 1161],"_weight":1,"_nType":3},
@@ -718,6 +719,6 @@
         "1400":{"_id":1400,"_neighbors":[1141, 1399],"_weight":1,"_nType":3}
 
     },
-    "_nodeCount": 711,
+    "_nodeCount": 712,
     "_edgeCount": 790
 }
