@@ -112,7 +112,7 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 * 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
 * 06/30/16: Major path updates; Directory search filters; more robust deparment constant
 * 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
-dependence on firebase, shifting prefences to local storage and data to an internal
+dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
 
 
