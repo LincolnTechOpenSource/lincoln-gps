@@ -108,6 +108,12 @@ dependence on firebase, shifting prefences to local storage and data to an inter
 json file
 *
 
+
+## Building
+
+TODO: How to build the application
+
+
 ## Ideas to Contribute
 
 
