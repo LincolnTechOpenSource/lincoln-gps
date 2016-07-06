@@ -6,8 +6,9 @@
     .module('app.account')
     .controller('AccountCtrl', AccountCtrl);
 
-  AccountCtrl.$inject = ['$rootScope', '$scope', '$log', 'Users'];
-  function AccountCtrl($rootScope, $scope, $log, Users) {
+  // AccountCtrl.$inject = ['$rootScope', '$scope', '$log', 'Users'];
+  /* @ngInject */
+  function AccountCtrl($rootScope, $scope, $log, Users, localStorage) {
     var vm = this;
 
     vm.resetToDefault = resetToDefault;
@@ -28,15 +29,24 @@
 
     /** run upon controller terminate */
     function terminate() {
+      /* remnants of firebase */
       // save filter preferences
-      for (var filter in $rootScope.user.filters) {
-        if ($rootScope.user.filters.hasOwnProperty(filter)) {
-          Users.set($rootScope.user.id, ['filters', filter, 'disp'], $rootScope.user.filters[filter].disp);
-        }
-      }
+      // var filters = localStorage.get('filters');
+      // for (var filter in filters) {
+      //   if (filters.hasOwnProperty(filter)) {
+      //     // Users.set($rootScope.user.id, ['filters', filter, 'disp'], $rootScope.user.filters[filter].disp);
+      //     // localStorage.set('filters', filters[filte])
+      //   }
+      // }
 
       // save popup preference
-      Users.set($rootScope.user.id, ['showMapPopup'], $rootScope.user.showMapPopup);
+      // Users.set($rootScope.user.id, ['showMapPopup'], $rootScope.user.showMapPopup);
+
+      // save filter and map popup preferences in local storage
+      localStorage.set('filters', $rootScope.prefs.filters);
+      localStorage.set('showMapPopup', $rootScope.prefs.showMapPopup);
+
+
     }
 
     /** rest all filters to true */

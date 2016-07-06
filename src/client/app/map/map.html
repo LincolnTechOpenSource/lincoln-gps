@@ -1,10 +1,9 @@
 <!-- tab-map.html -->
 <ion-view view-title="Lincoln GPS Map" id="tab-map" ng-init="vm.init()">
     <ion-content class="padding">
-
         <div class="flexbox-container">
             <!--<h2 class="text-center">Lincoln GPS Locator</h2>-->
-            <div class="row directions responsive-sm">
+            <div class="row directions">
                 <div id="from-loc" class="col col-48">
                     <ion-search-select title="From" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.fromNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
@@ -19,9 +18,9 @@
                     </location-info>
                 </div>
                 <div class="col text-center">
-                <a class="swap button button-icon icon ion-arrow-swap" on-tap="vm.swap()" ng-class="{balanced: !!vm.selectNode.fromNode && !!vm.selectNode.toNode}" ng-disabled="!vm.selectNode.fromNode || !vm.selectNode.toNode"></a>
+                    <a class="swap button button-icon icon ion-arrow-swap" on-tap="vm.swap()" ng-class="{balanced: !!vm.selectNode.fromNode && !!vm.selectNode.toNode}" ng-disabled="!vm.selectNode.fromNode || !vm.selectNode.toNode"></a>
                 </div>
-                <div id="to-loc" class="col col-48" style="height: 100%;">
+                <div id="to-loc" class="col col-48">
                     <ion-search-select title="To" key-property="id" value-property="name" options="vm.selectNode.nodes" option-selected="vm.selectNode.toNode" enable-map-select="true">
                         <label class="item item-input-inset search-select">
                             <div class="item-input-wrapper">
@@ -179,9 +178,9 @@
                             <rect class="path loc" id="1053" width="90" height="80" transform="translate(950,1040)" />
                             <rect class="path loc" id="1054" width="90" height="80" transform="translate(1040,1040)" />
                             <rect class="path loc" id="1055" width="90" height="80" transform="translate(1130,1040)" />
-                            <g id="1056" class="path loc">
-                                <rect  width="90" height="80" transform="translate(1220,1040)" />
-                                <rect class="loc copy-scan-rm" x="1231" y="1070" width="60" height="50"></rect>
+                            <g id="1056" class="path loc copy-scan-rm">
+                                <rect class='path loc' width="90" height="80" transform="translate(1220,1040)" />
+                                <rect class="copy-scan-rm" x="1231" y="1070" width="60" height="50"></rect>
                                 <image class="" x="1221" y="1080" width="80" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
                             </g>
 
@@ -509,9 +508,9 @@
                             <rect class="path loc" id="1265" x="2380" y="2220" width="80" height="45"></rect>
                             <rect class="path loc" id="1266" x="2460" y="2220" width="115" height="45"></rect>
                             <rect class="path loc" id="1267" x="2460" y="2265" width="115" height="70"></rect>
-                            <g id="1268" class="path loc" >
-                                <rect x="2460" y="2335" width="115" height="70"></rect>
-                                <rect class="loc copy-scan-rm" x="2458" y="2350" width="55" height="50"></rect>
+                            <g id="1268" class="path loc copy-scan-rm" >
+                                <rect class='path loc' x="2460" y="2335" width="115" height="70"></rect>
+                                <rect class="copy-scan-rm" x="2458" y="2350" width="55" height="50"></rect>
                                 <image x="2461" y="2353" width="45" height="40" xlink:href="content/images/map-icons/printer.svg" ></image>
                             </g>
                             <rect class="path loc" id="1269" x="2460" y="2405" width="115" height="45"></rect>
@@ -778,8 +777,8 @@
                             <!-- ACD, VSA and Accounting cubicles -->
                             <rect class="desk cubicle acd loc" id="38" width="90" height="90" transform="translate(430,646)" />
                             <rect class="desk cubicle acd loc" id="39" width="90" height="90" transform="translate(520,646)" />
-                            <g class="desk cubicle acd loc">
-                                <rect class="" id="40" width="90" height="90" transform="translate(610,646)" />
+                            <g id="40" data-id="40 324" class="desk cubicle acd loc">
+                                <rect class="" width="90" height="90" transform="translate(610,646)" />
                                 <rect class="copy-scan-rm" x="610" y="646" width="50" height="50"></rect>
                                 <image x="615" y="649" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
                             </g>
@@ -791,8 +790,8 @@
                             <rect class="desk cubicle vsa loc" id="46" width="90" height="90" transform="translate(700,736)" />
                             <rect class="desk cubicle vsa loc" id="47" width="90" height="90" transform="translate(790,736)" />
                             <rect class="desk cubicle accounting loc" id="48" width="90" height="90" transform="translate(950,646)" />
-                            <g class="desk cubicle accounting loc">
-                                <rect class="" id="49" width="90" height="90" transform="translate(1040,646)" />
+                            <g id="49" data-id="49 325" class="desk cubicle accounting loc">
+                                <rect class="" width="90" height="90" transform="translate(1040,646)" />
                                 <rect class="copy-scan-rm" x="1080" y="646" width="50" height="50"></rect>
                                 <image x="1085" y="649" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
                             </g>
@@ -806,8 +805,8 @@
                             <!-- Lower row of ACD, VSA,Operations Expansion and Accounting cubicles -->
                             <rect class="desk cubicle acd loc" id="56" width="90" height="90" transform="translate(430,860)" />
                             <rect class="desk cubicle vsa loc" id="57" width="90" height="90" transform="translate(520,860)" />
-                            <g class="desk cubicle vsa loc">
-                                <rect class="" id="58" width="90" height="90" transform="translate(610,860)" />
+                            <g id="58" data-id="58 326" class="desk cubicle vsa loc">
+                                <rect class=""  width="90" height="90" transform="translate(610,860)" />
                                 <rect class="copy-scan-rm" x="630" y="880" width="50" height="50"></rect>
                                 <image x="635" y="885" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
                             </g>
@@ -1029,7 +1028,7 @@
                                 </g>
                                 <rect class="desk cubicle rdi loc" id="228" width="90" height="90" transform="translate(610,736)" />
                                 <rect class="desk cubicle isd loc" id="229" width="90" height="90" transform="translate(700,736)" />
-                                <g id="230" class="desk cubicle euc copy-scan-rm loc">
+                                <g id="230" data-id="230 328" class="desk cubicle euc copy-scan-rm loc">
                                     <rect width="90" height="90" transform="translate(790,736)"  />
                                     <rect class="copy-scan-rm" x="810" y="754" width="50" height="50"></rect>
                                     <image x="815" y="760" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
@@ -1040,7 +1039,7 @@
                                 <rect class="desk cubicle compli-licens loc" id="234" width="90" height="90" transform="translate(1220,646)" />
                                 <rect class="desk cubicle euc loc" id="235" width="90" height="90" transform="translate(950,736)" />
                                 <rect class="desk cubicle compli-licens loc" id="236" width="90" height="90" transform="translate(1040,736)" />
-                                <g id="237" class="desk cubicle compli-licens loc">
+                                <g id="237" data-id="237 327" class="desk cubicle compli-licens loc">
                                     <rect width="90" height="90" transform="translate(1130,736)" />
                                     <rect class="copy-scan-rm" x="1130" y="775" width="50" height="50"></rect>
                                     <image x="1135" y="775" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>

@@ -17,7 +17,7 @@
     // ];
     /* @ngInject */
     function TabCtrl($rootScope, $scope, $ionicModal, $ionicLoading,
-        $timeout, $q, $log, Firebase, Users, currentUser) {
+        $timeout, $q, $log, Firebase, Users, localStorage, currentUser) {
 
         // Form data for the login modal
         $scope.loginData = {
@@ -93,16 +93,18 @@
         /** load the Users table */
         function load(user) {
             if (Users.loaded()) {
-                $rootScope.user = Users.get(user.uid);
+                // $rootScope.user = Users.get(user.uid);
+                localStorage.set('user', Users.get(user.uid));
                 return true;
             }
             else {
                 // var promises = [get(user)];
                 return Users.load().then(function() {
 
-                    $rootScope.user = Users.get(user.uid);
-                    // Users.bind($rootScope, 'user', user.uid);
+                    // $rootScope.user = Users.get(user.uid);
+                    localStorage.set('user', Users.get(user.uid));
                     $log.info('User Loaded');
+                    console.log(localStorage.get('user'));
                 });
             }
         }

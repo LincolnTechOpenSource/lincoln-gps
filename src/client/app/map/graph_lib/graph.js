@@ -1,6 +1,5 @@
 /*
  * graph.js
- * Matthew Vasseur
  * 05/31/16
  *
  * a simple undirected graph to represent the office

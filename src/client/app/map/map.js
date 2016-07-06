@@ -1,6 +1,5 @@
 /**
  * map.js
- * Matthew Vasseur
  * 06/02/16
  **/
 (function() {
@@ -243,7 +242,7 @@
 
                 var dataIDs = $(event.currentTarget).data('id');
                 if (dataIDs) {
-                    console.log(dataIDs);
+                    console.log(dataIDs.split(' '));
                 }
 
                 $('#svg #map #outer-border').removeClass('select-me');

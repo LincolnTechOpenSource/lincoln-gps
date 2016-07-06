@@ -469,9 +469,9 @@
             <rect class="path loc" id="1265" data-id="1265" x="2380" y="2220" width="80" height="45"></rect>
             <rect class="path loc" id="1266" data-id="1266" x="2460" y="2220" width="115" height="45"></rect>
             <rect class="path loc" id="1267" data-id="1267" x="2460" y="2265" width="115" height="70"></rect>
-            <g id="1268" data-id="1268" class="path loc" >
-                <rect x="2460" y="2335" width="115" height="70"></rect>
-                <rect class="loc copy-scan-rm" x="2458" y="2350" width="55" height="50"></rect>
+            <g id="1268" data-id="1268" class="path loc copy-scan-rm" >
+                <rect class='path loc' x="2460" y="2335" width="115" height="70"></rect>
+                <rect class="copy-scan-rm" x="2458" y="2350" width="55" height="50"></rect>
                 <image x="2461" y="2353" width="45" height="40" xlink:href="content/images/map-icons/printer.svg" ></image>
             </g>
             <rect class="path loc" id="1269" data-id="1269" x="2460" y="2405" width="115" height="45"></rect>

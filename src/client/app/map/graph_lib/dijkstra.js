@@ -1,6 +1,5 @@
 /*
  * dijkstra.js
- * Matthew Vasseur
  * 06/01/16
  *
  * runs Dijkstra's shortest path algorithm on a graph

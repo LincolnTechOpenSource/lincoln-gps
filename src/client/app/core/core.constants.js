@@ -144,10 +144,46 @@
         {titleCode: 'pres', name: 'President'}
     ];
 
+    var DEFAULT_FILTERS = {
+        "broom": {
+            "disp": true,
+            "dispName": "Bathrooms"
+        },
+        "conf": {
+            "disp": true,
+            "dispName": "Conference Rooms"
+        },
+        "cubicle": {
+            "disp": true,
+            "dispName": "Cubicles"
+        },
+        "desk": {
+            "disp": true,
+            "dispName": "Desks"
+        },
+        "food": {
+            "disp": true,
+            "dispName": "Food & Vending Locations"
+        },
+        "mbroom": {
+            "disp": true,
+            "dispName": "Men's Bathrooms"
+        },
+        "office": {
+            "disp": true,
+            "dispName": "Offices"
+        },
+        "wbroom": {
+            "disp": true,
+            "dispName": "Women's Bathrooms"
+        }
+    }
+
     angular
         .module('app.core')
         .constant('NodeTypeEnum', NodeTypeEnum)
         .constant('UNITS', UNITS)
-        .constant('TITLES', TITLES);
+        .constant('TITLES', TITLES)
+        .constant('DEFAULT_FILTERS', DEFAULT_FILTERS);
 
 })();

@@ -1,6 +1,5 @@
 /**
  * directory.js
- * Matthew Vasseur
  * 06/02/16
  **/
 (function() {

@@ -17,7 +17,7 @@
         .config(appConfigure);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase) {
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, localStorage, DEFAULT_FILTERS) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -32,6 +32,18 @@
                 // org.apache.cordova.statusbar required
                 /* global StatusBar */
                 StatusBar.styleDefault();
+            }
+
+            // load/set local storage preferences
+            $rootScope.prefs.filters = localStorage.get('filters');
+            if (!$rootScope.prefs.filters) {
+                $rootScope.prefs.filters = DEFAULT_FILTERS;
+                localStorage.set('filters', DEFAULT_FILTERS);
+            }
+            $rootScope.prefs.showMapPopup = localStorage.get('showMapPopup');
+            if (!$rootScope.prefs.showMapPopup) {
+                $rootScope.prefs.showMapPopup = true; // default to true
+                localStorage.set('showMapPopup', true);
             }
         });
 
