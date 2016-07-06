@@ -118,8 +118,6 @@ json file
 
 ## Building
 
-TODO: How to build the application
-
 1. Installing Ionic and Cordova CLI
    * `npm install -g ionic cordova`
 2. Installing Gulp and Bower
