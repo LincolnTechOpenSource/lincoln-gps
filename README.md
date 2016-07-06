@@ -41,7 +41,7 @@ The underlying graph is a simple undirected graph made of node objects. The edge
 of the graph are implicit in the node objects which describe neighbors.
 
 Given this structure, a basic implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue)
-(located at [`www/app/map/graph_lib/dijkstra.js`](www/app/map/graph_lib/dijkstra.js))
+(located at [`src/client/app/map/graph_lib/dijkstra.js`](src/client/app/map/graph_lib/dijkstra.js))
 is used to find the shortest path between any two nodes.
 
 **Node:** The node object describes a node in the graph
@@ -54,7 +54,7 @@ For each node object the following properties must be defined: **id**, **neighbo
    * **nType:** an enumeration describing the type of location (e.g., 3 = Path, 5 = Desk, or 6 = Conference Room)
    * **weight:** the weight of the node in Dijkstra's algorithm (path nodes are the only type with non-zero weight)
 
-The graph is constructed from a JSON object described in [`www/lib/graph/graph.json`](www/lib/graph/graph.json)
+The graph is constructed from a JSON object described in [`src/server/data/graph.json`](src/server/data/graph.json)
 which describes the **nodes** (**id**, **neighbors**, **weight**, **nType**), as well the total number of nodes
 and edges (**nodeCount** and **edgeCount**, respectively).
 
@@ -106,7 +106,6 @@ serves as a space delimited array of all location IDs that should reside at that
 * 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
 dependence on firebase, shifting prefences to local storage and data to an internal
 json file
-*
 
 
 ## Building
