@@ -12,7 +12,7 @@
         .factory('Firebase', Firebase);
 
     // General Firebase services
-    Firebase.$inject = ['$firebaseAuth', 'CONFIG'];
+    /* @ngInject */
     function Firebase($firebaseAuth, CONFIG) {
         var isInit = false;
 
