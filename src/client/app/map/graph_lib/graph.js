@@ -28,8 +28,8 @@
         function createGraph(data) {
             $http.get(URL)
                 .success(function(data) {
-                    service.graph = new Graph(data, true); // debug for testing purposes
-                    // service.graph = new Graph(data, false);
+                    // service.graph = new Graph(data, true); // debug for testing purposes
+                    service.graph = new Graph(data, false);
 
                     return service.graph;
                 })
