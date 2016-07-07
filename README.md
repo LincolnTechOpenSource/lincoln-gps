@@ -8,6 +8,8 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
+Current Release: **1.0.0**
+
 ## Database Structure
 
 There is one main table: **Locations** (_**Users** table removed commit [[master b5c6de1]](https://github.com/LincolnTechOpenSource/lincoln-gps/commit/b5c6de161b5de50991142f6dfa0ea39b120f368b)_)
