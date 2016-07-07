@@ -8,6 +8,8 @@ agree to abide by TODO Group and GitHub's [code of conduct].
 
 [code of conduct]: http://todogroup.org/opencodeofconduct/
 
+We follow Vincent Driessen's [branching model](http://nvie.com/posts/a-successful-git-branching-model/).
+
 Fork, then clone the repo:
 
     git clone git@github.com:your-username/lincoln-gps.git
