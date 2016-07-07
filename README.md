@@ -158,7 +158,6 @@ json file
 * [ ] Connect authentication to custom system through token
 * [ ] Dynamic SVG map and graph creation
 * [ ] Directions with detours/via points (e.g., from A to B to C)
-* [ ] Optimize for mobile platform
 * [ ] Add custom tags/notes to locations
 * [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
