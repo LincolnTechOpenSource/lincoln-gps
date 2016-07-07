@@ -8,6 +8,8 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
+Current Release: **1.0.0**
+
 ## Database Structure
 
 There is one main table: **Locations** (_**Users** table removed commit [[master b5c6de1]](https://github.com/LincolnTechOpenSource/lincoln-gps/commit/b5c6de161b5de50991142f6dfa0ea39b120f368b)_)
@@ -127,9 +129,8 @@ json file
    * `npm install`
    * `bower install`
 3. Building with Gulp
-   * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
    * Run `gulp` to start the development build process
-      * Compiling, concatenating, auto-prefixing `.scss` files required by [src/sclient/content/styles/main.scss](src/sclient/content/styles/main.scss)
+      * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
       * Creating `vendor.js` from `bower.js` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
       * Injecting sources into `index.html`
@@ -142,6 +143,7 @@ json file
       * Versions `main.css` and `app.js`
       * Builds everything into `www`
    * The `--release` flag removes debug messages (e.g. `console.log`)
+   * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
 
 ## Ideas to Contribute
 
@@ -162,12 +164,7 @@ json file
 
 ## How to Contribute
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
-6. Contribution will be reviewed
+Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## Credits
