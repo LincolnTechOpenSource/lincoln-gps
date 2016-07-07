@@ -33,7 +33,7 @@ your updates, we may suggest some changes, improvements, or alternatives.
 Some things that will increase the chance that your pull request is accepted:
 
 * Write tests.
-* Follow John Papa's [Angular style guide][style].
+* Follow [John Papa's Angular Style Guide][style].
 * Write a [good commit message][commit].
 
 [style]: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
