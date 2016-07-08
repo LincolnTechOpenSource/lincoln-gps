@@ -14,7 +14,7 @@
     var beep = require('beepbeep');
     var express = require('express');
     var path = require('path');
-    var gulpOpen = require('open');
+    // var gulpOpen = require('open');
     var streamqueue = require('streamqueue');
     var runSequence = require('run-sequence');
     var merge = require('merge-stream');
@@ -284,7 +284,7 @@
             // .use(!build ? connectLr() : function(){})
             .use(express.static(targetDir))
             .listen(port);
-        gulpOpen('http://localhost:' + port + '/');
+        // gulpOpen('http://localhost:' + port + '/');
     });
 
     // gulp.task('browser-sync', function() {
@@ -335,7 +335,7 @@
         // Start the ripple server
         ripple.emulate.start(options);
 
-        gulpOpen('http://localhost:' + options.port + '?enableripple=true');
+        // gulpOpen('http://localhost:' + options.port + '?enableripple=true');
     });
 
 
