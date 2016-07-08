@@ -14,7 +14,7 @@
   "dependencies": {},
   "devDependencies": {
     "beepbeep": "^1.2.0",
-    "connect-livereload": "^0.5.2",
+
     "del": "^2.2.0",
     "express": "^4.11.1",
     "glob": "^4.5.3",
@@ -44,17 +44,17 @@
     "gulp-util": "^3.0.0",
     "jshint": "2.9.1",
     "jshint-stylish": "^2.1.0",
-    "lodash": "^3.10.1",
-    "lodash._basecopy": "latest",
+
+
     "merge-stream": "^1.0.0",
     "node-sass": "^3.4.2",
-    "open": "0.0.5",
+
     "plato": "^1.5.0",
     "ripple-emulator": "^0.9.32",
     "run-sequence": "^1.1.5",
-    "shelljs": "^0.5.3",
+
     "streamqueue": "^1.1.1",
-    "wiredep": "^4.0.0",
+
     "yargs": "^3.31.0"
   },
   "scripts": {
