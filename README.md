@@ -116,6 +116,7 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 * 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
 dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
+* 07/08/16: Stabilized most functionality
 
 
 ## Building
