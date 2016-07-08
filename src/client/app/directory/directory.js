@@ -19,6 +19,7 @@
             employees: null, // only load if user is authenticated
             employee: null
         };
+
         vm.filters = {
             d: UNITS.DEPARTMENTS, // department filters
             t: TITLES, // title filter
