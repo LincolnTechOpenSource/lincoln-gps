@@ -376,6 +376,7 @@
 
     // our main sequence, with some conditional jobs depending on params
     gulp.task('default', function(done) {
+
         runSequence(
             'load',
             build ? 'noop' : 'watchers',
