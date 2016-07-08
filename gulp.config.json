@@ -9,8 +9,7 @@
   "js": [
     "./src/client/app/**/*module*.js",
     "./src/client/app/**/*constants*.js",
-    "./src/client/app/**/*.js",
-    "!./src/client/app/scripts/**/*.js"
+    "./src/client/app/**/*.js"
   ],
   "vendorjs": [
     "./bower_components/jquery/dist/jquery.js",
