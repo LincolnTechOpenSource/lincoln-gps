@@ -7,6 +7,9 @@
   <author email="mattvasseur@gmail.com">
     Matthew Vasseur
   </author>
+  <author email="davildaran@gmail.com">
+    David Tahvildaran
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
