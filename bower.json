@@ -4,7 +4,7 @@
     "Matthew Vasseur <mattvasseur@gmail.com>",
     "David Tahvildaran <davildaran@gmail.com>"
   ],
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": "true",
   "license": "MIT",
   "devDependencies": {},
