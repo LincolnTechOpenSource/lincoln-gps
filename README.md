@@ -177,7 +177,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
    2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
    3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
-**Bower Resources**
+**Library Resources**
    1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
