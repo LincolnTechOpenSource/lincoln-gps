@@ -160,7 +160,7 @@ json file
 * [ ] Dynamic SVG map and graph creation
 * [ ] Directions with detours/via points (e.g., from A to B to C)
 * [ ] Add custom tags/notes to locations
-* [ ] Move from using both Bower and NPM to only NPM with Browserify
+* [ ] Move from using both Bower and NPM to only NPM
 * [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
