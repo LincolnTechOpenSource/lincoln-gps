@@ -1,14 +1,14 @@
 
 [//]: # (ReadMe.md)
 
-# Lincoln GPS Locator
+# Lincoln Employee Locator
 
-A hybrid mobile application that serves as a GPS Employee Locator for Lincoln
+A hybrid mobile application that serves as an Employee Locator for Lincoln
 Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.0.0**
+Current Release: **1.0.1**
 
 ## Database Structure
 
@@ -160,7 +160,7 @@ json file
 * [ ] Dynamic SVG map and graph creation
 * [ ] Directions with detours/via points (e.g., from A to B to C)
 * [ ] Add custom tags/notes to locations
-* [ ] Move from using both Bower and NPM to only NPM with Browserify
+* [ ] Move from using both Bower and NPM to only NPM
 * [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
@@ -177,7 +177,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
    2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
    3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
-**Bower Resources**
+**Library Resources**
    1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
