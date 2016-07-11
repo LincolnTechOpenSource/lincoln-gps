@@ -150,6 +150,7 @@ json file
 
 * [x] ~~Enable map zoom and pan~~
 * [x] ~~Mobile pinch to zoom~~
+* [x] ~~Move from using both Bower and NPM to only NPM~~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
@@ -159,7 +160,6 @@ json file
 * [ ] Dynamic SVG map and graph creation
 * [ ] Directions with detours/via points (e.g., from A to B to C)
 * [ ] Add custom tags/notes to locations
-* [ ] Move from using both Bower and NPM to only NPM
 * [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
