@@ -16,7 +16,6 @@
     "beepbeep": "^1.2.0",
     "del": "^2.2.0",
     "express": "^4.11.1",
-    "glob": "^4.5.3",
     "gulp": "^3.8.10",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-autoprefixer": "^3.1.0",

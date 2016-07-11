@@ -18,7 +18,6 @@
     var runSequence = require('run-sequence');
     var ripple = require('ripple-emulator');
     var plato = require('plato');
-    var glob = require('glob');
     var paths = require('./gulp.config.json');
 
     // var gulpOpen = require('open');
@@ -410,7 +409,6 @@
     function startPlatoVisualizer() {
         // plugins.util.log('Running Plato');
 
-        var files = glob.sync('./src/client/app/**/*.js');
         // var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;
 
         var options = {
@@ -418,7 +416,7 @@
             // exclude: excludeFiles
         };
 
-        plato.inspect(files, paths.platoDir, options, platoCompleted);
+        plato.inspect('./src/client/app/**/*.js', paths.platoDir, options, platoCompleted);
 
         function platoCompleted(report) {
             var overview = plato.getOverviewReport(report);
