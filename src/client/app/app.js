@@ -11,7 +11,7 @@
      */
     angular
         .module('app', ['ionic', 'ngStorage', 'app.map', 'app.directory', 'app.account',
-                        'app.tab', 'app.loc', 'app.core', 'ngCordova'
+                        'app.tab', 'app.loc', 'app.core'
         ])
         .run(appRun)
         .config(appConfigure);
