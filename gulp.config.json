@@ -16,7 +16,7 @@
     "./bower_components/ionic/release/js/ionic.bundle.js",
     "./node_modules/ngCordova/dist/ng-cordova.js",
     "./node_modules/ngstorage/ngStorage.js",
-    "./bower_components/svg-pan-zoom/dist/svg-pan-zoom.js",
+    "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.js",
     "./plugins/**/*.js"
   ],
   "vendorjsBuild": [
@@ -24,7 +24,7 @@
     "./bower_components/ionic/release/js/ionic.bundle.min.js",
     "./node_modules/ngCordova/dist/ng-cordova.min.js",
     "./node_modules/ngstorage/ngStorage.min.js",
-    "./bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js",
+    "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.min.js",
     "./plugins/**/*.js"
   ],
   "fonts": [
