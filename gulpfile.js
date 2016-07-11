@@ -9,20 +9,20 @@
     var appName = 'app.core';
 
     var gulp = require('gulp');
-    var paths = require('./gulp.config.json');
     var plugins = require('gulp-load-plugins')();
     var del = require('del');
     var beep = require('beepbeep');
     var express = require('express');
     var path = require('path');
-    // var gulpOpen = require('open');
     var streamqueue = require('streamqueue');
     var runSequence = require('run-sequence');
-    // var merge = require('merge-stream');
     var ripple = require('ripple-emulator');
-    // var wiredep = require('wiredep');
     var plato = require('plato');
     var glob = require('glob');
+    var paths = require('./gulp.config.json');
+    // var gulpOpen = require('open');
+    // var merge = require('merge-stream');
+    // var wiredep = require('wiredep');
 
     /**
      * Parse arguments

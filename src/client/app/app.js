@@ -18,7 +18,7 @@
 
     /* @ngInject */
     function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, DEFAULT_FILTERS) {
-        $ionicPlatform.ready(function(){
+        $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
