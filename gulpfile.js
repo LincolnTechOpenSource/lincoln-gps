@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:54
+// jshint maxstatements:50
 (function(){
     'use strict';
 
