@@ -20,6 +20,7 @@
     var plato = require('plato');
     var glob = require('glob');
     var paths = require('./gulp.config.json');
+
     // var gulpOpen = require('open');
     // var merge = require('merge-stream');
     // var wiredep = require('wiredep');
