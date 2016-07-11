@@ -2,27 +2,27 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:54
+// jshint maxstatements:50
 (function(){
     'use strict';
 
     var appName = 'app.core';
 
     var gulp = require('gulp');
-    var paths = require('./gulp.config.json');
+    var plugins = require('gulp-load-plugins')();
     var del = require('del');
     var beep = require('beepbeep');
     var express = require('express');
     var path = require('path');
-    var gulpOpen = require('open');
     var streamqueue = require('streamqueue');
     var runSequence = require('run-sequence');
-    var merge = require('merge-stream');
     var ripple = require('ripple-emulator');
-    // var wiredep = require('wiredep');
     var plato = require('plato');
-    var glob = require('glob');
-    var plugins = require('gulp-load-plugins')();
+    var paths = require('./gulp.config.json');
+
+    // var gulpOpen = require('open');
+    // var merge = require('merge-stream');
+    // var wiredep = require('wiredep');
 
     /**
      * Parse arguments
@@ -56,18 +56,6 @@
     if (run === true) {
         run = 'ios';
     }
-
-    // global error handler
-    var errorHandler = function(error) {
-        if (build) {
-            throw error;
-        }
-        else {
-            beep(2, 170);
-            plugins.util.log(error);
-        }
-    };
-
 
     // List the available gulp tasks
     gulp.task('help', plugins.taskListing);
@@ -120,11 +108,12 @@
      */
     gulp.task('analyze', function() {
         var jshint = analyzejshint(paths.js.concat('./gulpfile.js'));
-        var jscs = analyzejscs(paths.js.concat('./gulpfile.js'));
+        // var jscs = analyzejscs(paths.js.concat('./gulpfile.js'));
 
         startPlatoVisualizer();
 
-        return merge(jshint, jscs);
+        // return merge(jshint);
+        return jshint;
     });
 
     // build templatecache, copy scripts.
@@ -206,7 +195,7 @@
     // concatenate and minify vendor sources
     gulp.task('vendor', function() {
         // var vendorFiles = wiredep().js;
-        var vendorFiles = build ? paths.vendorjsBuild : paths.vendorjs;
+        var vendorFiles = build ? paths.vendorjs : paths.vendorjsDev;
 
         return gulp.src(vendorFiles)
             .pipe(plugins.concat('vendor.js'))
@@ -284,18 +273,8 @@
             // .use(!build ? connectLr() : function(){})
             .use(express.static(targetDir))
             .listen(port);
-        gulpOpen('http://localhost:' + port + '/');
+        // gulpOpen('http://localhost:' + port + '/');
     });
-
-    // gulp.task('browser-sync', function() {
-    //   browserSync({
-    //     // You can use wildcards in here.
-    //     files: 'app/index.html, app/scripts/controllers/homeController.js',
-    //     // We can pick port 8081 or 8082, if you are more of a 2's kind of guy, go for the 8082. Highly recommended.
-    //     port: 8080,
-    //     https: true
-    //   });
-    // });
 
     // ionic emulate wrapper
     gulp.task('ionic:emulate', plugins.shell.task([
@@ -335,9 +314,8 @@
         // Start the ripple server
         ripple.emulate.start(options);
 
-        gulpOpen('http://localhost:' + options.port + '?enableripple=true');
+        // gulpOpen('http://localhost:' + options.port + '?enableripple=true');
     });
-
 
     // start watchers
     gulp.task('watchers', function() {
@@ -376,6 +354,7 @@
 
     // our main sequence, with some conditional jobs depending on params
     gulp.task('default', function(done) {
+
         runSequence(
             'load',
             build ? 'noop' : 'watchers',
@@ -386,6 +365,17 @@
     });
 
     ////////////////
+
+    // global error handler
+    function errorHandler(error) {
+        if (build) {
+            throw error;
+        }
+        else {
+            beep(2, 170);
+            plugins.util.log(error);
+        }
+    }
 
     /**
      * Execute JSHint on given source files
@@ -403,32 +393,16 @@
     }
 
     /**
-     * Execute JSCS on given source files
-     * @param  {Array} sources
-     * @return {Stream}
-     */
-    function analyzejscs(sources) {
-        return gulp
-            .src(sources)
-            .pipe(plugins.jscs('./.jscsrc'))
-            .on('error', errorHandler);
-    }
-
-    /**
      * Start Plato inspector and visualizer
      */
     function startPlatoVisualizer() {
         // plugins.util.log('Running Plato');
 
-        var files = glob.sync('./src/client/app/**/*.js');
-        // var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;
-
         var options = {
-            title: 'Plato Inspections Report',
-            // exclude: excludeFiles
+            title: 'Plato Inspections Report'
         };
 
-        plato.inspect(files, paths.platoDir, options, platoCompleted);
+        plato.inspect('./src/client/app/**/*.js', paths.platoDir, options, platoCompleted);
 
         function platoCompleted(report) {
             var overview = plato.getOverviewReport(report);

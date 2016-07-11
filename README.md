@@ -1,14 +1,14 @@
 
 [//]: # (ReadMe.md)
 
-# Lincoln GPS Locator
+# Lincoln Employee Locator
 
-A hybrid mobile application that serves as a GPS Employee Locator for Lincoln
+A hybrid mobile application that serves as an Employee Locator for Lincoln
 Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.0.0**
+Current Release: **1.0.3**
 
 ## Database Structure
 
@@ -116,22 +116,22 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 * 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
 dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
+* 07/08/16: Stabilized most functionality
 
 
 ## Building
 
 1. Installing Ionic and Cordova CLI
    * `npm install -g ionic cordova`
-2. Installing Gulp and Bower
-   * This doc assumes gulp and bower are installed globally
-   * `npm install -g gulp bower`
-2. Installing Node.js and Bower Packages
+2. Installing Gulp
+   * This doc assumes gulp is installed globally
+   * `npm install -g gulp`
+2. Installing Node.js
    * `npm install`
-   * `bower install`
 3. Building with Gulp
    * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
-      * Creating `vendor.js` from `bower.js` and `plugins`
+      * Creating `vendor.js` from front-end `npm modules` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
       * Injecting sources into `index.html`
       * Building everything into `.dev`
@@ -150,6 +150,7 @@ json file
 
 * [x] ~~Enable map zoom and pan~~
 * [x] ~~Mobile pinch to zoom~~
+* [x] ~~Move from using both Bower and NPM to only NPM~~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
@@ -175,7 +176,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
    2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
    3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
-**Bower Resources**
+**Library Resources**
    1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
