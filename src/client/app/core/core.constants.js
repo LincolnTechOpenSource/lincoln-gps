@@ -6,7 +6,7 @@
   'use strict';
 
     // Node Type Enumerations
-    var NodeTypeEnum = {
+    var NODE_TYPES = {
         ERR: 0, // undefined node type (i.e., an error)
         EXIT: 1, // an exit (e.g., elevator, stairs)
         WALL: 2, // a wall (i.e., something that you cannot walk through)
@@ -17,60 +17,6 @@
         FOOD: 7, // a location for food (e.g., kitchen, vending machine)
         COPY: 8, // a room/area with a copier/scanner
         JANITOR: 9, //janitor closet, storage room, etc
-
-        // enumeration properties
-        properties: {
-            0: {
-                name: 'error',
-                value: 0,
-                code: 'ERR'
-            },
-            1: {
-                name: 'exit',
-                value: 1,
-                code: 'EXIT'
-            },
-            2: {
-                name: 'wall',
-                value: 2,
-                code: 'WALL'
-            },
-            3: {
-                name: 'path',
-                value: 3,
-                code: 'PATH'
-            },
-            4: {
-                name: 'bathroom',
-                value: 4,
-                code: 'BROOM'
-            },
-            5: {
-                name: 'desk',
-                value: 5,
-                code: 'DESK'
-            },
-            6: {
-                name: 'conference',
-                value: 6,
-                code: 'CONF'
-            },
-            7: {
-                name: 'food_lounge',
-                value: 7,
-                code: 'FOOD'
-            },
-            8: {
-                name: 'copy_rm',
-                value: 8,
-                code: 'COPY'
-            },
-            9: {
-                name: 'janitor_closet',
-                value: 9,
-                code: 'JANITOR'
-            }
-        }
     };
 
     // array of department classes and names
@@ -181,7 +127,7 @@
 
     angular
         .module('app.core')
-        .constant('NodeTypeEnum', NodeTypeEnum)
+        .constant('NODE_TYPES', NODE_TYPES)
         .constant('UNITS', UNITS)
         .constant('TITLES', TITLES)
         .constant('DEFAULT_FILTERS', DEFAULT_FILTERS);

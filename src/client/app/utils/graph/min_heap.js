@@ -23,9 +23,8 @@ BinaryHeap code may be freely distributed under the MIT License
         .module('utils.graph')
         .factory('MinHeap', MinHeap);
 
-    // MinHeap.$inject = [];
+    /* @ngInject */
     function MinHeap() {
-
         function BinaryHeap(scoreFunction, idFunction, valueProp) {
             this.content = [];
             this.scoreFunction = scoreFunction;

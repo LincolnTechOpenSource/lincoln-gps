@@ -12,7 +12,8 @@
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom) {
+        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom,
+        NODE_TYPES) {
         var vm = this;
 
         vm.selectNode = {
@@ -190,7 +191,7 @@
                 return;
             }
             var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
-                vm.selectNode.toNode.id, Graphing.graph);
+                vm.selectNode.toNode.id, Graphing.graph, NODE_TYPES.PATH);
 
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {

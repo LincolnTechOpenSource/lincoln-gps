@@ -11,8 +11,8 @@
         .module('utils.graph')
         .factory('Dijkstra', Dijkstra);
 
-    Dijkstra.$inject = ['MinHeap', 'NodeTypeEnum'];
-    function Dijkstra(MinHeap, NodeTypeEnum) {
+    /* @ngInject */
+    function Dijkstra(MinHeap) {
         var service = {
             // the previously run search (caching)
             prev: {
@@ -36,7 +36,7 @@
          * @target: the ending point for the path (a node ID)
          * @graph: the graph on which to run algorithm`
          */
-        function run(source, target, graph) {
+        function run(source, target, graph, pathType) {
             if (source === service.prev.s && target === service.prev.t) {
                 service.prev.r.cached = true;
                 return service.prev.r;
@@ -106,7 +106,7 @@
                         var n = graph.nodes[graph.nodes[minNode._id]._neighbors[i]];
 
                         // ensure node is in unvisited and it is a PATH
-                        if (!unvisited.exists(n) || (n._nType !== NodeTypeEnum.PATH &&
+                        if (!unvisited.exists(n) || (n._nType !== pathType &&
                                 n._id !== parseInt(target, 10))) {
                             continue;
                         }
