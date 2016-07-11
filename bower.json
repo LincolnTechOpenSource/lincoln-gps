@@ -10,7 +10,6 @@
   "devDependencies": {},
   "dependencies": {
     "ionic": "~1.3.0",
-    "ngCordova": "~0.1.26-alpha",
     "ngstorage": "^0.3.10",
     "svg-pan-zoom": "^3.2.9"
   }
