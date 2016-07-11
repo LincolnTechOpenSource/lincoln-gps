@@ -11,4 +11,3 @@ www/
 .sass-cache
 *.DS_Store
 *.log
-notNeededPackages.txt
