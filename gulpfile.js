@@ -10,6 +10,7 @@
 
     var gulp = require('gulp');
     var paths = require('./gulp.config.json');
+    var plugins = require('gulp-load-plugins')();
     var del = require('del');
     var beep = require('beepbeep');
     var express = require('express');
@@ -22,7 +23,6 @@
     // var wiredep = require('wiredep');
     var plato = require('plato');
     var glob = require('glob');
-    var plugins = require('gulp-load-plugins')();
 
     /**
      * Parse arguments
@@ -120,11 +120,12 @@
      */
     gulp.task('analyze', function() {
         var jshint = analyzejshint(paths.js.concat('./gulpfile.js'));
-        var jscs = analyzejscs(paths.js.concat('./gulpfile.js'));
+        // var jscs = analyzejscs(paths.js.concat('./gulpfile.js'));
 
         startPlatoVisualizer();
 
-        return merge(jshint, jscs);
+        // return merge(jshint);
+        return jshint
     });
 
     // build templatecache, copy scripts.
@@ -338,7 +339,6 @@
         // gulpOpen('http://localhost:' + options.port + '?enableripple=true');
     });
 
-
     // start watchers
     gulp.task('watchers', function() {
         plugins.livereload.listen();
@@ -400,18 +400,6 @@
             .src(sources)
             .pipe(plugins.jshint(jshintrcFile))
             .pipe(plugins.jshint.reporter('jshint-stylish'))
-            .on('error', errorHandler);
-    }
-
-    /**
-     * Execute JSCS on given source files
-     * @param  {Array} sources
-     * @return {Stream}
-     */
-    function analyzejscs(sources) {
-        return gulp
-            .src(sources)
-            .pipe(plugins.jscs('./.jscsrc'))
             .on('error', errorHandler);
     }
 
