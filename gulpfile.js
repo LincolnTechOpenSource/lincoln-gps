@@ -57,18 +57,6 @@
         run = 'ios';
     }
 
-    // global error handler
-    var errorHandler = function(error) {
-        if (build) {
-            throw error;
-        }
-        else {
-            beep(2, 170);
-            plugins.util.log(error);
-        }
-    };
-
-
     // List the available gulp tasks
     gulp.task('help', plugins.taskListing);
 
@@ -288,16 +276,6 @@
         // gulpOpen('http://localhost:' + port + '/');
     });
 
-    // gulp.task('browser-sync', function() {
-    //   browserSync({
-    //     // You can use wildcards in here.
-    //     files: 'app/index.html, app/scripts/controllers/homeController.js',
-    //     // We can pick port 8081 or 8082, if you are more of a 2's kind of guy, go for the 8082. Highly recommended.
-    //     port: 8080,
-    //     https: true
-    //   });
-    // });
-
     // ionic emulate wrapper
     gulp.task('ionic:emulate', plugins.shell.task([
         'ionic emulate ' + emulate + ' -p $PORT --consolelogs'
@@ -387,6 +365,17 @@
     });
 
     ////////////////
+
+    // global error handler
+    function errorHandler(error) {
+        if (build) {
+            throw error;
+        }
+        else {
+            beep(2, 170);
+            plugins.util.log(error);
+        }
+    }
 
     /**
      * Execute JSHint on given source files
