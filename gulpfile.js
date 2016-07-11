@@ -409,11 +409,8 @@
     function startPlatoVisualizer() {
         // plugins.util.log('Running Plato');
 
-        // var excludeFiles = /\/src\/client\/app\/.*\.spec\.js/;
-
         var options = {
-            title: 'Plato Inspections Report',
-            // exclude: excludeFiles
+            title: 'Plato Inspections Report'
         };
 
         plato.inspect('./src/client/app/**/*.js', paths.platoDir, options, platoCompleted);

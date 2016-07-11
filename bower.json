@@ -7,7 +7,6 @@
   "version": "1.0.1",
   "private": "true",
   "license": "MIT",
-  "devDependencies": {},
   "dependencies": {
     "ionic": "~1.3.0"
   }
