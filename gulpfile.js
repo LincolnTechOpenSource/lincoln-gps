@@ -18,7 +18,7 @@
     // var gulpOpen = require('open');
     var streamqueue = require('streamqueue');
     var runSequence = require('run-sequence');
-    var merge = require('merge-stream');
+    // var merge = require('merge-stream');
     var ripple = require('ripple-emulator');
     // var wiredep = require('wiredep');
     var plato = require('plato');
@@ -125,7 +125,7 @@
         startPlatoVisualizer();
 
         // return merge(jshint);
-        return jshint
+        return jshint;
     });
 
     // build templatecache, copy scripts.
