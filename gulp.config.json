@@ -12,7 +12,7 @@
     "./src/client/app/**/*.js"
   ],
   "vendorjs": [
-    "./bower_components/jquery/dist/jquery.js",
+    "./node_modules/jquery/dist/jquery.js",
     "./bower_components/ionic/release/js/ionic.bundle.js",
     "./bower_components/ngCordova/dist/ng-cordova.js",
     "./bower_components/ngstorage/ngStorage.js",
@@ -20,7 +20,7 @@
     "./plugins/**/*.js"
   ],
   "vendorjsBuild": [
-    "./bower_components/jquery/dist/jquery.min.js",
+    "./node_modules/jquery/dist/jquery.min.js",
     "./bower_components/ionic/release/js/ionic.bundle.min.js",
     "./bower_components/ngCordova/dist/ng-cordova.min.js",
     "./bower_components/ngstorage/ngStorage.min.js",
