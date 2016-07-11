@@ -5,5 +5,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.map', ['utils.graph']);
+  angular.module('utils.graph', []);
 })();

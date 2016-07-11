@@ -20,7 +20,7 @@ BinaryHeap code may be freely distributed under the MIT License
     'use strict';
 
     angular
-        .module('app.map')
+        .module('utils.graph')
         .factory('MinHeap', MinHeap);
 
     // MinHeap.$inject = [];

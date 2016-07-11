@@ -8,7 +8,7 @@
     'use strict';
 
     angular
-        .module('app.map')
+        .module('utils.graph')
         .factory('Dijkstra', Dijkstra);
 
     Dijkstra.$inject = ['MinHeap', 'NodeTypeEnum'];
