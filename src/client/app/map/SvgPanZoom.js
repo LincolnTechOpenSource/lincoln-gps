@@ -1,5 +1,5 @@
 /*
- * PanZoom.js
+ * SvgPanZoom.js
  * 06/28/16
  * implements https://github.com/ariutta/svg-pan-zoom
  /*---------------------------------------------------------------------------*/
@@ -8,10 +8,10 @@
 
     angular
         .module('app.map')
-        .factory('PanZoom', PanZoom);
+        .factory('SvgPanZoom', SvgPanZoom);
 
     /* @ngInject */
-    function PanZoom($timeout) {
+    function SvgPanZoom($timeout) {
         var service = {
             map: null,
 
