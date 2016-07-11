@@ -123,16 +123,15 @@ json file
 
 1. Installing Ionic and Cordova CLI
    * `npm install -g ionic cordova`
-2. Installing Gulp and Bower
-   * This doc assumes gulp and bower are installed globally
-   * `npm install -g gulp bower`
-2. Installing Node.js and Bower Packages
+2. Installing Gulp
+   * This doc assumes gulp is installed globally
+   * `npm install -g gulp`
+2. Installing Node.js
    * `npm install`
-   * `bower install`
 3. Building with Gulp
    * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
-      * Creating `vendor.js` from `bower.js` and `plugins`
+      * Creating `vendor.js` from front-end `npm modules` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
       * Injecting sources into `index.html`
       * Building everything into `.dev`
