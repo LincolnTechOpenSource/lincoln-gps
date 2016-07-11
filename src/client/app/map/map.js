@@ -12,7 +12,7 @@
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, PanZoom) {
+        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -50,7 +50,7 @@
 
         // enable pinch to zoom (for mobile)
         $ionicGesture.on('pinch', function(ev) {
-            PanZoom.map.zoom(PanZoom.map.getZoom() * ev.gesture.scale);
+            SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
         }, $('#map'));
 
         // initialize & create graph
@@ -135,17 +135,17 @@
             vm.selectNode.toNode = tmpNode;
         }
 
-        /** PanZoom button click functions */
+        /** SvgPanZoom button click functions */
         function zoomIn() {
-            PanZoom.map.zoomIn();
+            SvgPanZoom.map.zoomIn();
         }
         function reset() {
-            PanZoom.map.resize(); // resize needed for flexbox
-            PanZoom.map.fit();
-            PanZoom.map.center();
+            SvgPanZoom.map.resize(); // resize needed for flexbox
+            SvgPanZoom.map.fit();
+            SvgPanZoom.map.center();
         }
         function zoomOut() {
-            PanZoom.map.zoomOut();
+            SvgPanZoom.map.zoomOut();
         }
 
         /** hover functions for the legend (mouseenter and mouseleave)
@@ -254,7 +254,7 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            PanZoom.init();
+            SvgPanZoom.init();
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors
