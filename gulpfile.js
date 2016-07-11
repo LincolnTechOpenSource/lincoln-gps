@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:54
+// jshint maxstatements:50
 (function(){
     'use strict';
 
@@ -195,7 +195,7 @@
     // concatenate and minify vendor sources
     gulp.task('vendor', function() {
         // var vendorFiles = wiredep().js;
-        var vendorFiles = build ? paths.vendorjsBuild : paths.vendorjs;
+        var vendorFiles = build ? paths.vendorjs : paths.vendorjsDev;
 
         return gulp.src(vendorFiles)
             .pipe(plugins.concat('vendor.js'))

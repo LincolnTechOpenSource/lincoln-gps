@@ -8,7 +8,7 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.0.2**
+Current Release: **1.0.3**
 
 ## Database Structure
 
@@ -123,16 +123,15 @@ json file
 
 1. Installing Ionic and Cordova CLI
    * `npm install -g ionic cordova`
-2. Installing Gulp and Bower
-   * This doc assumes gulp and bower are installed globally
-   * `npm install -g gulp bower`
-2. Installing Node.js and Bower Packages
+2. Installing Gulp
+   * This doc assumes gulp is installed globally
+   * `npm install -g gulp`
+2. Installing Node.js
    * `npm install`
-   * `bower install`
 3. Building with Gulp
    * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
-      * Creating `vendor.js` from `bower.js` and `plugins`
+      * Creating `vendor.js` from front-end `npm modules` and `plugins`
       * Linting all `*.js` files, analyzing the source files with `plato`
       * Injecting sources into `index.html`
       * Building everything into `.dev`
@@ -151,6 +150,7 @@ json file
 
 * [x] ~~Enable map zoom and pan~~
 * [x] ~~Mobile pinch to zoom~~
+* [x] ~~Move from using both Bower and NPM to only NPM~~
 * [ ] Get directions from "my current location" (implement GPS locator)
 * [ ] Give turn-by-turn directions (a la google maps)
 * [ ] "Track" employees' location (via cellphone, key-fob, or desk-phone)
@@ -160,7 +160,6 @@ json file
 * [ ] Dynamic SVG map and graph creation
 * [ ] Directions with detours/via points (e.g., from A to B to C)
 * [ ] Add custom tags/notes to locations
-* [ ] Move from using both Bower and NPM to only NPM
 * [ ] See [Trello](https://trello.com/b/H3dl9GEI/lincoln-gps-waze) for more ideas
 
 ## How to Contribute
