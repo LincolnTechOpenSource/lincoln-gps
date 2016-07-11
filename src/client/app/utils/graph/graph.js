@@ -12,7 +12,7 @@
         .factory('Graphing', Graphing);
 
     /* @ngInject */
-    function Graphing($q, $http, $log, NodeTypeEnum) {
+    function Graphing($http) {
         var URL = 'data/graph.json'; // constant
 
         var service = {
