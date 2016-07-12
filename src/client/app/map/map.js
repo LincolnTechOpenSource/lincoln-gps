@@ -7,13 +7,13 @@
 
     angular
         .module('app.map')
+        .constant('GRAPH_URL', 'data/graph.json')
         .controller('MapCtrl', MapCtrl);
 
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom,
-        NODE_TYPES) {
+        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Dijkstra, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -55,7 +55,7 @@
         }, $('#map'));
 
         // initialize & create graph
-        Graphing.createGraph(); // pass true for graph debugging
+        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
 
         //------------------------------------------------//
 
