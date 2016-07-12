@@ -172,12 +172,12 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 **Authors:** Matthew Vasseur and David Tahvildaran
 
 **Adapted Resources:**
-   1. [jQuery Queued](https://gist.github.com/raybellis/3816885)
-   2. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
+   * [jQuery Queued](https://gist.github.com/raybellis/3816885)
+   * [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
 **Library Resources**
-   1. [Angular Graph Dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
-   2. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
+   * [Angular Graph Dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
+   * [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
 
