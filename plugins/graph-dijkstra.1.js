@@ -207,13 +207,13 @@
     Object.defineProperties(Node.prototype, {
         // id
         id: {
-            get: function() { // getter
+            get: function() {
                 return this._id;
             },
         },
         // neighbors
         neighbors: {
-            get: function() { // getter
+            get: function() {
                 return this._neighbors;
             },
             set: function(value) {
@@ -222,7 +222,7 @@
         },
         // weight
         weight: {
-            get: function() { // getter
+            get: function() {
                 return this._weight;
             },
             set: function(value) {
@@ -231,7 +231,7 @@
         },
         // nType
         nType: {
-            get: function() { // getter
+            get: function() {
                 return this._nType;
             },
             set: function(value) {
@@ -256,18 +256,26 @@
 
     /**
      * Graph
-     * @props: object of properties for the graph (optional), valid keys are:
+     * @params: (optional) object of parameters for initializing graph, valid keys are:
      *    @debug: only verify if debug is set to true (defaults to false)
      *    @graph: a JSON representation of the graph to initialize
      */
-    var Graph = function(props) {
-        props.debug = props.debug || false;
-        this._nodes = !!props.graph ? props.graph.nodes : {}; // set of nodes in graph
-        this._nodeCount = !!props.graph ? props.graph.nodeCount : 0; // number of nodes
-        this._edgeCount = !!props.graph ? props.graph.edgeCount : 0; // number of edges
+    var Graph = function(params) {
+        var debug = params.debug || false;
+        this._nodes = {}; // initialize nodes
+        this._nodeCount = !!params.graph ? params.graph.nodeCount : 0; // number of nodes
+        this._edgeCount = !!params.graph ? params.graph.edgeCount : 0; // number of edges
+
+        // add each of the nodes
+        for (var id in params.graph.nodes) {
+            if (params.graph.nodes.hasOwnProperty(id)) {
+                var nodeVals = params.graph.nodes[id];
+                this.addNode(nodeVals.id, nodeVals.props);
+            }
+        }
 
         // verify the graph if debug is true
-        if (props.debug && !!props.graph) {
+        if (debug && !!params.graph) {
             _verify(this);
         }
     };
@@ -278,21 +286,30 @@
     Object.defineProperties(Graph.prototype, {
         // nodeCount
         nodeCount: {
-            get: function() { // getter
+            get: function() {
                 return this._nodeCount;
             },
+            set: function(value) {
+                this._nodeCount = value;
+            }
         },
         // edgeCount
         edgeCount: {
-            get: function() { // getter
+            get: function() {
                 return this._edgeCount;
             },
+            set: function(value) {
+                this._edgeCount = value;
+            }
         },
         // nodes
         nodes: {
-            get: function() { // getter
+            get: function() {
                 return this._nodes;
             },
+            set: function(value) {
+                this._nodes = value;
+            }
         },
     });
 
@@ -328,7 +345,6 @@
         if (!this.exists(id)) {
             // create & add new node
             var node = new Node(id, props.neighbors, props.weight, props.nType);
-
             // add this node as a neighbor of all of its neighbors
             for (var i = 0; i < node.neighbors.length; i++) {
                 var n = this.nodes[node.neighbors[i]]; // get node
@@ -437,10 +453,13 @@
 
         // verify each node
         var numEdges = 0;
-        var keys = Object.keys(graph.nodes);
-        // for (var i in keys) {
-        for (var i = 0; i < keys.length; i++) {
-            var n = graph.nodes[keys[i]];
+        // var keys = Object.keys(graph.nodes);
+        // for (var i = 0; i < keys.length; i++) {
+        for (var id in graph.nodes) {
+            if (!graph.nodes.hasOwnProperty(id)) {
+                continue;
+            }
+            var n = graph.nodes[id];
             // should have non-negative weight and type between 1 and 6
             _assert(n.weight >= 0, 'Negative Weight (' + n.weight + ')');
             _assert(n.nType > 0 && n.nType <= 9, 'Irregular Type (' +
@@ -451,7 +470,7 @@
                 numEdges++; // count number of edges (should be double)
                 var k = graph.nodes[n.neighbors[j]];
 
-                _assert(k._id !== n.id, 'Cannot have self edge (' +
+                _assert(k.id !== n.id, 'Cannot have self edge (' +
                     n.id + ')');
 
                 _assert(k._neighbors.includes(n.id), 'Inconsisent Edge (' +
