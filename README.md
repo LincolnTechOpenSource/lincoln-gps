@@ -172,12 +172,12 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 **Authors:** Matthew Vasseur and David Tahvildaran
 
 **Adapted Resources:**
-   1. [Min Heap with Decrease Key](https://github.com/rombdn/js-binaryheap-decreasekey)
-   2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
-   3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
+   1. [jQuery Queued](https://gist.github.com/raybellis/3816885)
+   2. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
 **Library Resources**
-   1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
+   1. [Angular Graph Dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
+   2. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
 ## License
 
