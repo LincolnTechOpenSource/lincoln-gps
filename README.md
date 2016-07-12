@@ -181,4 +181,4 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-See the [LICENSE file](LICENSE.md) for license rights and limitations (MIT).
+See the [LICENSE file](LICENSE) for license rights and limitations (MIT).
