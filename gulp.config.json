@@ -17,6 +17,7 @@
     "./node_modules/ngCordova/dist/ng-cordova.js",
     "./node_modules/ngstorage/ngStorage.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.js",
+    "./node_modules/angular-graph-dijkstra/dist/graph-dijkstra.js",
     "./plugins/**/*.js"
   ],
   "vendorjs": [
@@ -25,6 +26,7 @@
     "./node_modules/ngCordova/dist/ng-cordova.min.js",
     "./node_modules/ngstorage/ngStorage.min.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.min.js",
+    "./node_modules/angular-graph-dijkstra/dist/graph-dijkstra.min.js",
     "./plugins/**/*.js"
   ],
   "fonts": [

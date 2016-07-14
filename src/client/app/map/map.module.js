@@ -5,5 +5,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.map', ['graphDijkstra.lib']);
+  angular.module('app.map', ['graphDijkstra']);
 })();

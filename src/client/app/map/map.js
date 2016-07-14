@@ -55,7 +55,7 @@
         }, $('#map'));
 
         // initialize & create graph
-        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
+        Graphing.createGraph(GRAPH_URL, false); // pass true for graph debugging
 
         //------------------------------------------------//
 

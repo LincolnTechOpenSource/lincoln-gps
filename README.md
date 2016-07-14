@@ -126,9 +126,9 @@ json file
 2. Installing Gulp
    * This doc assumes gulp is installed globally
    * `npm install -g gulp`
-2. Installing Node.js
+3. Installing Packages
    * `npm install`
-3. Building with Gulp
+4. Building with Gulp
    * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
       * Creating `vendor.js` from front-end `npm modules` and `plugins`

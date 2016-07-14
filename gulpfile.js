@@ -326,6 +326,7 @@
         gulp.watch('./src/client/content/images/**', ['images']);
         gulp.watch('./src/client/app/**/*.js', ['index']);
         gulp.watch('./bower.json', ['vendor']);
+        gulp.watch('./gulp.config.json', ['load']);
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
