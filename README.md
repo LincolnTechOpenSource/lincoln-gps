@@ -8,7 +8,7 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.0.3**
+Current Release: **1.1.0**
 
 ## Database Structure
 
@@ -117,6 +117,10 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
 * 07/08/16: Stabilized most functionality
+* 07/14/16: Transferred graphing library to separate module ([angular-graph-dijkstra])
+
+
+[angular-graph-dijkstra]: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 
 ## Building
@@ -126,9 +130,9 @@ json file
 2. Installing Gulp
    * This doc assumes gulp is installed globally
    * `npm install -g gulp`
-2. Installing Node.js
+3. Installing Packages
    * `npm install`
-3. Building with Gulp
+4. Building with Gulp
    * Run `gulp` to start the development build process
       * Compiling, concatenating, auto-prefixing `.scss` files required by [src/client/content/styles/main.scss](src/client/content/styles/main.scss)
       * Creating `vendor.js` from front-end `npm modules` and `plugins`
@@ -171,14 +175,14 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 **Authors:** Matthew Vasseur and David Tahvildaran
 
-**Adapted Resources:**
-   1. [Min Heap with Decrease Key](https://github.com/rombdn/js-binaryheap-decreasekey)
-   2. [jQuery Queued](https://gist.github.com/raybellis/3816885)
-   3. [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
-
 **Library Resources**
-   1. [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
+   * [Angular Graph Dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
+   * [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
+
+**Adapted Resources:**
+   * [jQuery Queued](https://gist.github.com/raybellis/3816885)
+   * [Ionic Gulp Generator](https://github.com/tmaximini/generator-ionic-gulp)
 
 ## License
 
-See the [LICENSE file](LICENSE.md) for license rights and limitations (MIT).
+See the [LICENSE file](LICENSE) for license rights and limitations (MIT).
