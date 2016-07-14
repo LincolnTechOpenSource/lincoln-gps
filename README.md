@@ -117,6 +117,10 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
 * 07/08/16: Stabilized most functionality
+* 07/14/16: Transferred graphing library to separate module ([angular-graph-dijkstra])
+
+
+[angular-graph-dijkstra]: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 
 ## Building
