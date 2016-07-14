@@ -8,7 +8,7 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.0.3**
+Current Release: **1.1.0**
 
 ## Database Structure
 
