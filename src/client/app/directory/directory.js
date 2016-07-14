@@ -12,7 +12,7 @@
 
     /* @ngInject */
     function DirectoryCtrl($scope, $state, $log, $q, Locations, Firebase,
-        Params, NodeTypeEnum, UNITS, TITLES) {
+        Params, NODE_TYPES, UNITS, TITLES) {
         var vm = this;
 
         vm.selectEmployee = {
@@ -59,7 +59,7 @@
         /** handle user authentication */
         function userAuth(user) {
             if (user) {
-                // vm.selectEmployee.employees = Locations.getByNType(NodeTypeEnum.DESK);
+                // vm.selectEmployee.employees = Locations.getByNType(NODE_TYPES.DESK);
                 var promises = [ getByNType() ];
 
                 return $q.all(promises).then();
@@ -72,7 +72,7 @@
 
         /** load the Locations table as an array */
         function getByNType() {
-            return $q.when(Locations.getByNType(NodeTypeEnum.DESK)).then(function(data) {
+            return $q.when(Locations.getByNType(NODE_TYPES.DESK)).then(function(data) {
                 vm.selectEmployee.employees = data;
                 $log.info('Employees Loaded');
                 return vm.selectEmployee.employees;

@@ -7,12 +7,13 @@
 
     angular
         .module('app.map')
+        .constant('GRAPH_URL', 'data/graph.json')
         .controller('MapCtrl', MapCtrl);
 
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom) {
+        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Dijkstra, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -54,7 +55,7 @@
         }, $('#map'));
 
         // initialize & create graph
-        Graphing.createGraph();
+        Graphing.createGraph(GRAPH_URL, false); // pass true for graph debugging
 
         //------------------------------------------------//
 
@@ -190,7 +191,7 @@
                 return;
             }
             var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
-                vm.selectNode.toNode.id, Graphing.graph);
+                vm.selectNode.toNode.id, Graphing.graph, NODE_TYPES.PATH);
 
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {
