@@ -56,3 +56,7 @@ Some things that will increase the chance that your pull request is accepted:
 
 [style]: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 [commit]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+
+## Notes
+
+* To update the underlying graph, please see [angular graph dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
