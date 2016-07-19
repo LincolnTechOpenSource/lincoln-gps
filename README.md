@@ -83,7 +83,7 @@ which describes the **nodes** and **edges** in the graph.
 
    * Nodes must have **id**, and can optionally specify **props**, an object with **weight**, **nType**, or **neighbors**
       * **id:** the id of the node (this should be the same as in the locations table and SVG element)
-      * **nType:** an enumeration describing the type of location (e.g., 3 = Path, 5 = Desk)
+      * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [core.constants.js][constants])
       * **weight:** the weight of the node in Dijkstra's algorithm (only path nodes have non-zero weight)
       * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
    * Edges should be an array of two element array of the IDs of the nodes on each end of the edge
