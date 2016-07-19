@@ -12,25 +12,54 @@ Current Release: **1.1.0**
 
 ## Database Structure
 
-There is one main table: **Locations** (_**Users** table removed commit [[master b5c6de1]](https://github.com/LincolnTechOpenSource/lincoln-gps/commit/b5c6de161b5de50991142f6dfa0ea39b120f368b)_)
+There is one main table: **Locations**
 
-**Locations:** The locations table describes every *START* or *END* location on
-the map (e.g., an employee's desk, or a conference room).
+**Locations:** The locations table describes every all of the important objects
+on the map (e.g., an employee's desk, a conference room, or a bathroom), ignoring paths.
 
-For each of these locations the following properties must be defined: **id**, **nType**,
-and **name**
+This table is pulled from a JSON object described in [`src/server/data/locations.json`](src/server/data/graph.json)
+which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID associated with the location.
 
-   * **id:** the id of the location (this should be the same as in the graph and SVG element)
-   * **nType:** an enumeration describing the type of location (e.g., 5 = Desk, or 6 = Conference Room)
-   * **name:** a descriptive name for the location (e.g., "West Wing Team Room", or "Matthew Vasseur")
+   * For each of these locations, **id**, **nType**, and **name** must be defined
+      * **id:** the id of the location (this should be the same as in the graph and SVG element)
+      * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [core.constants.js][constants])
+      * **name:** a descriptive name for the location (e.g., "West Wing Team Room", or "Matthew Vasseur")
+   * Additionally, employee locations (i.e., desks and offices) must also define **depCode**, **titleCode**, **email**, and **ext**
+      * **depCode:** the code for the employee's department (e.g., isd) (defined in [core.constants.js][constants])
+      * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [core.constants.js][constants])
+      * **email:** the employee's contact email
+      * **ext:** the employee's phone contact extension
+   * For example, the following describes an office with two employees and one bathroom:
+   Both employees are interns in Application Development (code: appDev)
+   ```javascript
+   {
+       loc1: {
+           id: 1,
+           name: "Matthew Vasseur",
+           nType: 5,
+           depCode: "appDev",
+           titlecode: "intern"
+           email: "mvasseur@google.com",
+           ext: "4357"
+       },
+       loc2: {
+           id: 2,
+           name: "David Tahvildarna",
+           nType: 5,
+           depCode: "appDev",
+           titlecode: "intern"
+           email: "dtahvildaran@google.com",
+           ext: "4358"
+       },
+       loc3: {
+           id: 3,
+           nType: 4,
+           name: "West Wing Men's Bathroom"
+       }
+   }
+   ```
 
-   In addition to the above properties, employee locations (i.e., desks and offices)
-must also define **division**, **title**, **email**, and **ext**
-
-   * **depCode:** the code for the employee's department (e.g., isd)
-   * **titleCode:** the code for the employee's professional title (e.g., exec, vp)
-   * **email:** the employee's contact email
-   * **ext:** the employee's phone contact extension
+[constants]: ./src/client/app/core/core.constants.js
 
 ---
 
@@ -39,26 +68,42 @@ filters are active and whether to show the select on map popup.
 
 ## Graph Structure
 
-The underlying graph is a simple undirected graph made of node objects. The edges
+The underlying graph is created using the [graph-dijkstra][graph-dijkstra] library.
+This library describes a simple undirected graph made of node objects where the edges
 of the graph are implicit in the node objects which describe neighbors.
 
-Given this structure, a basic implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue)
-(located at [`src/client/app/map/graph_lib/dijkstra.js`](src/client/app/map/graph_lib/dijkstra.js))
-is used to find the shortest path between any two nodes.
+Given this structure, an implementation of [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue)
+using a priority queue found in the same library is used to find the shortest path between any two nodes.
 
-**Node:** The node object describes a node in the graph
-
-For each node object the following properties must be defined: **id**, **neighbors**,
-**nType**, and **weight**
-
-   * **id:** the id of the node (this should be the same as in the locations table and SVG element)
-   * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
-   * **nType:** an enumeration describing the type of location (e.g., 3 = Path, 5 = Desk, or 6 = Conference Room)
-   * **weight:** the weight of the node in Dijkstra's algorithm (path nodes are the only type with non-zero weight)
+Any object on the map that can be traversed must be a node in the graph. This includes
+all those objects in the locations table as well as all paths.
 
 The graph is constructed from a JSON object described in [`src/server/data/graph.json`](src/server/data/graph.json)
-which describes the **nodes** (**id**, **neighbors**, **weight**, **nType**), as well the total number of nodes
-and edges (**nodeCount** and **edgeCount**, respectively).
+which describes the **nodes** and **edges** in the graph.
+
+   * Nodes must have **id**, and can optionally specify **props**, an object with **weight**, **nType**, or **neighbors**
+      * **id:** the id of the node (this should be the same as in the locations table and SVG element)
+      * **nType:** an enumeration describing the type of location (e.g., 3 = Path, 5 = Desk)
+      * **weight:** the weight of the node in Dijkstra's algorithm (only path nodes have non-zero weight)
+      * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
+   * Edges should be an array of two element array of the IDs of the nodes on each end of the edge
+   * For example, the following might describe a short hallway with offices on either end:
+   from *Office 1* you must traverse two sectors of the hallway, the second being twice as long, to get to *Office 2*
+   ```javascript
+   {
+       nodes: [
+           { id: 1, props: { weight: 0, nType: 5 } }, // Office 1
+           { id: 2, props: { weight: 0, nType: 5 } }, // Office 2
+           { id: 3, props: { weight: 1, nType: 3 } }, // short path
+           { id: 4, props: { weight: 2, nType: 3 } }  // long  path
+       ],
+       edges: [
+           [1, 3],
+           [3, 4],
+           [4, 2]
+       ]
+   }
+   ```
 
 ## SVG Map Structure
 
@@ -117,10 +162,9 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 dependence on firebase, shifting prefences to local storage, and data to an internal
 json file
 * 07/08/16: Stabilized most functionality
-* 07/14/16: Transferred graphing library to separate module ([angular-graph-dijkstra])
+* 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
+* 07/19/16: Adapted graphing modules and modularized map functions
 
-
-[angular-graph-dijkstra]: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 
 ## Building
@@ -176,8 +220,10 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 **Authors:** Matthew Vasseur and David Tahvildaran
 
 **Library Resources**
-   * [Angular Graph Dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
+   * [Graph Dijkstra][graph-dijkstra]
    * [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
+
+[graph-dijkstra]: https://github.com/LincolnTechOpenSource/angular-graph-dijkstra
 
 **Adapted Resources:**
    * [jQuery Queued](https://gist.github.com/raybellis/3816885)

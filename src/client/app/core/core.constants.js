@@ -12,7 +12,7 @@
         WALL: 2, // a wall (i.e., something that you cannot walk through)
         PATH: 3, // a walkway you could take (i.e., the floor)
         BROOM: 4, // a bathroom
-        DESK: 5, // a desk, cubicle, or office
+        EMPL: 5, // an employee location (desk, cubicle, or office)
         CONF: 6, // a conference room
         FOOD: 7, // a location for food (e.g., kitchen, vending machine)
         COPY: 8, // a room/area with a copier/scanner

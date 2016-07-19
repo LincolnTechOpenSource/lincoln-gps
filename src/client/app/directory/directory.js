@@ -59,7 +59,7 @@
         /** handle user authentication */
         function userAuth(user) {
             if (user) {
-                // vm.selectEmployee.employees = Locations.getByNType(NODE_TYPES.DESK);
+                // vm.selectEmployee.employees = Locations.getByNType(NODE_TYPES.EMPL);
                 var promises = [ getByNType() ];
 
                 return $q.all(promises).then();
@@ -72,7 +72,7 @@
 
         /** load the Locations table as an array */
         function getByNType() {
-            return $q.when(Locations.getByNType(NODE_TYPES.DESK)).then(function(data) {
+            return $q.when(Locations.getByNType(NODE_TYPES.EMPL)).then(function(data) {
                 vm.selectEmployee.employees = data;
                 $log.info('Employees Loaded');
                 return vm.selectEmployee.employees;
