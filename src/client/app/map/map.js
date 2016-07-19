@@ -13,7 +13,7 @@
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Dijkstra, Params, SvgPanZoom) {
+        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -55,7 +55,7 @@
         }, $('#map'));
 
         // initialize & create graph
-        Graphing.createGraph(GRAPH_URL, false); // pass true for graph debugging
+        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
 
         //------------------------------------------------//
 
@@ -190,8 +190,8 @@
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
-            var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
-                vm.selectNode.toNode.id, Graphing.graph, NODE_TYPES.PATH);
+            var dirResults = Graphing.runDijkstra(NODE_TYPES.PATH, vm.selectNode.fromNode.id,
+                vm.selectNode.toNode.id);
 
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {
@@ -202,7 +202,7 @@
                     el.clearQueue();
                 }
                 // set new directions (will be the same as before if cached)
-                vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
+                vm.directions = Graphing.getShortestPath();
             }
 
             // reset view for long paths
@@ -284,12 +284,12 @@
 
 
 
-// //       debugging to get neighbors
+// // debugging to get neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     console.log(this.id);
 // });
 
-// //debugging to highlight neighbors
+// // debugging to highlight neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     var n = Graphing.graph.nodes[this.id];
 //     $('#svg #map .loc').removeClass('hilite'); // clear old path
@@ -297,12 +297,3 @@
 //         $('#' + n._neighbors[i]).addClass('hilite');
 //     }
 // });
-
-// /** resets the path and removes all highlights (but leaves employee) */
-// function clear() {
-//     $('#svg #map g.non-walls *').removeClass('hilite'); // clear old path
-
-//     // clear graphing parameters
-//     vm.selectNode.toNode = null;
-//     vm.selectNode.fromNode = null;
-// }
