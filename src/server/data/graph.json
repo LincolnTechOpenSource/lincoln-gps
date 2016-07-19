@@ -726,6 +726,5 @@
         {"id":1400,"props": {"neighbors":[1141, 1399],"weight":1,"nType":3}}
 
     ],
-    "nodeCount": 720,
-    "edgeCount": 799
+    "edges": []
 }
