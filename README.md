@@ -17,16 +17,16 @@ There is one main table: **Locations**
 **Locations:** The locations table describes every all of the important objects
 on the map (e.g., an employee's desk, a conference room, or a bathroom), ignoring paths.
 
-This table is pulled from a JSON object described in [`src/server/data/locations.json`](src/server/data/graph.json)
+This table is pulled from a JSON object defined in [`src/server/data/locations.json`](src/server/data/graph.json)
 which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID associated with the location.
 
    * For each of these locations, **id**, **nType**, and **name** must be defined
       * **id:** the id of the location (this should be the same as in the graph and SVG element)
-      * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [core.constants.js][constants])
+      * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [`core.constants.js`][constants])
       * **name:** a descriptive name for the location (e.g., "West Wing Team Room", or "Matthew Vasseur")
    * Additionally, employee locations (i.e., desks and offices) must also define **depCode**, **titleCode**, **email**, and **ext**
-      * **depCode:** the code for the employee's department (e.g., isd) (defined in [core.constants.js][constants])
-      * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [core.constants.js][constants])
+      * **depCode:** the code for the employee's department (e.g., isd) (defined in [`core.constants.js`][constants])
+      * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [`core.constants.js`][constants])
       * **email:** the employee's contact email
       * **ext:** the employee's phone contact extension
    * For example, the following describes an office with two employees and one bathroom:
@@ -79,12 +79,12 @@ using a priority queue found in the same library is used to find the shortest pa
 Any object on the map that can be traversed must be a node in the graph. This includes
 all those objects in the locations table as well as all paths.
 
-The graph is constructed from a JSON object described in [`src/server/data/graph.json`](src/server/data/graph.json)
+The graph is constructed from a JSON object defined in [`src/server/data/graph.json`](src/server/data/graph.json)
 which describes the **nodes** and **edges** in the graph.
 
    * Nodes must have **id**, and can optionally specify **props**, an object with **weight**, **nType**, or **neighbors**
       * **id:** the id of the node (this should be the same as in the locations table and SVG element)
-      * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [core.constants.js][constants])
+      * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [`core.constants.js`][constants])
       * **weight:** the weight of the node in Dijkstra's algorithm (only path nodes have non-zero weight)
       * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
    * Edges should be an array of two element array of the IDs of the nodes on each end of the edge
