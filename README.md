@@ -31,6 +31,7 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
       * **ext:** the employee's phone contact extension
    * For example, the following describes an office with two employees and one bathroom:
    Both employees are interns in Application Development (code: appDev)
+
    ```javascript
    {
        loc1: {
@@ -89,6 +90,7 @@ which describes the **nodes** and **edges** in the graph.
    * Edges should be an array of two element array of the IDs of the nodes on each end of the edge
    * For example, the following might describe a short hallway with offices on either end:
    from *Office 1* you must traverse two sectors of the hallway, the second being twice as long, to get to *Office 2*
+
    ```javascript
    {
        nodes: [
