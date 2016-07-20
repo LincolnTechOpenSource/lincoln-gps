@@ -18,7 +18,6 @@
     "./node_modules/ngstorage/ngStorage.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.js",
     "./node_modules/graph-dijkstra/dist/graph-dijkstra.js",
-    "./node_modules/snapsvg/dist/snap.svg.js",
     "./plugins/**/*.js"
   ],
   "vendorjs": [
@@ -28,7 +27,6 @@
     "./node_modules/ngstorage/ngStorage.min.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.min.js",
     "./node_modules/graph-dijkstra/dist/graph-dijkstra.min.js",
-    "./node_modules/snapsvg/dist/snap.svg.min.js",
     "./plugins/**/*.js"
   ],
   "fonts": [
@@ -39,7 +37,7 @@
     "./src/client/content/images/**/*"
   ],
   "dynamic": [
-    "./src/client/dynamic/**/*"
+    "./src/dynamic/**/*"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"
