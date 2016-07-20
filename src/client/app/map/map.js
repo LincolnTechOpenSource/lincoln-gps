@@ -256,7 +256,11 @@
             }
 
             Snap.load('dynamic/map.svg', function(f) {
-                Snap("#svg").append(f);
+                var s = Snap('#svg');
+                s.append(f);
+                if ($('#svg map').attr('id') !== 'map') {
+                    throw new Error('the ID of map.svg must be "map"');
+                }
                 SvgPanZoom.init();
             });
         }
