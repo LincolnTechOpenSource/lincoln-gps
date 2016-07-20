@@ -1,6 +1,6 @@
 /**
  * constants.js
- * 06/21/16
+ * 07/20/16
  */
 (function() {
   'use strict';
