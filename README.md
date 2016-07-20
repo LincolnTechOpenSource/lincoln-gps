@@ -10,27 +10,25 @@ Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
 Current Release: **1.1.0**
 
-## Database Structure
+## Locations Database
 
-There is one main table: **Locations**
-
-**Locations:** The locations table describes every all of the important objects
+The locations table describes all of the important objects
 on the map (e.g., an employee's desk, a conference room, or a bathroom), ignoring paths.
 
 This table is pulled from a JSON object defined in [`src/server/data/locations.json`](src/server/data/graph.json)
-which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID associated with the location.
+which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID associated with that location.
 
    * For each of these locations, **id**, **nType**, and **name** must be defined
       * **id:** the id of the location (this should be the same as in the graph and SVG element)
       * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [`core.constants.js`][constants])
       * **name:** a descriptive name for the location (e.g., "West Wing Team Room", or "Matthew Vasseur")
-   * Additionally, employee locations (i.e., desks and offices) must also define **depCode**, **titleCode**, **email**, and **ext**
+   * Additionally, employee locations (e.g., desks and offices) must also define **depCode**, **titleCode**, **email**, and **ext**
       * **depCode:** the code for the employee's department (e.g., isd) (defined in [`core.constants.js`][constants])
       * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [`core.constants.js`][constants])
       * **email:** the employee's contact email
       * **ext:** the employee's phone contact extension
    * For example, the following describes an office with two employees and one bathroom:
-   Both employees are interns in Application Development (code: appDev)
+   Both employees are interns in Information Services Division (depCode: isd)
 
    ```javascript
    {
@@ -38,8 +36,8 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
            id: 1,
            name: "Matthew Vasseur",
            nType: 5,
-           depCode: "appDev",
-           titlecode: "intern"
+           depCode: "isd",
+           titlecode: "int"
            email: "mvasseur@google.com",
            ext: "4357"
        },
@@ -47,8 +45,8 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
            id: 2,
            name: "David Tahvildarna",
            nType: 5,
-           depCode: "appDev",
-           titlecode: "intern"
+           depCode: "isd",
+           titlecode: "int"
            email: "dtahvildaran@google.com",
            ext: "4358"
        },
@@ -61,11 +59,6 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
    ```
 
 [constants]: ./src/client/app/core/core.constants.js
-
----
-
-Local Storage (via **ngStorage**) stores the user's preferences. i.e., which map
-filters are active and whether to show the select on map popup.
 
 ## Graph Structure
 
@@ -111,7 +104,7 @@ which describes the **nodes** and **edges** in the graph.
 
 The map that is actually displayed is an SVG object made of elements that correspond
 to nodes in the graph and organized via css classes. For example, each node in the graph
-has the class `loc`; each of the desks have the class `desk`; each path has the class
+has the class `loc` each of the desks have the class `desk` and each path has the class
 `path`.
 
 In order to join the SVG Map the Graph and the Locations Table, the **id** corresponding
@@ -121,9 +114,20 @@ in the graph with id 10 as well as the location with id 10 in the locations tabl
 must represent it.
 
 This requirement creates a dynamic binding between the displayed map, the underlying
-graph, and the locations table, enabling the user to traverse the graph for the shortest
-path between two locations and then display it on map, as well as search and filter
+graph, and the locations table enabling the user to traverse the graph for the shortest
+path between two locations and then display it on the map, as well as search and filter
 through locations in order to see them on the map.
+
+For example, the following SVG Map of 4 rectangles might represent the above graph:
+
+```html
+<svg>
+    <rect id="1" class="loc desk" x="00" y="0" width="10" height="10">
+    <rect id="3" class="loc path" x="10" y="0" width="10" height="10">
+    <rect id="4" class="loc path" x="20" y="0" width="10" height="10">
+    <rect id="2" class="loc desk" x="30" y="0" width="10" height="10">
+</svg>
+```
 
 _Note:_ In cases where two entities (i.e., separate locations in the table) must
 occupy the same SVG location, add a **data-id** attribute to the element which
@@ -133,9 +137,14 @@ serves as a space delimited array of all location IDs that should reside at that
 
 Authentication is done through [firebase](https://firebase.google.com/).
 
-To allow users access to the application, you must create a new firebase project
+To give users access to the application, you must create a new firebase project
 and replace the credentials located in [firebase.js](src/client/app/core/firebase.js)
 with your own. Then you can manage users in the **Auth** tab of the firebase console.
+
+---
+
+Local Storage (via **ngStorage**) stores the user's preferences. i.e., which map
+filters are active and whether to show the select on map popup.
 
 ## History
 
