@@ -255,7 +255,9 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            SvgPanZoom.init();
+
+
+            // SvgPanZoom.init();
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors

@@ -656,8 +656,8 @@
             <!-- Scanning area -->
             <g id="314" class="loc copy-scan-rm scan-rm">
                 <rect x="1915" y="2475" width="285" height="70"></rect>
-                <image x="1930" y="2477" width="90" height="65" xlink:href="content/images/map-icons/1467393957_Appliances-38.svg"></image>
-                <image x="2100" y="2477" width="90" height="65" xlink:href="content/images/map-icons/1467393957_Appliances-38.svg"></image>
+                <image x="1930" y="2477" width="90" height="65" xlink:href="content/images/map-icons/appliances.svg"></image>
+                <image x="2100" y="2477" width="90" height="65" xlink:href="content/images/map-icons/appliances.svg"></image>
             </g>
 
             <g id="312" class="loc copy-scan-rm" transform="rotate(45,1450,2000)">
