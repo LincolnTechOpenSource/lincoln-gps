@@ -50,9 +50,9 @@
         $scope.$on('$ionicView.enter', activate);
 
         // enable pinch to zoom (for mobile)
-        $ionicGesture.on('pinch', function(ev) {
-            SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
-        }, $('#map'));
+        // $ionicGesture.on('pinch', function(ev) {
+        //     SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
+        // }, $('#map'));
 
         // initialize & create graph
         Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
@@ -255,9 +255,10 @@
                     ], ['hilite', 'normal-text']));
             }
 
-
-
-            // SvgPanZoom.init();
+            Snap.load('dynamic/map.svg', function(f) {
+                Snap("#svg").append(f);
+                SvgPanZoom.init();
+            });
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors

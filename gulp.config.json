@@ -38,8 +38,8 @@
   "images": [
     "./src/client/content/images/**/*"
   ],
-  "svg": [
-    "./src/client/dynamic/**/*.svg"
+  "dynamic": [
+    "./src/client/dynamic/**/*"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"

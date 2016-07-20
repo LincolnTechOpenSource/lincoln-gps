@@ -19,7 +19,6 @@
     var ripple = require('ripple-emulator');
     var plato = require('plato');
     var paths = require('./gulp.config.json');
-    var svgstore = require('gulp-svgstore');
 
     // var gulpOpen = require('open');
     // var merge = require('merge-stream');
@@ -117,13 +116,9 @@
         return jshint;
     });
 
-    // gulp dependencies for 'scripts'
-    var scriptsDep = analyze ? ['analyze'] : [];
-    // scriptsDep = scriptsDep.concat(['mapSVG']);
-
     // build templatecache, copy scripts.
     // if build: concat, minsafe, uglify and versionize
-    gulp.task('scripts',  scriptsDep, function() {
+    gulp.task('scripts',  (analyze ? ['analyze'] : []), function() {
         var dest = path.join(targetDir, 'app');
         var minifyConfig = {
             collapseWhitespace: true,
@@ -197,28 +192,6 @@
             .on('error', errorHandler);
     });
 
-    // move map svg inline
-    gulp.task('mapSVG', function () {
-        var svgs = gulp
-            .src(paths.svg)
-            .pipe(svgstore({ inlineSvg: true }));
-
-        function fileContents (filePath, file) {
-            return file.contents.toString();
-        }
-
-        return gulp
-            .src(paths.client + 'app/map/map.html')
-            .pipe(plugins.inject(svgs, {
-                starttag: '<!-- inject:map:svg -->',
-                read: false,
-                addRootSlash: false,
-                transform: fileContents
-            }))
-            .pipe(gulp.dest('./src/dist/map'))
-            .on('error', errorHandler);
-    });
-
     // concatenate and minify vendor sources
     gulp.task('vendor', function() {
         // var vendorFiles = wiredep().js;
@@ -234,7 +207,15 @@
         .on('error', errorHandler);
     });
 
-    // copy data in for development
+    // copy dynamic files
+    gulp.task('dynamic', function() {
+        return gulp
+            .src(paths.dynamic)
+            .pipe(gulp.dest(path.join(targetDir, 'dynamic')))
+            .on('error', errorHandler);
+    });
+
+    // copy data in for developmentdynamic
     gulp.task('data', function() {
         return gulp
             .src(paths.data)
@@ -357,7 +338,7 @@
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
-        gulp.watch('./src/client/dynamic/*.svg', ['mapSVG', 'scripts']);
+        gulp.watch('./src/client/dynamic/*.svg', ['dynamic']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -376,6 +357,7 @@
                 'images',
                 'vendor'
             ],
+            'dynamic',
             'data',
             'index',
             done);
