@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:51
+// jshint maxstatements:54
 (function(){
     'use strict';
 
@@ -117,9 +117,13 @@
         return jshint;
     });
 
+    // gulp dependencies for 'scripts'
+    var scriptsDep = analyze ? ['analyze'] : [];
+    // scriptsDep = scriptsDep.concat(['mapSVG']);
+
     // build templatecache, copy scripts.
     // if build: concat, minsafe, uglify and versionize
-    gulp.task('scripts',  (analyze ? ['analyze'] : null), function() {
+    gulp.task('scripts',  scriptsDep, function() {
         var dest = path.join(targetDir, 'app');
         var minifyConfig = {
             collapseWhitespace: true,
@@ -193,15 +197,27 @@
             .on('error', errorHandler);
     });
 
-    // copy dynamic content
-    gulp.task('dynamic', function() {
-        return gulp.src(paths.dynamic)
-            .pipe(gulp.dest(path.join(targetDir)))
+    // move map svg inline
+    gulp.task('mapSVG', function () {
+        var svgs = gulp
+            .src(paths.svg)
+            .pipe(svgstore({ inlineSvg: true }));
+
+        function fileContents (filePath, file) {
+            return file.contents.toString();
+        }
+
+        return gulp
+            .src(paths.client + 'app/map/map.html')
+            .pipe(plugins.inject(svgs, {
+                starttag: '<!-- inject:map:svg -->',
+                read: false,
+                addRootSlash: false,
+                transform: fileContents
+            }))
+            .pipe(gulp.dest('./src/dist/map'))
             .on('error', errorHandler);
     });
-
-    // move svg inline
-
 
     // concatenate and minify vendor sources
     gulp.task('vendor', function() {
@@ -341,7 +357,7 @@
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
-        gulp.watch('./src/client/dynamic/*', ['dynamic']);
+        gulp.watch('./src/client/dynamic/*.svg', ['mapSVG', 'scripts']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -360,7 +376,6 @@
                 'images',
                 'vendor'
             ],
-            'dynamic',
             'data',
             'index',
             done);
