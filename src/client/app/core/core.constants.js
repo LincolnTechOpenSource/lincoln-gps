@@ -19,7 +19,7 @@
         JANITOR: 9, //janitor closet, storage room, etc
     };
 
-    // array of department classes and names
+    // set of "units" - i.e. department and utility codes and names
     var UNITS = (function() {
         return {
           DEPARTMENTS: DEPARTMENTS(),
@@ -79,6 +79,7 @@
         }
     })();
 
+    // set of available titles
     var TITLES = [
         {titleCode: 'vp', name: 'Vice President'},
         {titleCode: 'exec', name: 'Executive Director'},
@@ -90,6 +91,7 @@
         {titleCode: 'pres', name: 'President'}
     ];
 
+    // set of allowed filters (key is the class to filter)
     var DEFAULT_FILTERS = {
         'broom': {
             'disp': true,
