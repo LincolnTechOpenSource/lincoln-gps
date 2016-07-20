@@ -12,7 +12,7 @@
 
     // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
+    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage, $compile,
         UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
@@ -255,14 +255,16 @@
                     ], ['hilite', 'normal-text']));
             }
 
-            Snap.load('dynamic/map.svg', function(f) {
-                var s = Snap('#svg');
-                s.append(f);
-                if ($('#svg map').attr('id') !== 'map') {
-                    throw new Error('the ID of map.svg must be "map"');
-                }
-                SvgPanZoom.init();
-            });
+            // Snap.load('dynamic/map.svg', function(f) {
+            //     var s = Snap('#svg');
+            //     s.append(f);
+            //     if ($('#svg svg').attr('id') !== 'map') {
+            //         throw new Error('the ID of map.svg must be "map"');
+            //     }
+            //     // $compile(angular.element('.dep-list'))(vm);
+            //     $scope.$apply();
+            //     SvgPanZoom.init();
+            // });
         }
 
         /** batchToggleClass: toggles the @classes of the specified @selectors
