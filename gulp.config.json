@@ -9,7 +9,8 @@
   "js": [
     "./src/client/app/**/*module*.js",
     "./src/client/app/**/*constants*.js",
-    "./src/client/app/**/*.js"
+    "./src/client/app/**/*.js",
+    "./src/dynamic/*.js"
   ],
   "vendorjsDev": [
     "./node_modules/jquery/dist/jquery.js",
@@ -37,7 +38,7 @@
     "./src/client/content/images/**/*"
   ],
   "dynamic": [
-    "./src/dynamic/**/*"
+    "./src/dynamic/**/*.svg"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"

@@ -207,7 +207,7 @@
         .on('error', errorHandler);
     });
 
-    // copy dynamic files
+    // copy dynamic resource files
     gulp.task('dynamic', function() {
         return gulp
             .src(paths.dynamic)
@@ -332,13 +332,13 @@
         gulp.watch('./src/client/content/fonts/**', ['fonts']);
         gulp.watch('./src/client/content/icons/**', ['iconfont']);
         gulp.watch('./src/client/content/images/**', ['images']);
-        gulp.watch('./src/client/app/**/*.js', ['index']);
-        gulp.watch('./bower.json', ['vendor']);
+        gulp.watch(paths.js, ['index']);
         gulp.watch('./gulp.config.json', ['load']);
+        gulp.watch('./package.json', ['vendor']);
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
-        gulp.watch('./src/dynamic/**/*', ['dynamic']);
+        gulp.watch(paths.dynamic, ['dynamic']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
