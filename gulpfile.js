@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:50
+// jshint maxstatements:51
 (function(){
     'use strict';
 
@@ -19,6 +19,7 @@
     var ripple = require('ripple-emulator');
     var plato = require('plato');
     var paths = require('./gulp.config.json');
+    var svgstore = require('gulp-svgstore');
 
     // var gulpOpen = require('open');
     // var merge = require('merge-stream');
@@ -192,6 +193,16 @@
             .on('error', errorHandler);
     });
 
+    // copy dynamic content
+    gulp.task('dynamic', function() {
+        return gulp.src(paths.dynamic)
+            .pipe(gulp.dest(path.join(targetDir)))
+            .on('error', errorHandler);
+    });
+
+    // move svg inline
+
+
     // concatenate and minify vendor sources
     gulp.task('vendor', function() {
         // var vendorFiles = wiredep().js;
@@ -330,6 +341,7 @@
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
+        gulp.watch('./src/client/dynamic/*', ['dynamic']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -348,6 +360,7 @@
                 'images',
                 'vendor'
             ],
+            'dynamic',
             'data',
             'index',
             done);

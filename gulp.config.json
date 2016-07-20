@@ -36,6 +36,9 @@
   "images": [
     "./src/client/content/images/**/*"
   ],
+  "svg": [
+    "./src/client/dynamic/**/*.svg"
+  ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"
   },
