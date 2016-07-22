@@ -1,6 +1,6 @@
 /**
- * core.module.js
- * 06/21/16
+ * constants.js
+ * 07/20/16
  */
 (function() {
   'use strict';
@@ -128,7 +128,7 @@
     };
 
     angular
-        .module('app.core')
+        .module('dynamic')
         .constant('NODE_TYPES', NODE_TYPES)
         .constant('UNITS', UNITS)
         .constant('TITLES', TITLES)

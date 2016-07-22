@@ -36,7 +36,7 @@
                 minZoom: 0.5,
                 maxZoom: 10,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false, // enable before pushing to mobile
+                // preventMouseEventsDefault: false, // enable before pushing to mobile
                 beforePan: beforePan
             });
 

@@ -12,8 +12,8 @@
 
     // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
+    function MapCtrl($scope, $log, $q, $document, $localStorage,
+        GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -23,10 +23,7 @@
             FIND_ON_MAP: 'FIND_ON_MAP'
         };
         vm.directions = []; // current directions
-        vm.deps = [
-            UNITS.ALL.slice(0, 14),
-            UNITS.ALL.slice(14)
-        ];
+
 
         vm.clearLocation = clearLocation;
         vm.swap = swap;
@@ -48,11 +45,6 @@
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
-
-        // enable pinch to zoom (for mobile)
-        $ionicGesture.on('pinch', function(ev) {
-            SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
-        }, $('#map'));
 
         // initialize & create graph
         Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
@@ -245,28 +237,6 @@
 
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
-
-            // attach hover element to each loc component so that hovering over location
-            // makes the corresponding legend item highlight
-            for (var i = 0; i < UNITS.ALL.length; i++) {
-                $('.loc:not(.filter-out).' + UNITS.ALL[i].depCode).hover(
-                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-colorbox',
-                        '.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-text'
-                    ], ['hilite', 'normal-text']));
-            }
-
-            SvgPanZoom.init();
-        }
-
-        /** batchToggleClass: toggles the @classes of the specified @selectors
-         *  toggles the corresponding class of an array of selectors */
-        function batchToggleClass(selectors, classes) {
-            return function() {
-                console.assert(selectors.length === classes.length, 'Invalid Call to batchToggleClass');
-                for (var i = 0; i < selectors.length; i++) {
-                    $(selectors[i]).toggleClass(classes[i]);
-                }
-            };
         }
 
         /** getNodeByID: retrieves an SVG node given the @id (checks data-id) */

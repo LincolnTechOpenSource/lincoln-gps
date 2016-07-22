@@ -80,7 +80,7 @@ which describes the **nodes** and **edges** in the graph.
       * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [`core.constants.js`][constants])
       * **weight:** the weight of the node in Dijkstra's algorithm (only path nodes have non-zero weight)
       * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
-   * Edges should be an array of two element array of the IDs of the nodes on each end of the edge
+   * Edges should be an array of two element arrays of the IDs of the nodes on each end of the edge
    * For example, the following might describe a short hallway with offices on either end:
    from *Office 1* you must traverse two sectors of the hallway, the second being twice as long, to get to *Office 2*
 
