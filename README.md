@@ -199,8 +199,11 @@ CSS class it should filter out of the map (e.g., `desk`)
 ### `map.svg`
 
 The SVG Map of the office layout. This should follow the structure described in
-[SVG Map Structure](#SVG-Map-Structure). Additionally, it should have these properties:
+[SVG Map Structure](#SVG-Map-Structure). When updating the map, leave the header, definitions,
+and legend, which will update according to `DEPARTMENTS`. Change the office layout
+located below `Line 80`, demarcated `UPDATE MAP BELOW LINE`.
 
+The elements of your map should adhere to these properties:
 * Element that corresponds to a node in the graph should have the class `loc`
 * Element that corresponds to a walkable path should have the class `path`
 * Each element should have `id` equal to the id of its corresponding node in the graph
@@ -208,7 +211,17 @@ The SVG Map of the office layout. This should follow the structure described in
 (from `DEPARTMENTS`) or its filters (from `FILTERS`)
 * If an element corresponds to two locations, set its `id` to the main location
 (the one that should display when clicked on the map) and add a `data-id` attribute
-with all other ids. e.g. `id="237" data-id="237 327
+with all other ids. e.g. `id="237" data-id="237 327"`
+
+### map.scss
+
+Customize your map's styling. By default each department should be given its own
+fill color. Path highlighting and other styling is separate (located in [`/src/client/content/styles/map.scss`](/src/client/content/styles/map.scss)
+and does not need to be updated.
+
+### images/map-icons
+
+Place any icons used in your map here.
 
 ## Ideas to Contribute
 
