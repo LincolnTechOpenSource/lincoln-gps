@@ -180,7 +180,7 @@ All of the files that must be changed in order to adapt this application to your
 own office layout and directory are located in [`src/office`](src/office). By editing
 these files you can customize and adapt the application to suite your personal office needs.
 
-### `constants.js`
+### [`constants.js`](src/office/constants.js)
 
 Here is where you should define the Node Types, Departments, Titles, Filters, and
 URLs for the graph and locations json files.
@@ -201,7 +201,7 @@ CSS class it should filter out of the map (e.g., `desk`)
    if you are using a static, flat database (as in our example implementation)
 * `FIREBASE_CONFIG`: Your [firebase][firebase] credentials
 
-### `map.svg`
+### [`map.svg`](src/office/map.svg)
 
 The SVG Map of the office layout. This should follow the structure described in
 [SVG Map Structure](#svg-map-structure). When updating the map, leave the header, definitions,
@@ -224,7 +224,7 @@ Customize your map's styling. By default each department should be given its own
 fill color. Path highlighting and other styling is separate (located in [`/src/client/content/styles/map.scss`](/src/client/content/styles/map.scss)
 and does not need to be updated.
 
-### `images/map-icons`
+### [`images/map-icons`](src/office/images/map-icons)
 
 Place any icons used in your map here.
 
