@@ -7,7 +7,6 @@
 
     angular
         .module('app.map')
-        .constant('GRAPH_URL', 'data/graph.json')
         .controller('MapCtrl', MapCtrl);
 
     // jshint maxparams:15
@@ -45,7 +44,7 @@
         $scope.$on('$ionicView.enter', activate);
 
         // initialize & create graph
-        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
+        Graphing.createGraph();
 
         //------------------------------------------------//
 
