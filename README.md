@@ -146,39 +146,6 @@ with your own. Then you can manage users in the **Auth** tab of the firebase con
 Local Storage (via **ngStorage**) stores the user's preferences. i.e., which map
 filters are active and whether to show the select on map popup.
 
-## History
-
-* 06/01/16: Added graph library to default ionic template
-* 06/02/16: Initialized GitHub repository, integrated map, and started directory
-* 06/03/16: Work on directory and "Find on Map"
-* 06/05/16: Bug fixed by disabling map cache
-* 06/06/16: Favicon added, improved SVG map, and various other updates
-* 06/07/16: Firebase connectivity, switching to tab template
-* 06/08/16: Progress on map, tab template switch, general cleaning of code
-* 06/09/16: Nearly finished with map, authentication, started filtering
-* 06/10/16: Finished SVG map
-* 06/13/16: From/To directions, map legend, and department highlighting
-* 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
-* 06/15/16: Major code remastering, bug fixes, preparation for graph.json
-* 06/16/16: Map and legend smoothing, preparing graph.json
-* 06/17/16: Created the new graph.json
-* 06/20/16: Made code more robust according to John Papa's angular style guide
-* 06/21/16: SVG Icons, "real" employee data, more robust code
-* 06/22/16: Made code and map more robust
-* 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
-* 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
-* 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
-* 06/30/16: Major path updates; Directory search filters; more robust deparment constant
-* 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
-dependence on firebase, shifting prefences to local storage, and data to an internal
-json file
-* 07/08/16: Stabilized most functionality
-* 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
-* 07/19/16: Adapted graphing modules and modularized map functions
-* 07/25/16: Separated dynamic, application-specific modules from source
-
-
-
 ## Building
 
 1. Installing Ionic and Cordova CLI
@@ -226,6 +193,36 @@ json file
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## History
+
+* 06/01/16: Added graph library to default ionic template
+* 06/02/16: Initialized GitHub repository, integrated map, and started directory
+* 06/03/16: Work on directory and "Find on Map"
+* 06/05/16: Bug fixed by disabling map cache
+* 06/06/16: Favicon added, improved SVG map, and various other updates
+* 06/07/16: Firebase connectivity, switching to tab template
+* 06/08/16: Progress on map, tab template switch, general cleaning of code
+* 06/09/16: Nearly finished with map, authentication, started filtering
+* 06/10/16: Finished SVG map
+* 06/13/16: From/To directions, map legend, and department highlighting
+* 06/14/16: Map Legend & Two-way Departmental Highlight, Select On Map Feature
+* 06/15/16: Major code remastering, bug fixes, preparation for graph.json
+* 06/16/16: Map and legend smoothing, preparing graph.json
+* 06/17/16: Created the new graph.json
+* 06/20/16: Made code more robust according to John Papa's angular style guide
+* 06/21/16: SVG Icons, "real" employee data, more robust code
+* 06/22/16: Made code and map more robust
+* 06/23/16: Looking into SVG Panning and Zooming, specifically for mobile
+* 06/27/16: Integrated Gulp as well as SVG Pan/Zoom
+* 06/28/16: Updated paths on SVG; mobile pinch to zoom; added minor features
+* 06/30/16: Major path updates; Directory search filters; more robust deparment constant
+* 07/06/16: Stabilizing/Freezing additional functionality; Bug fixes; Removing
+dependence on firebase, shifting prefences to local storage, and data to an internal
+json file
+* 07/08/16: Stabilized most functionality
+* 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
+* 07/19/16: Adapted graphing modules and modularized map functions
+* 07/25/16: Separated dynamic, application-specific modules from source
 
 ## Credits
 
