@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   id="map"
-   viewBox="0 0 1600 1100"
-   height="100%"
-   width="100%">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" id="map" viewBox="0 0 1650 1150"
+    height="100%" width="100%">
   <defs
      id="defs4" />
     <defs>
         <!-- Background filter and gradient -->
         <radialGradient id="canvas-grad" cx="0%" cy="0%" r="100%" gradientUnits="objectBoundingBox">
-            <stop offset="5%" style="stop-color:rgb(247, 247, 247); stop-opacity:1"></stop>
-            <stop offset="42%" style="stop-color:rgb(237, 237, 237); stop-opacity:1"></stop>
+            <stop offset="5%" style="stop-color:rgb(240, 240, 240); stop-opacity:1"></stop>
+            <stop offset="42%" style="stop-color:rgb(235, 235, 235); stop-opacity:1"></stop>
         </radialGradient>
         <filter id="canvas-filter" primitiveUnits="objectBoundingBox" x="0" y="0">
             <feGaussianBlur in="SourceAlpha" stdDeviation="0.009"></feGaussianBlur>
@@ -64,8 +55,8 @@
         </pattern>
     </defs>
 
-      <!-- BACKGROUND CANVAS -->
-    <!--<rect height="1100" fill="black" width="1600" class="canvas" y="0" x="0" rx="12%" ry="12%"></rect>-->
+    <!-- BACKGROUND CANVAS -->
+    <rect height="1100" width="1600" class="canvas" y="0" x="0" rx="7%" ry="12%"></rect>
     <rect height="1000" width="1500" class="wall" id="outer-border" y="50" x="50"></rect>
 
     <g transform="translate(50,50)">
