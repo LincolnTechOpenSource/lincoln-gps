@@ -128,7 +128,7 @@
     };
 
     angular
-        .module('dynamic')
+        .module('office')
         .constant('NODE_TYPES', NODE_TYPES)
         .constant('DEPARTMENTS', DEPARTMENTS)
         .constant('TITLES', TITLES)

@@ -11,10 +11,14 @@
      */
     angular
         .module('app', ['ionic', 'ngStorage', 'app.map', 'app.directory', 'app.account',
-                        'app.tab', 'app.loc', 'app.core', 'dynamic'//, 'ngCordova', 'ngCordova.plugins'
+                        'app.tab', 'app.loc', 'app.core', 'office'//, 'ngCordova', 'ngCordova.plugins'
         ])
         .run(appRun)
         .config(appConfigure);
+
+    /** define the office module for the dynamic portion of the application
+     * its features are located in src/office */
+    angular.module('office', []);
 
     /* @ngInject */
     function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, DEFAULT_FILTERS) {

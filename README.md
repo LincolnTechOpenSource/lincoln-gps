@@ -175,7 +175,10 @@ filters are active and whether to show the select on map popup.
 ## Adapting
 
 All of the files that must be changed in order to adapt this application to your
-own office layout and directory are located in [`src/dynamic`](src/dynamic).
+own office layout and directory are located in [`src/office`](src/office). By editing
+these files you can customize and adapt the application to suite your personal office needs.
+
+### `map.svg`
 
 ## Ideas to Contribute
 
