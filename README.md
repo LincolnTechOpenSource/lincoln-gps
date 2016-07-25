@@ -218,7 +218,7 @@ The elements of your map should adhere to these properties:
 (the one that should display when clicked on the map) and add a `data-id` attribute
 with all other ids. e.g. `id="237" data-id="237 327"`
 
-### [`map.scss`][src/office/map.scss]
+### [`map.scss`](src/office/map.scss)
 
 Customize your map's styling. By default each department should be given its own
 fill color. Path highlighting and other styling is separate (located in [`/src/client/content/styles/map.scss`](/src/client/content/styles/map.scss)
