@@ -375,6 +375,12 @@
             done);
     });
 
+    // build sequence
+    gulp.task('build', function() {
+        build = true;
+        runSequence('default');
+    });
+
     ////////////////
 
     // global error handler
