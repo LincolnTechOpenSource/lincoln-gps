@@ -28,7 +28,7 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
       * **email:** the employee's contact email
       * **ext:** the employee's phone contact extension
    * For example, the following describes an office with two employees and one bathroom:
-   Both employees are interns in Information Services Division (depCode: isd)
+   Both employees are interns in Information Services Division (`depCode: isd`)
 
    ```javascript
    {
@@ -175,6 +175,7 @@ json file
 * 07/08/16: Stabilized most functionality
 * 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
 * 07/19/16: Adapted graphing modules and modularized map functions
+* 07/25/16: Separated dynamic, application-specific modules from source
 
 
 
