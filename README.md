@@ -284,7 +284,7 @@ json file
    * [Graph Dijkstra][graph-dijkstra]
    * [SVG Pan Zoom ](https://github.com/ariutta/svg-pan-zoom)
 
-[graph-dijkstra]: https://github.com/LincolnTechOpenSource/angular-graph-dijkstra
+[graph-dijkstra]: https://github.com/LincolnTechOpenSource/graph-dijkstra
 
 **Adapted Resources:**
    * [jQuery Queued](https://gist.github.com/raybellis/3816885)

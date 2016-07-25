@@ -31,7 +31,7 @@ Set up your machine:
          * Starting the local server to serve from `.dev`
          * Starting watchers to automatically rebuild upon saved changes
       * The `--noAnalyze` flag (`--na`) is the same as above, but does not analyze (making recompile faster)
-      * The `--build` flag (`-b`) starts the non-development build process
+      * The `--build` flag (`-b`) starts the non-development build process (same as `gulp build`)
          * In addition to the above: Concats all `*.js` sources into a single `app.js` file
          * Versions `main.css` and `app.js`
          * Builds everything into `www`
@@ -59,4 +59,4 @@ Some things that will increase the chance that your pull request is accepted:
 
 ## Notes
 
-* To update the underlying graph, please see [angular graph dijkstra](https://github.com/LincolnTechOpenSource/angular-graph-dijkstra)
+* To update the underlying graph, please see [graph-dijkstra](https://github.com/LincolnTechOpenSource/graph-dijkstra)
