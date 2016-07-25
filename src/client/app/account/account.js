@@ -7,7 +7,7 @@
     .controller('AccountCtrl', AccountCtrl);
 
   /* @ngInject */
-  function AccountCtrl($scope, $log, $localStorage, DEFAULT_FILTERS) {
+  function AccountCtrl($scope, $log, $localStorage, FILTERS) {
     var vm = this;
 
     vm.prefs = $localStorage.prefs;
@@ -29,7 +29,7 @@
     /** rest all preferences to true */
     function resetToDefault() {
       // reset preferences (filters & map popup)
-      vm.prefs.filters = DEFAULT_FILTERS;
+      vm.prefs.filters = FILTERS;
       vm.prefs.showMapPopup = true;
     }
   }

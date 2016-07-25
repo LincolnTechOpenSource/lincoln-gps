@@ -92,7 +92,7 @@
     ];
 
     // set of allowed filters (key is the class to filter)
-    var DEFAULT_FILTERS = {
+    var FILTERS = {
         'broom': {
             'disp': true,
             'dispName': 'Bathrooms'
@@ -128,12 +128,19 @@
     };
 
     angular
-        .module('dynamic')
+        .module('office')
         .constant('NODE_TYPES', NODE_TYPES)
         .constant('DEPARTMENTS', DEPARTMENTS)
         .constant('TITLES', TITLES)
-        .constant('DEFAULT_FILTERS', DEFAULT_FILTERS)
+        .constant('FILTERS', FILTERS)
         .constant('GRAPH_URL', 'data/graph.json') // url to graph data
-        .constant('LOC_URL', 'data/locations.json'); // url to locations data
+        .constant('LOC_URL', 'data/locations.json')
+        // Replace with your own firebase credentials
+        .constant('FIREBASE_CONFIG', {
+            apiKey: 'AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs',
+            authDomain: 'lincoln-gps.firebaseapp.com',
+            databaseURL: 'https://lincoln-gps.firebaseio.com',
+            storageBucket: 'lincoln-gps.appspot.com',
+        }); // url to locations data
 
 })();

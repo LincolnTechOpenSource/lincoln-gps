@@ -208,14 +208,14 @@
     });
 
     // copy dynamic resource files
-    gulp.task('dynamic', function() {
+    gulp.task('office', function() {
         return gulp
-            .src(paths.dynamic)
-            .pipe(gulp.dest(path.join(targetDir, 'dynamic')))
+            .src(paths.office)
+            .pipe(gulp.dest(path.join(targetDir, 'office')))
             .on('error', errorHandler);
     });
 
-    // copy data in for developmentdynamic
+    // copy data in for development
     gulp.task('data', function() {
         return gulp
             .src(paths.data)
@@ -328,7 +328,7 @@
     // start watchers
     gulp.task('watchers', function() {
         plugins.livereload.listen();
-        gulp.watch(['./src/client/content/styles/**/*.scss', './src/dynamic/*.scss'], ['styles']);
+        gulp.watch(['./src/client/content/styles/**/*.scss', './src/office/*.scss'], ['styles']);
         gulp.watch('./src/client/content/fonts/**', ['fonts']);
         gulp.watch('./src/client/content/icons/**', ['iconfont']);
         gulp.watch('./src/client/content/images/**', ['images']);
@@ -338,7 +338,7 @@
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
-        gulp.watch(paths.dynamic, ['dynamic']);
+        gulp.watch(paths.office, ['office']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -357,7 +357,7 @@
                 'images',
                 'vendor'
             ],
-            'dynamic',
+            'office',
             'data',
             'index',
             done);
@@ -373,6 +373,12 @@
             emulate ? ['ionic:emulate', 'watchers'] : 'noop',
             run ? 'ionic:run' : 'noop',
             done);
+    });
+
+    // build sequence
+    gulp.task('build', function() {
+        build = true;
+        runSequence('default');
     });
 
     ////////////////

@@ -8,7 +8,7 @@ angular
 function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS, $timeout) {
     return {
         restrict: 'E',
-        templateUrl: 'dynamic/map.svg',
+        templateUrl: 'office/map.svg',
         link: function(scope) {
             scope.vm.deps = DEPARTMENTS.ALL; // all of the departments in the legend
             scope.vm.legendHover = legendHover;
