@@ -9,7 +9,8 @@
   "js": [
     "./src/client/app/**/*module*.js",
     "./src/client/app/**/*constants*.js",
-    "./src/client/app/**/*.js"
+    "./src/client/app/**/*.js",
+    "./src/dynamic/*.js"
   ],
   "vendorjsDev": [
     "./node_modules/jquery/dist/jquery.js",
@@ -17,7 +18,7 @@
     "./node_modules/ionic-sdk/release/js/ionic.bundle.js",
     "./node_modules/ngstorage/ngStorage.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.js",
-    "./node_modules/angular-graph-dijkstra/dist/graph-dijkstra.js",
+    "./node_modules/graph-dijkstra/dist/graph-dijkstra.js",
     "./plugins/**/*.js"
   ],
   "vendorjs": [
@@ -26,7 +27,7 @@
     "./node_modules/ionic-sdk/release/js/ionic.bundle.min.js",
     "./node_modules/ngstorage/ngStorage.min.js",
     "./node_modules/svg-pan-zoom/dist/svg-pan-zoom.min.js",
-    "./node_modules/angular-graph-dijkstra/dist/graph-dijkstra.min.js",
+    "./node_modules/graph-dijkstra/dist/graph-dijkstra.min.js",
     "./plugins/**/*.js"
   ],
   "fonts": [
@@ -35,6 +36,9 @@
   ],
   "images": [
     "./src/client/content/images/**/*"
+  ],
+  "dynamic": [
+    "./src/dynamic/**/*.svg"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"

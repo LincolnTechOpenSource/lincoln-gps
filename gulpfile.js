@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:50
+// jshint maxstatements:54
 (function(){
     'use strict';
 
@@ -118,7 +118,7 @@
 
     // build templatecache, copy scripts.
     // if build: concat, minsafe, uglify and versionize
-    gulp.task('scripts',  (analyze ? ['analyze'] : null), function() {
+    gulp.task('scripts',  (analyze ? ['analyze'] : []), function() {
         var dest = path.join(targetDir, 'app');
         var minifyConfig = {
             collapseWhitespace: true,
@@ -207,7 +207,15 @@
         .on('error', errorHandler);
     });
 
-    // copy data in for development
+    // copy dynamic resource files
+    gulp.task('dynamic', function() {
+        return gulp
+            .src(paths.dynamic)
+            .pipe(gulp.dest(path.join(targetDir, 'dynamic')))
+            .on('error', errorHandler);
+    });
+
+    // copy data in for developmentdynamic
     gulp.task('data', function() {
         return gulp
             .src(paths.data)
@@ -324,12 +332,13 @@
         gulp.watch('./src/client/content/fonts/**', ['fonts']);
         gulp.watch('./src/client/content/icons/**', ['iconfont']);
         gulp.watch('./src/client/content/images/**', ['images']);
-        gulp.watch('./src/client/app/**/*.js', ['index']);
-        gulp.watch('./bower.json', ['vendor']);
+        gulp.watch(paths.js, ['index']);
         gulp.watch('./gulp.config.json', ['load']);
+        gulp.watch('./package.json', ['vendor']);
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
+        gulp.watch(paths.dynamic, ['dynamic']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -348,6 +357,7 @@
                 'images',
                 'vendor'
             ],
+            'dynamic',
             'data',
             'index',
             done);

@@ -1,6 +1,6 @@
 /**
- * core.module.js
- * 06/21/16
+ * constants.js
+ * 07/20/16
  */
 (function() {
   'use strict';
@@ -12,14 +12,14 @@
         WALL: 2, // a wall (i.e., something that you cannot walk through)
         PATH: 3, // a walkway you could take (i.e., the floor)
         BROOM: 4, // a bathroom
-        DESK: 5, // a desk, cubicle, or office
+        EMPL: 5, // an employee location (desk, cubicle, or office)
         CONF: 6, // a conference room
         FOOD: 7, // a location for food (e.g., kitchen, vending machine)
         COPY: 8, // a room/area with a copier/scanner
         JANITOR: 9, //janitor closet, storage room, etc
     };
 
-    // array of department classes and names
+    // set of "units" - i.e. department and utility codes and names
     var UNITS = (function() {
         return {
           DEPARTMENTS: DEPARTMENTS(),
@@ -79,6 +79,7 @@
         }
     })();
 
+    // set of available titles
     var TITLES = [
         {titleCode: 'vp', name: 'Vice President'},
         {titleCode: 'exec', name: 'Executive Director'},
@@ -90,6 +91,7 @@
         {titleCode: 'pres', name: 'President'}
     ];
 
+    // set of allowed filters (key is the class to filter)
     var DEFAULT_FILTERS = {
         'broom': {
             'disp': true,
@@ -126,7 +128,7 @@
     };
 
     angular
-        .module('app.core')
+        .module('dynamic')
         .constant('NODE_TYPES', NODE_TYPES)
         .constant('UNITS', UNITS)
         .constant('TITLES', TITLES)

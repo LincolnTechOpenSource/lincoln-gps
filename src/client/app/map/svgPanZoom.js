@@ -1,5 +1,5 @@
 /*
- * SvgPanZoom.js
+ * svgPanZoom.js
  * 06/28/16
  * implements https://github.com/ariutta/svg-pan-zoom
  /*---------------------------------------------------------------------------*/
@@ -36,7 +36,7 @@
                 minZoom: 0.5,
                 maxZoom: 10,
                 controlIconsEnabled: false,
-                preventMouseEventsDefault: false, // enable before pushing to mobile
+                // preventMouseEventsDefault: false, // enable before pushing to mobile
                 beforePan: beforePan
             });
 

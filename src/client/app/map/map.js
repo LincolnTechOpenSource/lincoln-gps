@@ -12,8 +12,8 @@
 
     // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        UNITS, GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Dijkstra, Params, SvgPanZoom) {
+    function MapCtrl($scope, $log, $q, $document, $localStorage,
+        GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -23,10 +23,7 @@
             FIND_ON_MAP: 'FIND_ON_MAP'
         };
         vm.directions = []; // current directions
-        vm.deps = [
-            UNITS.ALL.slice(0, 14),
-            UNITS.ALL.slice(14)
-        ];
+
 
         vm.clearLocation = clearLocation;
         vm.swap = swap;
@@ -49,13 +46,8 @@
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
 
-        // enable pinch to zoom (for mobile)
-        $ionicGesture.on('pinch', function(ev) {
-            SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
-        }, $('#map'));
-
         // initialize & create graph
-        Graphing.createGraph(GRAPH_URL, false); // pass true for graph debugging
+        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
 
         //------------------------------------------------//
 
@@ -190,8 +182,8 @@
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
-            var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
-                vm.selectNode.toNode.id, Graphing.graph, NODE_TYPES.PATH);
+            var dirResults = Graphing.runDijkstra(NODE_TYPES.PATH, vm.selectNode.fromNode.id,
+                vm.selectNode.toNode.id);
 
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {
@@ -202,7 +194,7 @@
                     el.clearQueue();
                 }
                 // set new directions (will be the same as before if cached)
-                vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
+                vm.directions = Graphing.getShortestPath();
             }
 
             // reset view for long paths
@@ -245,28 +237,6 @@
 
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
-
-            // attach hover element to each loc component so that hovering over location
-            // makes the corresponding legend item highlight
-            for (var i = 0; i < UNITS.ALL.length; i++) {
-                $('.loc:not(.filter-out).' + UNITS.ALL[i].depCode).hover(
-                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-colorbox',
-                        '.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-text'
-                    ], ['hilite', 'normal-text']));
-            }
-
-            SvgPanZoom.init();
-        }
-
-        /** batchToggleClass: toggles the @classes of the specified @selectors
-         *  toggles the corresponding class of an array of selectors */
-        function batchToggleClass(selectors, classes) {
-            return function() {
-                console.assert(selectors.length === classes.length, 'Invalid Call to batchToggleClass');
-                for (var i = 0; i < selectors.length; i++) {
-                    $(selectors[i]).toggleClass(classes[i]);
-                }
-            };
         }
 
         /** getNodeByID: retrieves an SVG node given the @id (checks data-id) */
@@ -284,12 +254,12 @@
 
 
 
-// //       debugging to get neighbors
+// // debugging to get neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     console.log(this.id);
 // });
 
-// //debugging to highlight neighbors
+// // debugging to highlight neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     var n = Graphing.graph.nodes[this.id];
 //     $('#svg #map .loc').removeClass('hilite'); // clear old path
@@ -297,12 +267,3 @@
 //         $('#' + n._neighbors[i]).addClass('hilite');
 //     }
 // });
-
-// /** resets the path and removes all highlights (but leaves employee) */
-// function clear() {
-//     $('#svg #map g.non-walls *').removeClass('hilite'); // clear old path
-
-//     // clear graphing parameters
-//     vm.selectNode.toNode = null;
-//     vm.selectNode.fromNode = null;
-// }
