@@ -16,7 +16,7 @@
      * @clearCache clears the cache
      */
     /* @ngInject */
-    function Graphing($http) {
+    function Graphing($http, GRAPH_URL) {
         var service = {
             graph: null,
             // the previously run search (for caching)
@@ -35,9 +35,9 @@
         //------------------------------------------------//
 
         /* global Graph, Dijkstra */
-        function createGraph(url) {
+        function createGraph() {
             // use http to get the graph json
-            return $http.get(url)
+            return $http.get(GRAPH_URL)
                 .success(function(data) {
                     // create the new graph
                     service.graph = new Graph(data);

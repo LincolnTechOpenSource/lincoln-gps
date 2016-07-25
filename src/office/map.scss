@@ -1,0 +1,64 @@
+// map.scss
+// customize your map styling here
+
+
+/* sass map of all departments and their colors
+ * this should mirror those in constants and is of the form
+ * [department class name]: [fill color]
+ */
+$departments: (
+    // employee
+    account-setup: #FF8080,
+    accounting: #006600,
+    acd: #808080,
+    asset-mgmt: #90EE90,
+    branch-dev: #FF0000,
+    branch-serv: #33CC33,
+    busi-dev: #FF6600,
+    compli-licens: #FFFF99,
+    doc-mgmt: #CC5200,
+    euc: #5CD65C,
+    exec-suite: #D3D3D3,
+    facilities: #DB4DFF,
+    finance: #00FF00,
+    hr: #CCCC00,
+    im-r: #FFC0CB,
+    isa: #FFFF33,
+    isd: #3377FF,
+    mrkt-comm: #3399FF,
+    one-time-financials: #F4A460,
+    ops: #FF6347,
+    prvd-mgmt: #00FFFF,
+    quality-cntrl: #EE82EE,
+    rdi: #FF3333,
+    reception: #595959,
+    retire-serv: #990066,
+    tpa: #FF7F50,
+    vsa: #FFFF00,
+
+    // utilities
+    broom: #787878,
+    conf: #ADD8E6,
+    copy-scan-rm: #1AD1FF,
+    elevator-exit: #FF9988,
+    food: #D3D3D3,
+    stairs-exit: #FF9988,
+
+    // extras (not really needed)
+    vacant: #898989,
+    lobby: #FF9988,
+    privacy-pod: #D3D3D3,
+    storage-rm: #D3D3D3,
+    ceo: #D3D3D3,
+    cfo: #D3D3D3
+);
+
+/* set fill colors accordingly */
+#svg #map {
+    /* For each department in the above map, set the class' fill */
+    @each $dep, $color in $departments {
+      .#{$dep} {
+        fill: $color;
+      }
+    }
+}

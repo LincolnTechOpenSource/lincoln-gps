@@ -10,7 +10,7 @@
     "./src/client/app/**/*module*.js",
     "./src/client/app/**/*constants*.js",
     "./src/client/app/**/*.js",
-    "./src/dynamic/*.js"
+    "./src/office/*.js"
   ],
   "vendorjsDev": [
     "./node_modules/jquery/dist/jquery.js",
@@ -35,10 +35,11 @@
     "./node_modules/ionic-sdk/release/fonts/*.*"
   ],
   "images": [
-    "./src/client/content/images/**/*"
+    "./src/client/content/images/**/*",
+    "./src/office/images/**/*"
   ],
-  "dynamic": [
-    "./src/dynamic/**/*.svg"
+  "office": [
+    "./src/office/**/*.svg"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"

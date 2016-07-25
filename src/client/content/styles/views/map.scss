@@ -73,11 +73,11 @@
 }
 
 /* svg canvas */
-
 #svg #map .canvas {
     fill: url(#canvas-grad);
     filter: url(#canvas-filter);
 }
+
 
 /* location styling and highlighting */
 #svg #map .loc {
@@ -129,222 +129,7 @@
 }
 
 
-/* location specific fill color variables */
-
-$accounting-color: #006600;
-$account-setup-color: #FF8080;
-$acd-color: #808080;
-$asset-mgmt-color: #90EE90;
-$branch-dev-color: #FF0000;
-$branch-serv-color: #33CC33;
-$broom-color: #787878;
-$busi-dev-color: #FF6600;
-$ceo-color: #D3D3D3;
-$cfo-color: #D3D3D3;
-$compli-licens-color: #FFFF99;
-$copy-scan-rm-color: #1AD1FF;
-$conf-color: #ADD8E6;
-$doc-mgmt-color: #CC5200;
-$elevator-exit-color: #FF9988;
-$euc-color: #5CD65C;
-$exec-suite-color: #D3D3D3;
-$facilities-color: #DB4DFF;
-$finance-color: #00FF00;
-$food-color: #D3D3D3;
-$hr-color: #CCCC00;
-$im-r-color: #FFC0CB;
-$isa-color: #FFFF33;
-$isd-color: #3377FF;
-$lobby-color: #FF9988;
-$mrkt-comm-color: #3399FF;
-$one-time-financials-color: #F4A460;
-$ops-color: #FF6347;
-$privacy-pod-color: #D3D3D3;
-$prvd-mgmt-color: #00FFFF;
-$quality-cntrl-color: #EE82EE;
-$rdi-color: #FF3333;
-$reception-color: #595959;
-$retire-serv-color: #990066;
-$stairs-exit-color: #FF9988;
-$storage-rm-color: #D3D3D3;
-$tpa-color: #FF7F50;
-$vacant-color: #898989;
-$vsa-color: #FFFF00;
-
-/* set fill colors accordingly */
-#svg #map .accounting {
-    fill: $accounting-color;
-}
-
-#svg #map .account-setup {
-    fill: $account-setup-color;
-}
-
-#svg #map .acd {
-    fill: $acd-color;
-}
-
-#svg #map .asset-mgmt {
-    fill: $asset-mgmt-color;
-}
-
-#svg #map .branch-dev {
-    fill: $branch-dev-color;
-}
-
-#svg #map .branch-serv {
-    fill: $branch-serv-color;
-}
-
-#svg #map .broom {
-    fill: $broom-color;
-}
-
-#svg #map .busi-dev {
-    fill: $busi-dev-color;
-}
-
-#svg #map .ceo {
-    fill: $ceo-color;
-}
-
-#svg #map .cfo {
-    fill: $cfo-color;
-}
-
-#svg #map .compli-licens {
-    fill: $compli-licens-color;
-}
-
-#svg #map .copy-scan-rm {
-    fill: $copy-scan-rm-color;
-}
-
-#svg #map .path.loc.copy-scan-rm {
-    fill: $copy-scan-rm-color;
-    stroke-width:3px;
-    stroke: #000000;
-}
-
-
-#svg #map .conf {
-    fill: $conf-color;
-}
-
-#svg #map .doc-mgmt {
-    fill: $doc-mgmt-color;
-}
-
-#svg #map .elevator-exit {
-    fill: $elevator-exit-color;
-}
-
-#svg #map .euc {
-    fill: $euc-color;
-}
-
-#svg #map .exec-suite {
-    fill: $exec-suite-color;
-}
-
-#svg #map .facilities {
-    fill: $facilities-color;
-}
-
-#svg #map .finance {
-    fill: $finance-color;
-}
-
-#svg #map .food {
-    fill: $food-color;
-}
-
-#svg #map .hr {
-    fill: $hr-color;
-}
-
-#svg #map .im-r {
-    fill: $im-r-color;
-}
-
-#svg #map .isa {
-    fill: $isa-color;
-}
-
-#svg #map .isd {
-    fill: $isd-color;
-}
-
-#svg #map .lobby {
-    fill: $lobby-color;
-}
-
-#svg #map .mrkt-comm {
-    fill: $mrkt-comm-color;
-}
-
-#svg #map .one-time-financials {
-    fill: $one-time-financials-color;
-}
-
-#svg #map .ops {
-    fill: $ops-color;
-}
-
-#svg #map .privacy-pod {
-    fill: $privacy-pod-color;
-}
-
-#svg #map .prvd-mgmt {
-    fill: $prvd-mgmt-color;
-}
-
-#svg #map .quality-cntrl {
-    fill: $quality-cntrl-color;
-}
-
-#svg #map .rdi {
-    fill: $rdi-color;
-}
-
-#svg #map .reception {
-    fill: $reception-color;
-}
-
-#svg #map .retire-serv {
-    fill: $retire-serv-color;
-}
-
-#svg #map .stairs-exit {
-    fill: $stairs-exit-color;
-}
-
-#svg #map .storage-rm {
-    fill: $storage-rm-color;
-}
-
-#svg #map .tpa {
-    fill: $tpa-color;
-}
-
-#svg #map .vacant {
-    fill: $vacant-color;
-}
-
-#svg #map .vsa {
-    fill: $vsa-color;
-}
-
-// #svg #map .euc-printer{
-//      -webkit-transform: rotate(45deg);
-//     -moz-transform: rotate(45deg);
-//     -o-transform: rotate(45deg);
-//     -ms-transform: rotate(45deg);
-//     transform: rotate(45deg);
-// }
-
 /* SVG Map Legend Styles */
-
 #svg #map .dep-list .dep-list-text,
 #svg #map .legend-title {
     font-family: Verdana;
@@ -372,4 +157,6 @@ $vsa-color: #FFFF00;
     stroke-width: 2px;
     stroke: #000000;
 }
+
+/* See dynamic/map.scss for department colors */
 /*----------------------------------------------------------------------------*/

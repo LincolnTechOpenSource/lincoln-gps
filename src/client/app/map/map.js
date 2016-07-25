@@ -7,7 +7,6 @@
 
     angular
         .module('app.map')
-        .constant('GRAPH_URL', 'data/graph.json')
         .controller('MapCtrl', MapCtrl);
 
     // jshint maxparams:15
@@ -32,8 +31,6 @@
         vm.reset = reset;
         vm.zoomOut = zoomOut;
 
-        vm.legendHover = legendHover;
-
         $scope.$watch('vm.selectNode.toNode', watchNode.bind(null, 'toNode'));
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
 
@@ -47,7 +44,7 @@
         $scope.$on('$ionicView.enter', activate);
 
         // initialize & create graph
-        Graphing.createGraph(GRAPH_URL, true); // pass true for graph debugging
+        Graphing.createGraph();
 
         //------------------------------------------------//
 
@@ -139,18 +136,6 @@
         }
         function zoomOut() {
             SvgPanZoom.map.zoomOut();
-        }
-
-        /** hover functions for the legend (mouseenter and mouseleave)
-         * attach hover element to each legend component so that hovering over text
-         * makes all corresponding locations highlight
-         */
-        function legendHover(ev) {
-            var code = $(ev.currentTarget).data('code');
-
-            $('.loc.' + code + ':not(.filter-out)').toggleClass('hilite');
-            $('.dep-list .' + code + ' .dep-list-colorbox').toggleClass('hilite');
-            $('.dep-list .' + code + ' .dep-list-text').toggleClass('normal-text');
         }
 
         /** watch a @node (to or from) for changes and handle them (via mapping) */
@@ -249,7 +234,7 @@
             return el;
         }
 
-    } //end mapCntrl
+    } //end MapCtrl
 })();
 
 

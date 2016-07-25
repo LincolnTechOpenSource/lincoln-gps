@@ -12,7 +12,7 @@
 
     /* @ngInject */
     function DirectoryCtrl($scope, $state, $log, $q, Locations, Firebase,
-        Params, NODE_TYPES, UNITS, TITLES) {
+        Params, NODE_TYPES, DEPARTMENTS, TITLES) {
         var vm = this;
 
         vm.selectEmployee = {
@@ -21,7 +21,7 @@
         };
 
         vm.filters = {
-            d: UNITS.DEPARTMENTS, // department filters
+            d: DEPARTMENTS.EMPLOYEE, // department employee filters
             t: TITLES, // title filter
             show: {
                 d: false, // accordion show department filters
