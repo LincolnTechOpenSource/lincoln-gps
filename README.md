@@ -8,7 +8,7 @@ Investment employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.1.0**
+Current Release: **1.2.0**
 
 ## Locations Database
 
@@ -38,7 +38,7 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
            nType: 5,
            depCode: "isd",
            titlecode: "int"
-           email: "mvasseur@google.com",
+           email: "mvasseur@lincoln.com",
            ext: "4357"
        },
        loc2: {
@@ -47,7 +47,7 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
            nType: 5,
            depCode: "isd",
            titlecode: "int"
-           email: "dtahvildaran@google.com",
+           email: "dtahvildaran@lincoln.com",
            ext: "4358"
        },
        loc3: {
