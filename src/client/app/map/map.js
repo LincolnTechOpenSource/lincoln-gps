@@ -11,8 +11,8 @@
 
     // jshint maxparams:15
     /* @ngInject */
-    function MapCtrl($scope, $log, $q, $ionicGesture, $document, $localStorage,
-        currentUser, UNITS, Locations, Firebase, Graphing, Params, Dijkstra, SvgPanZoom) {
+    function MapCtrl($scope, $log, $q, $document, $localStorage,
+        GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -22,10 +22,7 @@
             FIND_ON_MAP: 'FIND_ON_MAP'
         };
         vm.directions = []; // current directions
-        vm.deps = [
-            UNITS.ALL.slice(0, 14),
-            UNITS.ALL.slice(14)
-        ];
+
 
         vm.clearLocation = clearLocation;
         vm.swap = swap;
@@ -33,8 +30,6 @@
         vm.zoomIn = zoomIn;
         vm.reset = reset;
         vm.zoomOut = zoomOut;
-
-        vm.legendHover = legendHover;
 
         $scope.$watch('vm.selectNode.toNode', watchNode.bind(null, 'toNode'));
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
@@ -47,11 +42,6 @@
 
         // activate the controller on view enter
         $scope.$on('$ionicView.enter', activate);
-
-        // enable pinch to zoom (for mobile)
-        $ionicGesture.on('pinch', function(ev) {
-            SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
-        }, $('#map'));
 
         // initialize & create graph
         Graphing.createGraph();
@@ -148,18 +138,6 @@
             SvgPanZoom.map.zoomOut();
         }
 
-        /** hover functions for the legend (mouseenter and mouseleave)
-         * attach hover element to each legend component so that hovering over text
-         * makes all corresponding locations highlight
-         */
-        function legendHover(ev) {
-            var code = $(ev.currentTarget).data('code');
-
-            $('.loc.' + code + ':not(.filter-out)').toggleClass('hilite');
-            $('.dep-list .' + code + ' .dep-list-colorbox').toggleClass('hilite');
-            $('.dep-list .' + code + ' .dep-list-text').toggleClass('normal-text');
-        }
-
         /** watch a @node (to or from) for changes and handle them (via mapping) */
         function watchNode(node, newNode, oldNode) {
             // select on map option
@@ -189,8 +167,8 @@
             if (!vm.selectNode.fromNode || !vm.selectNode.toNode) {
                 return;
             }
-            var dirResults = Dijkstra.run(vm.selectNode.fromNode.id,
-                vm.selectNode.toNode.id, Graphing.graph);
+            var dirResults = Graphing.runDijkstra(NODE_TYPES.PATH, vm.selectNode.fromNode.id,
+                vm.selectNode.toNode.id);
 
             // only clear and get path if results are not cached (e.g., new path)
             if (!dirResults.cached) {
@@ -201,7 +179,7 @@
                     el.clearQueue();
                 }
                 // set new directions (will be the same as before if cached)
-                vm.directions = Dijkstra.getPath(dirResults.prev, vm.selectNode.toNode.id);
+                vm.directions = Graphing.getShortestPath();
             }
 
             // reset view for long paths
@@ -244,28 +222,6 @@
 
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
-
-            // attach hover element to each loc component so that hovering over location
-            // makes the corresponding legend item highlight
-            for (var i = 0; i < UNITS.ALL.length; i++) {
-                $('.loc:not(.filter-out).' + UNITS.ALL[i].depCode).hover(
-                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-colorbox',
-                        '.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-text'
-                    ], ['hilite', 'normal-text']));
-            }
-
-            SvgPanZoom.init();
-        }
-
-        /** batchToggleClass: toggles the @classes of the specified @selectors
-         *  toggles the corresponding class of an array of selectors */
-        function batchToggleClass(selectors, classes) {
-            return function() {
-                console.assert(selectors.length === classes.length, 'Invalid Call to batchToggleClass');
-                for (var i = 0; i < selectors.length; i++) {
-                    $(selectors[i]).toggleClass(classes[i]);
-                }
-            };
         }
 
         /** getNodeByID: retrieves an SVG node given the @id (checks data-id) */
@@ -278,17 +234,17 @@
             return el;
         }
 
-    } //end mapCntrl
+    } //end MapCtrl
 })();
 
 
 
-// //       debugging to get neighbors
+// // debugging to get neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     console.log(this.id);
 // });
 
-// //debugging to highlight neighbors
+// // debugging to highlight neighbors
 // $('#svg').on('click', '#map .loc', function() {
 //     var n = Graphing.graph.nodes[this.id];
 //     $('#svg #map .loc').removeClass('hilite'); // clear old path
@@ -296,12 +252,3 @@
 //         $('#' + n._neighbors[i]).addClass('hilite');
 //     }
 // });
-
-// /** resets the path and removes all highlights (but leaves employee) */
-// function clear() {
-//     $('#svg #map g.non-walls *').removeClass('hilite'); // clear old path
-
-//     // clear graphing parameters
-//     vm.selectNode.toNode = null;
-//     vm.selectNode.fromNode = null;
-// }

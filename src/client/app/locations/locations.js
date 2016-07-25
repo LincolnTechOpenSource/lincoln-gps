@@ -7,9 +7,8 @@
 
     // handle locations table queries
     /* @ngInject */
-    function Locations($q, $http, $filter, $log) {
+    function Locations($q, $http, $filter, $log, LOC_URL) {
         var primePromise;
-        var URL = 'data/locations.json';
 
         var service = {
             locations: null,
@@ -47,7 +46,6 @@
         /** get: returns the location information specified by @locID
          * can assume that service.locations is not null */
         function get(locID) {
-            locID = ('00'+locID).slice(-3); // 0 pad number (we know range is 1..100s)
             return service.locations['loc' + locID];
         }
 
@@ -57,7 +55,7 @@
                 return primePromise;
             }
 
-            primePromise = $http.get(URL).then(success);
+            primePromise = $http.get(LOC_URL).then(success);
             return primePromise;
 
             function success(response) {

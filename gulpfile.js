@@ -2,7 +2,7 @@
  * gulpfile.js
  * adapted from https://github.com/tmaximini/generator-ionic-gulp
  */
-// jshint maxstatements:50
+// jshint maxstatements:54
 (function(){
     'use strict';
 
@@ -118,7 +118,7 @@
 
     // build templatecache, copy scripts.
     // if build: concat, minsafe, uglify and versionize
-    gulp.task('scripts',  (analyze ? ['analyze'] : null), function() {
+    gulp.task('scripts',  (analyze ? ['analyze'] : []), function() {
         var dest = path.join(targetDir, 'app');
         var minifyConfig = {
             collapseWhitespace: true,
@@ -205,6 +205,14 @@
         .pipe(gulp.dest(path.join(targetDir, 'app')))
 
         .on('error', errorHandler);
+    });
+
+    // copy dynamic resource files
+    gulp.task('office', function() {
+        return gulp
+            .src(paths.office)
+            .pipe(gulp.dest(path.join(targetDir, 'office')))
+            .on('error', errorHandler);
     });
 
     // copy data in for development
@@ -320,15 +328,17 @@
     // start watchers
     gulp.task('watchers', function() {
         plugins.livereload.listen();
-        gulp.watch('./src/client/content/styles/**/*.scss', ['styles']);
+        gulp.watch(['./src/client/content/styles/**/*.scss', './src/office/*.scss'], ['styles']);
         gulp.watch('./src/client/content/fonts/**', ['fonts']);
         gulp.watch('./src/client/content/icons/**', ['iconfont']);
         gulp.watch('./src/client/content/images/**', ['images']);
-        gulp.watch('./src/client/app/**/*.js', ['index']);
-        gulp.watch('./bower.json', ['vendor']);
+        gulp.watch(paths.js, ['index']);
+        gulp.watch('./gulp.config.json', ['load']);
+        gulp.watch('./package.json', ['vendor']);
         gulp.watch('./plugins/**/*.js', ['vendor']);
         gulp.watch('./src/client/app/**/*.html', ['index']);
         gulp.watch('./src/client/index.html', ['index']);
+        gulp.watch(paths.office, ['office']);
         gulp.watch('./src/server/data/*.json', ['data']);
         gulp.watch(targetDir + '/**')
             .on('change', plugins.livereload.changed)
@@ -347,6 +357,7 @@
                 'images',
                 'vendor'
             ],
+            'office',
             'data',
             'index',
             done);
@@ -362,6 +373,12 @@
             emulate ? ['ionic:emulate', 'watchers'] : 'noop',
             run ? 'ionic:run' : 'noop',
             done);
+    });
+
+    // build sequence
+    gulp.task('build', function() {
+        build = true;
+        runSequence('default');
     });
 
     ////////////////

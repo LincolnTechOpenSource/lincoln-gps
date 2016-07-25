@@ -11,3 +11,4 @@ www/
 .sass-cache
 *.DS_Store
 *.log
+./src/dist

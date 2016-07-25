@@ -1,6 +1,6 @@
 {
   "name": "lincoln_gps_waze",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "authors": [
     "Matthew Vasseur <mattvasseur@gmail.com>",
     "David Tahvildaran <davildaran@gmail.com>"
@@ -16,6 +16,7 @@
     "beepbeep": "^1.2.0",
     "del": "^2.2.0",
     "express": "^4.11.1",
+    "graph-dijkstra": "git+https://github.com/LincolnTechOpenSource/graph-dijkstra.git",
     "gulp": "^3.8.10",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-autoprefixer": "^3.1.0",
