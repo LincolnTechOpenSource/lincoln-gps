@@ -19,7 +19,7 @@
         JANITOR: 9, //janitor closet, storage room, etc
     };
 
-    // set of "units" - i.e. department and utility codes and names
+    // set of departments - i.e. employee and utility codes and names
     var DEPARTMENTS = (function() {
         return {
           EMPLOYEE: EMPLOYEE(),
@@ -29,7 +29,7 @@
 
         //------------------------------------
 
-        // types that can be found in the employee directory
+        // departments that can be found in the employee directory
         function EMPLOYEE() {
             return [
                 {depCode: 'account-setup', name: 'Account Set-Up'},
