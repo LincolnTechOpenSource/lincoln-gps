@@ -3,17 +3,11 @@
     'use strict';
 
     angular.module('app.core')
-        .constant('CONFIG', {
-            apiKey: 'AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs',
-            authDomain: 'lincoln-gps.firebaseapp.com',
-            databaseURL: 'https://lincoln-gps.firebaseio.com',
-            storageBucket: 'lincoln-gps.appspot.com',
-        })
         .factory('Firebase', Firebase);
 
     // General Firebase services
     /* @ngInject */
-    function Firebase($firebaseAuth, CONFIG) {
+    function Firebase($firebaseAuth, FIREBASE_CONFIG) {
         var isInit = false;
 
         var service = {
@@ -29,7 +23,7 @@
             // Initialize Firebase with credentials
             if (!isInit) {
                 /* global firebase */
-                firebase.initializeApp(CONFIG);
+                firebase.initializeApp(FIREBASE_CONFIG);
                 isInit = true;
             }
         }

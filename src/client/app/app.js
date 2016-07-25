@@ -11,13 +11,17 @@
      */
     angular
         .module('app', ['ionic', 'ngStorage', 'app.map', 'app.directory', 'app.account',
-                        'app.tab', 'app.loc', 'app.core'//, 'ngCordova', 'ngCordova.plugins'
+                        'app.tab', 'app.loc', 'app.core', 'office'//, 'ngCordova', 'ngCordova.plugins'
         ])
         .run(appRun)
         .config(appConfigure);
 
+    /** define the office module for the dynamic portion of the application
+     * its features are located in src/office */
+    angular.module('office', []);
+
     /* @ngInject */
-    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, DEFAULT_FILTERS) {
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, FILTERS) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -37,7 +41,7 @@
             // load/set local storage preferences
             if (!$localStorage.hasOwnProperty('prefs')) {
                 $localStorage.prefs = {
-                    filters: DEFAULT_FILTERS,
+                    filters: FILTERS,
                     showMapPopup: true
                 };
             }
