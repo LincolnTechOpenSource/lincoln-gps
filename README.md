@@ -135,13 +135,15 @@ serves as a space delimited array of all location IDs that should reside at that
 
 ## Authentication
 
-Authentication is done through [firebase](https://firebase.google.com/).
+Authentication is done through [firebase][firebase].
 
 To give users access to the application, you must create a new firebase project
-and replace the credentials located in [firebase.js](src/client/app/core/firebase.js)
+and replace the credentials located in [constants.js][constants]
 with your own. Then you can manage users in the **Auth** tab of the firebase console.
 
 ---
+
+[firebase]: https://firebase.google.com
 
 Local Storage (via **ngStorage**) stores the user's preferences. i.e., which map
 filters are active and whether to show the select on map popup.
@@ -197,11 +199,12 @@ CSS class it should filter out of the map (e.g., `desk`)
 * `LOC_URL`: url to the location of the json file (or api) that serves as the location database
    * Notice that you may simply edit `graph.json` or `location.json` in [`src/server/data`](src/server/data)
    if you are using a static, flat database (as in our example implementation)
+* `FIREBASE_CONFIG`: Your [firebase][firebase] credentials
 
 ### `map.svg`
 
 The SVG Map of the office layout. This should follow the structure described in
-[SVG Map Structure](#SVG-Map-Structure). When updating the map, leave the header, definitions,
+[SVG Map Structure](#svg-map-structure). When updating the map, leave the header, definitions,
 and legend, which will update according to `DEPARTMENTS`. Change the office layout
 located below `Line 80`, demarcated `UPDATE MAP BELOW LINE`.
 
@@ -215,7 +218,7 @@ The elements of your map should adhere to these properties:
 (the one that should display when clicked on the map) and add a `data-id` attribute
 with all other ids. e.g. `id="237" data-id="237 327"`
 
-### `map.scss`
+### [`map.scss`][src/office/map.scss]
 
 Customize your map's styling. By default each department should be given its own
 fill color. Path highlighting and other styling is separate (located in [`/src/client/content/styles/map.scss`](/src/client/content/styles/map.scss)
