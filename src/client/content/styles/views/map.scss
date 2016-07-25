@@ -73,11 +73,11 @@
 }
 
 /* svg canvas */
-
 #svg #map .canvas {
     fill: url(#canvas-grad);
     filter: url(#canvas-filter);
 }
+
 
 /* location styling and highlighting */
 #svg #map .loc {
@@ -129,16 +129,7 @@
 }
 
 
-// #svg #map .euc-printer{
-//      -webkit-transform: rotate(45deg);
-//     -moz-transform: rotate(45deg);
-//     -o-transform: rotate(45deg);
-//     -ms-transform: rotate(45deg);
-//     transform: rotate(45deg);
-// }
-
 /* SVG Map Legend Styles */
-
 #svg #map .dep-list .dep-list-text,
 #svg #map .legend-title {
     font-family: Verdana;
@@ -166,4 +157,6 @@
     stroke-width: 2px;
     stroke: #000000;
 }
+
+/* See dynamic/map.scss for department colors */
 /*----------------------------------------------------------------------------*/

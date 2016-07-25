@@ -6,6 +6,7 @@
  * [department class name]: [fill color]
  */
 $departments: (
+    // employee
     account-setup: #FF8080,
     accounting: #006600,
     acd: #808080,
@@ -34,6 +35,7 @@ $departments: (
     tpa: #FF7F50,
     vsa: #FFFF00,
 
+    // utilities
     broom: #787878,
     conf: #ADD8E6,
     copy-scan-rm: #1AD1FF,
@@ -41,6 +43,7 @@ $departments: (
     food: #D3D3D3,
     stairs-exit: #FF9988,
 
+    // extras (not really needed)
     vacant: #898989,
     lobby: #FF9988,
     privacy-pod: #D3D3D3,

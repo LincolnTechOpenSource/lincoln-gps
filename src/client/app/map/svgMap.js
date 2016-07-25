@@ -24,9 +24,6 @@ function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS, $timeout) {
 
 
             for (var i = 0; i < DEPARTMENTS.ALL.length; i++) {
-                // $timeout(function(i) {$('#svg #map .' + DEPARTMENTS.ALL[i].depCode)
-                //.css('fill', DEPARTMENTS.ALL[i].color);}, 0, false, i);
-
                 // attach hover element to each loc component so that hovering over location
                 // makes the corresponding legend item highlight
                 $('.loc:not(.filter-out).' + DEPARTMENTS.ALL[i].depCode).hover(
