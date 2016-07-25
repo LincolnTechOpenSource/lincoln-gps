@@ -102,10 +102,10 @@ which describes the **nodes** and **edges** in the graph.
 
 ## SVG Map Structure
 
-The map that is actually displayed is an SVG object made of elements that correspond
-to nodes in the graph and organized via css classes. For example, each node in the graph
-has the class `loc` each of the desks have the class `desk` and each path has the class
-`path`.
+The map that is actually displayed is an SVG object defined in [`src/dynamic/map.svg`](src/dynamic/map.svg)
+made of elements that correspond to nodes in the graph and organized via css classes.
+For example, each node in the graph has the class `loc` each of the desks have the
+class `desk` and each path has the class `path`.
 
 In order to join the SVG Map the Graph and the Locations Table, the **id** corresponding
 to a specific element/node/location must be the same. That is to say, if the conference
@@ -172,8 +172,12 @@ filters are active and whether to show the select on map popup.
    * The `--release` flag removes debug messages (e.g. `console.log`)
    * [gulp.config.json](gulp.config.json) defines the necessary paths in [gulpfile.js](gulpfile.js)
 
-## Ideas to Contribute
+## Adapting
 
+All of the files that must be changed in order to adapt this application to your
+own office layout and directory are located in [`src/dynamic`](src/dynamic).
+
+## Ideas to Contribute
 
 * [x] ~~Enable map zoom and pan~~
 * [x] ~~Mobile pinch to zoom~~
