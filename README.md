@@ -15,16 +15,16 @@ Current Release: **1.2.0**
 The locations table describes all of the important objects
 on the map (e.g., an employee's desk, a conference room, or a bathroom), ignoring paths.
 
-This table is pulled from a JSON object defined in [`src/server/data/locations.json`](src/server/data/graph.json)
+This table is pulled from a JSON object defined in [`src/server/data/locations.json`](src/server/data/locations.json)
 which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID associated with that location.
 
    * For each of these locations, **id**, **nType**, and **name** must be defined
       * **id:** the id of the location (this should be the same as in the graph and SVG element)
-      * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [`core.constants.js`][constants])
+      * **nType:** an enumeration for the type of location (e.g., 5 = Employee) (defined in [`constants.js`][constants])
       * **name:** a descriptive name for the location (e.g., "West Wing Team Room", or "Matthew Vasseur")
    * Additionally, employee locations (e.g., desks and offices) must also define **depCode**, **titleCode**, **email**, and **ext**
-      * **depCode:** the code for the employee's department (e.g., isd) (defined in [`core.constants.js`][constants])
-      * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [`core.constants.js`][constants])
+      * **depCode:** the code for the employee's department (e.g., isd) (defined in [`constants.js`][constants])
+      * **titleCode:** the code for the employee's professional title (e.g., exec, vp) (defined in [`constants.js`][constants])
       * **email:** the employee's contact email
       * **ext:** the employee's phone contact extension
    * For example, the following describes an office with two employees and one bathroom:
@@ -58,7 +58,7 @@ which gives each location a key of the form `loc[ID]`, where `[ID]` is the ID as
    }
    ```
 
-[constants]: ./src/client/app/core/core.constants.js
+[constants]: ./src/office/constants.js
 
 ## Graph Structure
 
@@ -77,7 +77,7 @@ which describes the **nodes** and **edges** in the graph.
 
    * Nodes must have **id**, and can optionally specify **props**, an object with **weight**, **nType**, or **neighbors**
       * **id:** the id of the node (this should be the same as in the locations table and SVG element)
-      * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [`core.constants.js`][constants])
+      * **nType:** an enumeration for the type of location (e.g., 3 = Path, 5 = Desk) (defined in [`constants.js`][constants])
       * **weight:** the weight of the node in Dijkstra's algorithm (only path nodes have non-zero weight)
       * **neighbors:** an array of ids that are considered adjacent to the node (can traverse to and from)
    * Edges should be an array of two element arrays of the IDs of the nodes on each end of the edge
@@ -102,7 +102,7 @@ which describes the **nodes** and **edges** in the graph.
 
 ## SVG Map Structure
 
-The map that is actually displayed is an SVG object defined in [`src/dynamic/map.svg`](src/dynamic/map.svg)
+The map that is actually displayed is an SVG object defined in [`src/office/map.svg`](src/office/map.svg)
 made of elements that correspond to nodes in the graph and organized via css classes.
 For example, each node in the graph has the class `loc` each of the desks have the
 class `desk` and each path has the class `path`.
