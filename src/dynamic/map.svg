@@ -63,12 +63,12 @@
         </g>
 
         <g class="dep-list" transform="translate(1700, 196)">
-            <g ng-repeat="dep in vm.deps[0]" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
+            <g ng-repeat="dep in vm.deps.slice(0, 14)" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
                 <text class="dep-list-text normal-text" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
                 <rect class="dep-list-colorbox" x="680" ng-attr-y="{{ -25 + $index * 100}}"></rect>
             </g>
 
-            <g ng-repeat="dep in vm.deps[1]" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
+            <g ng-repeat="dep in vm.deps.slice(14)" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
                 <text class="dep-list-text normal-text" x="800" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>
                 <rect class="dep-list-colorbox" x="1725" ng-attr-y="{{ -25 + $index * 100}}"></rect>
             </g>

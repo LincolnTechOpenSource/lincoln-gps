@@ -10,10 +10,7 @@ function svgMap($ionicGesture, SvgPanZoom, UNITS) {
         restrict: 'E',
         templateUrl: 'dynamic/map.svg',
         link: function(scope) {
-            scope.vm.deps = [
-                UNITS.ALL.slice(0, 14),
-                UNITS.ALL.slice(14)
-            ];
+            scope.vm.deps = UNITS.ALL;
 
             // map.svg must have ID = 'map'
             if ($('#svg svg').attr('id') !== 'map') {
