@@ -195,6 +195,8 @@ should have a **dispName** and boolean **disp**. The filter's key is the name of
 CSS class it should filter out of the map (e.g., `desk`)
 * `GRAPH_URL`: url to the location of the json file that initializes the graph
 * `LOC_URL`: url to the location of the json file (or api) that serves as the location database
+   * Notice that you may simply edit `graph.json` or `location.json` in [`src/server/data`](src/server/data)
+   if you are using a static, flat database (as in our example implementation)
 
 ### `map.svg`
 
@@ -213,13 +215,13 @@ The elements of your map should adhere to these properties:
 (the one that should display when clicked on the map) and add a `data-id` attribute
 with all other ids. e.g. `id="237" data-id="237 327"`
 
-### map.scss
+### `map.scss`
 
 Customize your map's styling. By default each department should be given its own
 fill color. Path highlighting and other styling is separate (located in [`/src/client/content/styles/map.scss`](/src/client/content/styles/map.scss)
 and does not need to be updated.
 
-### images/map-icons
+### `images/map-icons`
 
 Place any icons used in your map here.
 
