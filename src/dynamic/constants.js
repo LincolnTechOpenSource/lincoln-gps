@@ -20,9 +20,9 @@
     };
 
     // set of "units" - i.e. department and utility codes and names
-    var UNITS = (function() {
+    var DEPARTMENTS = (function() {
         return {
-          DEPARTMENTS: DEPARTMENTS(),
+          EMPLOYEE: EMPLOYEE(),
           UTILITIES: UTILITIES(),
           ALL: ALL()
         };
@@ -30,7 +30,7 @@
         //------------------------------------
 
         // types that can be found in the employee directory
-        function DEPARTMENTS() {
+        function EMPLOYEE() {
             return [
                 {depCode: 'account-setup', name: 'Account Set-Up'},
                 {depCode: 'accounting', name: 'Accounting'},
@@ -75,7 +75,7 @@
         }
 
         function ALL() {
-          return DEPARTMENTS().concat(UTILITIES());
+          return EMPLOYEE().concat(UTILITIES());
         }
     })();
 
@@ -130,7 +130,7 @@
     angular
         .module('dynamic')
         .constant('NODE_TYPES', NODE_TYPES)
-        .constant('UNITS', UNITS)
+        .constant('DEPARTMENTS', DEPARTMENTS)
         .constant('TITLES', TITLES)
         .constant('DEFAULT_FILTERS', DEFAULT_FILTERS);
 

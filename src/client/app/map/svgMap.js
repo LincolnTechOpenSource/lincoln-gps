@@ -5,12 +5,12 @@ angular
     .directive('svgMap', svgMap);
 
 /* @ngInject */
-function svgMap($ionicGesture, SvgPanZoom, UNITS) {
+function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS) {
     return {
         restrict: 'E',
         templateUrl: 'dynamic/map.svg',
         link: function(scope) {
-            scope.vm.deps = UNITS.ALL;
+            scope.vm.deps = DEPARTMENTS.ALL; // all of the departments in the legend
 
             // map.svg must have ID = 'map'
             if ($('#svg svg').attr('id') !== 'map') {
@@ -24,10 +24,10 @@ function svgMap($ionicGesture, SvgPanZoom, UNITS) {
 
             // attach hover element to each loc component so that hovering over location
             // makes the corresponding legend item highlight
-            for (var i = 0; i < UNITS.ALL.length; i++) {
-                $('.loc:not(.filter-out).' + UNITS.ALL[i].depCode).hover(
-                    batchToggleClass(['.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-colorbox',
-                        '.dep-list .' + UNITS.ALL[i].depCode + ' .dep-list-text'
+            for (var i = 0; i < DEPARTMENTS.ALL.length; i++) {
+                $('.loc:not(.filter-out).' + DEPARTMENTS.ALL[i].depCode).hover(
+                    batchToggleClass(['.dep-list .' + DEPARTMENTS.ALL[i].depCode + ' .dep-list-colorbox',
+                        '.dep-list .' + DEPARTMENTS.ALL[i].depCode + ' .dep-list-text'
                     ], ['hilite', 'normal-text']));
             }
 
