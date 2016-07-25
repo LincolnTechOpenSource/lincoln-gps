@@ -1,5 +1,4 @@
-<svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 3600 3700" xml:space="preserve">
-    <g id="all">
+<svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 3600 3700" xml:space="preserve">\
     <!-- patterns and definitions -->
     <defs>
         <!-- Background filter and gradient -->
@@ -607,7 +606,7 @@
             </g>
 
             <!-- Outer Lobby/Front Entrance -->
-            <g id="310" class="loc lobby elevator-exit stairs-exit">
+            <g id="310" class="loc elevator-exit stairs-exit">
                 <polyline points="1600,1560 1920,1560 2070,1715 2070,2030 1800,2030 1600,1840" />
                 <image x="1900" y="1840" width="105" height="170" xlink:href="content/images/map-icons/stairs.svg"></image>
                 <image x="1740" y="1590" width="85" height="170" xlink:href="content/images/map-icons/elevator.svg"></image>
@@ -1094,5 +1093,4 @@
         <line class="wall" x1="1310" x2="1310" y1="1025" y2="1120"></line>
     </g>
     <!-- End walls group -->
-    </g>
 </svg>

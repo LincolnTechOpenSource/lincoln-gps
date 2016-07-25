@@ -5,7 +5,7 @@ angular
     .directive('svgMap', svgMap);
 
 /* @ngInject */
-function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS) {
+function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS, $timeout) {
     return {
         restrict: 'E',
         templateUrl: 'dynamic/map.svg',
@@ -22,9 +22,13 @@ function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS) {
                 SvgPanZoom.map.zoom(SvgPanZoom.map.getZoom() * ev.gesture.scale);
             }, $('#map'));
 
-            // attach hover element to each loc component so that hovering over location
-            // makes the corresponding legend item highlight
+
             for (var i = 0; i < DEPARTMENTS.ALL.length; i++) {
+                // $timeout(function(i) {$('#svg #map .' + DEPARTMENTS.ALL[i].depCode)
+                //.css('fill', DEPARTMENTS.ALL[i].color);}, 0, false, i);
+
+                // attach hover element to each loc component so that hovering over location
+                // makes the corresponding legend item highlight
                 $('.loc:not(.filter-out).' + DEPARTMENTS.ALL[i].depCode).hover(
                     batchToggleClass(['.dep-list .' + DEPARTMENTS.ALL[i].depCode + ' .dep-list-colorbox',
                         '.dep-list .' + DEPARTMENTS.ALL[i].depCode + ' .dep-list-text'

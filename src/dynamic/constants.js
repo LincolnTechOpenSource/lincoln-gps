@@ -32,45 +32,45 @@
         // departments that can be found in the employee directory
         function EMPLOYEE() {
             return [
-                {depCode: 'account-setup', name: 'Account Set-Up'},
-                {depCode: 'accounting', name: 'Accounting'},
-                {depCode: 'acd', name: 'Advisor Consulting Division'},
-                {depCode: 'asset-mgmt', name: 'Asset Management'},
-                {depCode: 'branch-dev', name: 'Branch Development'},
-                {depCode: 'branch-serv', name: 'Branch Services'},
-                {depCode: 'busi-dev', name: 'Business Development'},
-                {depCode: 'compli-licens', name: 'Compliance and Licensing'},
-                {depCode: 'doc-mgmt', name: 'Document Management'},
-                {depCode: 'euc', name: 'End User Computing'},
-                {depCode: 'exec-suite', name: 'Executive Offices'},
-                {depCode: 'facilities', name: 'Facilites'},
-                {depCode: 'finance', name: 'Finance'},
-                {depCode: 'hr', name: 'Human Resources'},
-                {depCode: 'isd', name: 'Information Services Division'},
-                {depCode: 'im-r', name: 'Investment Management and Research'},
-                {depCode: 'isa', name: 'Investor Services Advisor'},
-                {depCode: 'mrkt-comm', name: 'Marketing and Communication'},
-                {depCode: 'one-time-financials', name: 'One Time Financials'},
-                {depCode: 'ops', name: 'Operations'},
-                {depCode: 'prvd-mgmt', name: 'Provider Management'},
-                {depCode: 'quality-cntrl', name: 'Quality Control'},
-                {depCode: 'rdi', name: 'Research Development Implementation'},
-                {depCode: 'reception', name: 'Reception'},
-                {depCode: 'retire-serv', name: 'Retirement Services'},
-                {depCode: 'tpa', name: 'Third Party Administrators'},
-                {depCode: 'vsa', name: 'Virtual Service Associates'}
+                {depCode: 'account-setup', name: 'Account Set-Up', color: '#fff'},
+                {depCode: 'accounting', name: 'Accounting', color:'#006600'},
+                {depCode: 'acd', name: 'Advisor Consulting Division', color:'#808080'},
+                {depCode: 'asset-mgmt', name: 'Asset Management', color:'#90EE90'},
+                {depCode: 'branch-dev', name: 'Branch Development', color:'#FF0000'},
+                {depCode: 'branch-serv', name: 'Branch Services', color:'#33CC33'},
+                {depCode: 'busi-dev', name: 'Business Development', color:'#FF6600'},
+                {depCode: 'compli-licens', name: 'Compliance and Licensing', color:'#FFFF99'},
+                {depCode: 'doc-mgmt', name: 'Document Management', color:'#CC5200'},
+                {depCode: 'euc', name: 'End User Computing', color:'#5CD65C'},
+                {depCode: 'exec-suite', name: 'Executive Offices', color:'#D3D3D3'},
+                {depCode: 'facilities', name: 'Facilites', color:'#DB4DFF'},
+                {depCode: 'finance', name: 'Finance', color:'#00FF00'},
+                {depCode: 'hr', name: 'Human Resources', color:'#CCCC00'},
+                {depCode: 'im-r', name: 'Investment Management and Research', color:'#FFC0CB'},
+                {depCode: 'isa', name: 'Investor Services Advisor', color:'#FFFF33'},
+                {depCode: 'isd', name: 'Information Services Division', color:'#3377FF'},
+                {depCode: 'mrkt-comm', name: 'Marketing and Communication', color:'#3399FF'},
+                {depCode: 'one-time-financials', name: 'One Time Financials', color:'#F4A460'},
+                {depCode: 'ops', name: 'Operations', color:'#FF6347'},
+                {depCode: 'prvd-mgmt', name: 'Provider Management', color:'#00FFFF'},
+                {depCode: 'quality-cntrl', name: 'Quality Control', color:'#EE82EE'},
+                {depCode: 'rdi', name: 'Research Development Implementation', color:'#FF3333'},
+                {depCode: 'reception', name: 'Reception', color:'#595959'},
+                {depCode: 'retire-serv', name: 'Retirement Services', color:'#990066'},
+                {depCode: 'tpa', name: 'Third Party Administrators', color:'#FF7F50'},
+                {depCode: 'vsa', name: 'Virtual Service Associates', color:'#FFFF00'}
             ];
         }
 
         // the rest
         function UTILITIES() {
             return [
-                {depCode: 'broom', name: 'Bathrooms'},
-                {depCode: 'conf', name: 'Conference Rooms'},
-                {depCode: 'copy-scan-rm', name: 'Copy Scan and Printing Rooms'},
-                {depCode: 'elevator-exit', name: 'Elevator Exits'},
-                {depCode: 'food', name: 'Lounge and Food'},
-                {depCode: 'stairs-exit', name: 'Stairs Exits'},
+                {depCode: 'broom', name: 'Bathrooms', color:'#787878'},
+                {depCode: 'conf', name: 'Conference Rooms', color:'#ADD8E6'},
+                {depCode: 'copy-scan-rm', name: 'Copy Scan and Printing Rooms', color:'#1AD1FF'},
+                {depCode: 'elevator-exit', name: 'Elevator Exits', color:'#FF9988'},
+                {depCode: 'food', name: 'Lounge and Food', color:'#D3D3D3'},
+                {depCode: 'stairs-exit', name: 'Stairs Exits', color:'#FF9988'},
             ];
         }
 

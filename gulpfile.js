@@ -328,7 +328,7 @@
     // start watchers
     gulp.task('watchers', function() {
         plugins.livereload.listen();
-        gulp.watch('./src/client/content/styles/**/*.scss', ['styles']);
+        gulp.watch(['./src/client/content/styles/**/*.scss', './src/dynamic/*.scss'], ['styles']);
         gulp.watch('./src/client/content/fonts/**', ['fonts']);
         gulp.watch('./src/client/content/icons/**', ['iconfont']);
         gulp.watch('./src/client/content/images/**', ['images']);
