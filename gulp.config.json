@@ -35,7 +35,8 @@
     "./node_modules/ionic-sdk/release/fonts/*.*"
   ],
   "images": [
-    "./src/client/content/images/**/*"
+    "./src/client/content/images/**/*",
+    "./src/dynamic/images/**/*"
   ],
   "dynamic": [
     "./src/dynamic/**/*.svg"
