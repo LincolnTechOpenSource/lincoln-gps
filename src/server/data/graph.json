@@ -724,7 +724,6 @@
         {"id": 1398, "neighbors": [1132, 1399, 1141], "weight": 1,"nType": 3},
         {"id": 1399, "neighbors": [1140, 1312, 1398, 1400], "weight": 1,"nType": 3},
         {"id": 1400, "neighbors": [1141, 1399], "weight": 1, "nType": 3}
-
     ],
     "edges": []
 }
