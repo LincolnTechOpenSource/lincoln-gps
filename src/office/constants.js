@@ -92,7 +92,7 @@
     ];
 
     // set of allowed filters (key is the class to filter)
-    var DEFAULT_FILTERS = {
+    var FILTERS = {
         'broom': {
             'disp': true,
             'dispName': 'Bathrooms'
@@ -132,7 +132,7 @@
         .constant('NODE_TYPES', NODE_TYPES)
         .constant('DEPARTMENTS', DEPARTMENTS)
         .constant('TITLES', TITLES)
-        .constant('DEFAULT_FILTERS', DEFAULT_FILTERS)
+        .constant('FILTERS', FILTERS)
         .constant('GRAPH_URL', 'data/graph.json') // url to graph data
         .constant('LOC_URL', 'data/locations.json'); // url to locations data
 

@@ -21,7 +21,7 @@
     angular.module('office', []);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, DEFAULT_FILTERS) {
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, FILTERS) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -41,7 +41,7 @@
             // load/set local storage preferences
             if (!$localStorage.hasOwnProperty('prefs')) {
                 $localStorage.prefs = {
-                    filters: DEFAULT_FILTERS,
+                    filters: FILTERS,
                     showMapPopup: true
                 };
             }

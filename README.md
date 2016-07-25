@@ -178,7 +178,37 @@ All of the files that must be changed in order to adapt this application to your
 own office layout and directory are located in [`src/office`](src/office). By editing
 these files you can customize and adapt the application to suite your personal office needs.
 
+### `constants.js`
+
+Here is where you should define the Node Types, Departments, Titles, Filters, and
+URLs for the graph and locations json files.
+
+* `NODE_TYPES`: enumerations for the possible nodes in the graph, 0 should always be `ERR`
+* `DEPARTMENTS`: list of employee and utility (non-employee) departments in the office.
+Each department should have a **depCode** and **name**. A department's `depCode`
+is the name of the CSS class associated with it. Department's listed under `UTILITIES`
+will not show on the Directory page
+* `TITLES`: list of titles for employees. Each title should have a **titleCode**
+and **name**
+* `FILTERS`: list of classes by which you can filter the office map. Each filter
+should have a **dispName** and boolean **disp**. The filter's key is the name of the
+CSS class it should filter out of the map (e.g., `desk`)
+* `GRAPH_URL`: url to the location of the json file that initializes the graph
+* `LOC_URL`: url to the location of the json file (or api) that serves as the location database
+
 ### `map.svg`
+
+The SVG Map of the office layout. This should follow the structure described in
+[SVG Map Structure](#SVG-Map-Structure). Additionally, it should have these properties:
+
+* Element that corresponds to a node in the graph should have the class `loc`
+* Element that corresponds to a walkable path should have the class `path`
+* Each element should have `id` equal to the id of its corresponding node in the graph
+* Elements should also have any classes that correspond to its node type (from `NODE_TYPES`), department
+(from `DEPARTMENTS`) or its filters (from `FILTERS`)
+* If an element corresponds to two locations, set its `id` to the main location
+(the one that should display when clicked on the map) and add a `data-id` attribute
+with all other ids. e.g. `id="237" data-id="237 327
 
 ## Ideas to Contribute
 
