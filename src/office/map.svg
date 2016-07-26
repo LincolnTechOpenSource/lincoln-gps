@@ -153,13 +153,13 @@
            width="150"
            id="rect4155-1-7-42"
            style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <rect
-           style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4378"
-           width="150"
-           height="200"
-           x="350"
-           y="800" />
+        <!--<rect-->
+        <!--   style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"-->
+        <!--   id="rect4378"-->
+        <!--   width="150"-->
+        <!--   height="200"-->
+        <!--   x="350"-->
+        <!--   y="800" />-->
         <rect
            y="800"
            x="500"
