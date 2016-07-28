@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
-    id="map" viewBox="0 0 1650 2050" height="100%" width="100%">
-  <defs
-     id="defs4" />
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" id="map" viewBox="0 0 1650 2050"
+    height="100%" width="100%">
     <defs>
         <!-- Background filter and gradient -->
         <radialGradient id="canvas-grad" cx="0%" cy="0%" r="100%" gradientUnits="objectBoundingBox">
@@ -34,8 +32,8 @@
                 <stop class="inner" offset=".95" stop-opacity="0" />
                 <stop class="outer" offset=".95" />
             </linearGradient>
-            <rect fill="url(#gradHor)" x="0" y="0" width="1" height="1"/>
-            <rect fill="url(#gradVert)" x="0" y="0" width="1" height="1"/>
+            <rect fill="url(#gradHor)" x="0" y="0" width="1" height="1" />
+            <rect fill="url(#gradVert)" x="0" y="0" width="1" height="1" />
             <!--<circle cx="0.5" cy="0.5" r="0.25" fill="yellow" />-->
         </pattern>
 
@@ -63,199 +61,58 @@
 
 
     <g class="non-wall" transform="translate(50,50)">
-       <g class="desks">
+        <g class="misc">
+            <rect y="325" x="600" height="425" width="100" id="27" class="loc conf" />
+            <rect y="550" x="700" height="200" width="150" id="28" class="loc conf" />
+            <rect y="450" x="850" height="300" width="300" id="29" class="loc conf" />
+            <path d="m 700,325 0,0 0,225 150,0 0,-100 100,0 0,-125 z" id="30" class="loc food" />
+            <rect y="325" x="950" height="125" width="100" id="31" class="loc broom mbroom" />
+            <rect y="325" x="1050" height="125" width="100" id="32" class="loc broom wbroom" />
+
+            <rect y="700" x="1450" height="75" width="50" id="33" class="loc stairs-exit" />
+            <rect y="335" x="300" height="75" width="50" id="34" class="loc stairs-exit" />
+            <rect y="450" x="300" height="150" width="50" id="35" class="loc elevator-exit" />
+            <path d="m 0,1900 0,-300 200,0 0,150 400,0 0,-150 200,0 0,300 z" id="36" class="loc food kitchen" />
+
+            <rect y="1300" x="0" height="100" width="125" id="37" class="loc broom mbroom" />
+            <rect y="1400" x="0" height="100" width="125" id="38" class="loc broom wbroom" />
+        </g>
+        <g class="desks">
             <rect y="0" x="0" height="200" width="150" id="1" class="loc desk office isd" />
-            <rect y="0" x="150" height="200" width="150" id="2" class="loc desk cubicle isd" />
-            <rect y="0" x="300" height="200" width="150" id="3" class="loc desk cubicle isd" />
+            <rect y="0" x="150" height="200" width="150" id="2" class="loc desk office isd" />
+            <rect y="0" x="300" height="200" width="150" id="3" class="loc desk office isd" />
+
             <rect y="0" x="449" height="200" width="150" id="4" class="loc desk cubicle euc" />
             <rect y="0" x="600" height="200" width="150" id="5" class="loc desk cubicle euc" />
             <rect y="0" x="750" height="200" width="150" id="6" class="loc desk cubicle euc" />
+
             <rect y="0" x="900" height="200" width="150" id="7" class="loc desk cubicle branch-dev" />
             <rect y="0" x="1050" height="200" width="150" id="8" class="loc desk cubicle branch-dev" />
             <path d="m 1500,0 -300,0 0,200 100,0 z" id="9" class="loc desk office branch-dev" />
+
             <path d="m 1500,0 -200,200 0,100 200,0 z" id="10" class="loc desk office hr" />
             <rect y="300" x="1300" height="150" width="200" id="11" class="loc desk cubicle hr" />
             <rect y="450" x="1300" height="150" width="200" id="12" class="loc desk cubicle hr" />
+
             <rect y="800" x="0" height="400" width="200" id="13" class="loc desk office im-r" />
-            <rect y="800" x="200" height="200" width="150" id="14" class="loc desk office finance" />
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <!--<rect-->
-            <!--   style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"-->
-            <!--   id="rect4378"-->
-            <!--   width="150"-->
-            <!--   height="200"-->
-            <!--   x="350"-->
-            <!--   y="800" />-->
-            <rect
-               y="800"
-               x="500"
-               height="200"
-               width="150"
-               id="rect4380"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4382"
-               width="150"
-               height="200"
-               x="650"
-               y="800" />
-            <rect
-               y="800"
-               x="800"
-               height="200"
-               width="150"
-               id="rect4384"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4386"
-               width="150"
-               height="200"
-               x="950"
-               y="800" />
-            <rect
-               y="800"
-               x="1100"
-               height="200"
-               width="150"
-               id="rect4388"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#0000e1;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4390"
-               width="250"
-               height="200"
-               x="1250"
-               y="800" />
-            <rect
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:0.70717156;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4407"
-               width="150"
-               height="100"
-               x="150"
-               y="525" />
-            <rect
-               y="425"
-               x="150"
-               height="100"
-               width="150"
-               id="rect4155-1-7-4-5-1"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:0.70717156;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:0.70717156;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4409"
-               width="150"
-               height="100"
-               x="150"
-               y="325" />
-            <path
-               id="rect4272-3"
-               d="m 150,750 0,-75 150,0 z"
-               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#a0a0e7;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60988384;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
-            <path
-               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#96ff00;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60988384;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-               d="m 150,750 150,0 0,-75 z"
-               id="path4430" />
-            <rect
-               y="325"
-               x="600"
-               height="425"
-               width="100"
-               id="rect4432"
-               style="fill:#a0a0e7;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               y="550"
-               x="700"
-               height="200"
-               width="150"
-               id="rect4436"
-               style="fill:#009600;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#a0a0e7;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4442"
-               width="300"
-               height="300"
-               x="850"
-               y="450" />
-            <path
-               id="rect4444"
-               d="m 700,325 0,0 0,225 150,0 0,-100 100,0 0,-125 z"
-               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#d7d7ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
-            <rect
-               style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:0.64561039;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4448"
-               width="100"
-               height="125"
-               x="950"
-               y="325" />
-            <rect
-               y="325"
-               x="1050"
-               height="125"
-               width="100"
-               id="rect4450"
-               style="fill:#646464;fill-opacity:1;stroke:#000000;stroke-width:0.64561039;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               y="700"
-               x="1450"
-               height="75"
-               width="50"
-               id="rect4452"
-               style="fill:#c3ab2d;fill-opacity:1;stroke:#4b4b4b;stroke-width:0.92123187;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#c3ab2d;fill-opacity:1;stroke:#4b4b4b;stroke-width:0.92123187;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4454"
-               width="50"
-               height="75"
-               x="300"
-               y="335" />
-            <rect
-               y="450"
-               x="300"
-               height="150"
-               width="50"
-               id="rect4456"
-               style="fill:#c3ab2d;fill-opacity:1;stroke:#4b4b4b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <path
-               id="path2323"
-               d="m 0,1900 0,-300 200,0 0,150 400,0 0,-150 200,0 0,300 z"
-               style="color:#fff;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#d7d7ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+            <rect y="800" x="200" height="200" width="150" id="14" class="loc desk cubicle im-r" />
 
-            <rect
-               y="1100"
-               x="500"
-               height="150"
-               width="300"
-               id="rect415123"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               y="1250"
-               x="500"
-               height="150"
-               width="300"
-               id="rect415123"
-               style="fill:#ca0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <rect y="800" x="500" height="200" width="150" id="15" class="loc desk cubicle compliance" />
+            <rect y="800" x="650" height="200" width="150" id="16" class="loc desk cubicle compliance" />
+            <rect y="800" x="800" height="200" width="150" id="17" class="loc desk cubicle compliance" />
+            <rect y="800" x="950" height="200" width="150" id="18" class="loc desk cubicle compliance" />
+            <rect y="800" x="1100" height="200" width="150" id="19" class="loc desk cubicle compliance" />
+            <rect y="800" x="1250" height="200" width="250" id="20" class="loc desk office compliance" />
 
-            <path
-               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#96ff00;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60988384;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-               d="m 500,1400 300,0 0,200 -200,0 z"
-               id="path4430" />
+            <rect y="525" x="150" height="100" width="150" id="21" class="loc desk cubicle isd" />
+            <rect y="425" x="150" height="100" width="150" id="22" class="loc desk cubicle isd" />
+            <rect y="325" x="150" height="100" width="150" id="23" class="loc desk cubicle isd" />
 
-            <rect
-               y="1300"
-               x="0"
-               height="100"
-               width="125"
-               id="rect4450"
-               style="fill:#646464;fill-opacity:1;stroke:#000000;stroke-width:0.64561039;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-            <rect
-               style="fill:#4b4b4b;fill-opacity:1;stroke:#000000;stroke-width:0.64561039;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-               id="rect4448"
-               width="125"
-               height="100"
-               x="0"
-               y="1400" />
-            </g>
+            <rect y="1100" x="500" height="150" width="300" id="24" class="loc desk office compliance" />
+
+            <rect y="1250" x="500" height="150" width="300" id="25" class="loc desk office ops" />
+            <path d="m 500,1400 300,0 0,200 -200,0 z" id="26" class="loc desk office ops" />
         </g>
+
+    </g>
 </svg>
