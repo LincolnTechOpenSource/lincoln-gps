@@ -39,7 +39,7 @@
                 {depCode: 'branch-dev', name: 'Branch Development'},
                 {depCode: 'branch-serv', name: 'Branch Services'},
                 {depCode: 'busi-dev', name: 'Business Development'},
-                {depCode: 'compli-licens', name: 'Compliance and Licensing'},
+                {depCode: 'compliance', name: 'Compliance and Licensing'},
                 {depCode: 'doc-mgmt', name: 'Document Management'},
                 {depCode: 'euc', name: 'End User Computing'},
                 {depCode: 'exec-suite', name: 'Executive Offices'},
