@@ -61,6 +61,61 @@
 
 
     <g class="non-wall" transform="translate(50,50)">
+        <g class="paths">
+            <rect y="200" x="0" height="125" width="150" id="101" class="loc path" />
+            <rect y="200" x="150" height="125" width="150" id="102" class="loc path" />
+            <rect y="200" x="300" height="125" width="150" id="103" class="loc path" />
+            <rect y="200" x="450" height="125" width="150" id="104" class="loc path" />
+            <rect y="200" x="600" height="125" width="150" id="105" class="loc path" />
+            <rect y="200" x="750" height="125" width="150" id="106" class="loc path" />
+            <rect y="200" x="900" height="125" width="150" id="107" class="loc path" />
+            <rect y="200" x="1050" height="125" width="150" id="108" class="loc path" />
+            <rect y="200" x="1200" height="125" width="100" id="109" class="loc path" />
+
+            <rect y="325" x="1150" height="125" width="150" id="110" class="loc path" />
+            <rect y="450" x="1150" height="125" width="150" id="111" class="loc path" />
+
+            <rect y="575" x="1150" height="175" width="150" id="112" class="loc path" />
+            <rect y="575" x="1300" height="100" width="150" id="113" class="loc path" />
+            <rect y="675" x="1300" height="75" width="150" id="114" class="loc path" />
+            <rect y="750" x="1150" height="50" width="150" id="115" class="loc path" />
+            <rect y="750" x="1300" height="50" width="200" id="116" class="loc path" />
+            <rect y="750" x="1100" height="50" width="50" id="117" class="loc path" />
+            <rect y="750" x="950" height="50" width="150" id="118" class="loc path" />
+            <rect y="750" x="800" height="50" width="150" id="119" class="loc path" />
+            <rect y="750" x="700" height="50" width="100" id="120" class="loc path" />
+            <rect y="750" x="650" height="50" width="50" id="121" class="loc path" />
+            <rect y="750" x="500" height="50" width="150" id="122" class="loc path" />
+
+            <rect y="325" x="500" height="425" width="100" id="122" class="loc path" />
+            <rect y="325" x="450" height="425" width="50" id="122" class="loc path" />
+            <rect y="750" x="450" height="50" width="50" id="122" class="loc path" />
+
+            <rect y="325" x="300" height="100" width="150" id="120" class="loc path" />
+            <rect y="425" x="300" height="100" width="150" id="120" class="loc path" />
+            <rect y="525" x="300" height="100" width="150" id="120" class="loc path" />
+            <rect y="625" x="300" height="175" width="150" id="120" class="loc path" />
+
+            <rect y="625" x="200" height="175" width="100" id="120" class="loc path" />
+
+            <rect y="625" x="0" height="175" width="200" id="120" class="loc path" />
+            <rect y="325" x="0" height="100" width="150" id="120" class="loc path" />
+            <rect y="425" x="0" height="100" width="150" id="120" class="loc path" />
+            <rect y="525" x="0" height="100" width="150" id="120" class="loc path" />
+
+            <rect y="800" x="200" height="200" width="100" id="120" class="loc path" />
+            <rect y="1000" x="200" height="100" width="100" id="120" class="loc path" />
+            <rect y="1000" x="300" height="100" width="150" id="120" class="loc path" />
+            <rect y="1000" x="450" height="100" width="50" id="120" class="loc path" />
+            <rect y="1100" x="200" height="100" width="100" id="120" class="loc path" />
+            <rect y="800" x="450" height="200" width="50" id="122" class="loc path" />
+            <rect y="1000" x="500" height="100" width="150" id="120" class="loc path" />
+            <rect y="1000" x="650" height="100" width="150" id="120" class="loc path" />
+
+
+            <rect y="1600" x="200" height="150" width="400" id="120" class="loc path" />
+
+        </g>
         <g class="misc">
             <rect y="325" x="600" height="425" width="100" id="27" class="loc conf" />
             <rect y="550" x="700" height="200" width="150" id="28" class="loc conf" />
@@ -69,9 +124,10 @@
             <rect y="325" x="950" height="125" width="100" id="31" class="loc broom mbroom" />
             <rect y="325" x="1050" height="125" width="100" id="32" class="loc broom wbroom" />
 
-            <rect y="700" x="1450" height="75" width="50" id="33" class="loc stairs-exit" />
-            <rect y="335" x="300" height="75" width="50" id="34" class="loc stairs-exit" />
-            <rect y="450" x="300" height="150" width="50" id="35" class="loc elevator-exit" />
+            <rect y="675" x="1450" height="75" width="50" id="33" class="loc stairs-exit" />
+            <rect y="575" x="1450" height="100" width="50" id="33" class="loc elevator-exit" />
+            <!--<rect y="335" x="300" height="75" width="50" id="34" class="loc stairs-exit" />-->
+            <!--<rect y="450" x="300" height="150" width="50" id="35" class="loc elevator-exit" />-->
             <path d="m 0,1900 0,-300 200,0 0,150 400,0 0,-150 200,0 0,300 z" id="36" class="loc food kitchen" />
 
             <rect y="1300" x="0" height="100" width="125" id="37" class="loc broom mbroom" />
@@ -90,12 +146,12 @@
             <rect y="0" x="1050" height="200" width="150" id="8" class="loc desk cubicle branch-dev" />
             <path d="m 1500,0 -300,0 0,200 100,0 z" id="9" class="loc desk office branch-dev" />
 
-            <path d="m 1500,0 -200,200 0,100 200,0 z" id="10" class="loc desk office hr" />
-            <rect y="300" x="1300" height="150" width="200" id="11" class="loc desk cubicle hr" />
-            <rect y="450" x="1300" height="150" width="200" id="12" class="loc desk cubicle hr" />
+            <path d="m 1500,0 -200,200 0,125 200,0 z" id="10" class="loc desk office hr" />
+            <rect y="325" x="1300" height="125" width="200" id="11" class="loc desk cubicle hr" />
+            <rect y="450" x="1300" height="125" width="200" id="12" class="loc desk cubicle hr" />
 
             <rect y="800" x="0" height="400" width="200" id="13" class="loc desk office im-r" />
-            <rect y="800" x="200" height="200" width="150" id="14" class="loc desk cubicle im-r" />
+            <!--<rect y="800" x="200" height="200" width="150" id="14" class="loc desk cubicle im-r" />-->
 
             <rect y="800" x="500" height="200" width="150" id="15" class="loc desk cubicle compliance" />
             <rect y="800" x="650" height="200" width="150" id="16" class="loc desk cubicle compliance" />
@@ -113,6 +169,5 @@
             <rect y="1250" x="500" height="150" width="300" id="25" class="loc desk office ops" />
             <path d="m 500,1400 300,0 0,200 -200,0 z" id="26" class="loc desk office ops" />
         </g>
-
     </g>
 </svg>
