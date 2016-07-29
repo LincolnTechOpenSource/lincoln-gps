@@ -82,7 +82,7 @@
 /* location styling and highlighting */
 #svg #map .loc {
     stroke: #000000;
-    stroke-width: 2px;
+    stroke-width: 1px;
 }
 
 #svg #map .loc.hilite,
@@ -112,8 +112,8 @@
 
 /* path highlighting and coloring */
 #svg #map .loc.path {
-    //  stroke: black;
-    //  fill: darkgray;
+    // stroke: black;
+    // fill: darkgray;
     stroke: none;
     fill: none;
     stroke-width: 1px;
