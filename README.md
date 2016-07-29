@@ -205,8 +205,7 @@ CSS class it should filter out of the map (e.g., `desk`)
 
 The SVG Map of the office layout. This should follow the structure described in
 [SVG Map Structure](#svg-map-structure). When updating the map, leave the header, definitions,
-and legend, which will update according to `DEPARTMENTS`. Change the office layout
-located below `Line 80`, demarcated `UPDATE MAP BELOW LINE`.
+and legend, which will update according to `DEPARTMENTS`.
 
 The elements of your map should adhere to these properties:
 * Element that corresponds to a node in the graph should have the class `loc`
