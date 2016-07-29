@@ -1,11 +1,11 @@
 {
-  "name": "lincoln_gps_waze",
-  "version": "1.2.0",
+  "name": "office_employee_locator",
+  "version": "1.3.0",
   "authors": [
     "Matthew Vasseur <mattvasseur@gmail.com>",
     "David Tahvildaran <davildaran@gmail.com>"
   ],
-  "description": "Lincoln GPS: A Lincoln Office Locator",
+  "description": "Office Employee Locator: An employee locator for home office employees",
   "license": "MIT",
   "repository": {
     "type": "git",
