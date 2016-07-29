@@ -1,10 +1,10 @@
 
 [//]: # (ReadMe.md)
 
-# Lincoln Employee Locator
+# Office Employee Locator
 
-A hybrid mobile application that serves as an Employee Locator for Lincoln
-Investment employees.
+A hybrid mobile application that serves as an Employee Locator for home office
+employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
