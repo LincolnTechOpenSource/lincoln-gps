@@ -59,6 +59,25 @@
         <path d="m 50,50 1500,0 0,1000 -700,0 0,900 -800,0 z" class="wall" id="outer-border" />
     </g>
 
+    <g class="legend">
+        <!-- Map legend/key -->
+        <g class="legend-title">
+            <text x="900" y="1100">DEPARTMENTS/UTILITIES</text>
+        </g>
+
+        <g class="dep-list" transform="translate(875, 1150)">
+            <g ng-repeat="dep in vm.deps.slice(0, 12)" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">
+                <text class="dep-list-text normal-text" ng-attr-y="{{ $index * 70 }}">{{ dep.name }}</text>
+                <rect class="dep-list-colorbox" x="645" ng-attr-y="{{ -25 + $index * 70}}"></rect>
+            </g>
+
+            <!--<g ng-repeat="dep in vm.deps.slice(12)" ng-class="dep.depCode" data-code="{{ dep.depCode }}" ng-mouseenter="vm.legendHover($event)" ng-mouseleave="vm.legendHover($event)">-->
+            <!--    <text class="dep-list-text normal-text" x="400" ng-attr-y="{{ $index * 100 }}">{{ dep.name }}</text>-->
+            <!--    <rect class="dep-list-colorbox" x="750" ng-attr-y="{{ -25 + $index * 100}}"></rect>-->
+            <!--</g>-->
+        </g> <!-- End Department List -->
+    </g>
+    <!-- End Map legend group -->
 
     <g class="non-walls" transform="translate(50,50)">
         <g class="paths">

@@ -3,12 +3,12 @@
 
 # Office Employee Locator
 
-A hybrid mobile application that serves as an Employee Locator for home office
+A hybrid mobile application that serves as an employee locator for home office
 employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.2.0**
+Current Release: **1.3.0**
 
 ## Locations Database
 
@@ -167,7 +167,7 @@ filters are active and whether to show the select on map popup.
       * Starting the local server to serve from `.dev`
       * Starting watchers to automatically rebuild upon saved changes
    * The `--noAnalyze` flag (`--na`) is the same as above, but does not analyze (making recompile faster)
-   * The `--build` flag (`-b`) starts the non-development build process
+   * The `--build` flag (`-b`) starts the non-development build process (same as `gulp build`)
       * In addition to the above: Concats all `*.js` sources into a single `app.js` file
       * Versions `main.css` and `app.js`
       * Builds everything into `www`
@@ -178,7 +178,7 @@ filters are active and whether to show the select on map popup.
 
 All of the files that must be changed in order to adapt this application to your
 own office layout and directory are located in [`src/office`](src/office). By editing
-these files you can customize and adapt the application to suite your personal office needs.
+these files you can customize and adapt the application to suit your personal office needs.
 
 ### [`constants.js`](src/office/constants.js)
 
@@ -205,8 +205,7 @@ CSS class it should filter out of the map (e.g., `desk`)
 
 The SVG Map of the office layout. This should follow the structure described in
 [SVG Map Structure](#svg-map-structure). When updating the map, leave the header, definitions,
-and legend, which will update according to `DEPARTMENTS`. Change the office layout
-located below `Line 80`, demarcated `UPDATE MAP BELOW LINE`.
+and legend, which will update according to `DEPARTMENTS`.
 
 The elements of your map should adhere to these properties:
 * Element that corresponds to a node in the graph should have the class `loc`
