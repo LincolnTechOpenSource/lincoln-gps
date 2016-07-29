@@ -222,16 +222,6 @@
 
         function documentReady() {
             $('#svg').on('click', '#map .loc:not(.path)', checkSelect);
-
-            // debugging to highlight neighbors
-            $('#svg').on('click', '#map .loc', function() {
-                var n = Graphing.graph.find(this.id);
-                console.log(n.neighbors);
-                $('#svg #map .loc').removeClass('hilite'); // clear old path
-                for (var i = 0; i < n.neighbors.length; i++) {
-                    $('#' + n.neighbors[i]).addClass('hilite');
-                }
-            });
         }
 
         /** getNodeByID: retrieves an SVG node given the @id (checks data-id) */

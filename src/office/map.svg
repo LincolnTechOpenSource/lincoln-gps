@@ -60,7 +60,7 @@
     </g>
 
 
-    <g class="non-wall" transform="translate(50,50)">
+    <g class="non-walls" transform="translate(50,50)">
         <g class="paths">
             <rect y="200" x="0" height="125" width="150" id="101" class="loc path" />
             <rect y="200" x="150" height="125" width="150" id="102" class="loc path" />
