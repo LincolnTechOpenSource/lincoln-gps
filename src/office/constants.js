@@ -81,14 +81,26 @@
 
     // set of available titles
     var TITLES = [
+        {titleCode: 'ceo', name: 'Chief Executive Officer'},
+        {titleCode: 'cfo', name: 'Cheif Financial Officer'},
+        {titleCode: 'coo', name: 'Chief Operational Officer'},
+        {titleCode: 'cco', name: 'Chief Compliance Officer'},
         {titleCode: 'vp', name: 'Vice President'},
+        {titleCode: 'svp', name: 'Senior Vice President'},
         {titleCode: 'exec', name: 'Executive Director'},
-        {titleCode: 'md', name: 'Managing Director'},
+        {titleCode: 'dir', name: 'Director'},
+        {titleCode: 'mng', name: 'Manager'},
+        {titleCode: 'ast', name: 'Executive Assistant'},
+        {titleCode: 'spr', name: 'Supervisor'},
+        {titleCode: 'cor', name: 'Coordinator'},
         {titleCode: 'int', name: 'Intern'},
         {titleCode: 'ana', name: 'Analyst'},
-        {titleCode: 'ass', name: 'Associate'},
+        {titleCode: 'adm', name: 'Administrator'},
         {titleCode: 'dev', name: 'Software Developer'},
-        {titleCode: 'pres', name: 'President'}
+        {titleCode: 'pres', name: 'President'},
+        {titleCode: 'cons', name: 'Consultant'},
+        {titleCode: 'srcons', name: 'Senior Consultant'}
+        
     ];
 
     // set of allowed filters (key is the class to filter)
