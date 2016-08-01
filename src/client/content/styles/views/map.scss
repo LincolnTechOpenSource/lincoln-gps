@@ -82,7 +82,7 @@
 /* location styling and highlighting */
 #svg #map .loc {
     stroke: #000000;
-    stroke-width: 2px;
+    stroke-width: 1px;
 }
 
 #svg #map .loc.hilite,
@@ -112,8 +112,8 @@
 
 /* path highlighting and coloring */
 #svg #map .loc.path {
-    //  stroke: black;
-    //  fill: darkgray;
+    // stroke: black;
+    // fill: darkgray;
     stroke: none;
     fill: none;
     stroke-width: 1px;
@@ -137,12 +137,12 @@
 }
 
 #svg #map .legend-title {
-    font-size: 100px;
+    font-size: 3em;
     fill: #000000;
 }
 
 #svg #map .dep-list .dep-list-text {
-    font-size: 40px;
+    font-size: 2em;
     text-decoration: underline;
 }
 
@@ -158,5 +158,5 @@
     stroke: #000000;
 }
 
-/* See dynamic/map.scss for department colors */
+/* See office/map.scss for department colors */
 /*----------------------------------------------------------------------------*/
