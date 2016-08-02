@@ -17,7 +17,6 @@
     // activate the controller on view enter
     // $scope.$on('$ionicView.enter', activate);
 
-
     //------------------------------------------------//
 
     /** run upon controller activate */
