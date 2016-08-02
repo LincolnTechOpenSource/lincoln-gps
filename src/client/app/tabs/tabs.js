@@ -53,10 +53,10 @@
         // Login action
         $scope.doLogin = doLogin;
 
-        // Log out
-        $scope.logout = function() {
-            // Firebase.auth().$signOut();
-        };
+        // // Log out
+        // $scope.logout = function() {
+        //     Firebase.auth().$signOut();
+        // };
 
         // Firebase.auth().$onAuthStateChanged(userAuth);
 
