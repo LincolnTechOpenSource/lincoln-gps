@@ -5,5 +5,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.core', ['firebase']);
+  angular.module('app.core', []);
 })();
