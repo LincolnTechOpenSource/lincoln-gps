@@ -580,6 +580,7 @@
         "email": "MWilliams@LincolnInvestment.com",
         "name": "Mary Williams",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "isd",
         "ext": "4598"
     },
@@ -588,6 +589,7 @@
         "email": "KWhelan@LincolnInvestment.com",
         "name": "Kerrie Whelan",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "euc",
         "ext": "4516"
     },
@@ -596,6 +598,7 @@
         "email": "JLempa@LincolnInvestment.com",
         "name": "Joseph Lempa",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "isd",
         "ext": "4571"
     },
@@ -604,6 +607,7 @@
         "email": "GMaddox@LincolnInvestment.com",
         "name": "Gregory Maddox",
         "nType": 5,
+        "titleCode": "adm",
         "depCode": "euc",
         "ext": "4513"
     },
@@ -612,6 +616,7 @@
         "email": "kmalone@lincolninvestment.com",
         "name": "Katie Malone",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "ops",
         "ext": "4681"
     },
@@ -620,6 +625,7 @@
         "email": "jstenderowicz@lincolninvestment.com",
         "name": "Jennifer L. M. Stenderowicz",
         "nType": 5,
+        "titleCode": "acc",
         "depCode": "accounting",
         "ext": "4565"
     },
@@ -628,6 +634,7 @@
         "email": "blittlejohn@LincolnInvestment.com",
         "name": "Brenda J Littlejohn",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "compliance",
         "ext": "4529"
     },
@@ -636,6 +643,7 @@
         "email": "jweiss@LincolnInvestment.com",
         "name": "Jared Weiss",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "isa",
         "ext": "n/a"
     },
@@ -644,6 +652,7 @@
         "email": "nforst@lincolninvestment.com",
         "name": "Nicholas A Forst",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "7506"
     },
@@ -652,6 +661,7 @@
         "email": "SWordinger@LincolnInvestment.com",
         "name": "Susan Wordinger",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "vsa",
         "ext": "4676"
     },
@@ -660,6 +670,7 @@
         "email": "alion@LincolnInvestment.com",
         "name": "Adam Lion",
         "nType": 5,
+        "titleCode": "mng",
         "depCode": "euc",
         "ext": "4666"
     },
@@ -668,6 +679,7 @@
         "email": "THiett@LincolnInvestment.com",
         "name": "Tiffany D. Hiett",
         "nType": 5,
+        "titleCode": "mng",
         "depCode": "branch-dev",
         "ext": "4618"
     },
@@ -676,6 +688,7 @@
         "email": "kackiewicz@lincolninvestment.com",
         "name": "Kelly A Ackiewicz",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "doc-mgmt",
         "ext": "4562"
     },
@@ -684,6 +697,7 @@
         "email": "n/a",
         "name": "Judith K Tshibangu",
         "nType": 5,
+        "titleCode": "",
         "depCode": "mrkt-comm",
         "ext": "n/a"
     },
@@ -692,6 +706,7 @@
         "email": "PHawkins@LincolnInvestment.com",
         "name": "Phyllis D Hawkins",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4526"
     },
@@ -700,6 +715,7 @@
         "email": "mcarter@lincolninvestment.com",
         "name": "Michele Carter",
         "nType": 5,
+        "titleCode": "cor",
         "depCode": "rdi",
         "ext": "4672"
     },
@@ -708,6 +724,7 @@
         "email": "MFisher@LincolnInvestment.com",
         "name": "Michael A Fisher",
         "nType": 5,
+        "titleCode": "vp",
         "depCode": "acd",
         "ext": "4617"
     },
@@ -716,6 +733,7 @@
         "email": "n/a",
         "name": "Gregory Weidler",
         "nType": 5,
+        "titleCode": "",
         "depCode": "exec-suite",
         "ext": "n/a"
     },
@@ -724,6 +742,7 @@
         "email": "afarighi@lincolninvestment.com",
         "name": "Ahmad F Farighi",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "isd",
         "ext": "4511"
     },
@@ -732,6 +751,7 @@
         "email": "lmanon@lincolninvestment.com",
         "name": "Louis Manon",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "isa",
         "ext": "4536"
     },
@@ -740,6 +760,7 @@
         "email": "LHeist@LincolnInvestment.com",
         "name": "Linda R Heist",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "mrkt-comm",
         "ext": "4611"
     },
@@ -748,6 +769,7 @@
         "email": "EFleury@LincolnInvestment.com",
         "name": "Evelyn Fleury",
         "nType": 5,
+        "titleCode": "ast",
         "depCode": "compliance",
         "ext": "4589"
     },
@@ -756,6 +778,7 @@
         "email": "jrolette@lincolninvestment.com",
         "name": "John C Rolette",
         "nType": 5,
+        "titleCode": "des",
         "depCode": "mrkt-comm",
         "ext": "4551"
     },
@@ -764,6 +787,7 @@
         "email": "n/a",
         "name": "Lisa Bowe",
         "nType": 5,
+        "titleCode": "sal",
         "depCode": "hr",
         "ext": "4616"
     },
@@ -772,6 +796,7 @@
         "email": "KMaas@LincolnInvestment.com",
         "name": "Kristin Maas",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "hr",
         "ext": "4542"
     },
@@ -780,6 +805,7 @@
         "email": "SFlax@LincolnInvestment.com",
         "name": "Steven N Flax",
         "nType": 5,
+        "titleCode": "svp",
         "depCode": "hr",
         "ext": "4540"
     },
@@ -788,6 +814,7 @@
         "email": "jcosta@lincolninvestment.com",
         "name": "Jessica Costa",
         "nType": 5,
+        "titleCode": "cor",
         "depCode": "quality-cntrl",
         "ext": "4662"
     },
@@ -796,6 +823,7 @@
         "email": "tmangum@lincolninvestment.com",
         "name": "Tyler E Mangum",
         "nType": 5,
+        "titleCode": "srcons",
         "depCode": "acd",
         "ext": "4549"
     },
@@ -804,6 +832,7 @@
         "email": "atorrence@lincolninvestment.com",
         "name": "Anthony E. Torrence",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "doc-mgmt",
         "ext": "4613"
     },
@@ -812,6 +841,7 @@
         "email": "bovnicek@lincolninvestment.com",
         "name": "Bonnie P Ovnicek",
         "nType": 5,
+        "titleCode": "srcons",
         "depCode": "compliance",
         "ext": "4519"
     },
@@ -820,6 +850,7 @@
         "email": "lleuter@lincolninvestment.com",
         "name": "Laura K Leuter",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "branch-serv",
         "ext": "4572"
     },
@@ -828,6 +859,7 @@
         "email": "trtran@LincolnInvestment.com",
         "name": "Trung V Tran",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "rdi",
         "ext": "4658"
     },
@@ -836,6 +868,7 @@
         "email": "jbarthold@LincolnInvestment.com",
         "name": "Jennifer L Barthold",
         "nType": 5,
+        "titleCode": "mng",
         "depCode": "branch-serv",
         "ext": "4654"
     },
@@ -844,6 +877,7 @@
         "email": "sbetit@LincolnInvestment.com",
         "name": "Shaun M Betit",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "euc",
         "ext": "4694"
     },
@@ -852,6 +886,7 @@
         "email": "bmundey@LincolnInvestment.com",
         "name": "Brian F Mundey",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "accounting",
         "ext": "4636"
     },
@@ -860,6 +895,7 @@
         "email": "mmarr@LincolnInvestment.com",
         "name": "N. Mark Marr",
         "nType": 5,
+        "titleCode": "cfo",
         "depCode": "exec-suite",
         "ext": "4698"
     },
@@ -868,6 +904,7 @@
         "email": "jbrockington@LincolnInvestment.com",
         "name": "Jermaine R Brockington",
         "nType": 5,
+        "titleCode": "spr",
         "depCode": "one-time-financials",
         "ext": "4683"
     },
@@ -876,6 +913,7 @@
         "email": "emiller@LincolnInvestment.com",
         "name": "Mary Ellen Miller",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "hr",
         "ext": "4667"
     },
@@ -884,6 +922,7 @@
         "email": "mstine@LincolnInvestment.com",
         "name": "Michael T Stine",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4525"
     },
@@ -892,6 +931,7 @@
         "email": "rguna@LincolnInvestment.com",
         "name": "Ranjan Guna",
         "nType": 5,
+        "titleCode": "acc",
         "depCode": "accounting",
         "ext": "4593"
     },
@@ -900,6 +940,7 @@
         "email": "tmanero@LincolnInvestment.com",
         "name": "Tony F Manero",
         "nType": 5,
+        "titleCode": "wri",
         "depCode": "ops",
         "ext": "4633"
     },
@@ -908,6 +949,7 @@
         "email": "todonoghue@LincolnInvestment.com",
         "name": "Ted H O'Donoghue",
         "nType": 5,
+        "titleCode": "ana",
         "depCode": "im-r",
         "ext": "4616"
     },
@@ -916,6 +958,7 @@
         "email": "smayhew@capitalanalysts.com",
         "name": "Stephen Mayhew",
         "nType": 5,
+        "titleCode": "svp",
         "depCode": "im-r",
         "ext": "7734"
     },
@@ -924,6 +967,7 @@
         "email": "jmckelvey@LincolnInvestment.com",
         "name": "Josephine McKelvey",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "CA Transition",
         "ext": "4607"
     },
@@ -932,6 +976,7 @@
         "email": "bmoran@capitalanalysts.com",
         "name": "Brian Moran",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "im-r",
         "ext": "7766"
     },
@@ -940,6 +985,7 @@
         "email": "csurrichio@capitalanalysts.com",
         "name": "Christopher Surrichio",
         "nType": 5,
+        "titleCode": "vp",
         "depCode": "im-r",
         "ext": "7733"
     },
@@ -948,6 +994,7 @@
         "email": "stmueller@LincolnInvestment.com",
         "name": "Steven E Mueller",
         "nType": 5,
+        "titleCode": "ana",
         "depCode": "im-r",
         "ext": "7731"
     },
@@ -956,6 +1003,7 @@
         "email": "kglushek@LincolnInvestment.com",
         "name": "Keith J Glushek",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "compliance",
         "ext": "4603"
     },
@@ -964,6 +1012,7 @@
         "email": "ttorhan@LincolnInvestment.com",
         "name": "Tom Torhan",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "euc",
         "ext": "4721"
     },
@@ -972,6 +1021,7 @@
         "email": "jjose@LincolnInvestment.com",
         "name": "Jenson Jose",
         "nType": 5,
+        "titleCode": "ana",
         "depCode": "branch-dev",
         "ext": "4523"
     },
@@ -980,6 +1030,7 @@
         "email": "edortheimer@LincolnInvestment.com",
         "name": "Evan S Dortheimer",
         "nType": 5,
+        "titleCode": "ana",
         "depCode": "accounting",
         "ext": "4664"
     },
@@ -988,6 +1039,7 @@
         "email": "ssharma@LincolnInvestment.com",
         "name": "Sam K Sharma",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "hr",
         "ext": "4609"
     },
@@ -996,6 +1048,7 @@
         "email": "chgordon@LincolnInvestment.com",
         "name": "Chelsea A Gordon",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "branch-dev",
         "ext": "7696"
     },
@@ -1004,6 +1057,7 @@
         "email": "jlabarge@lincolnInvestment.com",
         "name": "Justin D LaBarge",
         "nType": 5,
+        "titleCode": "eng",
         "depCode": "euc",
         "ext": "4695"
     },
@@ -1012,6 +1066,7 @@
         "email": "tlakatos@LincolnInvestment.com",
         "name": "Thomas J Lakatos",
         "nType": 5,
+        "titleCode": "vp",
         "depCode": "isa",
         "ext": "4657"
     },
@@ -1020,6 +1075,7 @@
         "email": "mgusick@LincolnInvestment.com",
         "name": "Matt J Gusick",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "isd",
         "ext": "4727"
     },
@@ -1028,6 +1084,7 @@
         "email": "ckelm@LincolnInvestment.com",
         "name": "Christopher T Kelm",
         "nType": 5,
+        "titleCode": "vp",
         "depCode": "ops",
         "ext": "4554"
     },
@@ -1036,6 +1093,7 @@
         "email": "jmonestere@LincolnInvestment.com",
         "name": "Joseph S Monestere",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "branch-dev",
         "ext": "4612"
     },
@@ -1044,6 +1102,7 @@
         "email": "bmancarella@LincolnInvestment.com",
         "name": "Ben Mancarella",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "isa",
         "ext": "7691"
     },
@@ -1052,6 +1111,7 @@
         "email": "agrow@LincolnInvestment.com",
         "name": "Alex Grow",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "isa",
         "ext": "7692"
     },
@@ -1060,6 +1120,7 @@
         "email": "n/a",
         "name": "Ben Mancarella DONOTUSE",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "isa",
         "ext": "n/a"
     },
@@ -1068,6 +1129,7 @@
         "email": "jmadorma@LincolnInvestment.com",
         "name": "Jamie Madorma",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4608"
     },
@@ -1076,6 +1138,7 @@
         "email": "celk@LincolnInvestment.com",
         "name": "Cory B Elk",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4514"
     },
@@ -1084,6 +1147,7 @@
         "email": "tlee@LincolnInvestment.com",
         "name": "Tana S Lee",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4518"
     },
@@ -1092,6 +1156,7 @@
         "email": "kbecker@LincolnInvestment.com",
         "name": "Kevin S Becker",
         "nType": 5,
+        "titleCode": "dev",
         "depCode": "euc",
         "ext": "4510"
     },
@@ -1100,6 +1165,7 @@
         "email": "jmast@LincolnInvestment.com",
         "name": "Jonathan F Mast",
         "nType": 5,
+        "titleCode": "srcons",
         "depCode": "acd",
         "ext": "4677"
     },
@@ -1108,6 +1174,7 @@
         "email": "jferrara@LincolnInvestment.com",
         "name": "Joseph S Ferrara",
         "nType": 5,
+        "titleCode": "cons",
         "depCode": "acd",
         "ext": "n/a"
     },
@@ -1116,6 +1183,7 @@
         "email": "dfranc@LincolnInvestment.com",
         "name": "Donna Franc",
         "nType": 5,
+        "titleCode": "n/a",
         "depCode": "compliance",
         "ext": "4548"
     },
@@ -1124,6 +1192,7 @@
         "email": "edavydov@LincolnInvestment.com",
         "name": "Eugene Davydov",
         "nType": 5,
+        "titleCode": "dir",
         "depCode": "euc",
         "ext": "n/a"
     },
@@ -1132,6 +1201,7 @@
         "email": "btimby@LincolnInvestment.com",
         "name": "Brian P Timby",
         "nType": 5,
+        "titleCode": "cons",
         "depCode": "branch-dev",
         "ext": "4660"
     },

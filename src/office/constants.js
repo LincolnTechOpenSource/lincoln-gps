@@ -81,6 +81,8 @@
 
     // set of available titles
     var TITLES = [
+        {titleCode: 'n/a', name: ' '},
+        {titleCode: 'err', name: 'Unknown'},
         {titleCode: 'ceo', name: 'Chief Executive Officer'},
         {titleCode: 'cfo', name: 'Cheif Financial Officer'},
         {titleCode: 'coo', name: 'Chief Operational Officer'},
@@ -95,6 +97,11 @@
         {titleCode: 'cor', name: 'Coordinator'},
         {titleCode: 'int', name: 'Intern'},
         {titleCode: 'ana', name: 'Analyst'},
+        {titleCode: 'des', name: 'Designer'},
+        {titleCode: 'sal', name: 'Sales Assistant'},
+        {titleCode: 'acc', name: 'Accountant'},
+        {titleCode: 'wri', name: 'Technical Writer'},
+        {titleCode: 'eng', name: 'Engineer'},
         {titleCode: 'adm', name: 'Administrator'},
         {titleCode: 'dev', name: 'Software Developer'},
         {titleCode: 'pres', name: 'President'},
