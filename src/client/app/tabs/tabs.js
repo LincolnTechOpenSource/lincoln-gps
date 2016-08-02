@@ -14,7 +14,7 @@
 
     /* @ngInject */
     function TabCtrl($scope, $ionicModal, $ionicLoading,
-        $timeout, $q, $log, $localStorage, Firebase, currentUser) {
+        $timeout, $q, $log, $localStorage) {
 
         // Form data for the login modal
         $scope.loginData = {
@@ -55,36 +55,36 @@
 
         // Log out
         $scope.logout = function() {
-            Firebase.auth().$signOut();
+            // Firebase.auth().$signOut();
         };
 
-        Firebase.auth().$onAuthStateChanged(userAuth);
+        // Firebase.auth().$onAuthStateChanged(userAuth);
 
         //------------------------------------------------//
 
-        /** handle user authentication */
-        function userAuth(user) {
-            if (user) {
-                // User is signed in.
-                $log.info('Signed in... '); // + user.uid);
+        // /** handle user authentication */
+        // function userAuth(user) {
+        //     if (user) {
+        //         // User is signed in.
+        //         $log.info('Signed in... '); // + user.uid);
 
-                if (!!$scope.loginData.email) {
-                    $scope.closeLogin();
-                }
-                $scope.loginData.email = ''; // clear email on success
-                $scope.error.show = false;
+        //         if (!!$scope.loginData.email) {
+        //             $scope.closeLogin();
+        //         }
+        //         $scope.loginData.email = ''; // clear email on success
+        //         $scope.error.show = false;
 
-                // load & save the authed user
-                $localStorage.uid = user.uid;
-            }
-            else {
-                // No user is signed in.
-                $log.info('Not Authenticated');
-                $scope.login();
+        //         // load & save the authed user
+        //         $localStorage.uid = user.uid;
+        //     }
+        //     else {
+        //         // No user is signed in.
+        //         $log.info('Not Authenticated');
+        //         $scope.login();
 
-                $localStorage.uid = null;
-            }
-        }
+        //         $localStorage.uid = null;
+        //     }
+        // }
 
         // Perform the login action when the user submits the login form
         function doLogin() {
@@ -92,55 +92,55 @@
                 template: 'Signing In...'
             });
 
-            Firebase.auth().$signInWithEmailAndPassword($scope.loginData.email,
-                $scope.loginData.password).catch(function(error) {
-                // Handle Errors here
-                $log.log('Authentication failed (' + error.code + '): ' + error.message);
-                _handleError(error);
-            }).then(function() {
-                // reset login form
-                $scope.loginData.password = '';
-                $timeout(function() {
-                    $ionicLoading.hide();
-                }, 100);
-            });
+            // Firebase.auth().$signInWithEmailAndPassword($scope.loginData.email,
+            //     $scope.loginData.password).catch(function(error) {
+            //     // Handle Errors here
+            //     $log.log('Authentication failed (' + error.code + '): ' + error.message);
+            //     _handleError(error);
+            // }).then(function() {
+            //     // reset login form
+            //     $scope.loginData.password = '';
+            //     $timeout(function() {
+            //         $ionicLoading.hide();
+            //     }, 100);
+            // });
         }
 
-        /**
-         * _handleError: helper function to handle a firebase authentication error
-         */
-        function _handleError(error) {
-            var emailField = $('#login-modal #login-email');
-            var passwordField = $('#login-modal #login-password');
+        // /**
+        //  * _handleError: helper function to handle a firebase authentication error
+        //  */
+        // function _handleError(error) {
+        //     var emailField = $('#login-modal #login-email');
+        //     var passwordField = $('#login-modal #login-password');
 
-            switch (error.code) {
-                // badly formatted email
-                case 'auth/invalid-email':
-                    emailField.addClass('has-error');
-                    passwordField.removeClass('has-error');
+        //     switch (error.code) {
+        //         // badly formatted email
+        //         case 'auth/invalid-email':
+        //             emailField.addClass('has-error');
+        //             passwordField.removeClass('has-error');
 
-                    $scope.error.code = error.code;
-                    $scope.error.message = 'Please enter a valid email';
-                    $scope.error.show = true;
-                    break;
+        //             $scope.error.code = error.code;
+        //             $scope.error.message = 'Please enter a valid email';
+        //             $scope.error.show = true;
+        //             break;
 
-                // do not distinguish between bad password and bad user
-                case 'auth/user-disabled':
-                case 'auth/user-not-found':
-                case 'auth/wrong-password':
-                    emailField.addClass('has-error');
-                    passwordField.addClass('has-error');
+        //         // do not distinguish between bad password and bad user
+        //         case 'auth/user-disabled':
+        //         case 'auth/user-not-found':
+        //         case 'auth/wrong-password':
+        //             emailField.addClass('has-error');
+        //             passwordField.addClass('has-error');
 
-                    $scope.error.code = error.code;
-                    $scope.error.message = 'Invalid Email / Password Combination';
-                    $scope.error.show = true;
-                    break;
+        //             $scope.error.code = error.code;
+        //             $scope.error.message = 'Invalid Email / Password Combination';
+        //             $scope.error.show = true;
+        //             break;
 
-                // firebase says the code should be one of the above
-                default:
-                    $log.alert('Invalid Return Type... Firebase error!');
-                    break;
-            }
-        }
+        //         // firebase says the code should be one of the above
+        //         default:
+        //             $log.alert('Invalid Return Type... Firebase error!');
+        //             break;
+        //     }
+        // }
     }
 })();
