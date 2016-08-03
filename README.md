@@ -133,7 +133,11 @@ _Note:_ In cases where two entities (i.e., separate locations in the table) must
 occupy the same SVG location, add a **data-id** attribute to the element which
 serves as a space delimited array of all location IDs that should reside at that element.
 
-## Authentication
+## Authentication *(hidden)*
+
+Authentication has been disabled, however the legacy code is left
+commented out throughout the source. Below is a description of how it would work
+if enabled:
 
 Authentication is done through [firebase][firebase].
 
