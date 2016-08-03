@@ -81,8 +81,7 @@
 
     // set of available titles
     var TITLES = [
-        {titleCode: 'n/a', name: ' '},
-        {titleCode: 'err', name: 'Unknown'},
+        {titleCode: 'n/a', name: 'Employee'},
         {titleCode: 'ceo', name: 'Chief Executive Officer'},
         {titleCode: 'cfo', name: 'Cheif Financial Officer'},
         {titleCode: 'coo', name: 'Chief Operational Officer'},
