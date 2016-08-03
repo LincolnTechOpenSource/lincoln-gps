@@ -1363,17 +1363,17 @@
         "email": "dtahvildaran@LincolnInvestment.com",
         "name": "David Tahvildaran",
         "nType": 5,
-        "titleCode": "int"
+        "titleCode": "int",
         "depCode": "isd",
-        "ext": "4741",
+        "ext": "4741"
     },
     "loc235": {
         "id": 235,
         "email": "mvasseur@LincolnInvestment.com",
         "name": "Matthew Vasseur",
         "nType": 5,
-        "titleCode": "int"
+        "titleCode": "int",
         "depCode": "isd",
-        "ext": "4743",
+        "ext": "4743"
     }
 }
