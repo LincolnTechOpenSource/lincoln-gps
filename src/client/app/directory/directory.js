@@ -11,7 +11,7 @@
         .filter('byField', byField);
 
     /* @ngInject */
-    function DirectoryCtrl($scope, $state, $log, $q, Locations, Firebase,
+    function DirectoryCtrl($scope, $state, $log, $q, Locations,
         Params, NODE_TYPES, DEPARTMENTS, TITLES) {
         var vm = this;
 
@@ -38,10 +38,10 @@
         vm.findOnMap = findOnMap;
 
         // load employees when signed in
-        Firebase.auth().$onAuthStateChanged(userAuth);
+        // Firebase.auth().$onAuthStateChanged(userAuth);
 
         // activate the controller on view enter
-        // $scope.$on('$ionicView.enter', activate);
+        $scope.$on('$ionicView.enter', activate);
 
         //------------------------------------------------//
 
@@ -51,24 +51,28 @@
         }
 
         /** run upon controller activate */
-        // function activate() {
-        //     // $log.info('Activated Directory View');
-        //     return true;
-        // }
+        function activate() {
+            // load employees from locations
+            var promises = [ getByNType() ];
+            $q.all(promises).then();
 
-        /** handle user authentication */
-        function userAuth(user) {
-            if (user) {
-                // vm.selectEmployee.employees = Locations.getByNType(NODE_TYPES.EMPL);
-                var promises = [ getByNType() ];
-
-                return $q.all(promises).then();
-            }
-            else {
-                Locations.unload();
-                vm.selectEmployee.employees = null;
-            }
+            // $log.info('Activated Directory View');
+            return true;
         }
+
+        // /** handle user authentication */
+        // function userAuth(user) {
+        //     if (user) {
+        //         // vm.selectEmployee.employees = Locations.getByNType(NODE_TYPES.EMPL);
+        //         var promises = [ getByNType() ];
+
+        //         return $q.all(promises).then();
+        //     }
+        //     else {
+        //         Locations.unload();
+        //         vm.selectEmployee.employees = null;
+        //     }
+        // }
 
         /** load the Locations table as an array */
         function getByNType() {

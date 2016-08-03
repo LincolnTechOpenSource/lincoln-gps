@@ -21,7 +21,7 @@
     angular.module('office', []);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $ionicPlatform, $window, $log, Firebase, $localStorage, FILTERS) {
+    function appRun($rootScope, $state, $ionicPlatform, $window, $log, $localStorage, FILTERS) {
         $ionicPlatform.ready(function() {
             $log.info('Ionic Charged!'); // log that ionic is ready and running
 
@@ -67,15 +67,15 @@
                 templateUrl: 'app/tabs/tabs.html',
                 controller: 'TabCtrl',
                 controllerAs: 'tab',
-                resolve: {
-                    // Initialize Firebase
-                    init: ['Firebase', function(Firebase) {
-                        return Firebase.init();
-                    }],
-                    currentUser: ['Firebase', function(Firebase) {
-                        return Firebase.auth().$waitForSignIn();
-                    }]
-                }
+                // resolve: {
+                //     // Initialize Firebase
+                //     init: ['Firebase', function(Firebase) {
+                //         return Firebase.init();
+                //     }],
+                //     currentUser: ['Firebase', function(Firebase) {
+                //         return Firebase.auth().$waitForSignIn();
+                //     }]
+                // }
             })
             // Each tab has its own nav history stack:
             .state('tab.map', {
@@ -88,9 +88,9 @@
                     }
                 },
                 resolve: {
-                    currentUser: ['Firebase', function(Firebase) {
-                        return Firebase.auth().$requireSignIn();
-                    }],
+                    // currentUser: ['Firebase', function(Firebase) {
+                    //     return Firebase.auth().$requireSignIn();
+                    // }],
                     locations: ['Locations', function(Locations) {
                         return Locations.load();
                     }]
@@ -106,9 +106,9 @@
                     }
                 },
                 resolve: {
-                    currentUser: ['Firebase', function(Firebase) {
-                        return Firebase.auth().$requireSignIn();
-                    }],
+                    // currentUser: ['Firebase', function(Firebase) {
+                    //     return Firebase.auth().$requireSignIn();
+                    // }],
                     locations: ['Locations', function(Locations) {
                         return Locations.load();
                     }]

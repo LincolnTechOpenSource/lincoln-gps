@@ -152,14 +152,14 @@
         .constant('DEPARTMENTS', DEPARTMENTS)
         .constant('TITLES', TITLES)
         .constant('FILTERS', FILTERS)
-        .constant('GRAPH_URL', 'data/lin-graph.json') // url to graph data
-        .constant('LOC_URL', 'data/lin-locations.json')
+        .constant('GRAPH_URL', 'data/graph.json') // url to graph data
+        .constant('LOC_URL', 'data/locations.json'); // url to locations data
         // Replace with your own firebase credentials
-        .constant('FIREBASE_CONFIG', {
-            apiKey: 'AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs',
-            authDomain: 'lincoln-gps.firebaseapp.com',
-            databaseURL: 'https://lincoln-gps.firebaseio.com',
-            storageBucket: 'lincoln-gps.appspot.com',
-        }); // url to locations data
+        // .constant('FIREBASE_CONFIG', {
+        //     apiKey: 'AIzaSyBJmytcwYLNjfjPp4beCPewJ6XKE7mRYJs',
+        //     authDomain: 'lincoln-gps.firebaseapp.com',
+        //     databaseURL: 'https://lincoln-gps.firebaseio.com',
+        //     storageBucket: 'lincoln-gps.appspot.com',
+        // });
 
 })();
