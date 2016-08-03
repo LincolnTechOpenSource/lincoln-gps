@@ -974,13 +974,13 @@
                 <rect class="desk cubicle euc loc" id="209" width="90" height="90" transform="translate(520,515)" />
                 <rect class="desk cubicle euc loc" id="210" width="90" height="90" transform="translate(610,515)" />
                 <rect class="desk cubicle euc loc" id="211" width="90" height="90" transform="translate(700,515)" />
-                <rect class="desk cubicle euc loc" id="212" width="90" height="90" transform="translate(790,515)" />
+                <rect class="desk cubicle euc loc" id="834328" width="90" height="90" transform="translate(790,515)" />
                 <rect class="desk cubicle compliance loc" id="213" width="90" height="90" transform="translate(950,425)" />
                 <rect class="desk cubicle compliance loc" id="214" width="90" height="90" transform="translate(1040,425)" />
                 <rect class="desk cubicle compliance loc" id="215" width="90" height="90" transform="translate(1130,425)" />
                 <rect class="desk cubicle compliance loc" id="216" width="90" height="90" transform="translate(1220,425)" />
                 <rect class="desk cubicle euc loc" id="836571" width="90" height="90" transform="translate(950,515)" />
-                <rect class="desk cubicle compliance loc" id="218" width="90" height="90" transform="translate(1040,515)" />
+                <rect class="desk cubicle compliance loc" id="833861" width="90" height="90" transform="translate(1040,515)" />
                 <rect class="desk cubicle compliance loc" id="753298" width="90" height="90" transform="translate(1130,515)" />
                 <rect class="desk cubicle compliance loc" id="220" width="90" height="90" transform="translate(1220,515)" />
 
@@ -1004,8 +1004,8 @@
                     <image x="815" y="760" width="40" height="40" xlink:href="content/images/map-icons/printer.svg"></image>
                 </g>
                 <rect class="desk cubicle euc loc" id="231" width="90" height="90" transform="translate(950,646)" />
-                <rect class="desk cubicle compliance loc" id="232" width="90" height="90" transform="translate(1040,646)" />
-                <rect class="desk cubicle compliance loc" id="746334" width="90" height="90" transform="translate(1130,646)" />
+                <rect class="desk cubicle compliance loc" id="746334" width="90" height="90" transform="translate(1040,646)" />
+                <rect class="desk cubicle compliance loc" id="832124" width="90" height="90" transform="translate(1130,646)" />
                 <rect class="desk cubicle compliance loc" id="234" width="90" height="90" transform="translate(1220,646)" />
                 <rect class="desk cubicle euc loc" id="235" width="90" height="90" transform="translate(950,736)" />
                 <rect class="desk cubicle compliance loc" id="234047" width="90" height="90" transform="translate(1040,736)" />
