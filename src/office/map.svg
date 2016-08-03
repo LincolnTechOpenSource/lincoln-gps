@@ -736,12 +736,12 @@
             <rect class="desk cubicle im-r loc" id="28" width="90" height="90" transform="translate(700,515)" />
             <rect class="desk cubicle im-r loc" id="602307" width="90" height="90" transform="translate(790,515)" />
             <rect class="desk cubicle im-r loc" id="30" width="90" height="90" transform="translate(950,425)" />
-            <rect class="desk cubicle im-r loc" id="31" width="90" height="90" transform="translate(1040,425)" />
-            <rect class="desk cubicle im-r loc" id="32" width="90" height="90" transform="translate(1130,425)" />
+            <rect class="desk cubicle im-r loc" id="793572" width="90" height="90" transform="translate(1040,425)" />
+            <rect class="desk cubicle im-r loc" id="784561" width="90" height="90" transform="translate(1130,425)" />
             <rect class="desk cubicle busi-dev loc" id="354712" width="90" height="90" transform="translate(1220,425)" />
-            <rect class="desk cubicle im-r loc" id="34" width="90" height="90" transform="translate(950,515)" />
-            <rect class="desk cubicle im-r loc" id="35" width="90" height="90" transform="translate(1040,515)" />
-            <rect class="desk cubicle im-r loc" id="36" width="90" height="90" transform="translate(1130,515)" />
+            <rect class="desk cubicle im-r loc" id="787741" width="90" height="90" transform="translate(950,515)" />
+            <rect class="desk cubicle im-r loc" id="808228" width="90" height="90" transform="translate(1040,515)" />
+            <rect class="desk cubicle im-r loc" id="784519" width="90" height="90" transform="translate(1130,515)" />
             <rect class="desk cubicle accounting loc" id="550621" width="90" height="90" transform="translate(1220,515)" />
 
             <!-- ACD, VSA and Accounting cubicles -->
@@ -837,7 +837,7 @@
 
             <!-- Marketing and communication, ISA, Branch Dev, Retirement Services, and Operations Expansion Cubicles -->
             <rect class="desk cubicle mrkt-comm loc" id="18317" width="90" height="80" transform="translate(440,1800)" />
-            <rect class="desk cubicle isa loc" id="106" width="90" height="80" transform="translate(440,1880)" />
+            <rect class="desk cubicle isa loc" id="793574" width="90" height="80" transform="translate(440,1880)" />
             <rect class="desk cubicle isa loc" id="312214" width="90" height="80" transform="translate(440,1960)" />
             <rect class="desk cubicle isa loc" id="744063" width="90" height="80" transform="translate(440,2040)" />
             <rect class="desk cubicle branch-dev loc" id="708917" width="90" height="80" transform="translate(440,2120)" />
@@ -845,7 +845,7 @@
             <rect class="desk cubicle isa loc" id="111" width="90" height="80" transform="translate(440,2280)" />
             <rect class="desk cubicle isa loc" id="112" width="90" height="80" transform="translate(440,2360)" />
             <rect class="desk cubicle isa loc" id="113" width="90" height="80" transform="translate(440,2440)" />
-            <rect class="desk cubicle mrkt-comm loc" id="114" width="90" height="80" transform="translate(530,1800)" />
+            <rect class="desk cubicle mrkt-comm loc" id="798773" width="90" height="80" transform="translate(530,1800)" />
             <rect class="desk cubicle retire-serv loc" id="115" width="90" height="80" transform="translate(530,1880)" />
             <rect class="desk cubicle retire-serv loc" id="116" width="90" height="80" transform="translate(530,1960)" />
             <rect class="desk cubicle retire-serv loc" id="117" width="90" height="80" transform="translate(530,2040)" />
@@ -906,7 +906,7 @@
             <rect x="600" y="3260" class="desk office vacant loc" id="160" width="150" height="200" />
             <rect x="750" y="3260" class="desk office vacant loc" id="161" width="150" height="200" />
             <rect x="900" y="3260" class="desk office ops loc" id="740968" width="200" height="200" />
-            <rect x="1100" y="3260" class="desk office ops loc" id="163" width="150" height="200" />
+            <rect x="1100" y="3260" class="desk office ops loc" id="794879" width="150" height="200" />
             <rect x="1250" y="3260" class="desk office ops loc" id="6427" width="150" height="200" />
             <rect x="1400" y="3260" class="desk office ops loc" id="426805" width="150" height="200" />
             <rect x="1550" y="3260" class="desk office hr loc" id="680448" width="160" height="200" />
@@ -979,7 +979,7 @@
                 <rect class="desk cubicle compliance loc" id="214" width="90" height="90" transform="translate(1040,425)" />
                 <rect class="desk cubicle compliance loc" id="215" width="90" height="90" transform="translate(1130,425)" />
                 <rect class="desk cubicle compliance loc" id="216" width="90" height="90" transform="translate(1220,425)" />
-                <rect class="desk cubicle euc loc" id="217" width="90" height="90" transform="translate(950,515)" />
+                <rect class="desk cubicle euc loc" id="836571" width="90" height="90" transform="translate(950,515)" />
                 <rect class="desk cubicle compliance loc" id="218" width="90" height="90" transform="translate(1040,515)" />
                 <rect class="desk cubicle compliance loc" id="753298" width="90" height="90" transform="translate(1130,515)" />
                 <rect class="desk cubicle compliance loc" id="220" width="90" height="90" transform="translate(1220,515)" />
@@ -1024,13 +1024,13 @@
                 <rect class="desk cubicle isd loc" id="6464" width="90" height="90" transform="translate(790,860)" />
                 <rect class="desk cubicle isd loc" id="18327" data-id="759994" width="90" height="90" transform="translate(430,950)" />
                 <rect class="desk cubicle isd loc" id="673756" data-id="729375" width="90" height="90" transform="translate(520,950)" />
-                <rect class="desk cubicle isd loc" id="294605" width="90" height="90" transform="translate(610,950)" />
+                <rect class="desk cubicle isd loc" id="294605" data-id="11694" width="90" height="90" transform="translate(610,950)" />
                 <rect class="desk cubicle isd loc" id="18265" data-id="18339" width="90" height="90" transform="translate(700,950)" />
                 <rect class="desk cubicle isd loc" id="18353" width="90" height="90" transform="translate(790,950)" />
                 <rect class="desk cubicle compliance loc" id="588303" width="90" height="90" transform="translate(950,860)" />
                 <rect class="desk cubicle compliance loc" id="753428" width="90" height="90" transform="translate(1040,860)" />
                 <rect class="desk cubicle compliance loc" id="251" width="90" height="90" transform="translate(1130,860)" />
-                <rect class="desk cubicle compliance loc" id="252" width="90" height="90" transform="translate(1220,860)" />
+                <rect class="desk cubicle compliance loc" id="826286" width="90" height="90" transform="translate(1220,860)" />
                 <rect class="desk cubicle compliance loc" id="253" width="90" height="90" transform="translate(950,950)" />
                 <rect class="desk cubicle compliance loc" id="254" width="90" height="90" transform="translate(1040,950)" />
                 <rect class="desk cubicle compliance loc" id="255" width="90" height="90" transform="translate(1130,950)" />
@@ -1045,12 +1045,12 @@
             <rect x="3260" y="3260" class="desk office isd loc" id="18278" width="200" height="200"></rect>
 
             <!-- ISD and Compliance and Licensing offices and east wing team room, rightmost wall -->
-            <rect x="3260" y="3060" class="desk office isd loc" id="262" width="200" height="200"></rect>
+            <rect x="3260" y="3060" class="desk office isd loc" id="810523" width="200" height="200"></rect>
             <rect x="3260" y="2910" class="desk office isd loc" id="19" width="200" height="150"></rect>
             <rect x="3260" y="2760" class="desk office isd loc" id="782456" width="200" height="150"></rect>
             <rect x="3260" y="2560" class="conf loc" id="265" width="200" height="200"></rect>
             <rect x="3260" y="2400" class="desk office compliance loc" id="266" width="200" height="160"></rect>
-            <rect x="3260" y="2240" class="desk office compliance loc" id="267" width="200" height="160"></rect>
+            <rect x="3260" y="2240" class="desk office compliance loc" id="828621" width="200" height="160"></rect>
             <rect x="3260" y="2030" class="desk office compliance loc" id="9962" width="200" height="210"></rect>
 
             <!-- Compliance and Licensing and HR offices, and north team room -->

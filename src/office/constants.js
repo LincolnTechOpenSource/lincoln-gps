@@ -100,7 +100,7 @@
         {titleCode: 'des', name: 'Designer'},
         {titleCode: 'sal', name: 'Sales Assistant'},
         {titleCode: 'acc', name: 'Accountant'},
-        {titleCode: 'wri', name: 'Technical Writer'},
+        {titleCode: 'wri', name: 'Writer'},
         {titleCode: 'eng', name: 'Engineer'},
         {titleCode: 'adm', name: 'Administrator'},
         {titleCode: 'dev', name: 'Software Developer'},
