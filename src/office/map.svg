@@ -698,7 +698,7 @@
 
         <g class="desks">
             <!-- Executive Suite, next to CEO/CFO Offices -->
-            <rect class="loc desk office exec-suite" id="1" width="175" height="605" transform="translate(1220,1120)" />
+            <rect class="loc path exec-suite" id="1" width="175" height="605" transform="translate(1220,1120)" />
             <!-- Finance/Executive Assistant workstation in executive suite -->
             <rect class="loc desk office finance" id="6487" width="90" height="90" transform="translate(1221,1121)" />
             <!-- Executive Assistant desk in executive suite -->
