@@ -171,7 +171,7 @@
 
 
 
-        {"id": 1, "neighbors": [18, 1093, 1097, 3716, 6487, 6500], "weight": 0, "nType": 3},
+        {"id": 1, "neighbors": [1093, 1097, 3716, 6487, 6500, 554382], "weight": 0, "nType": 3},
         {"id": 1001, "neighbors": [20, 1002, 1012, 6188], "weight": 1, "nType": 3},
         {"id": 1002, "neighbors": [1001, 1003, 673760], "weight": 1, "nType": 3},
         {"id": 1003, "neighbors": [22, 1002, 1004, 18239], "weight": 1, "nType": 3},
@@ -227,7 +227,7 @@
         {"id": 1053, "neighbors": [84, 1052, 1054, 18366], "weight": 1, "nType": 3},
         {"id": 1054, "neighbors": [71, 1053, 1055], "weight": 1, "nType": 3},
         {"id": 1055, "neighbors": [72, 1054, 1056, 63333], "weight": 1, "nType": 3},
-        {"id": 1056, "neighbors": [1, 1055, 6450], "weight": 1, "nType": 3},
+        {"id": 1056, "neighbors": [1055, 6450], "weight": 1, "nType": 3},
         {"id": 1057, "neighbors": [1046, 1058], "weight": 2, "nType": 3},
         {"id": 1058, "neighbors": [321, 1057, 1059], "weight": 1, "nType": 3},
         {"id": 1059, "neighbors": [301, 1058, 1060], "weight": 1, "nType": 3},
