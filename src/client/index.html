@@ -16,20 +16,20 @@
 
     <!-- uncomment if using your own iconfont -->
     <!-- <link rel="stylesheet" href="styles/own-icons.css"> -->
-    
+
     <!-- Temporary script that will go in a js file that waits for the android device and for phonegap to be ready before loading the application -->
      <script type="text/javascript" charset="utf-8">
       function onBodyLoad() {
       document.addEventListener("deviceready",onDeviceReady,
       false);
      }
-     
+
       function onDeviceReady() {
   //     navigator.notification.alert("PhoneGap is ready!");
       }
    </script>
-    
-    
+
+
 
 </head>
 <body data-ng-app="app" ng-strict-di>
@@ -48,8 +48,8 @@
     <!-- inject:vendor:js --><!-- endinject -->
 
     <!-- Firebase & AngularFire -->
-    <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>  
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script> 
+    <!--<script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>  -->
+    <!--<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script> -->
 
 
     <!-- inject:app:js --><!-- endinject -->
@@ -57,7 +57,7 @@
     <!-- cordova script (this will be a 404 during development) -->
 
     <!--Don't include phonegap.js or plugin files. PhoneGap Build will inject phonegap.js, cordova.js (identical sources), and any files required by your plugins -->
-    <script src="cordova.js"></script> 
+    <script src="cordova.js"></script>
 
 
 
