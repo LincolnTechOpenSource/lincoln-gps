@@ -39,7 +39,7 @@
     "./src/office/images/**/*"
   ],
   "office": [
-    "./src/office/**/*.svg"
+    "./src/office/map.svg"
   ],
   "ionic": {
     "sass": "./src/client/content/styles/ionic-styles.scss"

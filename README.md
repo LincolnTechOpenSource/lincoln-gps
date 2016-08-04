@@ -171,7 +171,7 @@ filters are active and whether to show the select on map popup.
       * Starting the local server to serve from `.dev`
       * Starting watchers to automatically rebuild upon saved changes
    * The `--noAnalyze` flag (`--na`) is the same as above, but does not analyze (making recompile faster)
-   * The `--build` flag (`-b`) starts the non-development build process (same as `gulp build`)
+   * The `--build` flag (`-b`) starts the non-development build process
       * In addition to the above: Concats all `*.js` sources into a single `app.js` file
       * Versions `main.css` and `app.js`
       * Builds everything into `www`
