@@ -281,6 +281,7 @@ json file
 * 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
 * 07/19/16: Adapted graphing modules and modularized map functions
 * 07/25/16: Separated dynamic, application-specific modules from source
+* 08/01/16: Disabled firebase authentication
 
 ## Credits
 
