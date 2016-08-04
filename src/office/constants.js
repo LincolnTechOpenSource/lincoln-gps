@@ -106,7 +106,7 @@
         {titleCode: 'pres', name: 'President'},
         {titleCode: 'cons', name: 'Consultant'},
         {titleCode: 'srcons', name: 'Senior Consultant'}
-        
+
     ];
 
     // set of allowed filters (key is the class to filter)

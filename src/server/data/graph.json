@@ -132,10 +132,10 @@
         {"id": 836571, "neighbors": [1331], "weight": 0, "nType": 5},
         {"id": 231, "neighbors": [1331], "weight": 0, "nType": 5},
         {"id": 235, "neighbors": [1337], "weight": 0, "nType": 5},
-        
-        
-        
-        
+
+
+
+
         {"id": 301, "neighbors": [1059], "weight": 0, "nType": 4},
         {"id": 302, "neighbors": [1071], "weight": 0, "nType": 4},
         {"id": 303, "neighbors": [1214], "weight": 0, "nType": 4},
