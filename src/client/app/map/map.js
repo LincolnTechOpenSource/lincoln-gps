@@ -65,7 +65,7 @@
 
             filterMap();
 
-            // $log.info('Activated Map View');
+            $log.info('Activated Map View');
             return true;
         }
 
