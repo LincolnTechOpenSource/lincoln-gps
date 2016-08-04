@@ -8,7 +8,7 @@ employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.3.1**
+Current Release: **1.4.0**
 
 ## Locations Database
 
@@ -133,7 +133,11 @@ _Note:_ In cases where two entities (i.e., separate locations in the table) must
 occupy the same SVG location, add a **data-id** attribute to the element which
 serves as a space delimited array of all location IDs that should reside at that element.
 
-## Authentication
+## Authentication *(hidden)*
+
+Authentication has been disabled, however the legacy code is left
+commented out throughout the source. Below is a description of how it would work
+if enabled:
 
 Authentication is done through [firebase][firebase].
 
@@ -167,7 +171,7 @@ filters are active and whether to show the select on map popup.
       * Starting the local server to serve from `.dev`
       * Starting watchers to automatically rebuild upon saved changes
    * The `--noAnalyze` flag (`--na`) is the same as above, but does not analyze (making recompile faster)
-   * The `--build` flag (`-b`) starts the non-development build process (same as `gulp build`)
+   * The `--build` flag (`-b`) starts the non-development build process
       * In addition to the above: Concats all `*.js` sources into a single `app.js` file
       * Versions `main.css` and `app.js`
       * Builds everything into `www`
@@ -277,6 +281,7 @@ json file
 * 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
 * 07/19/16: Adapted graphing modules and modularized map functions
 * 07/25/16: Separated dynamic, application-specific modules from source
+* 08/01/16: Disabled firebase authentication
 
 ## Credits
 

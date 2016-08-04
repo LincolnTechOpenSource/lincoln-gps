@@ -1,12 +1,13 @@
 <ion-view view-title="Preferences" id="tab-account">
   <ion-content class="padding">
     <!--<h2 class="text-center">Lincoln GPS Account</h2>-->
-    <button class="btn button button-assertive" ng-click="logout()">
-        Logout
-    </button>
-    <button class="btn right button button-balanced" ng-click="vm.resetToDefault()">
+    <!--<button class="btn button button-assertive" ng-click="logout()">-->
+    <!--    Logout-->
+    <!--</button>-->
+    <button class="btn button button-balanced" ng-click="vm.resetToDefault()">
       Reset to Default
     </button>
+
     <ion-list>
       <!-- display all filters -->
       <ion-toggle ng-model="vm.prefs.filters[name].disp" ng-repeat="(name, truth) in vm.prefs.filters">

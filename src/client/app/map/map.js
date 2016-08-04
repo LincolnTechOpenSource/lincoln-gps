@@ -12,7 +12,7 @@
     // jshint maxparams:15
     /* @ngInject */
     function MapCtrl($scope, $log, $q, $document, $localStorage,
-        GRAPH_URL, NODE_TYPES, Locations, Firebase, Graphing, Params, SvgPanZoom) {
+        GRAPH_URL, NODE_TYPES, Locations, Graphing, Params, SvgPanZoom) {
         var vm = this;
 
         vm.selectNode = {
@@ -35,7 +35,7 @@
         $scope.$watch('vm.selectNode.fromNode', watchNode.bind(null, 'fromNode'));
 
         // load employees when signed in
-        Firebase.auth().$onAuthStateChanged(userAuth);
+        // Firebase.auth().$onAuthStateChanged(userAuth);
 
         // ready document specific commands
         $document.ready(documentReady);
@@ -50,6 +50,10 @@
 
         /** run upon controller activate */
         function activate() {
+            // load all locations
+            var promises = [ allArray() ];
+            $q.all(promises).then();
+
             // handle employee parameter
             if (!!Params.employee) {
                 $('#svg #map g.non-walls .path').removeClass('hilite'); // clear
@@ -80,18 +84,18 @@
             }
         }
 
-        /** handle user authentication */
-        function userAuth(user) {
-            if (user) {
-                var promises = [ allArray() ];
+        // /** handle user authentication */
+        // function userAuth(user) {
+        //     if (user) {
+        //         var promises = [ allArray() ];
 
-                return $q.all(promises).then();
-            }
-            else {
-                Locations.unload();
-                vm.selectNode.nodes = null;
-            }
-        }
+        //         return $q.all(promises).then();
+        //     }
+        //     else {
+        //         Locations.unload();
+        //         vm.selectNode.nodes = null;
+        //     }
+        // }
 
         /** load the Locations table as an array */
         function allArray() {
