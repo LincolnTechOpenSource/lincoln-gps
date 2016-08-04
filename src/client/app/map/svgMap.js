@@ -5,7 +5,7 @@ angular
     .directive('svgMap', svgMap);
 
 /* @ngInject */
-function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS, $timeout) {
+function svgMap($ionicGesture, $localStorage, $timeout, SvgPanZoom, DEPARTMENTS) {
     return {
         restrict: 'E',
         templateUrl: 'office/map.svg',
@@ -34,6 +34,19 @@ function svgMap($ionicGesture, SvgPanZoom, DEPARTMENTS, $timeout) {
 
             // initialize svg pan zoom
             SvgPanZoom.init();
+
+            // filter map upon first load
+            $('#svg #map .loc').removeClass('filter-out'); // remove old filter
+
+            // filter each preference that has display false
+            var filters = $localStorage.prefs.filters;
+            for (var filter in filters) {
+                if (filters.hasOwnProperty(filter)) {
+                    if (!filters[filter].disp) {
+                        $('#svg #map .loc.' + filter).addClass('filter-out');
+                    }
+                }
+            }
         }
     };
 
