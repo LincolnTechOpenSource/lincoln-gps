@@ -8,7 +8,7 @@ employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.4.0**
+Current Release: **1.4.1**
 
 ## Locations Database
 
