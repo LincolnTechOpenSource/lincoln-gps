@@ -28,7 +28,7 @@
     /** rest all preferences to true */
     function resetToDefault() {
       // reset preferences (filters & map popup)
-      vm.prefs.filters = FILTERS;
+      angular.copy(FILTERS, vm.prefs.filters);
       vm.prefs.showMapPopup = true;
     }
   }
