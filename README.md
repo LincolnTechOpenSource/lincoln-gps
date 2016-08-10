@@ -1,5 +1,5 @@
 
-[//]: # (README.md)
+[//]: # (ReadMe.md)
 
 # Office Employee Locator
 
@@ -8,7 +8,7 @@ employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
 
-Current Release: **1.3.1**
+Current Release: **1.4.1**
 
 ## Locations Database
 
@@ -281,6 +281,7 @@ json file
 * 07/14/16: Transferred graphing library to separate module ([graph-dijkstra])
 * 07/19/16: Adapted graphing modules and modularized map functions
 * 07/25/16: Separated dynamic, application-specific modules from source
+* 08/01/16: Disabled firebase authentication
 
 ## Credits
 
