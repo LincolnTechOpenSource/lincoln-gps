@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
+<rect x='10' y='10' height='80' width='70' fill='black'></rect>
+<rect x='15' y='15' height='70' width='60' fill='white'></rect>
+
+<circle cx='56' cy='30' r='4' fill='black'></circle>
+<circle cx='56' cy='39' r='4' fill='black'></circle>
+<circle cx='56' cy='48' r='4' fill='black'></circle>
+<circle cx='56' cy='57' r='4' fill='black'></circle>
+<circle cx='56' cy='66' r='4' fill='black'></circle>
+
+<circle cx='69' cy='30' r='4' fill='black'></circle>
+<circle cx='69' cy='39' r='4' fill='black'></circle>
+<circle cx='69' cy='48' r='4' fill='black'></circle>
+<circle cx='69' cy='57' r='4' fill='black'></circle>
+<circle cx='69' cy='66' r='4' fill='black'></circle>
+
+<rect x='24' y='25' height='50' width='25' fill='white' stroke='black' stroke-width='3'></rect>
+</svg>
