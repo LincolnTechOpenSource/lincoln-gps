@@ -1,7 +1,7 @@
 
 [//]: # (ReadMe.md)
 
-# Office Employee Locator
+# Lincoln Employee Locator
 
 A hybrid mobile application that serves as an employee locator for home office
 employees.
