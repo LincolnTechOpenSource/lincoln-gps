@@ -3,12 +3,10 @@
 
 # Office Employee Locator
 
-A hybrid mobile application that serves as an employee locator for home office
+2016 summer intern project - A hybrid mobile application that serves as an employee locator for home office
 employees.
 
 Built on the Cloud9 IDE in the Ionic/Cordova Framework
-
-Current Release: **1.4.1**
 
 ## Locations Database
 
